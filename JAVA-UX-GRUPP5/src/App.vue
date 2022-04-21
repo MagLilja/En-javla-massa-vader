@@ -8,15 +8,20 @@ export default {
   },
   data() {
     return {
-      selectedStationHref: "", //Fix this
+      selectedStationHref: "", //Fixed this
     };
   },
+  methods: {
+    onClickParameter(v){
+      this.selectedStationHref = v.parameterLink
+    }
+  }
 };
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <data-component @stationHref="selectedStationHref" />
+  <data-component @selectedHref="onClickParameter"></data-component>
 </template>
 
 <style>

@@ -1,41 +1,49 @@
 <template>
-  <p>Häst</p>
-  <p>Hund</p>
-  <input type="button" value="Tryck" @click="fetchData" />
-  <select @change="emitDataToParent(value)" v-model="value">
+  <div>Välj parameter:</div>
+  <select
+    v-if="parameters"
+    v-model="selectedHref"
+    class="parameterSelection"
+    @change="toParent(selectedHref)"
+  >
     <option
-      :value="`${resource.link[0].href}`"
-      v-for="(resource, index) in metObs.resource"
-      :key="index"
+      v-for="(p, index) in parameters.resource"
+      :key="`${index}`"
+      :value="{ parameterLink: p.link[0].href }"
     >
-      {{ resource.title }}
-      <br />
-      {{ resource.summary }}
-      <br />
-      {{ resource.link[0].href }}
+      {{ `${p.title} - ${p.summary}` }}
     </option>
   </select>
 </template>
 
 <script>
 import smhiService from "./../services/smhiService.js";
-export default {
-  name: "dataComponent",
-  emits: ["stationHref"],
 
+export default {
+  name: 'ParametersComponent',
+  props: {
+    smhiType: String,
+  },
+  emits: ['selectedHref'],
   data() {
     return {
-      metObs: "",
-      value: "",
-    };
+      selectedHref: '',
+      parameters: "",
+    }
+  },
+  created() {
+    smhiService.fetchData().then((p) => (this.parameters = p))
   },
   methods: {
-    async fetchData() {
-      this.metObs = await smhiService.fetchData();
-    },
-    emitDataToParent() {
-      this.$emit("stationHref", this.value);
+    toParent(value) {
+      this.$emit('selectedHref', value)
     },
   },
-};
+}
 </script>
+
+<style scoped>
+a {
+  color: #42b983;
+}
+</style>
