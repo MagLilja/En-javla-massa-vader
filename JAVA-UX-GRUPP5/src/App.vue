@@ -1,8 +1,11 @@
 <template>
   <br>
 
-  <param-component @paramSelection="onClickParameter"></param-component>
-  <station-component :selectedParamStationsHref="selectedParamStationsHref"></station-component>
+  <param-component
+      @paramSelectionHref="onClickParameter"/>
+  <station-component
+      :selectedParamStationsHref="selectedParamStationsHref"
+      @selectedStationHref="onClickStation"/>
   <br>
 
 </template>
@@ -22,11 +25,15 @@ export default {
   data() {
     return {
       selectedParamStationsHref: "",
+      selectedStationHref: "",
     };
   },
   methods: {
     onClickParameter(v) {
       this.selectedParamStationsHref = v.parameterLink
+    },
+    onClickStation(v) {
+      this.selectedStationHref = v.data
     }
   }
 };

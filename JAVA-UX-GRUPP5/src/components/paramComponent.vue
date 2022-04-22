@@ -26,7 +26,7 @@ export default {
   props: {
     smhiType: String,
   },
-  emits: ['paramSelection'],
+  emits: ['paramSelectionHref'],
   data() {
     return {
       selectedHref: '',
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     toParent(value) {
-      this.$emit('paramSelection', value)
+      this.$emit('paramSelectionHref', value)
     },
   },
 }
@@ -48,6 +48,7 @@ export default {
 a {
   color: #42b983;
 }
+
 .param-componten-container {
   background-color: #ded1d1;
   padding: 2em;
