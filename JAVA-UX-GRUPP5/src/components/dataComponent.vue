@@ -24,7 +24,7 @@ export default {
   props: {
     smhiType: String,
   },
-  emits: ['selectedHref'],
+  emits: ['stationSelection'],
   data() {
     return {
       selectedHref: '',
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     toParent(value) {
-      this.$emit('selectedHref', value)
+      this.$emit('stationSelection', value)
     },
   },
 }
