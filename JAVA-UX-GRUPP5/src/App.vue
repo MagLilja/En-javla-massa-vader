@@ -1,6 +1,10 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png"/>
+  <br>
+
   <data-component @stationSelection="onClickParameter"></data-component>
+  <station-component :selectedParamStationsHref="selectedParamStationsHref"></station-component>
+  <br>
+
 </template>
 
 
@@ -8,19 +12,21 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import dataComponent from "./components/dataComponent.vue";
+import StationComponent from "./components/stationComponent.vue";
 
 export default {
   components: {
+    StationComponent,
     dataComponent,
   },
   data() {
     return {
-      selectedStationHref: "",
+      selectedParamStationsHref: "",
     };
   },
   methods: {
     onClickParameter(v) {
-      this.selectedStationHref = v.parameterLink
+      this.selectedParamStationsHref = v.parameterLink
     }
   }
 };

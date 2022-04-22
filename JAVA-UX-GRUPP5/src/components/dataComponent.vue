@@ -1,19 +1,21 @@
 <template>
-  <div>Välj parameter:</div>
-  <select
-    v-if="parameters"
-    v-model="selectedHref"
-    class="parameterSelection"
-    @change="toParent(selectedHref)"
-  >
-    <option
-      v-for="(p, index) in parameters.resource"
-      :key="`${index}`"
-      :value="{ parameterLink: p.link[0].href }"
+  <div class="data-componten-container">
+    <div>dataComponent:</div>
+    <div>Välj parameter:</div>
+    <select
+        v-if="parameters"
+        v-model="selectedHref"
+        class="parameterSelection"
+        @change="toParent(selectedHref)"
     >
-      {{ `${p.title} - ${p.summary}` }}
-    </option>
-  </select>
+      <option
+          v-for="(p, index) in parameters.resource"
+          :key="`${index}`"
+          :value="{ parameterLink: p.link[0].href }"
+      >
+        {{ `${p.title} - ${p.summary}` }}
+      </option>
+    </select></div>
 </template>
 
 <script>
@@ -45,5 +47,9 @@ export default {
 <style scoped>
 a {
   color: #42b983;
+}
+.data-componten-container {
+  background-color: #ded1d1;
+  padding: 2em;
 }
 </style>
