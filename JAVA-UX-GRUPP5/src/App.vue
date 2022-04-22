@@ -6,8 +6,10 @@
   <station-component
       :selectedParamStationsHref="selectedParamStationsHref"
       @selectedStationHref="onClickStation"/>
-  <br>
-
+  <period-component
+      :selectedStationHref="selectedStationHref"
+      @selectedPeriodForStationHref="onClickPeriod"/>
+  {{ selectedPeriodHref }}
 </template>
 
 
@@ -16,9 +18,14 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import paramComponent from "./components/paramComponent.vue";
 import StationComponent from "./components/stationComponent.vue";
+import PeriodComponent from "./components/periodComponent.vue";
+
+// "https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/21/station/188790/period/latest-hour/data.json
+// TODO add dataComponent and manipulate href
 
 export default {
   components: {
+    PeriodComponent,
     StationComponent,
     paramComponent,
   },
@@ -26,6 +33,7 @@ export default {
     return {
       selectedParamStationsHref: "",
       selectedStationHref: "",
+      selectedPeriodHref: "",
     };
   },
   methods: {
@@ -34,6 +42,9 @@ export default {
     },
     onClickStation(v) {
       this.selectedStationHref = v.data
+    },
+    onClickPeriod(v) {
+      this.selectedPeriodHref = v.data
     }
   }
 };

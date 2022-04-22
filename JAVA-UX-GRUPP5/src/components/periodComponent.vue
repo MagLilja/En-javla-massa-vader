@@ -1,19 +1,24 @@
 <template>
   <div class="period-component-container">
     <div>periodComponent</div>
-    <!--    <div>Välj station:</div>-->
-    <!--    <select-->
-    <!--        v-model="selectedStationHref"-->
-    <!--        class=""-->
-    <!--        @change="toParent(selectedStationHref)">-->
-    <!--      <option-->
-    <!--          v-for="(station, index) in stationsForParam.station"-->
-    <!--          :key="`${index}`"-->
-    <!--          :value="{data: station.link[0].href}"-->
-    <!--      >-->
-    <!--        {{ station.name }}-->
-    <!--      </option>-->
-    <!--    </select>-->
+    <div>Välj period:</div>
+    <div v-if="periodsForStation"><select
+        v-model="selectedPeriodForStationHref"
+        class=""
+        @change="toParent(selectedPeriodForStationHref)">
+      >
+      <option
+
+          v-for="(period, index) in periodsForStation.period"
+          :key="`${index}`"
+          :value="{data: period.link[0].href}"
+      >
+        {{ period.title }}
+      </option>
+    </select>
+
+    </div>
+
   </div>
 </template>
 
@@ -21,19 +26,31 @@
 import smhiService from "./../services/smhiService.js";
 
 export default {
-  props: {},
-  emits: [''],
-  data() {
-    return {}
+  props: {
+    selectedStationHref: String
   },
-  methods: {},
-  watch: {}
+  emits: ['selectedPeriodForStationHref'],
+  data() {
+    return {
+      periodsForStation: undefined,
+    }
+  },
+  methods: {
+    toParent(value) {
+      this.$emit('selectedPeriodForStationHref', value)
+    },
+  },
+  watch: {
+    async selectedStationHref() {
+      this.periodsForStation = await smhiService.fetchData(this.selectedStationHref)
+    }
+  }
 }
 </script>
 
 <style scoped>
 .period-component-container {
-  background-color: #d6ded1;
+  background-color: #d1d3de;
   padding: 2em;
 }
 </style>
