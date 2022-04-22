@@ -1,13 +1,20 @@
 <template>
   <div class="station-component-container">
-    <ul>
-      <li
+    <div>stationComponent</div>
+    <div>Välj station:</div>
+
+    <select
+        v-model="selectedHref"
+        class=""
+        @change="toParent(selectedHref)">
+      <option
           v-for="(station, index) in stationsForParam.station"
-          :key="index">
-        {{station.name}}
-        {{station.link[0]}}
-      </li>
-    </ul>
+          :key="`${index}`"
+          :value="{stationHref: station.link[0].href}"
+      >
+        {{ station.name }}
+      </option>
+    </select>
 
   </div>
 </template>
@@ -24,6 +31,11 @@ export default {
       stationsForParam: "",
     }
   },
+  methods: {
+    toParent(value) {
+      this.$emit('stationSelection', value)
+    },
+  },
   watch: {
     async selectedParamStationsHref() {
       this.stationsForParam = await smhiService.fetchData(this.selectedParamStationsHref)
@@ -35,7 +47,7 @@ export default {
 
 <style scoped>
 .station-component-container {
-  background-color: #ded1d1;
+  background-color: #d6ded1;
   padding: 2em;
 }
 </style>

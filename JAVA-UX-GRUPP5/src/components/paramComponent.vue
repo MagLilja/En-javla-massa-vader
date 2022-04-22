@@ -1,11 +1,11 @@
 <template>
-  <div class="data-componten-container">
-    <div>dataComponent:</div>
+  <div class="param-componten-container">
+    <div>paramComponent:</div>
     <div>Välj parameter:</div>
     <select
         v-if="parameters"
         v-model="selectedHref"
-        class="parameterSelection"
+        class=""
         @change="toParent(selectedHref)"
     >
       <option
@@ -22,11 +22,11 @@
 import smhiService from "./../services/smhiService.js";
 
 export default {
-  name: 'ParametersComponent',
+  name: 'paramComponent',
   props: {
     smhiType: String,
   },
-  emits: ['stationSelection'],
+  emits: ['paramSelection'],
   data() {
     return {
       selectedHref: '',
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     toParent(value) {
-      this.$emit('stationSelection', value)
+      this.$emit('paramSelection', value)
     },
   },
 }
@@ -48,7 +48,7 @@ export default {
 a {
   color: #42b983;
 }
-.data-componten-container {
+.param-componten-container {
   background-color: #ded1d1;
   padding: 2em;
 }
