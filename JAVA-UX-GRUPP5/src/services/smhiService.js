@@ -1,7 +1,7 @@
 const smhiService = {
 
 
-    async fetchData(URL = "http://opendata-download-metobs.smhi.se/api/version/1.0.json") {
+    async fetchData(URL = "https://opendata-download-metobs.smhi.se/api/version/1.0.json") {
         let response = await fetch(URL);
         return response.json();
     },
