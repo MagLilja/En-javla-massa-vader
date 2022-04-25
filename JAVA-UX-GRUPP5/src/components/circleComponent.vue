@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import WSymb2 from '@/services/WSymb2.json';
+import WSymb2 from '../services/WSymb2.json';
 
 export default {
   props: {forecastFullData: {}},
