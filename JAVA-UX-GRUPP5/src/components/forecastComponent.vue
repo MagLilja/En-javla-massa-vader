@@ -3,7 +3,6 @@
   <div v-if="forecastFullData">
     <div>Longitude: {{ forecastFullData.geometry.coordinates[0][0] }}</div>
     <div>Latitude: {{ forecastFullData.geometry.coordinates[0][1] }}</div>
-    <div>Tid: {{ forecastFullData.timeSeries[0].validTime }}</div>
  </div>
 </template>
 
@@ -39,6 +38,13 @@ export default {
           }
       )
     },
+    seTime(time){
+      const event = new Date(time);
+      const options = {
+        hour: '2-digit'
+      }
+      return event
+    }
   },
   watch: {
     userCoordinates: {
@@ -46,6 +52,7 @@ export default {
       async handler() {
         //let forecastData = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/parameter.json';
         // Parameter url
+        // https://en.ilmatieteenlaitos.fi/weather-symbols
         let long =
             Math.round((this.userCoordinates.longitude + Number.EPSILON) * 100) / 100
         let lat = Math.round((this.userCoordinates.latitude + Number.EPSILON) * 100) / 100
