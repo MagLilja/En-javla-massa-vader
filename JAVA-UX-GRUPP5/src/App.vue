@@ -1,17 +1,8 @@
 <template>
-  <br>
-
-  <param-component
-      @paramSelectionHref="onClickParameter"/>
-  <station-component
-      :selectedParamStationsHref="selectedParamStationsHref"
-      @selectedStationHref="onClickStation"/>
-  <period-component
-      :selectedStationHref="selectedStationHref"
-      @selectedPeriodForStationHref="onClickPeriod"/>
-  <data-component :selectedPeriodHref="selectedPeriodHref"
-    
-    />
+    <router-link to="home">Tja</router-link>
+    <br>
+    <router-link to="observations">Observationer</router-link>
+    <router-view />
 </template>
 
 
