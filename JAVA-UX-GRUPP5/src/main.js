@@ -4,6 +4,7 @@ import './assets/resets.css'
 import { createRouter, createWebHistory } from 'vue-router'
 import home from '@/views/home.vue'
 import observations from '@/views/observations.vue'
+import forecast from '@/views/forecast.vue'
 
 const router = createRouter({
     history: createWebHistory('/'),
@@ -17,7 +18,12 @@ const router = createRouter({
             path: '/observations',
             name: 'observations',
             component: observations
-        }
+        },
+        {
+            path: '/forecast',
+            name: 'forecast',
+            component: forecast
+        },
     ]
 })
 
