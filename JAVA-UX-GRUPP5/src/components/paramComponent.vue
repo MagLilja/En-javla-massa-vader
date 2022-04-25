@@ -3,7 +3,6 @@
     <div>paramComponent:</div>
     <div>Välj parameter:</div>
     <select
-        v-if="parameters"
         v-model="selectedHref"
         class=""
         @change="toParent(selectedHref)"
@@ -19,7 +18,7 @@
 </template>
 
 <script>
-import smhiService from "./../services/smhiService.js";
+import smhiService from "@/services/smhiService.js";
 
 export default {
   name: 'paramComponent',

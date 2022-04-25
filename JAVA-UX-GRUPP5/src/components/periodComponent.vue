@@ -8,7 +8,6 @@
         @change="toParent(selectedPeriodForStationHref)">
       >
       <option
-
           v-for="(period, index) in periodsForStation.period"
           :key="`${index}`"
           :value="{data: period.link[0].href}"
@@ -32,7 +31,7 @@ export default {
   emits: ['selectedPeriodForStationHref'],
   data() {
     return {
-      periodsForStation: undefined,
+      periodsForStation: {period:""},
     }
   },
   methods: {
