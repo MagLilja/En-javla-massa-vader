@@ -1,8 +1,9 @@
 <template>
+  <h1>En jävla massa väder</h1>
     <router-link to="home">Hem</router-link>
-    <br>
+    -
     <router-link to="observations">Observationer</router-link>
-    <br>
+    -
     <router-link to="forecast">Prognoser</router-link>
     <router-view />
 </template>

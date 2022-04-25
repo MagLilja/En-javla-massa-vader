@@ -1,12 +1,24 @@
-<template><div class="circle-container">
+<template>
+  <div class="circle-container">
     
       <div class="outercircle">
         <img src="../assets/clouds-cloud-svgrepo-com.svg" alt="Ett fint moln" />
         <img src="../assets/sun-svgrepo-com.svg" alt="En fin sol" />
-        <div class="innercircle">13 grader</div>
+        <div class="innercircle">
+          {{ forecastFullData.timeSeries[0].parameters[10].values[0] }} grader
+          <br>{{ forecastFullData.timeSeries[0].validTime }}
+
+        </div>
       </div>
 </div>
 </template>
+
+<script>
+export default {
+  props: {forecastFullData: {}}
+}
+</script>
+
 <style>
 .circle-container{
     padding: 3em;

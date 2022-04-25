@@ -1,12 +1,27 @@
 <template>
-<circleComponent />
-<div>En jävla massa väder</div>
+  <forecast-component @forecastFullData="retrieveForecastFullData"></forecast-component>
+
+  <circleComponent v-if="forecastFullData" :forecastFullData="forecastFullData"/>
+  <div></div>
 </template>
 <script>
 import circleComponent from "@/components/circleComponent.vue";
+import forecastComponent from "@/components/forecastComponent.vue";
+
 export default {
-    components:{
-        circleComponent,
+  components: {
+    circleComponent,
+    forecastComponent,
+  },
+  data() {
+    return {
+      forecastFullData: undefined,
     }
+  },
+  methods: {
+    retrieveForecastFullData(v){
+      this.forecastFullData = v
+    }
+  }
 }
 </script>
