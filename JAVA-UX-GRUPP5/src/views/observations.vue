@@ -1,17 +1,16 @@
 <template>
-  <br>
+  <br />
 
-  <param-component
-      @paramSelectionHref="onClickParameter"/>
+  <param-component @paramSelectionHref="onClickParameter" />
   <station-component
-      :selectedParamStationsHref="selectedParamStationsHref"
-      @selectedStationHref="onClickStation"/>
+    :selected-param-stations-href="selectedParamStationsHref"
+    @selectedStationHref="onClickStation"
+  />
   <period-component
-      :selectedStationHref="selectedStationHref"
-      @selectedPeriodForStationHref="onClickPeriod"/>
-  <data-component :selectedPeriodHref="selectedPeriodHref"
-
-    />
+    :selected-station-href="selectedStationHref"
+    @selectedPeriodForStationHref="onClickPeriod"
+  />
+  <data-component :selected-period-href="selectedPeriodHref" />
 </template>
 
 <script>
@@ -25,7 +24,7 @@ export default {
     periodComponent,
     stationComponent,
     paramComponent,
-    dataComponent
+    dataComponent,
   },
   data() {
     return {
@@ -36,14 +35,14 @@ export default {
   },
   methods: {
     onClickParameter(v) {
-      this.selectedParamStationsHref = v.parameterLink
+      this.selectedParamStationsHref = v.parameterLink;
     },
     onClickStation(v) {
-      this.selectedStationHref = v.data
+      this.selectedStationHref = v.data;
     },
     onClickPeriod(v) {
-      this.selectedPeriodHref = v.data
-    }
-  }
+      this.selectedPeriodHref = v.data;
+    },
+  },
 };
 </script>

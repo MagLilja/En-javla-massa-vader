@@ -3,9 +3,10 @@
     dataComponent:
     <br />
     <ul v-if="periodData">
-        <li v-for="element of periodData.value">
-        {{unitConverter(element.date)}} - {{element.value}} - {{periodData.parameter.unit}}
-        </li>
+      <li v-for="element of periodData.value">
+        {{ unitConverter(element.date) }} - {{ element.value }} -
+        {{ periodData.parameter.unit }}
+      </li>
     </ul>
   </div>
 </template>
@@ -14,13 +15,13 @@
 import smhiService from "@/services/smhiService.js";
 
 export default {
-  name: "dataComponent",
+  name: "DataComponent",
   props: {
     selectedPeriodHref: String,
   },
   data() {
     return {
-        periodData: undefined
+      periodData: undefined,
     };
   },
   watch: {
@@ -34,12 +35,11 @@ export default {
       let href = periodRef.data[0].link[0].href;
 
       let periodData = await smhiService.fetchData(href);
-      this.periodData = periodData
-      
+      this.periodData = periodData;
     },
-    unitConverter(unixTime){
-        let dateFormatted = new Date(unixTime)
-        return dateFormatted.toLocaleString("sv-SE")
+    unitConverter(unixTime) {
+      let dateFormatted = new Date(unixTime);
+      return dateFormatted.toLocaleString("sv-SE");
     },
   },
 };

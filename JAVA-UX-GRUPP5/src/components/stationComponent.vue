@@ -3,13 +3,14 @@
     <div>stationComponent</div>
     <div>Välj station:</div>
     <select
-        v-model="selectedStationHref"
-        class=""
-        @change="toParent(selectedStationHref)">
+      v-model="selectedStationHref"
+      class=""
+      @change="toParent(selectedStationHref)"
+    >
       <option
-          v-for="(station, index) in stationsForParam.station"
-          :key="`${index}`"
-          :value="{data: station.link[0].href}"
+        v-for="(station, index) in stationsForParam.station"
+        :key="`${index}`"
+        :value="{ data: station.link[0].href }"
       >
         {{ station.name }}
       </option>
@@ -24,23 +25,25 @@ export default {
   props: {
     selectedParamStationsHref: String,
   },
-  emits: ['selectedStationHref'],
+  emits: ["selectedStationHref"],
   data() {
     return {
       stationsForParam: "",
-    }
-  },
-  methods: {
-    toParent(value) {
-      this.$emit('selectedStationHref', value)
-    },
+    };
   },
   watch: {
     async selectedParamStationsHref() {
-      this.stationsForParam = await smhiService.fetchData(this.selectedParamStationsHref)
-    }
-  }
-}
+      this.stationsForParam = await smhiService.fetchData(
+        this.selectedParamStationsHref
+      );
+    },
+  },
+  methods: {
+    toParent(value) {
+      this.$emit("selectedStationHref", value);
+    },
+  },
+};
 </script>
 
 <style scoped>

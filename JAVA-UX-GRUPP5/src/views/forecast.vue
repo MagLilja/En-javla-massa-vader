@@ -1,7 +1,12 @@
 <template>
-  <forecast-component @forecastFullData="retrieveForecastFullData"></forecast-component>
+  <forecast-component
+    @forecastFullData="retrieveForecastFullData"
+  ></forecast-component>
 
-  <circleComponent v-if="forecastFullData" :forecastFullData="forecastFullData"/>
+  <circleComponent
+    v-if="forecastFullData"
+    :forecast-full-data="forecastFullData"
+  />
   <div></div>
 </template>
 <script>
@@ -16,12 +21,12 @@ export default {
   data() {
     return {
       forecastFullData: undefined,
-    }
+    };
   },
   methods: {
-    retrieveForecastFullData(v){
-      this.forecastFullData = v
-    }
-  }
-}
+    retrieveForecastFullData(v) {
+      this.forecastFullData = v;
+    },
+  },
+};
 </script>
