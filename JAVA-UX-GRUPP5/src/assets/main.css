@@ -1,0 +1,69 @@
+
+
+
+/*####### WARNING BANNER ########*/
+.warning-banner {
+    background-color: #f8a393;
+    padding: 0.2em;
+    border:1px solid #9b675e;
+    font-size:0.8em;
+    font-weight:500;
+}
+
+/*####### HOME VIEW ########*/
+.home_view_city_title_container{
+    display:flex;
+    justify-content: center;
+}
+.home-view-title {
+    margin:0.3em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}
+
+.home_view_city_title_heart {
+    width:32px;
+}
+
+
+/*####### NAVIGATION ########*/
+
+.navigation-container {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom:12px;
+    left:auto;
+    right:auto;
+}
+
+.navigation-item {
+    border:2px solid #cecece;
+    height: 65px;
+    width:65px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3em;
+    padding:0.4em;
+    margin:0.2em;
+}
+
+.home-view-link {
+    background-image: url('./icons/iconfinder_sun_cloud_lightning_183565.svg');
+}
+.ten-days-view-link{
+    background-image: url('./icons/iconfinder_calendar_date_month_time_year_3643785.svg');
+}
+.summary-view-link{
+    background-image: url('./icons/iconfinder_graph_up_arrow_9040484.svg');
+}
+.worst-weather-view-link{
+    background-image: url('./icons/iconfinder_bad_dislike_negative_thumb_thumbs down_unlike_vote_6843055.svg');
+}
+.favorite-location-view-link{
+     background-image: url('./icons/iconfinder_heart_211673.svg');
+ }
+
+
+

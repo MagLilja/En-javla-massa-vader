@@ -51,7 +51,6 @@ export default {
 
 <style>
 .circle-container {
-  padding: 3em;
   display: flex;
   justify-content: center;
 }
@@ -62,14 +61,14 @@ export default {
   align-items: center;
   width: 300px;
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid #dcdcdc;
   border-radius: 50%;
   position: relative;
+  background-color: #d0d0d0;
 }
 
 .outercircle img {
   position: absolute;
-
   width: 32px;
   height: 32px;
 }
@@ -97,7 +96,16 @@ export default {
   padding: 10px;
   width: 200px;
   height: 200px;
-  border: 1px solid red;
+  background-color: #adadad;
+  font-size:2em;
+
+  border: double 1px transparent;
   border-radius: 50%;
+  background-image: linear-gradient(white, white),
+  linear-gradient(25deg, #ff0000, #00d9ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+
 }
 </style>

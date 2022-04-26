@@ -26,6 +26,7 @@ export default {
   methods: {
     retrieveForecastFullData(v) {
       this.forecastFullData = v;
+      console.log(this.forecastFullData);
     },
   },
 };
