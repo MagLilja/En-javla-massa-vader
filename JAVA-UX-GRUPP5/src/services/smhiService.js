@@ -7,7 +7,6 @@ const smhiService = {
     if (response.status === 200) {
       console.log("response OK");
       let promise = response.json();
-      console.log(promise);
       return promise;
     }
     return response.status;

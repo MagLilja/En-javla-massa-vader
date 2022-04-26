@@ -7,6 +7,12 @@
     v-if="forecastFullData"
     :forecast-full-data="forecastFullData"
   />
+
+  <ul>
+    <li v-if="forecastFullData" v-for="(timeSerie, index) of forecastFullData">
+      {{timeSerie.validTime}}
+    </li>
+  </ul>
   <div></div>
 </template>
 <script>

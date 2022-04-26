@@ -1,24 +1,27 @@
 <template>
-  <div class="warning-banner">VARNING: HÖG VINDSTYRKA!</div>
-  <div class="home_view_city_title_container"><h2 v-if="userGeoLocationData" class="home-view-title">
-    {{ userGeoLocationData.features[0].properties.city }}</h2>
-    <img src="./../assets/icons/iconfinder_heart_211673.svg" class="home_view_city_title_heart" alt="a heart"></div>
+  <warning-component/>
+  <home-view-header-component :user-geo-location-data="userGeoLocationData" :user-now-date="userNowDate"/>
 
-  <div class="home-view-date"></div>
+
+
 </template>
 
 
 <script>
 import smhiService from "@/services/smhiService.js";
+import WarningComponent from "./WarningComponent.vue";
+import HomeViewHeaderComponent from "./HomeViewHeaderComponent.vue";
 
 export default {
   name: "ForecastComponent",
+  components: {HomeViewHeaderComponent, WarningComponent},
   data() {
     return {
       userCoordinates: "",
       forecastFullData: undefined,
       userGeoLocationData: "",
-      heartIcon: "./../assets/icons/iconfinder_heart_211673.svg"
+      heartIcon: "./../assets/icons/iconfinder_heart_211673.svg",
+      userNowDate: "",
     };
   },
   computed: {},
@@ -37,17 +40,29 @@ export default {
             100;
         let url = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
         let data = await smhiService.fetchData(url);
-        console.log(data);
+        console.log("hej");
+        console.table(this.userCoordinates);
         this.forecastFullData = data;
         this.$emit("forecastFullData", this.forecastFullData);
-        this.getUserGeoLocation();
+        // this.getUserGeoLocation();
       },
     },
   },
   mounted() {
     this.getUserGeoLocation();
+    this.getNowDate();
   },
   methods: {
+    getNowDate() {
+      let today = new Date();
+      const options = {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+      }
+      let nowDate = today.toLocaleDateString('sv-SE', options)
+      this.userNowDate = nowDate
+    },
     async getUserGeoLocationData(userCoordinatesTemp) {
       var requestOptions = {
         method: 'GET',
@@ -90,4 +105,3 @@ export default {
 };
 </script>
 
-<style scoped></style>
