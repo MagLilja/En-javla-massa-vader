@@ -13,6 +13,7 @@
   </div>
 </template>
 
+
 <script>
 import WSymb2 from '@/services/Wsymb2.json';
 
