@@ -1,0 +1,3 @@
+<template>
+Summaryview here
+</template>
