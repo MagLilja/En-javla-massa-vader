@@ -7,6 +7,8 @@ import forecast from "@/views/forecast.vue";
 import startView from "@/views/StartView.vue";
 import tenDayView from "@/views/TenDayView.vue";
 import summaryView from "@/views/SummaryView.vue";
+import worstWeatherView from "@/views/WorstWeatherView.vue";
+import favoriteView from "@/views/FavoriteView.vue";
 
 const router = createRouter({
   history: createWebHistory("/"),
@@ -22,9 +24,19 @@ const router = createRouter({
       component: tenDayView,
     },
     {
-      path:"/summary",
-      name:"summaryView",
+      path: "/summary",
+      name: "summaryView",
       component: summaryView,
+    },
+    {
+      path: "/worst-weather",
+      name: "worstWeather",
+      component: worstWeatherView,
+    },
+    {
+      path: "/favorite",
+      name: "favorite",
+      component: favoriteView,
     },
     //old below
     {

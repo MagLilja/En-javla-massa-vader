@@ -19,12 +19,12 @@
     </div>
 
     <div class="nav-bar-item">
-      <router-link to="forecast"
+      <router-link to="/worst-weather"
         ><img src="./../assets/icons/worst-weather.svg" alt="worst-weather"
       /></router-link>
     </div>
     <div class="nav-bar-item">
-      <router-link to="forecast"
+      <router-link to="favorite"
         ><img src="./../assets/icons/favorite.svg" alt="favorite"
       /></router-link>
     </div>
