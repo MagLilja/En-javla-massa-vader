@@ -1,13 +1,13 @@
 <template>
   <nav class="nav-bar-container">
     <div class="nav-bar-item">
-      <router-link to="home"
+      <router-link to="/"
         ><img src="./../assets/icons/main-view-icon.svg" alt="start-view-icon"
       /></router-link>
     </div>
 
     <div class="nav-bar-item">
-      <router-link to="observations"
+      <router-link to="/ten-day-forecast"
         ><img src="./../assets/icons/10-day-view.svg" alt="10-day-view"
       /></router-link>
     </div>
