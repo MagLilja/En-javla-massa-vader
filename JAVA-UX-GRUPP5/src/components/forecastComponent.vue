@@ -33,7 +33,6 @@ export default {
           100;
         let url = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
         let data = await smhiService.fetchData(url);
-        console.log(data);
         this.forecastFullData = data;
         this.$emit("forecastFullData", this.forecastFullData);
       },

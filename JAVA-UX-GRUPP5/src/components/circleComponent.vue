@@ -21,7 +21,7 @@ export default {
   props: {forecastFullData: {}},
   data() {
     return {
-      wSymb2Decoder:WSymb2,
+      wSymb2Decoder: WSymb2,
     }
   },
   watch: {
@@ -42,7 +42,6 @@ export default {
           return wSymb2.symbol
         }
       }
-
     }
   }
 }
@@ -50,7 +49,7 @@ export default {
 
 <style>
 .circle-container {
-  padding: 3em;
+
   display: flex;
   justify-content: center;
 }

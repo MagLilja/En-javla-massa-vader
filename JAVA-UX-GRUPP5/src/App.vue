@@ -1,12 +1,16 @@
 <template>
   <h1>En jävla massa väder</h1>
-  <router-link to="home">Hem</router-link>
-  -
-  <router-link to="observations">Observationer</router-link>
-  -
-  <router-link to="forecast">Prognoser</router-link>
   <router-view />
+  <navbar-component />
 </template>
+<script>
+import NavbarComponent from "@/components/NavbarComponent.vue";
+export default {
+  components: {
+    NavbarComponent,
+  },
+};
+</script>
 
 <style>
 #app {
