@@ -7,6 +7,7 @@ import tenDayView from "@/views/TenDayView.vue";
 import summaryView from "@/views/SummaryView.vue";
 import worstWeatherView from "@/views/WorstWeatherView.vue";
 import favoriteView from "@/views/FavoriteView.vue";
+import searchView from "@/views/SearchView.vue";
 
 const router = createRouter({
   history: createWebHistory("/"),
@@ -35,6 +36,11 @@ const router = createRouter({
       path: "/favorite",
       name: "favorite",
       component: favoriteView,
+    },
+    {
+      path: "/search",
+      name: "searchView",
+      component: searchView,
     },
   ],
 });

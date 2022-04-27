@@ -26,7 +26,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .nav-bar-container {
   display: flex;
   justify-content: space-between;

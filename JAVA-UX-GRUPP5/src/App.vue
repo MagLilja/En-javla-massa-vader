@@ -1,13 +1,16 @@
 <template>
+  <search-bar-component/>
   <h1>En jävla massa väder</h1>
   <router-view />
   <navbar-component />
 </template>
 <script>
 import NavbarComponent from "@/components/NavbarComponent.vue";
+import SearchBarComponent from "@/components/SearchBarComponent.vue";
 export default {
   components: {
     NavbarComponent,
+    SearchBarComponent,
   },
 };
 </script>
