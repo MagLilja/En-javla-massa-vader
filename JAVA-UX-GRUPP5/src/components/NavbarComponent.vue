@@ -13,7 +13,7 @@
     </div>
 
     <div class="nav-bar-item">
-      <router-link to="forecast"
+      <router-link to="/summary"
         ><img src="./../assets/icons/summary-view.svg" alt="summary-view"
       /></router-link>
     </div>
