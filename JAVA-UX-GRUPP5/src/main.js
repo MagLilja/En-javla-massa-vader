@@ -2,8 +2,6 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import "./assets/resets.css";
 import { createRouter, createWebHistory } from "vue-router";
-import observations from "@/views/observations.vue";
-import forecast from "@/views/forecast.vue";
 import startView from "@/views/StartView.vue";
 import tenDayView from "@/views/TenDayView.vue";
 import summaryView from "@/views/SummaryView.vue";
@@ -37,17 +35,6 @@ const router = createRouter({
       path: "/favorite",
       name: "favorite",
       component: favoriteView,
-    },
-    //old below
-    {
-      path: "/observations",
-      name: "observations",
-      component: observations,
-    },
-    {
-      path: "/forecast",
-      name: "forecast",
-      component: forecast,
     },
   ],
 });
