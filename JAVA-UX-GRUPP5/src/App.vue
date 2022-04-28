@@ -1,6 +1,6 @@
 <template>
   <search-bar-component />
-  <h1>En jävla massa väder</h1>
+
   <router-view />
   <navbar-component />
 </template>
@@ -8,7 +8,7 @@
 // noinspection NpmUsedModulesInstalled
 import NavbarComponent from "@/components/navigation/NavbarComponent.vue";
 // noinspection NpmUsedModulesInstalled
-import SearchBarComponent from "@/components/navigation/SearchBarComponent.vue";
+import SearchBarComponent from "@/components/navigation/TopNavBarComponent.vue";
 export default {
   components: {
     NavbarComponent,

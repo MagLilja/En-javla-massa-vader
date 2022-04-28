@@ -4,9 +4,9 @@
     <div>Välj parameter:</div>
     <select v-model="selectedHref" class="" @change="toParent(selectedHref)">
       <option
-        v-for="(p, index) in parameters.resource"
-        :key="`${index}`"
-        :value="{ parameterLink: p.link[0].href }"
+          v-for="(p, index) in parameters.resource"
+          :key="`${index}`"
+          :value="{ parameterLink: p.link[0].href }"
       >
         {{ `${p.title} - ${p.summary}` }}
       </option>

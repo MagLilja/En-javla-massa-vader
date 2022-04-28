@@ -1,5 +1,8 @@
 <template >
   <div class="start-view-template-container">
+
+    <weather-warning-component/>
+
     <forecast-component
         @forecastFullData="retrieveForecastFullData"
     ></forecast-component>
@@ -13,9 +16,11 @@
 <script>
 import circleComponent from "@/components/start/CircleComponent.vue";
 import forecastComponent from "@/components/start/ForecastComponent.vue";
+import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 
 export default {
   components: {
+    WeatherWarningComponent,
     circleComponent,
     forecastComponent,
   },
