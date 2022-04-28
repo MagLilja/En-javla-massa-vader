@@ -49,4 +49,8 @@ a {
   background-color: #ded1d1;
   padding: 2em;
 }
+
+select {
+  width: 80%;
+}
 </style>

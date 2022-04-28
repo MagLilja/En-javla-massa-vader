@@ -1,14 +1,12 @@
 <template>
-  <div class="circle-container">
-
-    <div class="outercircle">
-      <img src="../../assets/clouds-cloud-svgrepo-com.svg" alt="Ett fint moln"/>
-      <img src="../../assets/sun-svgrepo-com.svg" alt="En fin sol"/>
-      <div class="innercircle" :style="{}">
-        <p>{{ forecastFullData.timeSeries[0].parameters[10].values[0] }}&#176C </p>
-
-        <p>{{ getWSymb2Unicode(forecastFullData.timeSeries[0].parameters[18].values[0]) }}</p>
-        {{ seTime(forecastFullData.timeSeries[0].validTime) }}
+  <div>
+    <div class="circle-container">
+      <div class="outercircle"><img src="../../assets/clouds-cloud-svgrepo-com.svg" alt="Ett fint moln"/><img
+          src="../../assets/sun-svgrepo-com.svg" alt="En fin sol"/>
+        <div class="innercircle" :style="{}"><p>{{ forecastFullData.timeSeries[0].parameters[10].values[0] }}&#176C </p>
+          <p>{{ getWSymb2Unicode(forecastFullData.timeSeries[0].parameters[18].values[0]) }}</p>
+          {{ seTime(forecastFullData.timeSeries[0].validTime) }}
+        </div>
       </div>
     </div>
   </div>
@@ -48,9 +46,9 @@ export default {
 
 <style>
 .circle-container {
-
   display: flex;
   justify-content: center;
+  width: 300px;
 }
 
 .outercircle {
@@ -66,7 +64,6 @@ export default {
 
 .outercircle img {
   position: absolute;
-
   width: 32px;
   height: 32px;
 }

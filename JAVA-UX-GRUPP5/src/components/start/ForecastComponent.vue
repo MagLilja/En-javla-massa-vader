@@ -59,13 +59,13 @@
         }
       );
     },
-    seTime(time) {
-      const event = new Date(time);
-      const options = {
-        hour: "2-digit",
-      };
-      return event;
-    },
+    // seTime(time) {
+    //   const event = new Date(time);
+    //   const options = {
+    //     hour: "2-digit",
+    //   };
+    //   return event;
+    // },
   },
 };
 </script>

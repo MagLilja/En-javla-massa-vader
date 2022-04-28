@@ -30,10 +30,12 @@ export default {};
 <style scoped>
 .nav-bar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
   bottom: 0;
   width: 100vw;
+  background-color: #f5f5f5;
+  padding-top:0.5em;
 }
 .nav-bar-item {
   padding: 0.2em;
@@ -45,6 +47,6 @@ export default {};
   border: 2px solid black;
 }
 .nav-bar-item img {
-  width: 5rem;
+  width: clamp(2rem,12vw,12rem);
 }
 </style>
