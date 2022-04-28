@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import smhiService from "@/services/smhiService.js";
+  import smhiService from "@/services/smhiService.js";
 
-export default {
+  export default {
   name: "DataComponent",
   props: {
     selectedPeriodHref: String,
@@ -34,8 +34,7 @@ export default {
       let periodRef = await smhiService.fetchData(this.selectedPeriodHref);
       let href = periodRef.data[0].link[0].href;
 
-      let periodData = await smhiService.fetchData(href);
-      this.periodData = periodData;
+      this.periodData = await smhiService.fetchData(href);
     },
     unitConverter(unixTime) {
       let dateFormatted = new Date(unixTime);

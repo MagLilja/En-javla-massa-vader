@@ -5,9 +5,10 @@
       <img src="../assets/clouds-cloud-svgrepo-com.svg" alt="Ett fint moln"/>
       <img src="../assets/sun-svgrepo-com.svg" alt="En fin sol"/>
       <div class="innercircle" :style="{}">
-        {{ forecastFullData.timeSeries[0].parameters[10].values[0] }}&#176C<br>
-        {{ getWSymb2Unicode(forecastFullData.timeSeries[0].parameters[18].values[0]) }}
-        <br>{{ seTime(forecastFullData.timeSeries[0].validTime) }}
+        <p>{{ forecastFullData.timeSeries[0].parameters[10].values[0] }}&#176C </p>
+
+        <p>{{ getWSymb2Unicode(forecastFullData.timeSeries[0].parameters[18].values[0]) }}</p>
+        {{ seTime(forecastFullData.timeSeries[0].validTime) }}
       </div>
     </div>
   </div>
@@ -15,8 +16,6 @@
 
 <script>
 import WSymb2 from '@/services/Wsymb2.json';
-
-
 export default {
   props: {forecastFullData: {}},
   data() {

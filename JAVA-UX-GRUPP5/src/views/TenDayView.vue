@@ -1,3 +1,3 @@
 <template>
-<div>10-dagar</div>
+  <div>10-dagar</div>
 </template>

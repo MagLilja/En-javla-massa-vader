@@ -1,3 +1,1 @@
-<template>
-worst weather view here
-</template>
+<template>worst weather view here</template>

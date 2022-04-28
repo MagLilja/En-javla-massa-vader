@@ -1,3 +1,1 @@
-<template>
-search view here
-</template>
+<template>search view here</template>

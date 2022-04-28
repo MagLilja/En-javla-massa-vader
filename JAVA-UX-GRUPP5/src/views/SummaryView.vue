@@ -1,3 +1,1 @@
-<template>
-Summaryview here
-</template>
+<template>Summaryview here</template>

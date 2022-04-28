@@ -1,3 +1,1 @@
-<template>
-favorite view
-</template>
+<template>favorite view</template>

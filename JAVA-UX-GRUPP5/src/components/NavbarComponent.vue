@@ -26,6 +26,7 @@
 export default {};
 </script>
 
+<!--suppress CssUnusedSymbol -->
 <style scoped>
 .nav-bar-container {
   display: flex;
