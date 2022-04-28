@@ -9,8 +9,8 @@
   <div></div>
 </template>
 <script>
-import circleComponent from "@/components/CircleComponent.vue";
-import forecastComponent from "@/components/ForecastComponent.vue";
+import circleComponent from "@/components/start/CircleComponent.vue";
+import forecastComponent from "@/components/start/ForecastComponent.vue";
 
 export default {
   components: {

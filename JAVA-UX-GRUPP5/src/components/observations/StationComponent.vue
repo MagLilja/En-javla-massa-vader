@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import smhiService from "./../services/smhiService.js";
+import smhiService from "../../services/smhiService.js";
 
 export default {
   props: {

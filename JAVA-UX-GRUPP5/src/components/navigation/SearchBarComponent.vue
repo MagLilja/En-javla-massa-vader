@@ -3,7 +3,7 @@
     <router-link to="/search"
       ><img
         class="search-icon"
-        src="./../assets/icons/search-icon.svg"
+        src="../../assets/icons/search-icon.svg"
         alt="search-icon"
     /></router-link>
   </div>

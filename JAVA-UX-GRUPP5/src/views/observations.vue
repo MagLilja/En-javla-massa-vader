@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import paramComponent from "@/components/ParamComponent.vue";
-import stationComponent from "@/components/StationComponent.vue";
-import periodComponent from "@/components/PeriodComponent.vue";
-import dataComponent from "@/components/DataComponent.vue";
+import paramComponent from "@/components/observations/ParamComponent.vue";
+import stationComponent from "@/components/observations/StationComponent.vue";
+import periodComponent from "@/components/observations/PeriodComponent.vue";
+import dataComponent from "@/components/observations/DataComponent.vue";
 
 export default {
   components: {

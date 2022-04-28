@@ -6,9 +6,9 @@
 </template>
 <script>
 // noinspection NpmUsedModulesInstalled
-import NavbarComponent from "@/components/NavbarComponent.vue";
+import NavbarComponent from "@/components/navigation/NavbarComponent.vue";
 // noinspection NpmUsedModulesInstalled
-import SearchBarComponent from "@/components/SearchBarComponent.vue";
+import SearchBarComponent from "@/components/navigation/SearchBarComponent.vue";
 export default {
   components: {
     NavbarComponent,
