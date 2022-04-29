@@ -3,12 +3,13 @@
 
     <weather-warning-component/>
 
-    <current-city-name-component/>
+    <current-city-name-component v-if="userCoordinates" :userCoordinates="userCoordinates"/>
 
 
     <forecast-component
         @forecastFullData="retrieveForecastFullData"
         @completeDailyWxList="retrieveDailyWxList"
+        @userCoordinates="retrieveCoordinates"
     />
     <circleComponent
         v-if="forecastFullData"
@@ -24,7 +25,7 @@ import circleComponent from "@/components/start/CircleComponent.vue";
 import forecastComponent from "@/components/start/ForecastComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import WeatherListComponent from "@/components/start/WeatherListComponent.vue";
-import CurrentCityNameComponent from "@/views/CurrentCityNameComponent";
+import CurrentCityNameComponent from "@/views/CurrentCityNameComponent.vue";
 
 export default {
   components: {
@@ -39,6 +40,7 @@ export default {
     return {
       forecastFullData: undefined,
       completeDailyWxList: undefined,
+      userCoordinates:undefined,
     };
   },
   methods: {
@@ -47,6 +49,9 @@ export default {
     },
     retrieveDailyWxList(v) {
       this.completeDailyWxList = v;
+    },
+    retrieveCoordinates(v) {
+      this.userCoordinates = v;
     },
   },
 };
