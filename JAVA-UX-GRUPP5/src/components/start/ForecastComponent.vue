@@ -57,6 +57,7 @@
   mounted() {
     this.getCoordinatesFromUser();
   },
+  emits: ['forecastFullData', 'completeDailyWxList'],
   methods: {
     getCoordinatesFromUser() {
       navigator.geolocation.getCurrentPosition(

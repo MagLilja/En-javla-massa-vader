@@ -5,11 +5,13 @@
 
     <forecast-component
         @forecastFullData="retrieveForecastFullData"
+        @completeDailyWxList="retrieveDailyWxList"
     ></forecast-component>
     <circleComponent
         v-if="forecastFullData"
         :forecast-full-data="forecastFullData"
-    />
+        :complete-daily-wx-list="completeDailyWxList"
+    /> 
     <weather-list-component :forecastFullData="forecastFullData" />
     <div></div>
   </div>
@@ -31,11 +33,15 @@ export default {
   data() {
     return {
       forecastFullData: undefined,
+      completeDailyWxList: undefined,
     };
   },
   methods: {
     retrieveForecastFullData(v) {
       this.forecastFullData = v;
+    },
+    retrieveDailyWxList(v) {
+      this.completeDailyWxList = v;
     },
   },
 };
