@@ -28,7 +28,6 @@
 
 <script>
 import WSymb2 from '@/services/Wsymb2.json';
-import testService from "@/services/testService.js"
 
 export default {
   props: {
@@ -48,7 +47,6 @@ export default {
         hour: '2-digit',
         minute: '2-digit'
       }
-      console.log(testService.cube(8));
       return event.toLocaleTimeString('se-SV', options)
     },
     nowTime(){

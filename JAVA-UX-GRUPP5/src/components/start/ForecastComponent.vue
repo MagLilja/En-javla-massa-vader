@@ -42,8 +42,8 @@ export default {
         this.analysisFullData = await smhiService.fetchData(analysisUrl);
 
 
-        let forecastList = weatherDataManager.getListWithWeatherDataForToday(this.forecastFullData, this.wsymbol, 2, 12)
-        let analysisList = weatherDataManager.getListWithWeatherDataForToday(this.analysisFullData, this.wsymbol, 2, 12).reverse()
+        let forecastList = weatherDataManager.getListWithWeatherData(this.forecastFullData, this.wsymbol, 2, 12, true)
+        let analysisList = weatherDataManager.getListWithWeatherData(this.analysisFullData, this.wsymbol, 2, 12,true).reverse()
         this.completeDailyWxList = analysisList.concat(forecastList)
         //console.log(fullWxList)
 
