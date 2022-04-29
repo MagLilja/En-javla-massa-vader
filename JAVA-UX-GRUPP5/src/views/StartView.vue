@@ -2,7 +2,7 @@
   <div class="start-view-template-container">
 
     <weather-warning-component/>
-
+ 
     <forecast-component
         @forecastFullData="retrieveForecastFullData"
         @completeDailyWxList="retrieveDailyWxList"

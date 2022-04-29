@@ -2,6 +2,9 @@
   <div>
     <div class="circle-container">
       <div class="outercircle">
+      <div class="outer-circle-item" v-for="(wx, index) of completeDailyWxList" :key="index">
+      {{wx.time}}<br>{{wx.wSymb2Symbol}}<br>{{wx.temperature}}&#176C
+      </div>
         <div class="innercircle" :style="{}"><p>{{ forecastFullData.timeSeries[0].parameters[10].values[0] }}&#176C </p>
           <p>{{ getWSymb2Unicode(forecastFullData.timeSeries[0].parameters[18].values[0]) }}</p>
           {{ seTime(forecastFullData.timeSeries[0].validTime) }}
@@ -63,25 +66,23 @@ export default {
   position: relative;
 }
 
-.outercircle img {
+.outer-circle-item {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  border: 2px solid black;
 }
 
-.outercircle img:nth-child(1) {
-  position: absolute;
-  right: calc(5px + 4px);
-
-  width: 32px;
-  height: 32px;
+.outer-circle-item:nth-child(1) {
+  top: 0;
 }
 
-.outercircle img:nth-child(2) {
-  position: absolute;
-  left: 9px;
-  width: 32px;
-  height: 32px;
+.outer-circle-item:nth-child(2) {
+  top: 0;
+  right: 0;
+
+}
+
+.outer-circle-item:nth-child(3) {
+  right: 0;
 }
 
 .innercircle {
