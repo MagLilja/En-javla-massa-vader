@@ -68,7 +68,7 @@ export default {
 
 .outer-circle-item {
   position: absolute;
-  border: 2px solid black;
+  /*border: 2px solid black;*/
 }
 
 .outer-circle-item:nth-child(1) {
@@ -76,14 +76,58 @@ export default {
 }
 
 .outer-circle-item:nth-child(2) {
-  top: 0;
-  right: 0;
-
+  top: 15px;
+  right: 60px;
 }
 
 .outer-circle-item:nth-child(3) {
+  top: 60px;
+  right: 15px;
+}
+
+.outer-circle-item:nth-child(4) {
   right: 0;
 }
+
+.outer-circle-item:nth-child(5) {
+  right: 20px;
+  top: 180px;
+}
+
+.outer-circle-item:nth-child(6) {
+  right: 60px;
+  top: 230px;
+}
+
+.outer-circle-item:nth-child(7) {
+  bottom: 0px;
+}
+
+.outer-circle-item:nth-child(8) {
+  bottom: 15px;
+  left: 60px;
+}
+
+.outer-circle-item:nth-child(9) {
+  bottom: 60px;
+  left: 15px;
+}
+
+.outer-circle-item:nth-child(10) {
+  left: 0;
+}
+
+.outer-circle-item:nth-child(11) {
+  left: 15px;
+  top: 60px;
+}
+
+.outer-circle-item:nth-child(12) {
+  top: 15px;
+  left: 60px;
+}
+
+
 
 .innercircle {
   display: flex;
