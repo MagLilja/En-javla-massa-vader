@@ -24,54 +24,70 @@ function getWSymb2Unicode(data) {
     }
 }
 
-function getListWithWeatherDataForToday(forecastFullData, wSymb2Json, interval, noOfDataPoints) {
+function getListWithWeatherData(forecastFullData, wSymb2Json, interval, noOfDataPoints, onlyToday) {
     let counter = 0
     let circleDataList = []
     let today = new Date()
     wSymb2Decoder = wSymb2Json
 
+    function populateList(ts) {
+        counter++
+        let temperatureValue = 0
+        let precipitationValue = 0
+        let windValue = 0
+        let gustValue = 0
+        let wsymb2Value = 0
+
+        for (let param of ts.parameters) {
+            switch (param.name) {
+                case 't':
+                    temperatureValue = param.values[0]
+                    break;
+                case 'pmean':
+                    precipitationValue = param.values[0]
+                    break;
+                case 'ws':
+                    windValue = param.values[0]
+                    break;
+                case 'gust':
+                    gustValue = param.values[0]
+                    break;
+                case 'Wsymb2':
+                    wsymb2Value = param.values[0]
+                    break;
+            }
+        }
+        circleDataList.push({
+            time: hourTime(ts.validTime),
+            validTime: ts.validTime,
+            wSymb2Symbol: getWSymb2Unicode(wsymb2Value),
+            temperature: temperatureValue,
+            precipitation: precipitationValue, /*Mean preciptation used*/
+            wind: windValue,
+            gusts: gustValue
+        })
+    }
+
     for (let ts of forecastFullData.timeSeries) {
         let timeSerieDate = new Date(ts.validTime)
-        if (getHourFromTime(ts.validTime) % interval === 0
-            && today.getDate() === timeSerieDate.getDate()
-            && counter < noOfDataPoints) {
-            counter++
-            let temperatureValue = 0
-            let precipitationValue = 0
-            let windValue = 0
-            let gustValue = 0
-            let wsymb2Value = 0
-
-            for (let param of ts.parameters) {
-                if (param.name === 't') {
-                    temperatureValue = param.values[0]
-                }
-                if (param.name === 'pmean') {
-                    precipitationValue = param.values[0]
-                }
-                if (param.name === 'ws') {
-                    windValue = param.values[0]
-                }
-                if (param.name === 'gust') {
-                    gustValue = param.values[0]
-                }
-                if (param.name === 'Wsymb2') {
-                    wsymb2Value = param.values[0]
-                }
+        if (onlyToday){
+            if (getHourFromTime(ts.validTime) % interval === 0
+                && today.getDate() === timeSerieDate.getDate()
+                && counter < noOfDataPoints) {
+                populateList(ts);
             }
-            circleDataList.push({
-                time: hourTime(ts.validTime),
-                validTime: ts.validTime,
-                wSymb2Symbol: getWSymb2Unicode(wsymb2Value),
-                temperature: temperatureValue,
-                precipitation: precipitationValue, /*Mean preciptation used*/
-                wind: windValue,
-                gusts: gustValue
-            })
+        } else {
+            if (getHourFromTime(ts.validTime) % interval === 0
+                && today.getDate() > timeSerieDate.getDate()
+                && counter < noOfDataPoints) {
+                populateList(ts);
+            }
         }
+
     }
     return circleDataList
 }
 
-Object.freeze(getListWithWeatherDataForToday);
-export default {getListWithWeatherDataForToday}
+
+Object.freeze(getListWithWeatherData);
+export default {getListWithWeatherData}

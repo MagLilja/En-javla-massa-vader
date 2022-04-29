@@ -21,12 +21,14 @@ export default {
     };
   },
   created() {
-    this.TwentyFourForecast = weatherDataManager.getListWithWeatherDataForToday(
+    this.TwentyFourForecast = weatherDataManager.getListWithWeatherData(
       this.forecastFullData,
       this.Wsymb2,
       1,
-      24
-    );
+      24,
+        true
+    )
+
   },
   props: { forecastFullData: [] },
 };

@@ -16,7 +16,8 @@
         :complete-daily-wx-list="completeDailyWxList"
     />
     <weather-list-component v-if="forecastFullData" :forecastFullData="forecastFullData"/>
-    <div></div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 </template>
 <script>
