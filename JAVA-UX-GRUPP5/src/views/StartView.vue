@@ -2,7 +2,7 @@
   <div class="start-view-template-container">
 
     <weather-warning-component/>
- 
+    <date-component />
     <forecast-component
         @forecastFullData="retrieveForecastFullData"
         @completeDailyWxList="retrieveDailyWxList"
@@ -21,13 +21,15 @@ import circleComponent from "@/components/start/CircleComponent.vue";
 import forecastComponent from "@/components/start/ForecastComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import WeatherListComponent from "@/components/start/WeatherListComponent.vue";
+import DateComponent from "@/components/start/DateComponent.vue";
 
 export default {
   components: {
     WeatherWarningComponent,
     circleComponent,
     forecastComponent,
-    WeatherListComponent
+    WeatherListComponent,
+    DateComponent
   },
 
   data() {
