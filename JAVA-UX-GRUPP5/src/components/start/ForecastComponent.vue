@@ -43,10 +43,10 @@ export default {
 
 
         let forecastList = weatherDataManager.getListWithWeatherData(this.forecastFullData, this.wsymbol, 2, 12, true)
+        console.log(forecastList);
         let analysisList = weatherDataManager.getListWithWeatherData(this.analysisFullData, this.wsymbol, 2, 12,true).reverse()
+        console.log(analysisList);
         this.completeDailyWxList = analysisList.concat(forecastList)
-        //console.log(fullWxList)
-
 
         this.$emit("forecastFullData", this.forecastFullData);
         this.$emit("completeDailyWxList", this.completeDailyWxList)

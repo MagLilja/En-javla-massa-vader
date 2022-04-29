@@ -20,6 +20,7 @@
 
 <!--            {{ seTime(forecastFullData.timeSeries[0].validTime) }}-->
             {{nowTime()}}</div>
+          <div class="hours"></div>
         </div>
       </div>
     </div>
@@ -65,10 +66,29 @@ export default {
 </script>
 
 <style>
+
+.hours {
+  background: #be1a1a;
+  border:1px solid #801111;
+  height: 50px;
+  left: 48.75%;
+  position: absolute;
+  top: 0%;
+  transform-origin: 50% 100%;
+  width: 1%;
+  z-index:0;
+}
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
 .circle-container {
   display: flex;
   justify-content: center;
   width: 300px;
+  animation: rotate 60s infinite linear;
 }
 
 .outer-circle-container {
