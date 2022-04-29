@@ -9,6 +9,7 @@
 <script>
   import smhiService from "@/services/smhiService.js";
   import weatherDataManager from "@/services/WeatherDataManager.js";
+  import wSymb2 from "@/services/Wsymb2.json"
 
   export default {
   name: "ForecastComponent",
@@ -16,6 +17,9 @@
     return {
       userCoordinates: "",
       forecastFullData: undefined,
+      analysisFullData: undefined,
+      completeDailyWxList: undefined,
+      wsymbol: wSymb2
     };
   },
   computed: {},
@@ -32,10 +36,21 @@
         let lat =
           Math.round((this.userCoordinates.latitude + Number.EPSILON) * 100) /
           100;
-        let url = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
-        this.forecastFullData = await smhiService.fetchData(url);
+        let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
+        let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
+        this.forecastFullData = await smhiService.fetchData(forecastUrl);
+        this.analysisFullData = await smhiService.fetchData(analysisUrl);
+        
+        
+        let forecastList = weatherDataManager.getListWithWeatherDataForToday(this.forecastFullData, this.wsymbol, 2, 12)
+        let analysisList = weatherDataManager.getListWithWeatherDataForToday(this.analysisFullData, this.wsymbol, 2, 12).reverse()
+        this.completeDailyWxList = analysisList.concat(forecastList)
+        //console.log(fullWxList)
+        
 
         this.$emit("forecastFullData", this.forecastFullData);
+        this.$emit("completeDailyWxList", this.completeDailyWxList)
+
       },
     },
   },

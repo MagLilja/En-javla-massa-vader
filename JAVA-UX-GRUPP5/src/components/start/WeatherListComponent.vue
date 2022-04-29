@@ -2,7 +2,7 @@
   <ul>
     <li v-for="(hour, index) of TwentyFourForecast" :key="index">
       {{ hour.time }}, {{ hour.wSymb2Symbol }}, {{ hour.temperature }}, 
-      {{ hour.wind }} ({{hour.gusts}})
+      {{ hour.wind }} ({{hour.gust}})
     </li>
   </ul>
 </template>
