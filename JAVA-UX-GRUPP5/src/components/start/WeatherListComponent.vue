@@ -27,6 +27,13 @@ export default {
       1,
       24
     );
+
+    console.log(weatherDataManager.getListWithWeatherDataFor10Days(
+        this.forecastFullData,
+        this.Wsymb2,
+        1,
+        124
+    ));
   },
   props: { forecastFullData: [] },
 };
