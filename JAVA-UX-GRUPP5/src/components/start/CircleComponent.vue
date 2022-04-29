@@ -72,7 +72,7 @@ export default {
 }
 
 .outer-circle-item:nth-child(1) {
-  top: 0;
+  top: 0px;
 }
 
 .outer-circle-item:nth-child(2) {
