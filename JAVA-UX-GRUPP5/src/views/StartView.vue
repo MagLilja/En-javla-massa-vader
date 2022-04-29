@@ -1,18 +1,26 @@
-<template >
+<template>
   <div class="start-view-template-container">
 
     <weather-warning-component/>
+<<<<<<< HEAD
     <date-component />
+=======
+
+    <current-city-name-component v-if="userCoordinates" :userCoordinates="userCoordinates"/>
+
+
+>>>>>>> c7da985ec235a33b103de16cc4437f80bf97e2b1
     <forecast-component
         @forecastFullData="retrieveForecastFullData"
         @completeDailyWxList="retrieveDailyWxList"
-    ></forecast-component>
+        @userCoordinates="retrieveCoordinates"
+    />
     <circleComponent
         v-if="forecastFullData"
         :forecast-full-data="forecastFullData"
         :complete-daily-wx-list="completeDailyWxList"
-    /> 
-    <weather-list-component :forecastFullData="forecastFullData" />
+    />
+    <weather-list-component :forecastFullData="forecastFullData"/>
     <div></div>
   </div>
 </template>
@@ -21,10 +29,15 @@ import circleComponent from "@/components/start/CircleComponent.vue";
 import forecastComponent from "@/components/start/ForecastComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import WeatherListComponent from "@/components/start/WeatherListComponent.vue";
+<<<<<<< HEAD
 import DateComponent from "@/components/start/DateComponent.vue";
+=======
+import CurrentCityNameComponent from "@/views/CurrentCityNameComponent.vue";
+>>>>>>> c7da985ec235a33b103de16cc4437f80bf97e2b1
 
 export default {
   components: {
+    CurrentCityNameComponent,
     WeatherWarningComponent,
     circleComponent,
     forecastComponent,
@@ -36,6 +49,7 @@ export default {
     return {
       forecastFullData: undefined,
       completeDailyWxList: undefined,
+      userCoordinates:undefined,
     };
   },
   methods: {
@@ -45,16 +59,19 @@ export default {
     retrieveDailyWxList(v) {
       this.completeDailyWxList = v;
     },
+    retrieveCoordinates(v) {
+      this.userCoordinates = v;
+    },
   },
 };
 </script>
 
 <style scoped>
-.start-view-template-container{
+.start-view-template-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:2em;
+  gap: 2em;
 }
 
 
