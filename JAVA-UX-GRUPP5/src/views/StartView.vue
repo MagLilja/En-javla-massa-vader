@@ -2,9 +2,6 @@
   <div class="start-view-template-container">
 
     <weather-warning-component/>
-
-
-
     <current-city-name-component v-if="userCoordinates" :userCoordinates="userCoordinates"/>
     <date-component />
 
@@ -18,7 +15,7 @@
         :forecast-full-data="forecastFullData"
         :complete-daily-wx-list="completeDailyWxList"
     />
-    <weather-list-component :forecastFullData="forecastFullData"/>
+    <weather-list-component v-if="forecastFullData" :forecastFullData="forecastFullData"/>
     <div></div>
   </div>
 </template>
@@ -27,9 +24,7 @@ import circleComponent from "@/components/start/CircleComponent.vue";
 import forecastComponent from "@/components/start/ForecastComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import WeatherListComponent from "@/components/start/WeatherListComponent.vue";
-
 import DateComponent from "@/components/start/DateComponent.vue";
-
 import CurrentCityNameComponent from "@/views/CurrentCityNameComponent.vue";
 
 
