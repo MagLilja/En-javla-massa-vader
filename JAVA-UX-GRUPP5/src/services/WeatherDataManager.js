@@ -6,15 +6,14 @@ function getHourFromTime(time) {
         hour: '2-digit',
     }
     return event.toLocaleTimeString('sv-SE', options)
-
 }
+
 function hourTime(time) {
     const event = new Date(time);
     const options = {
         hour: '2-digit', minute: '2-digit'
     }
     return event.toLocaleTimeString('sv-SE', options)
-
 }
 
 function getWSymb2Unicode(data) {
@@ -33,7 +32,9 @@ function getListWithWeatherDataForToday(forecastFullData, wSymb2Json, interval, 
 
     for (let ts of forecastFullData.timeSeries) {
         let timeSerieDate = new Date(ts.validTime)
-        if (getHourFromTime(ts.validTime) % interval === 0 && today.getDate() === timeSerieDate.getDate() && counter < noOfDataPoints) {
+        if (getHourFromTime(ts.validTime) % interval === 0
+            && today.getDate() === timeSerieDate.getDate()
+            && counter < noOfDataPoints) {
             counter++
             let temperatureValue = 0
             let precipitationValue = 0
@@ -71,7 +72,6 @@ function getListWithWeatherDataForToday(forecastFullData, wSymb2Json, interval, 
     }
     return circleDataList
 }
-
 
 Object.freeze(getListWithWeatherDataForToday);
 export default {getListWithWeatherDataForToday}

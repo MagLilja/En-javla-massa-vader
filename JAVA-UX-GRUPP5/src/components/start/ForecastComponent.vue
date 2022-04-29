@@ -1,9 +1,9 @@
 <template>
-  <div>Dina koordinater</div>
-  <div v-if="forecastFullData">
-    <div>Longitude: {{ forecastFullData.geometry.coordinates[0][0] }}</div>
-    <div>Latitude: {{ forecastFullData.geometry.coordinates[0][1] }}</div>
-  </div>
+<!--  <div>Dina koordinater</div>-->
+<!--  <div v-if="forecastFullData">-->
+<!--    <div>Longitude: {{ forecastFullData.geometry.coordinates[0][0] }}</div>-->
+<!--    <div>Latitude: {{ forecastFullData.geometry.coordinates[0][1] }}</div>-->
+<!--  </div>-->
 </template>
 
 <script>
