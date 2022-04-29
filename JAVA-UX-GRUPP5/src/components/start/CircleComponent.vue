@@ -92,59 +92,61 @@ export default {
 }
 
 .outer-circle-item:nth-child(1) {
-  top: 0px;
+  top: calc(150px - 150*1px + 7px);
 }
 
 .outer-circle-item:nth-child(2) {
-  top: 15px;
-  right: 60px;
+  top: calc(150px - 150*0.86px + 2px);
+  right: calc(150px - 150*0.5px);
 }
 
 .outer-circle-item:nth-child(3) {
-  top: 60px;
-  right: 15px;
+  top: calc(150px - 150*0.5px - 10px);
+  right: calc(150px - 150*0.86px + 10px);
 }
 
 .outer-circle-item:nth-child(4) {
-  right: 0;
+  top: calc(150px - 150*0px - 20px);
+  right: calc(150px - 150*1px + 12px);
 }
 
 .outer-circle-item:nth-child(5) {
-  right: 20px;
-  top: 180px;
+  bottom: calc(150px - 150*0.5px - 10px);
+  right: calc(150px - 150*0.86px + 8px);
 }
 
 .outer-circle-item:nth-child(6) {
-  right: 60px;
-  top: 230px;
+  bottom: calc(150px - 150*0.86px);
+  right: calc(150px - 150*0.5px);
 }
 
 .outer-circle-item:nth-child(7) {
-  bottom: 0px;
+  bottom: calc(150px - 150*1px + 5px);
 }
 
 .outer-circle-item:nth-child(8) {
-  bottom: 15px;
-  left: 60px;
+  bottom: calc(150px - 150*0.86px);
+  left: calc(150px - 150*0.5px);
 }
 
 .outer-circle-item:nth-child(9) {
-  bottom: 60px;
-  left: 15px;
+  bottom: calc(150px - 150*0.5px - 10px);
+  left: calc(150px - 150*0.86px + 8px);
 }
 
 .outer-circle-item:nth-child(10) {
-  left: 0;
+  top: calc(150px - 150*0px - 20px);
+  left: calc(150px - 150*1px + 12px);
 }
 
 .outer-circle-item:nth-child(11) {
-  left: 15px;
-  top: 60px;
+  top: calc(150px - 150*0.5px - 10px);
+  left: calc(150px - 150*0.86px + 10px);
 }
 
 .outer-circle-item:nth-child(12) {
-  top: 15px;
-  left: 60px;
+  top: calc(150px - 150*0.86px + 2px);
+  left: calc(150px - 150*0.5px);
 }
 
 
