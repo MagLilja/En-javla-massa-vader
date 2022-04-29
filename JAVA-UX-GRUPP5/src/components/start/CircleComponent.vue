@@ -32,7 +32,7 @@ export default {
         hour: '2-digit',
         minute: '2-digit'
       }
-      console.log(weatherDataManager.getListWithWeatherDataForToday(this.forecastFullData, this.wSymb2Decoder));
+      //console.log(weatherDataManager.getListWithWeatherDataForToday(this.forecastFullData, this.wSymb2Decoder));
       return event.toLocaleTimeString('se-SV', options)
     },
     getWSymb2Unicode(data) {

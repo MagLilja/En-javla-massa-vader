@@ -1,5 +1,5 @@
 const weatherDataManager = {
-    getListWithWeatherDataForToday(forecastFullData, wSymb2Decoder) {
+    getListWithWeatherDataForToday(forecastFullData, wSymb2Decoder, interval, noOfDataPoints) {
         let counter = 0
         let circleDataList = []
 
@@ -45,13 +45,36 @@ const weatherDataManager = {
         for (let ts of forecastFullData.timeSeries) {
 
             let timeSerieDate = new Date(ts.validTime)
-            if (getHourFromTime(ts.validTime) % 2 === 0 /*&& today.getDate() === timeSerieDate.getDate()*/ && counter < 12) {
+            if (getHourFromTime(ts.validTime) % interval === 0 && today.getDate() === timeSerieDate.getDate() && counter < noOfDataPoints) {
                 counter++
+
+                let temperatureValue = 0
+                let precipitationValue = 0
+                let windValue = 0
+                let gustValue = 0
+
+                for (let param of ts.parameters) {
+                    if (param.name === 't') {
+                        temperatureValue = param.values[0]
+                    }
+                    if (param.name === 'pmean') {
+                        precipitationValue = param.values[0]
+                    }
+                    if (param.name === 'ws') {
+                        windValue = param.values[0]
+                    }
+                    if (param.name === 'gust') {
+                        gustValue = param.values[0]
+                    }
+                }
                 circleDataList.push({
                     time: hourTime(ts.validTime),
                     validTime: ts.validTime,
                     wSymb2Symbol: getWSymb2Unicode(ts.parameters[18].values[0]),
-                    temperature: `${ts.parameters[10].values[0]}`,
+                    temperature: temperatureValue,
+                    precipitation: precipitationValue, /*Mean preciptation used*/
+                    wind: windValue,
+                    gusts: gustValue
                 })
             }
         }
