@@ -20,6 +20,5 @@ export default {
 
 <style>
 .date {
-  border: 1px solid black;
 }
 </style>
