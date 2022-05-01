@@ -1,11 +1,19 @@
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 
 
 export const useUserCoordinatesStore = defineStore('userCoordinatesStore', {
     state: () => {
         return {
-            longitude: 0,
-            latitude: 0,
+            coordinates: {
+                longitude: 0,
+                latitude: 0,
+            },
+
         }
     },
+    actions: {
+        setCoordinates(coordinates) {
+            this.coordinates = coordinates
+        },
+    }
 })
