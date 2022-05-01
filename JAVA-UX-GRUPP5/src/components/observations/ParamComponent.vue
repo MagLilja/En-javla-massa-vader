@@ -30,12 +30,15 @@ export default {
     };
   },
   created() {
-    smhiService.fetchData().then((p) => (this.parameters = p));
+    this.getParametersFromAPI()
   },
   methods: {
     toParent(value) {
       this.$emit("paramSelectionHref", value);
     },
+    getParametersFromAPI(){
+      smhiService.fetchData().then((p) => (this.parameters = p));
+    }
   },
 };
 </script>

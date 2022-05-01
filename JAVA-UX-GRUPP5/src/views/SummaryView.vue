@@ -7,10 +7,13 @@
     @selectedStationHref="onClickStation"
   />
   <period-component
-    :selected-station-href="selectedStationHref"
+    :selected-station-href="selectedStationData.data"
     @selectedPeriodForStationHref="onClickPeriod"
   />
   <data-component :selected-period-href="selectedPeriodHref" />
+
+  {{selectedStationData.longitude}}
+  {{selectedStationData.latitude}}
 </template>
 
 <script>
@@ -29,7 +32,7 @@
     data() {
       return {
         selectedParamStationsHref: "",
-        selectedStationHref: "",
+        selectedStationData: "",
         selectedPeriodHref: "",
       };
     },
@@ -37,8 +40,8 @@
       onClickParameter(v) {
         this.selectedParamStationsHref = v.parameterLink;
       },
-      onClickStation(v) {
-        this.selectedStationHref = v.data;
+      onClickStation(selectionData) {
+        this.selectedStationData = selectionData;
       },
       onClickPeriod(v) {
         this.selectedPeriodHref = v.data;

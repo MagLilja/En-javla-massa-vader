@@ -44,7 +44,7 @@ export default {
 
         let forecastList = weatherDataManager.getListWithWeatherData(this.forecastFullData, this.wsymbol, 2, 12, true)
         console.log(forecastList);
-        let analysisList = weatherDataManager.getListWithWeatherData(this.analysisFullData, this.wsymbol, 2, 12,true).reverse()
+        let analysisList = weatherDataManager.getListWithWeatherData(this.analysisFullData, this.wsymbol, 2, 12, true).reverse()
         console.log(analysisList);
         this.completeDailyWxList = analysisList.concat(forecastList)
 
@@ -56,6 +56,7 @@ export default {
   },
   mounted() {
     this.getCoordinatesFromUser();
+    this.findNearestCoordinate()
   },
   emits: [
     'forecastFullData',
@@ -81,13 +82,7 @@ export default {
           }
       );
     },
-    // seTime(time) {
-    //   const event = new Date(time);
-    //   const options = {
-    //     hour: "2-digit",
-    //   };
-    //   return event;
-    // },
+
   },
 };
 </script>
