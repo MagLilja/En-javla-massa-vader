@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="circle-container">
-      <div class="outer-circle-container" :style="{'--my-var': bgColor}">
+    <div class="circle-container" :style="{'--my-var': bgColor}">
+      <div class="outer-circle-container">
         <div class="outer-circle-item" v-for="(wx, index) of completeDailyWxList" :key="index">
           {{ wx.time }}
           <br>{{ wx.wSymb2Symbol }}
           <br>{{ wx.temperature }}&#176C
         </div>
-        <div class="inner-circle-container" >
+        <div class="inner-circle-container">
           <div class="inner-circle-temperature">{{
               forecastFullData.timeSeries[0].parameters[10].values[0]
             }}&#176C
@@ -17,8 +17,6 @@
             }}
           </div>
           <div class="inner-circle-time">
-
-            <!--            {{ seTime(forecastFullData.timeSeries[0].validTime) }}-->
             {{ nowTime() }}
           </div>
         </div>
@@ -42,6 +40,9 @@ export default {
     }
   },
   watch: {},
+  mounted() {
+    this.initLocalClocks()
+  },
   methods: {
     seTime(time) {
       const event = new Date(time);
@@ -63,40 +64,20 @@ export default {
       }
     },
     initLocalClocks() {
-      // Get the local time using JS
       var date = new Date;
       var seconds = date.getSeconds();
       var minutes = date.getMinutes();
       var hours = date.getHours();
-
-      // Create an object with each hand and it's angle in degrees
-      var angle = (hours * 30) + (minutes / 2)
-
-
-
-      // Loop through each of these hands to set their angle
-      for (var j = 0; j < hands.length; j++) {
-        var elements = document.querySelectorAll('.' + hands[j].hand);
-        for (var k = 0; k < elements.length; k++) {
-          elements[k].style.webkitTransform = 'rotateZ(' + hands[j].angle + 'deg)';
-          elements[k].style.transform = 'rotateZ(' + hands[j].angle + 'deg)';
-          // If this is a minute hand, note the seconds position (to calculate minute position later)
-          if (hands[j].hand === 'minutes') {
-            elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
-          }
-        }
-      }
-    }
+      this.bgColor = (hours * 30) + (minutes / 2) + 'deg'
+   }
   }
 }
 </script>
 
 <style scoped>
 
-
 @keyframes rotate {
   100% {
-    /*transform: rotateZ(360deg);*/
     rotate: 360deg;
   }
 }
@@ -105,7 +86,7 @@ export default {
   display: grid;
   place-items: center;
   width: 300px;
-  /*overflow: hidden;*/
+  --my-var: 0deg;
 }
 
 .outer-circle-container::after {
@@ -114,19 +95,16 @@ export default {
   /*background: linear-gradient(45deg, rgba(230, 230, 230, 0) 0%,*/
   /*rgba(231, 71, 71, 0) 35%,*/
   /*rgba(0, 212, 255, 1) 100%);;*/
-
   background-image: url('../../assets/icons/arrow-up-solid.svg');
-background-size: 1em;
+  background-size: 1em;
   background-repeat: no-repeat;
   height: 230px;
   position: absolute;
-  --my-var:0deg;
   transform: rotateZ(var(--my-var));
   width: 16px;
-  /*border:1px solid black;*/
   border-radius: 12px;
   z-index: 1;
-  animation: rotate 600s infinite linear;
+  animation: rotate 43200s infinite linear;
 }
 
 
@@ -146,6 +124,7 @@ background-size: 1em;
   position: absolute;
   font-size: 0.6em;
   font-weight: 700;
+  z-index: 2;
 }
 
 .outer-circle-item:nth-child(1) {
