@@ -54,24 +54,16 @@ export default {
       this.$emit("selectedStationHref", value);
     },
     findStationNearestToCoordinates() {
-
-      var myPoint = {
-        x: 10000,
-        y: 10000
-      };
-
       let minDistance = 10000000;
-      let closestPoint;
+      let closestStation;
       for (let station of this.stationsForParam.station) {
         let distance = Math.sqrt((this.coordinates.longitude - station.longitude) * (this.coordinates.longitude - station.longitude) + (this.coordinates.latitude - station.latitude) * (this.coordinates.latitude - station.latitude));
         if (distance < minDistance) {
           minDistance = distance;
-          closestPoint = station;
+          closestStation = station;
         }
-
       }
-      console.log("The closest point: x=" + closestPoint.longitude + ", y=" + closestPoint.latitude + 'name=' + closestPoint.name);
-
+      console.log("The closest station: x=" + closestStation.longitude + ", y=" + closestStation.latitude + 'name=' + closestStation.name);
     }
   },
 };
