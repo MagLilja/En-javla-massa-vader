@@ -83,7 +83,7 @@ export default {
           }
       );
     },
-    ...mapActions(useUserCoordinatesStore, ["setCoordinates"]),
+    ...mapActions(useUserDataStore, ["setCoordinates","setForecastFulldata"]),
   },
 };
 </script>

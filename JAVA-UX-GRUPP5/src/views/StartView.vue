@@ -26,7 +26,7 @@ import forecastComponent from "@/components/start/ForecastComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import WeatherListComponent from "@/components/start/WeatherListComponent.vue";
 import DateComponent from "@/components/start/DateComponent.vue";
-import CurrentCityNameComponent from "@/views/CurrentCityNameComponent.vue";
+import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
 
 
 export default {

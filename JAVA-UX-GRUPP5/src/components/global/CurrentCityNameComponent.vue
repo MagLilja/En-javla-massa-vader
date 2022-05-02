@@ -1,7 +1,7 @@
 <template>
   <div v-if="userGeoLocationData">
     <div class="city-name"> {{ checkForGothenburg(userGeoLocationData.features[0].properties.city) }}
-      <img class="heart" src="./../assets/icons/favorite.svg" alt="a heart">
+      <img class="heart" src="../../assets/icons/favorite.svg" alt="a heart">
     </div>
 
   </div>

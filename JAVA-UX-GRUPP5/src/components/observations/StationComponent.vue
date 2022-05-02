@@ -26,7 +26,7 @@
 
 <script>
 import smhiService from "../../services/smhiService.js";
-import { useUserCoordinatesStore } from '@/stores/CoordinatesStore.js'
+import { useUserDataStore } from '@/stores/CoordinatesStore.js'
 import {mapState} from 'pinia'
 export default {
   props: {
@@ -39,7 +39,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(useUserCoordinatesStore, ['coordinates'])
+    ...mapState(useUserDataStore, ['coordinates'])
   },
   watch: {
     async selectedParamStationsHref() {
