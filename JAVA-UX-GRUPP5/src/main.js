@@ -12,7 +12,7 @@ const app = createApp(App);
 app.use(router);
 app.use(createPinia())
 app.use(Vue3Mq,{
-    preset: 'devices'
+    preset: 'bootstrap5'
 });
 
 
