@@ -1,8 +1,8 @@
 <template>
   <ul>
     <li v-for="(hour, index) of TwentyFourForecast" :key="index">
-      {{ hour.time }}, {{ hour.wSymb2Symbol }}, {{ hour.temperature }}, 
-      {{ hour.wind }} ({{hour.gusts}})
+      {{ hour.time }}, {{ hour.wSymb2Symbol }}, {{ hour.temperature }},
+      {{ hour.wind }} ({{ hour.gusts }})
     </li>
   </ul>
 </template>
@@ -10,6 +10,8 @@
 <script>
 import weatherDataManager from "@/services/WeatherDataManager.js";
 import WSymbol from "@/services/Wsymb2.json";
+import {mapState} from "pinia/dist/pinia";
+import {useUserDataStore} from "@/stores/useUserDataStore";
 
 export default {
   name: "WeatherListComponent",
@@ -22,15 +24,17 @@ export default {
   },
   created() {
     this.TwentyFourForecast = weatherDataManager.getListWithWeatherData(
-      this.forecastFullData,
-      this.Wsymb2,
-      1,
-      24,
+        this.getForecastFullData,
+        this.Wsymb2,
+        1,
+        24,
         true
     )
 
+  }, computed: {
+    ...mapState(useUserDataStore, ["getForecastFullData"])
   },
-  props: { forecastFullData: [] },
+
 };
 </script>
 

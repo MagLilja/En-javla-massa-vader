@@ -21,7 +21,7 @@ import SearchBarComponent from "@/components/navigation/TopNavBarComponent.vue";
 import {MqResponsive} from "vue3-mq";
 import TenDayDesktopCard from "@/components/desktopCards/TenDayDesktopCard.vue";
 import SummaryDesktopCard from "@/components/desktopCards/SummaryDesktopCard.vue";
-import TwentyFourForecastDesktopCard from "@/components/desktopCards/TwentyFourForecastCard.vue";
+import TwentyFourForecastDesktopCard from "@/components/desktopCards/TwentyFourForecastDesktopCard.vue";
 
 export default {
   components: {

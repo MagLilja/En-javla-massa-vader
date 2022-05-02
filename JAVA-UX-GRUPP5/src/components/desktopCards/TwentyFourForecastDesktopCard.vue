@@ -2,19 +2,19 @@
   <div class="desktop-data-card flex-column-center-2">
     <div class="desktop-data-card-header">
       <div >
-        <img class="big-icon" src="../../assets/icons/10-day-view.svg" alt="">
+        <img class="big-icon" src="../../assets/icons/main-view-icon.svg" alt="">
       </div>
     </div>
     <div class="desktop-data-card-body">
-      <ten-day-list-component></ten-day-list-component>
+      <same-day-list-component/>
     </div>
   </div>
 </template>
 <script>
-import TenDayListComponent from "@/components/dataLists/TenDayListComponent.vue"
+import SameDayListComponent from "@/components/dataLists/SameDayListComponent.vue"
 
 export default {
   name: 'ten-day-desktop-card',
-  components: {TenDayListComponent}
+  components: {SameDayListComponent}
 }
 </script>
