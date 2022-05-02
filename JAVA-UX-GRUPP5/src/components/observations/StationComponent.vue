@@ -25,7 +25,7 @@
 
 <script>
 import smhiService from "../../services/smhiService.js";
-import { useUserDataStore } from '@/stores/CoordinatesStore.js'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import {mapState} from 'pinia'
 export default {
   props: {

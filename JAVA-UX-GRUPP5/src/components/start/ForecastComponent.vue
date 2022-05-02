@@ -1,13 +1,17 @@
 <template>
-
+  <!--  <div>Dina koordinater</div>-->
+  <!--  <div v-if="forecastFullData">-->
+  <!--    <div>Longitude: {{ forecastFullData.geometry.coordinates[0][0] }}</div>-->
+  <!--    <div>Latitude: {{ forecastFullData.geometry.coordinates[0][1] }}</div>-->
+  <!--  </div>-->
 </template>
 
 <script>
 import smhiService from "@/services/smhiService.js";
 import weatherDataManager from "@/services/WeatherDataManager.js";
 import wSymb2 from "@/services/Wsymb2.json"
-import { useUserDataStore } from '@/stores/CoordinatesStore.js'
-import {mapActions} from 'pinia'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
+import {mapState, mapActions} from 'pinia'
 export default {
   name: "ForecastComponent",
   data() {
@@ -35,12 +39,14 @@ export default {
             100;
         let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
         let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
-        this.forecastFullData = await smhiService.fetchData(forecastUrl)
-        this.setForecastFulldata(this.forecastFullData)
+        this.forecastFullData = await smhiService.fetchData(forecastUrl);
+        this.analysisFullData = await smhiService.fetchData(analysisUrl);
 
-        this.analysisFullData = await smhiService.fetchData(analysisUrl)
+
         let forecastList = weatherDataManager.getListWithWeatherData(this.forecastFullData, this.wsymbol, 2, 12, true)
+        console.log(forecastList);
         let analysisList = weatherDataManager.getListWithWeatherData(this.analysisFullData, this.wsymbol, 2, 12, true).reverse()
+        console.log(analysisList);
         this.completeDailyWxList = analysisList.concat(forecastList)
 
         this.$emit("forecastFullData", this.forecastFullData);
