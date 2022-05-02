@@ -1,9 +1,4 @@
 <template>
-  <!--  <div>Dina koordinater</div>-->
-  <!--  <div v-if="forecastFullData">-->
-  <!--    <div>Longitude: {{ forecastFullData.geometry.coordinates[0][0] }}</div>-->
-  <!--    <div>Latitude: {{ forecastFullData.geometry.coordinates[0][1] }}</div>-->
-  <!--  </div>-->
 </template>
 
 <script>
@@ -28,9 +23,6 @@ export default {
     userCoordinates: {
       deep: true,
       async handler() {
-        //let forecastData = 'https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/parameter.json';
-        // Parameter url
-        // https://en.ilmatieteenlaitos.fi/weather-symbols
         let long =
             Math.round((this.userCoordinates.longitude + Number.EPSILON) * 100) /
             100;

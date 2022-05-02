@@ -39,7 +39,7 @@ export default {
       date.setDate(date.getDate() + 1)
       console.log(date);
       this.weatherData.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date))
-      // console.log(this.weatherData);
+
     }
   },
   methods: {

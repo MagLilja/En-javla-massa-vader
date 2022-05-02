@@ -91,12 +91,11 @@ function getListWithWeatherData(forecastFullData, wSymb2Json, interval, noOfData
 
 function getWeatherDataforDate(ForecastFullData, inputDate) {
 
-    // let today = new Date()
+
     let getValidTimeDate = (validTime) => {
         return new Date(validTime).getDate()
     }
-    console.log("---------------");
-    console.log(inputDate);
+
 
     let lowestTemp = 500
     let highestTemp = 0
