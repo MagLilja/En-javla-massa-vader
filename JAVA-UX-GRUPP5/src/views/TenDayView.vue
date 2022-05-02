@@ -18,7 +18,7 @@
 
 <script>
 import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
-import {useUserDataStore} from "@/stores/CoordinatesStore.js";
+import {useUserDataStore} from "@/stores/useUserDataStore.js";
 import {mapState} from "pinia";
 import weatherDataManager from "@/services/WeatherDataManager.js"
 

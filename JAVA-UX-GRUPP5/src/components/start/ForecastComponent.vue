@@ -41,7 +41,9 @@ export default {
         let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
         this.forecastFullData = await smhiService.fetchData(forecastUrl);
         this.analysisFullData = await smhiService.fetchData(analysisUrl);
-
+        if(this.forecastFullData) {
+          this.setForecastFulldata(this.forecastFullData)
+        }
 
         let forecastList = weatherDataManager.getListWithWeatherData(this.forecastFullData, this.wsymbol, 2, 12, true)
         console.log(forecastList);
