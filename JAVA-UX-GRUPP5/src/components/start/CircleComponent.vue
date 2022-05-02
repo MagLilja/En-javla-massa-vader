@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="circle-container" :style="{'--my-var': clockDeg}">
+    <div class="circle-container" :style="{'--circle-degree-var': clockDeg}">
       <div class="outer-circle-container">
         <div class="outer-circle-item" v-for="(wx, index) of completeDailyWxList" :key="index">
           {{ wx.time }}
@@ -36,12 +36,12 @@ export default {
   data() {
     return {
       wSymb2Decoder: WSymb2,
-      clockDeg: "90deg",
+      clockDeg: "",
     }
   },
   watch: {},
   mounted() {
-    this.initLocalClocks()
+    this.setLocalClockDeg()
   },
   methods: {
     seTime(time) {
@@ -50,11 +50,11 @@ export default {
         hour: '2-digit',
         minute: '2-digit'
       }
-      return event.toLocaleTimeString('se-SV', options)
+      return event.toLocaleTimeString('sv-SE', options)
     },
     nowTime() {
       let now = new Date()
-      return now.getHours() + ":" + now.getMinutes()
+      return this.seTime(now)
     },
     getWSymb2Unicode(data) {
       for (const wSymb2 of this.wSymb2Decoder.weathers) {
@@ -63,14 +63,11 @@ export default {
         }
       }
     },
-    initLocalClocks() {
-      var date = new Date;
-      var seconds = date.getSeconds();
-      var minutes = date.getMinutes();
-      var hours = date.getHours();
+    setLocalClockDeg() {
+      let date = new Date;
+      let minutes = date.getMinutes();
+      let hours = date.getHours();
       this.clockDeg = ((hours * 30) + (minutes / 2)) / 2 + 'deg'
-      //08:41 = 8*30 + 41/2 = 260
-      //20:41 = 20*30 + 41/2 = 620
     }
   }
 }
@@ -88,25 +85,23 @@ export default {
   display: grid;
   place-items: center;
   width: 300px;
-  --my-var: 0deg;
+  --circle-degree-var: 0deg;
 }
 
 .outer-circle-container::after {
   content: "";
-  /*En gradient för att få änden av det roterande objektet att "försvinna"*/
-  /*background: linear-gradient(45deg, rgba(230, 230, 230, 0) 0%,*/
-  /*rgba(231, 71, 71, 0) 35%,*/
-  /*rgba(0, 212, 255, 1) 100%);;*/
   background-image: url('../../assets/icons/arrow-up-solid.svg');
   background-size: 1em;
   background-repeat: no-repeat;
-  height: 230px;
+  height: 220px;
   position: absolute;
-  transform: rotateZ(var(--my-var));
+  transform: rotateZ(var(--circle-degree-var));
   width: 16px;
   border-radius: 12px;
-  z-index: 1;
+  z-index: 5;
   animation: rotate 43200s infinite linear;
+  /*animation: rotate 60s infinite linear;*/
+
 }
 
 
