@@ -10,7 +10,7 @@
 import smhiService from "@/services/smhiService.js";
 import weatherDataManager from "@/services/WeatherDataManager.js";
 import wSymb2 from "@/services/Wsymb2.json"
-import { useUserCoordinatesStore } from '@/stores/CoordinatesStore.js'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import {mapState, mapActions} from 'pinia'
 export default {
   name: "ForecastComponent",
