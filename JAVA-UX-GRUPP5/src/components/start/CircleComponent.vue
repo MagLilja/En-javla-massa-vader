@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="circle-container" :style="{'--my-var': bgColor}">
+    <div class="circle-container" :style="{'--my-var': clockDeg}">
       <div class="outer-circle-container">
         <div class="outer-circle-item" v-for="(wx, index) of completeDailyWxList" :key="index">
           {{ wx.time }}
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       wSymb2Decoder: WSymb2,
-      bgColor: "90deg",
+      clockDeg: "90deg",
     }
   },
   watch: {},
@@ -68,8 +68,10 @@ export default {
       var seconds = date.getSeconds();
       var minutes = date.getMinutes();
       var hours = date.getHours();
-      this.bgColor = (hours * 30) + (minutes / 2) + 'deg'
-   }
+      this.clockDeg = ((hours * 30) + (minutes / 2)) / 2 + 'deg'
+      //08:41 = 8*30 + 41/2 = 260
+      //20:41 = 20*30 + 41/2 = 620
+    }
   }
 }
 </script>
