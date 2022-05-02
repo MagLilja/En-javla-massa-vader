@@ -24,6 +24,42 @@ function getWSymb2Unicode(data) {
     }
 }
 
+function extractCorrectParamaterValues(ts, temperatureValue, precipitationValue, windValue, gustValue, wsymb2Value) {
+    for (let param of ts.parameters) {
+        switch (param.name) {
+            case 't':
+                temperatureValue = param.values[0]
+                break;
+            case 'pmean':
+                precipitationValue = param.values[0]
+                break;
+            case 'ws':
+                windValue = param.values[0]
+                break;
+            case 'gust':
+                gustValue = param.values[0]
+                break;
+            case 'Wsymb2':
+                wsymb2Value = param.values[0]
+                break;
+        }
+    }
+    return {temperatureValue, precipitationValue, windValue, gustValue, wsymb2Value};
+}
+
+
+function addTolist(circleDataList, ts, __ret) {
+    circleDataList.push({
+        time: hourTime(ts.validTime),
+        validTime: ts.validTime,
+        wSymb2Symbol: getWSymb2Unicode(__ret.wsymb2Value),
+        temperature: __ret.temperatureValue,
+        precipitation: __ret.precipitationValue, /*Mean preciptation used*/
+        wind: __ret.windValue,
+        gusts: __ret.gustValue
+    })
+}
+
 function getListWithWeatherData(forecastFullData, wSymb2Json, interval, noOfDataPoints, onlyToday) {
     let counter = 0
     let circleDataList = []
@@ -38,34 +74,8 @@ function getListWithWeatherData(forecastFullData, wSymb2Json, interval, noOfData
         let gustValue = 0
         let wsymb2Value = 0
 
-        for (let param of ts.parameters) {
-            switch (param.name) {
-                case 't':
-                    temperatureValue = param.values[0]
-                    break;
-                case 'pmean':
-                    precipitationValue = param.values[0]
-                    break;
-                case 'ws':
-                    windValue = param.values[0]
-                    break;
-                case 'gust':
-                    gustValue = param.values[0]
-                    break;
-                case 'Wsymb2':
-                    wsymb2Value = param.values[0]
-                    break;
-            }
-        }
-        circleDataList.push({
-            time: hourTime(ts.validTime),
-            validTime: ts.validTime,
-            wSymb2Symbol: getWSymb2Unicode(wsymb2Value),
-            temperature: temperatureValue,
-            precipitation: precipitationValue, /*Mean preciptation used*/
-            wind: windValue,
-            gusts: gustValue
-        })
+        const __ret = extractCorrectParamaterValues(ts, temperatureValue, precipitationValue, windValue, gustValue, wsymb2Value);
+        addTolist(circleDataList, ts, __ret);
     }
 
     for (let ts of forecastFullData.timeSeries) {
@@ -89,13 +99,13 @@ function getListWithWeatherData(forecastFullData, wSymb2Json, interval, noOfData
 }
 
 
-function getWeatherDataforDate(ForecastFullData, inputDate) {
 
+
+function getWeatherDataforDate(ForecastFullData, inputDate) {
 
     let getValidTimeDate = (validTime) => {
         return new Date(validTime).getDate()
     }
-
 
     let lowestTemp = 500
     let highestTemp = 0
@@ -118,25 +128,11 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
             let wsymb2Value = 0
 
 
-            for (let param of ts.parameters) {
-                switch (param.name) {
-                    case 't':
-                        temperatureValue = param.values[0]
-                        break;
-                    case 'pmean':
-                        precipitationValue = param.values[0]
-                        break;
-                    case 'ws':
-                        windValue = param.values[0]
-                        break;
-                    case 'gust':
-                        gustValue = param.values[0]
-                        break;
-                    case 'Wsymb2':
-                        wsymb2Value = param.values[0]
-                        break;
-                }
-            }
+            const __ret = extractCorrectParamaterValues(ts, temperatureValue, precipitationValue, windValue, gustValue, wsymb2Value);
+            temperatureValue = __ret.temperatureValue;
+            precipitationValue = __ret.precipitationValue;
+            windValue = __ret.windValue;
+            gustValue = __ret.gustValue;
 
             if (temperatureValue > highestTemp) {
                 highestTemp = temperatureValue
@@ -161,7 +157,7 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
 
     }
 
-    let res = {
+    return {
         dataDate: new Date(inputDate),
         highestTemp: highestTemp,
         lowestTemp: lowestTemp,
@@ -169,11 +165,7 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
         highestGust: highestGust,
         roundedAvgWindSpeed: roundedAvgWindSpeed,
     }
-    return res
-
 }
-
-
 Object.freeze(getListWithWeatherData);
 Object.freeze(getWeatherDataforDate);
 export default {getListWithWeatherData, getWeatherDataforDate}
