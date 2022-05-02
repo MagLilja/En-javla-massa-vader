@@ -1,0 +1,60 @@
+
+
+/*###########################*/
+/*######### COMPOSITION #########*/
+/*###########################*/
+
+.flex-column-center-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.flex-row-space-around-m1 {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+}
+
+/*###########################*/
+/*######### UTILITY #########*/
+/*###########################*/
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+/*###########################*/
+/*######### BLOCKS #########*/
+/*###########################*/
+
+/*---------- 10 DAY VIEW ----------*/
+
+
+.ten-day-list .date {
+    text-align: left;
+    width: max(15vw,60px);
+
+}
+
+
+/*CircleComponent is styled in component*/
+
+/*---------- START VIEW ----------*/
+.start-view-header {
+display: flex;
+    gap:0.4em;
+}
+
+.start-view-header .heart {
+    width:4rem;
+}
+/*###########################*/
+/*######### EXCEPTIONS #########*/
+/*###########################*/
+
+
+
+
+

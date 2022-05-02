@@ -1,21 +1,23 @@
 <template>
-  <div class="start-view-template-container">
+  <forecast-component
+      @forecastFullData="retrieveForecastFullData"
+      @completeDailyWxList="retrieveDailyWxList"
+      @userCoordinates="retrieveCoordinates"
+  />
+  <div class="flex-column-center-2" v-if="forecastFullData">
 
     <weather-warning-component/>
-    <current-city-name-component v-if="userCoordinates" :userCoordinates="userCoordinates"/>
-    <date-component />
+    <div class="start-view-header">
+      <current-city-name-component/>
+      <img class="heart" src="../assets/icons/favorite.svg" alt="a heart"></div>
+    <date-component/>
 
-    <forecast-component
-        @forecastFullData="retrieveForecastFullData"
-        @completeDailyWxList="retrieveDailyWxList"
-        @userCoordinates="retrieveCoordinates"
-    />
     <circleComponent
-        v-if="forecastFullData"
+
         :forecast-full-data="forecastFullData"
         :complete-daily-wx-list="completeDailyWxList"
     />
-    <weather-list-component v-if="forecastFullData" :forecastFullData="forecastFullData"/>
+    <weather-list-component :forecastFullData="forecastFullData"/>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
@@ -24,8 +26,8 @@
 import circleComponent from "@/components/start/CircleComponent.vue";
 import forecastComponent from "@/components/start/ForecastComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
-import WeatherListComponent from "@/components/start/WeatherListComponent.vue";
-import DateComponent from "@/components/start/DateComponent.vue";
+import WeatherListComponent from "@/components/dataLists/SameDayListComponent.vue";
+import DateComponent from "@/components/global/DateComponent.vue";
 import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
 
 
@@ -43,7 +45,7 @@ export default {
     return {
       forecastFullData: undefined,
       completeDailyWxList: undefined,
-      userCoordinates:undefined,
+      userCoordinates: undefined,
     };
   },
   methods: {
@@ -61,12 +63,7 @@ export default {
 </script>
 
 <style scoped>
-.start-view-template-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2em;
-}
+
 
 
 </style>

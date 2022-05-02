@@ -1,24 +1,28 @@
 <template>
   <div v-if="userGeoLocationData">
     <div class="city-name"> {{ checkForGothenburg(userGeoLocationData.features[0].properties.city) }}
-      <img class="heart" src="../../assets/icons/favorite.svg" alt="a heart">
+
     </div>
 
   </div>
 </template>
 <script>
+import {useUserDataStore} from "@/stores/useUserDataStore.js"
+import {mapState} from "pinia";
+
 export default {
   name: 'current-city-name-component',
   created() {
     this.getUserGeoLocationData();
   },
-  props: {
-    userCoordinates:[]
-  },
+
   data(){
     return {
       userGeoLocationData:undefined,
     }
+  },
+  computed: {
+    ...mapState(useUserDataStore, ["getCoordinates"])
   },
   methods: {
     getNowDate() {
@@ -41,7 +45,7 @@ export default {
       var requestOptions = {
         method: 'GET',
       };
-      let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${this.userCoordinates.latitude}&lon=${this.userCoordinates.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`;
+      let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${this.getCoordinates.latitude}&lon=${this.getCoordinates.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`;
       let response = await fetch(url)
       let result = await response.json()
       this.userGeoLocationData = result;

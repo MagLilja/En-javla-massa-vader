@@ -1,5 +1,5 @@
 <template>
-  <div class="date">{{ getLocalDate() }}</div>
+  {{ getLocalDate() }}
 </template>
 
 <script>
@@ -19,6 +19,5 @@ export default {
 </script>
 
 <style>
-.date {
-}
+
 </style>
