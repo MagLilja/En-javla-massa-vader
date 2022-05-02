@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-
+import {useStorage} from '@vueuse/core'
 
 export const useUserDataStore = defineStore('userCoordinatesStore', {
 
@@ -25,6 +25,9 @@ export const useUserDataStore = defineStore('userCoordinatesStore', {
     actions: {
         setCoordinates(coordinates) {
             this.coordinates = coordinates
+        },
+        setForecastFulldata(forecastFullData) {
+            this.forecastFullData = forecastFullData
         },
     }
 })

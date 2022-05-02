@@ -21,7 +21,6 @@
     </select>
 
   </div>
-
 </template>
 
 <script>
