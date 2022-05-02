@@ -1,8 +1,11 @@
-body {
-    display: grid;
-    place-content: flex-start;
+/*body {*/
+/*    display: grid;*/
+/*    place-content: flex-start;*/
 
-}
+/*}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600&display=swap');
+
 
 /*###########################*/
 /*######### COMPOSITION #########*/
@@ -32,9 +35,19 @@ body {
 /*###########################*/
 /*######### BLOCKS #########*/
 /*###########################*/
+#app {
+    display: flex;
+    justify-content: center;
+    font-family: 'Sora', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
 .site-container{
-    position:relative;
-    width:340px;
+    width:70vw;
 }
 /*---------- 10 DAY VIEW ----------*/
 
@@ -122,6 +135,23 @@ display: flex;
 /*###########################*/
 /*######### EXCEPTIONS #########*/
 /*###########################*/
+
+/*// Medium devices (tablets, 768px and up)*!*!*/
+/*@media (min-width: 768px) {*/
+
+
+/*    .nav-bar-container {*/
+/*        display:none;*/
+/*    }*/
+/*}*/
+
+
+
+/*// Large devices (desktops, 992px and up)*!*!*/
+
+/*@media (min-width: 992px) {*/
+
+/*}*/
 
 
 
