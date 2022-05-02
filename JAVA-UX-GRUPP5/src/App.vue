@@ -1,8 +1,10 @@
 <template>
-  <search-bar-component />
+  <div class="site-container">
+    <search-bar-component/>
 
-  <router-view />
-  <navbar-component />
+    <router-view/>
+    <navbar-component/>
+  </div>
 </template>
 <script>
 // noinspection NpmUsedModulesInstalled

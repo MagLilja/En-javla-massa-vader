@@ -1,5 +1,5 @@
 <template>
-  <forecast-component
+  <load-data-component
       @forecastFullData="retrieveForecastFullData"
       @completeDailyWxList="retrieveDailyWxList"
       @userCoordinates="retrieveCoordinates"
@@ -24,7 +24,7 @@
 </template>
 <script>
 import circleComponent from "@/components/start/CircleComponent.vue";
-import forecastComponent from "@/components/start/ForecastComponent.vue";
+import loadDataComponent from "@/components/start/LoadDataComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import WeatherListComponent from "@/components/dataLists/SameDayListComponent.vue";
 import DateComponent from "@/components/global/DateComponent.vue";
@@ -36,7 +36,7 @@ export default {
     CurrentCityNameComponent,
     WeatherWarningComponent,
     circleComponent,
-    forecastComponent,
+    loadDataComponent: loadDataComponent,
     WeatherListComponent,
     DateComponent
   },

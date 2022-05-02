@@ -28,25 +28,5 @@ export default {};
 
 <!--suppress CssUnusedSymbol -->
 <style scoped>
-.nav-bar-container {
-  display: flex;
-  justify-content: space-around;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  background-color: #f5f5f5;
-  padding-top:0.5em;
-}
-.nav-bar-item {
-  padding: 0.2em;
-  margin: 0.2em;
-  border: 2px solid lightgrey;
-}
-.router-link-active {
-  height: 100%;
-  border: 2px solid black;
-}
-.nav-bar-item img {
-  width: clamp(2rem,12vw,12rem);
-}
+
 </style>

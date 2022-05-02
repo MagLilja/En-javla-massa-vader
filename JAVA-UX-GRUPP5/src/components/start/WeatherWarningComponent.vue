@@ -10,12 +10,7 @@ export default {
 </script>
 
 <style scoped>
-.weather-warning{
-  background-color: #f8a393;
-  width: 100%;
-  border: solid #bd8070;
-  border-width: 1px 0px 1px 0px;
-}
+
 
 
 </style>
