@@ -33,7 +33,7 @@
 }
 
 .big-icon {
-    width:7em;
+    width: 7em;
 }
 
 /*###########################*/
@@ -50,23 +50,25 @@
     margin-top: 60px;
 }
 
-.site-container{
-    width:70vw;
+.site-container {
+    width: 70vw;
+    padding:2em;
 }
+
 /*---------- DESKTOP CARDS ----------*/
 
 .desktop-data-card {
-    width:300px;
+    width: 300px;
 }
 
-.desktop-data-card-header{
-    border:1px solid black;
-    width:100%
+.desktop-data-card-header {
+    border: 1px solid black;
+    width: 100%
 }
 
-.desktop-data-card-body{
-    border:1px solid black;
-    width:100%
+.desktop-data-card-body {
+    border: 1px solid black;
+    width: 100%
 }
 
 
@@ -74,7 +76,7 @@
 
 .ten-day-list .date {
     text-align: left;
-    width:min-content;
+    width: min-content;
 
 }
 
@@ -83,12 +85,12 @@
 
 /*---------- START VIEW ----------*/
 .start-view-header {
-display: flex;
-    gap:0.4em;
+    display: flex;
+    gap: 0.4em;
 }
 
 .start-view-header .heart {
-    width:4rem;
+    width: 4rem;
 }
 
 /*---------- NAVIGATIONS ----------*/
@@ -101,28 +103,31 @@ display: flex;
     justify-content: space-around;
     position: fixed;
     bottom: 0;
-    left:0;
+    left: 0;
     width: 100vw;
     background-color: #f5f5f5;
-    padding-top:0.5em;
+    padding-top: 0.5em;
 }
+
 .nav-bar-item {
     padding: 0.2em;
     margin: 0.2em;
     border: 2px solid lightgrey;
 }
+
 .router-link-active {
     height: 100%;
     border: 2px solid black;
 }
+
 .nav-bar-item img {
-    width: clamp(2rem,12vw,12rem);
+    width: clamp(2rem, 12vw, 12rem);
 }
 
 /*---------- TOP NAVIGATION ----------*/
 
 .search-icon {
-    width: clamp(2rem,10vw,12rem);
+    width: clamp(2rem, 10vw, 12rem);
     margin: 0.3em;
 }
 
@@ -146,7 +151,7 @@ display: flex;
 
 /*---------- WEATHER WARNING ----------*/
 
-.weather-warning{
+.weather-warning {
     background-color: #f8a393;
     width: 100%;
     border: solid #bd8070;
@@ -169,9 +174,23 @@ display: flex;
 
 
 @media (min-width: 768px) {
+    .site-container {
+        display: flex;
+        flex-direction: row;
+        margin:2em;
+        gap:2em;
+        justify-content:center;
 
+    }
+
+    .md-plus-target {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap:2em;
+
+    }
 }
-
 
 
 /*// Large devices (desktops, 992px and up)*!*!*/
