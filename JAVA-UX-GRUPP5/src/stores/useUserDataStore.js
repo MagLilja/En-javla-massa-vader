@@ -15,11 +15,11 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             forecastFullData: "",
         }),
         userGeoLocationData: useStorage('userGeoLocationData', {
-            userGeoLocationData: {
-                features: [{
-                    geometry: {coordinates: [0, 0]}
-                }]
-            },
+
+            features: [{
+                geometry: {coordinates: [0, 0]}
+            }]
+
         }),
     }),
     getters: {

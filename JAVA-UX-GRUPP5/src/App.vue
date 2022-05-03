@@ -1,4 +1,5 @@
 <template>
+  <load-data-component/>
   <top-nav-bar-component/>
   <MqResponsive class="start-view-weather-warning-component-md-plus" target="md+">
     <weather-warning-component/>
@@ -26,6 +27,7 @@ import TenDayDesktopCard from "@/components/desktopCards/TenDayDesktopCard.vue";
 import SummaryDesktopCard from "@/components/desktopCards/SummaryDesktopCard.vue";
 import TwentyFourForecastDesktopCard from "@/components/desktopCards/TwentyFourForecastDesktopCard.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
+import LoadDataComponent from "@/components/start/LoadDataComponent.vue";
 
 export default {
   components: {
@@ -36,6 +38,7 @@ export default {
     SummaryDesktopCard,
     TwentyFourForecastDesktopCard,
     WeatherWarningComponent,
+    LoadDataComponent,
   },
 };
 </script>
