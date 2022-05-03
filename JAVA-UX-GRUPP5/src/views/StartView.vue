@@ -18,8 +18,8 @@
         :forecast-full-data="forecastFullData"
         :complete-daily-wx-list="completeDailyWxList"
     />
-    <MqResponsive target="sm-">
-      <weather-list-component :forecastFullData="forecastFullData"/>
+    <MqResponsive class="start-view-weather-same-day-list-component-sm-minus" target="sm-">
+      <same-day-list-component />
     </MqResponsive>
   </section>
 </template>
@@ -27,7 +27,7 @@
 import circleComponent from "@/components/start/CircleComponent.vue";
 import loadDataComponent from "@/components/start/LoadDataComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
-import WeatherListComponent from "@/components/dataLists/SameDayListComponent.vue";
+import SameDayListComponent from "@/components/dataLists/SameDayListComponent.vue";
 import DateComponent from "@/components/global/DateComponent.vue";
 import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
 import {MqResponsive} from "vue3-mq";
@@ -38,7 +38,7 @@ export default {
     WeatherWarningComponent,
     circleComponent,
     loadDataComponent: loadDataComponent,
-    WeatherListComponent,
+    SameDayListComponent,
     DateComponent,
     MqResponsive,
   },
