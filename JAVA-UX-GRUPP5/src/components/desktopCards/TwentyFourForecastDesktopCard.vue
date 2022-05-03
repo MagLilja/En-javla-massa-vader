@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop-data-card flex-column-center-2" v-if="getForecastFullData">
+  <div class="desktop-data-card flex-column-center-2" >
     <div class="desktop-data-card-header">
       <div >
         <img class="big-icon" src="../../assets/icons/main-view-icon.svg" alt="">
