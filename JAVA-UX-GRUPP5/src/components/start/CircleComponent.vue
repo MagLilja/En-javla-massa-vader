@@ -9,11 +9,11 @@
         </div>
         <div class="inner-circle-container">
           <div class="inner-circle-temperature">{{
-              forecastFullData.timeSeries[0].parameters[10].values[0]
+              getForecastFullData.timeSeries[0].parameters[10].values[0]
             }}&#176C
           </div>
           <div class="inner-circle-symbol">{{
-              getWSymb2Unicode(forecastFullData.timeSeries[0].parameters[18].values[0])
+              getWSymb2Unicode(getForecastFullData.timeSeries[0].parameters[18].values[0])
             }}
           </div>
           <div class="inner-circle-time">
@@ -23,27 +23,34 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 import WSymb2 from '@/services/Wsymb2.json';
-
+import {useUserDataStore} from "@/stores/useUserDataStore.js";
+import {mapActions, mapState} from "pinia";
+import weatherDataManager from "@/services/WeatherDataManager";
 export default {
   props: {
-    forecastFullData: {},
-    completeDailyWxList: []
   },
   data() {
     return {
       wSymb2Decoder: WSymb2,
       clockDeg: "",
+      completeDailyWxList:undefined,
     }
   },
-  watch: {},
+  computed: {
+    ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getAnalysisFulldata"])
+  },
   mounted() {
     this.setLocalClockDeg()
+    this.test()
   },
   methods: {
+    ...mapActions(useUserDataStore, ["setAnalysisFulldata","setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
+
     seTime(time) {
       const event = new Date(time);
       const options = {
@@ -62,6 +69,13 @@ export default {
           return wSymb2.symbol
         }
       }
+    },
+    test(){
+      let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
+      console.log(forecastList);
+      let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true).reverse()
+      console.log(analysisList);
+      this.completeDailyWxList = analysisList.concat(forecastList)
     },
     setLocalClockDeg() {
       let date = new Date;

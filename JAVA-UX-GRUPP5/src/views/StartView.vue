@@ -1,10 +1,10 @@
 <template>
-  <load-data-component
-      @forecastFullData="retrieveForecastFullData"
-      @completeDailyWxList="retrieveDailyWxList"
-      @userCoordinates="retrieveCoordinates"
-  />
-  <section class="flex-column-center-2 start-view-section" v-if="forecastFullData">
+<!--  <load-data-component-->
+<!--      @forecastFullData="retrieveForecastFullData"-->
+<!--      @completeDailyWxList="retrieveDailyWxList"-->
+<!--      @userCoordinates="retrieveCoordinates"-->
+<!--  />-->
+  <section class="flex-column-center-2 start-view-section">
     <MqResponsive class="start-view-weather-warning-component-sm-minus" target="sm-">
       <weather-warning-component/>
     </MqResponsive>

@@ -12,7 +12,10 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             },
         }),
         forecastFullData: useStorage('forecastFulData', {
-            forecastFullData: "",
+            forecastFullData: undefined,
+        }),
+        analysisFullData: useStorage('analysisFullData', {
+            analysisFullData: undefined,
         }),
         userGeoLocationData: useStorage('userGeoLocationData', {
 
@@ -32,6 +35,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         getUserGeoLocationData() {
             return this.userGeoLocationData
         },
+        getAnalysisFulldata() {
+            return this.analysisFullData
+        },
     },
     actions: {
         setCoordinates(coordinates) {
@@ -42,6 +48,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         setUserGeoLocationData(value) {
             this.userGeoLocationData = value
+        },
+        setAnalysisFulldata(value) {
+            this.analysisFullData = value
         },
     }
 })

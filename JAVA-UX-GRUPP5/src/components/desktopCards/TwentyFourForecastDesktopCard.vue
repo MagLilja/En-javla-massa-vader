@@ -19,7 +19,7 @@ export default {
   name: 'ten-day-desktop-card',
   components: {SameDayListComponent},
   computed: {
-    ...mapState("useUserDataStore","getForecastFullData")
+    ...mapState(useUserDataStore,"getForecastFullData")
   }
 }
 </script>
