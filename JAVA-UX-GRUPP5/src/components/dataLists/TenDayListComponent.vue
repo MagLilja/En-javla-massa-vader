@@ -35,7 +35,6 @@ export default {
     let date = new Date()
     for (let i = 0; i < 12; i++) {
       date.setDate(date.getDate() + 1)
-      console.log(date);
       this.weatherData.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date))
 
     }
