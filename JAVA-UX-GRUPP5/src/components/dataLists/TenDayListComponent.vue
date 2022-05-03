@@ -33,7 +33,7 @@ export default {
   },
   created() {
     let date = new Date()
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 10; i++) {
       date.setDate(date.getDate() + 1)
       this.weatherData.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date))
 
