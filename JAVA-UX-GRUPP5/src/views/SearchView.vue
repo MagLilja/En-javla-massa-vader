@@ -1,1 +1,4 @@
-<template>search view here</template>
+<template>search view here
+
+  <img src="./../assets/wireframes/search.png" alt="">
+</template>

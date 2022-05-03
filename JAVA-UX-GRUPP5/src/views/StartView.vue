@@ -4,9 +4,10 @@
       @completeDailyWxList="retrieveDailyWxList"
       @userCoordinates="retrieveCoordinates"
   />
-  <div class="flex-column-center-2" v-if="forecastFullData">
-
-    <weather-warning-component/>
+  <section class="flex-column-center-2 start-view-section" v-if="forecastFullData">
+    <MqResponsive class="start-view-weather-warning-component-sm-minus" target="sm-">
+      <weather-warning-component/>
+    </MqResponsive>
     <div class="start-view-header">
       <current-city-name-component/>
       <img class="heart" src="../assets/icons/favorite.svg" alt="a heart"></div>
@@ -17,10 +18,10 @@
         :forecast-full-data="forecastFullData"
         :complete-daily-wx-list="completeDailyWxList"
     />
-    <weather-list-component :forecastFullData="forecastFullData"/>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  </div>
+    <MqResponsive target="sm-">
+      <weather-list-component :forecastFullData="forecastFullData"/>
+    </MqResponsive>
+  </section>
 </template>
 <script>
 import circleComponent from "@/components/start/CircleComponent.vue";
@@ -29,7 +30,7 @@ import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.
 import WeatherListComponent from "@/components/dataLists/SameDayListComponent.vue";
 import DateComponent from "@/components/global/DateComponent.vue";
 import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
-
+import {MqResponsive} from "vue3-mq";
 
 export default {
   components: {
@@ -38,7 +39,8 @@ export default {
     circleComponent,
     loadDataComponent: loadDataComponent,
     WeatherListComponent,
-    DateComponent
+    DateComponent,
+    MqResponsive,
   },
 
   data() {
@@ -63,7 +65,6 @@ export default {
 </script>
 
 <style scoped>
-
 
 
 </style>

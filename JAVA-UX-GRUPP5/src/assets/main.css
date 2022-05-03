@@ -127,8 +127,16 @@
 /*---------- TOP NAVIGATION ----------*/
 
 .search-icon {
-    width: clamp(2rem, 10vw, 12rem);
+    width: clamp(2rem, 10vw, 6rem);
     margin: 0.3em;
+}
+
+.favorite-icon{
+    width: clamp(2rem, 10vw, 6rem);
+}
+
+.favorite-link {
+    display:none;
 }
 
 .top-nav-bar-container {
@@ -156,6 +164,10 @@
     width: 100%;
     border: solid #bd8070;
     border-width: 1px 0px 1px 0px;
+}
+
+.start-view-weather-warning-component-sm-minus {
+    width:100vw;
 }
 
 /*###########################*/
@@ -189,6 +201,25 @@
         grid-template-columns: 1fr 1fr;
         gap:2em;
 
+    }
+
+    .top-nav-bar-container {
+        position:absolute;
+    }
+
+    .start-view-section {
+
+    }
+
+    .start-view-weather-warning-component-md-plus {
+        position:absolute;
+        width:100vw;
+    }
+
+    .favorite-link {
+        display:block;
+        margin-left: auto;
+        padding:1em;
     }
 }
 

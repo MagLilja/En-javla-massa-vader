@@ -14,6 +14,9 @@
 
   {{selectedStationData.longitude}}
   {{selectedStationData.latitude}}
+
+
+  <img src="./../assets/wireframes/summary.png" alt="">
 </template>
 
 <script>
