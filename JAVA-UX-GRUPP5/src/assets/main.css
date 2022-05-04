@@ -24,6 +24,12 @@
     margin: 1em;
 }
 
+.flex-row-space-something {
+    display: flex;
+    justify-content: center;
+    gap: 1em;   
+}
+
 /*###########################*/
 /*######### UTILITY #########*/
 /*###########################*/
@@ -34,6 +40,10 @@
 
 .big-icon {
     width: 7em;
+}
+
+.width-90 {
+    width: 90%;
 }
 
 /*###########################*/
@@ -68,7 +78,10 @@
 
 .desktop-data-card-body {
     border: 1px solid black;
-    width: 100%
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
 }
 
 
@@ -79,7 +92,13 @@
     width: min-content;
 
 }
+/*WEATHER LISTS*/
 
+.weather-table td{
+text-align: left;
+padding: 0 0.4em;
+font-size: 1em;
+}
 
 /*CircleComponent is styled in component*/
 
@@ -95,6 +114,8 @@
 
 .start-view-weather-same-day-list-component-sm-minus {
     width:100vw;
+    display: flex;
+    justify-content: center;
 }
 
 /*---------- NAVIGATIONS ----------*/

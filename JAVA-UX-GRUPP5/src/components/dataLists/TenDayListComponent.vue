@@ -1,4 +1,17 @@
 <template>
+  <table class="weather-table">
+    <tr v-for="(wd,index) of weatherData" :key="index">
+    <td>{{ getLocalDate(wd.dataDate) }}</td>
+    <td><div class="font-weight-700">{{ wd.highestTemp }}&#176</div>
+        <div>({{ wd.lowestTemp }}&#176)</div></td>
+    <td>{{ wd.totalPrecipitation }} mm</td>
+    <td><div class="font-weight-700">{{ wd.roundedAvgWindSpeed }}</div>
+        <div>({{ wd.highestGust }}) m/s</div></td>
+    </tr>
+ 
+  </table>
+
+  <!--
   <ul class="ten-day-list">
     <li v-for="(wd,index) of weatherData" :key="index" class="flex-row-space-around-m1">
 
@@ -15,6 +28,7 @@
       </div>
     </li>
   </ul>
+  -->
 </template>
 <script>
 import {mapState} from "pinia/dist/pinia";
@@ -32,9 +46,11 @@ export default {
     ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData"])
   },
   created() {
-    let date = new Date()
     for (let i = 0; i < 10; i++) {
-      date.setDate(date.getDate() + 1)
+      let date = new Date()
+      //date = date.getDate + i
+      date.setDate(date.getDate() + i)
+      
       this.weatherData.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date))
 
     }

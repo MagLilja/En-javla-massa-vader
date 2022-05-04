@@ -1,10 +1,12 @@
 <template>
-  <ul>
-    <li v-for="(hour, index) of TwentyFourForecast" :key="index">
-      {{ hour.time }}, {{ hour.wSymb2Symbol }}, {{ hour.temperature }},
-      {{ hour.wind }} ({{ hour.gusts }})
-    </li>
-  </ul>
+  <table class="weather-table">
+    <tr v-for="(hour, index) of TwentyFourForecast" :key="index">
+      <td>{{ hour.time }} </td> 
+      <td>{{ hour.wSymb2Symbol }}</td>
+      <td>{{ hour.temperature }}&#176</td>
+      <td>{{ hour.wind }} ({{ hour.gusts }}) m/s</td>
+    </tr>
+  </table>
 </template>
 
 <script>
