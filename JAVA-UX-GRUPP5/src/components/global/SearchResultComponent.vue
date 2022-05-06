@@ -1,6 +1,6 @@
 <template>
-  <ul v-if="searchData">
-    <li @click="selectCity(data)" class="search-data-item" v-for="(data, index) in searchData" :key="index">
+  <ul v-if="getSearchData">
+    <li @click="selectCity(data)" class="search-data-item" v-for="(data, index) in getSearchData" :key="index">
       {{ data.label }}
       {{ data.x }}
       {{ data.y }}
@@ -8,13 +8,16 @@
   </ul>
 </template>
 <script>
-import {mapActions} from "pinia/dist/pinia";
-import {useUserDataStore} from "@/stores/useUserDataStore";
+import {mapActions, mapState} from "pinia/dist/pinia";
+import {useUserDataStore} from "@/stores/useUserDataStore.js";
 
 export default {
   name: 'search-result-component',
   props: {
     searchData: {},
+  },
+  computed: {
+    ...mapState(useUserDataStore,["getSearchData"])
   },
   methods: {
     ...mapActions(useUserDataStore, ["setCoordinates"]),

@@ -12,9 +12,10 @@
       <img class="search-icon"
            src="../../assets/icons/search-icon.svg"
            alt="search-icon"/>
+      <search-component @click="toggleSearchResult()"/>
 
       <div class="search-box" v-if="showSearch">
-        <search-component />
+
       </div>
     </MqResponsive>
 
@@ -39,7 +40,7 @@ export default {
   },
   components: {MqResponsive, SearchComponent},
   methods: {
-    toggleSearch() {
+    toggleSearchResult() {
       this.showSearch = !this.showSearch
     },
   }

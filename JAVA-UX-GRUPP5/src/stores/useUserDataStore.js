@@ -24,10 +24,14 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             }]
 
         }),
+        searchData: undefined,
     }),
     getters: {
         getCoordinates() {
             return this.coordinates
+        },
+        getSearchData() {
+            return this.searchData
         },
         getForecastFullData() {
             return this.forecastFullData
@@ -42,6 +46,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
     actions: {
         setCoordinates(coordinates) {
             this.coordinates = coordinates
+        },
+        setSearchData(searchData) {
+            this.searchData = searchData
         },
         setForecastFulldata(value) {
             this.forecastFullData = value
