@@ -25,8 +25,9 @@
 
 <script>
 import smhiService from "../../services/smhiService.js";
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
 import {mapState} from 'pinia'
+
 export default {
   props: {
     selectedParamStationsHref: String,
@@ -43,7 +44,7 @@ export default {
   watch: {
     async selectedParamStationsHref() {
       this.stationsForParam = await smhiService.fetchData(this.selectedParamStationsHref);
-      if(this.stationsForParam){
+      if (this.stationsForParam) {
         this.findStationNearestToCoordinates()
       }
     },
@@ -55,8 +56,13 @@ export default {
     findStationNearestToCoordinates() {
       let minDistance = 10000000;
       let closestStation;
+
       for (let station of this.stationsForParam.station) {
+        // (11.94 - 18.82) * 2
         let distance = Math.sqrt((this.coordinates.longitude - station.longitude) * (this.coordinates.longitude - station.longitude) + (this.coordinates.latitude - station.latitude) * (this.coordinates.latitude - station.latitude));
+        // let distance = Math.sqrt(((16.79 - station.longitude) * 2) + ((65.10 - station.latitude) * 2));
+        console.log(distance);
+
         if (distance < minDistance) {
           minDistance = distance;
           closestStation = station;
