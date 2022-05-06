@@ -1,4 +1,17 @@
-<template>search view here
+<template>
 
-  <img src="./../assets/wireframes/search.png" alt="">
+<search-component/>
+
 </template>
+
+<script>
+
+import SearchComponent from "@/components/global/SearchComponent.vue";
+export default {
+  components: {SearchComponent}
+}
+</script>
+
+<style scoped>
+
+</style>
