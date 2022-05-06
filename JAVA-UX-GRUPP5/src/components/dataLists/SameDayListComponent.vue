@@ -9,6 +9,7 @@
   </table>
 </template>
 
+
 <script>
 import weatherDataManager from "@/services/WeatherDataManager.js";
 import WSymbol from "@/services/Wsymb2.json";
