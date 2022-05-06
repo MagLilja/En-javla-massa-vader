@@ -23,7 +23,7 @@
     </MqResponsive>
 
 
-    <div @click="toggleSearch()" class="top-nav-site-title">En jävla massa väder!</div>
+    <div @click="toggleSearch()" class="top-nav-site-title">En himla massa väder!</div>
     <div class="favorite-link"><img class="favorite-icon"
                                     src="../../assets/icons/favorite.svg"
                                     alt="search-icon"/></div>
