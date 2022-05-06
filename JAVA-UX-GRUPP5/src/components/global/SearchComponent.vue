@@ -1,6 +1,6 @@
 <template>
-  <input v-model="searchInput" @keyup.enter="submitSearch(searchInput)" type="text"/>
-  <button type="submit" @click="submitSearch(searchInput)">Sök</button>
+  <input class="search-input" v-model="searchInput" @keyup.enter="submitSearch(searchInput)" type="text"/>
+  <button class="search-button" type="submit" @click="submitSearch(searchInput)">Sök</button>
   {{ searchInput }}
 
 </template>
