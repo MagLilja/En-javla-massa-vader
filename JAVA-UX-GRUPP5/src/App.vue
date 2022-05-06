@@ -1,12 +1,12 @@
 <template>
   <!--  <load-data-component/>-->
 
-  <div v-if="isLoaded">
+  <div v-if="isLoaded" class="site-container">
     <top-nav-bar-component/>
     <MqResponsive class="start-view-weather-warning-component-md-plus" target="md+">
       <weather-warning-component/>
     </MqResponsive>
-    <div class="site-container">
+    <div class="view-container">
       <router-view/>
 
       <MqResponsive class="md-plus-target" target="md+">
@@ -34,7 +34,6 @@ import TenDayDesktopCard from "@/components/desktopCards/TenDayDesktopCard.vue";
 import SummaryDesktopCard from "@/components/desktopCards/SummaryDesktopCard.vue";
 import TwentyFourForecastDesktopCard from "@/components/desktopCards/TwentyFourForecastDesktopCard.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
-import LoadDataComponent from "@/components/start/LoadDataComponent.vue";
 
 import smhiService from "@/services/smhiService";
 
@@ -47,7 +46,6 @@ export default {
     SummaryDesktopCard,
     TwentyFourForecastDesktopCard,
     WeatherWarningComponent,
-    LoadDataComponent,
   },
   created() {
     this.setUpAllData()
