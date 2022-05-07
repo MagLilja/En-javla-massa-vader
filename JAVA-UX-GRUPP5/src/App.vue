@@ -59,11 +59,22 @@ export default {
   computed: {
     ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData"])
   },
-
+  watch: {
+    getCoordinates: {
+      deep: true,
+      handler() {
+        if (this.getCoordinates.origin === 'FROM_SEARCH'){
+          this.getForecastFullDataFromAPI(this.getCoordinates)
+          this.getAnalysisFullDataFromAPI(this.getCoordinates)
+        }
+      }
+    }
+  },
   methods: {
-    ...mapActions(useUserDataStore, ["setAnalysisFulldata","setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
+    ...mapActions(useUserDataStore, ["setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
     async setUpAllData() {
       this.getCoordinatesFromUser()
+      console.log("set up data");
     },
     getCoordinatesFromUser() {
       navigator.geolocation.getCurrentPosition(
@@ -77,7 +88,7 @@ export default {
             userCoordinatesTemp.latitude = latitude;
             userCoordinatesTemp.longitude = longitude;
             this.setCoordinates(userCoordinatesTemp)
-            console.log("userCoordinates initialized");
+            console.info("userCoordinates initialized");
             this.getForecastFullDataFromAPI(userCoordinatesTemp)
             this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
             this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
@@ -97,12 +108,10 @@ export default {
       let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
       let forecastFullData = await smhiService.fetchData(forecastUrl);
       this.setForecastFulldata(forecastFullData)
-      console.log("forecastFullData initialized");
+      console.info("forecastFullData initialized");
     },
     async getUserGeoLocationDataFromApi(userCoordinatesTemp) {
-      var requestOptions = {
-        method: 'GET',
-      };
+
       let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${userCoordinatesTemp.latitude}&lon=${userCoordinatesTemp.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`;
       // if the coordinates in the Store match the geolocation data coordinates in the Store
 
@@ -110,12 +119,12 @@ export default {
       let result = await response.json()
       this.userGeoLocationData = result;
       this.setUserGeoLocationData(result)
-      console.log(this.userGeoLocationData);
+      console.info("UserGeoLocationData initialized");
       this.isLoaded = true
 
 
     },
-    async getAnalysisFullDataFromAPI(userCoordinatesTemp){
+    async getAnalysisFullDataFromAPI(userCoordinatesTemp) {
       let long =
           Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) /
           100;
@@ -125,6 +134,7 @@ export default {
       let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let result = await smhiService.fetchData(analysisUrl);
       this.setAnalysisFulldata(result)
+      console.info("AnalysisFulldata initialized");
     },
   }
 };

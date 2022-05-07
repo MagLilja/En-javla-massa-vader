@@ -18,7 +18,6 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             analysisFullData: undefined,
         }),
         userGeoLocationData: useStorage('userGeoLocationData', {
-
             features: [{
                 geometry: {coordinates: [0, 0]}
             }]
@@ -49,6 +48,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         setSearchData(searchData) {
             this.searchData = searchData
+
+            const count = useStorage('my-count', 0)
+            console.log(count);
         },
         setForecastFulldata(value) {
             this.forecastFullData = value

@@ -1,9 +1,8 @@
 <template>
   <ul v-if="getSearchData">
     <li @click="selectCity(data)" class="search-data-item" v-for="(data, index) in getSearchData" :key="index">
-      {{ data.label }}
-      {{ data.x }}
-      {{ data.y }}
+      {{ data.city }}
+      {{ data.municipality }}
     </li>
   </ul>
 </template>
@@ -22,12 +21,11 @@ export default {
   methods: {
     ...mapActions(useUserDataStore, ["setCoordinates"]),
     selectCity(data) {
-      console.log(data);
-      console.log(data.x) //long
-      console.log(data.y) //lat
       let tempCoord = {}
-      tempCoord.longitude = data.x
-      tempCoord.latitude = data.y
+      tempCoord.longitude = data.longitude
+      tempCoord.latitude = data.latitude
+      tempCoord.origin = "FROM_SEARCH"
+      tempCoord.searchSelection = data.city
       this.setCoordinates(tempCoord)
       this.$router.push('/')
     },
@@ -42,6 +40,12 @@ export default {
   margin: 0.4em;
   text-align: left;
   background-color: #d9d9d9;
+
+}
+
+.search-data-item:hover,
+.search-data-item:focus {
+  font-weight:600;
   cursor: pointer;
 }
 </style>
