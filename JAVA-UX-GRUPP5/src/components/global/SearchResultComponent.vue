@@ -2,7 +2,7 @@
   <div class="search-result-container">
     <ul v-if="getSearchData" class="search-data-list">
       <li class="search-data-item" v-for="(searchData, index) in getSearchData" :key="index">
-        <favorite-check-component :search-data="searchData"/>
+        <favorite-check-component :location-data="searchData"/>
         <div @click="selectCity(searchData)">{{ searchData.city }}
           {{ searchData.municipality }}
         </div>

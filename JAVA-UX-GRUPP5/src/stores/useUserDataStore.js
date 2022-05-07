@@ -24,7 +24,7 @@ export const useUserDataStore = defineStore('useUserDataStore', {
 
         }),
         favoriteLocationList: useStorage('favoriteLocationList', {
-            favoriteLocationList: undefined,
+            favorites: []
         }),
         searchData: undefined,
     }),
@@ -56,7 +56,7 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             this.searchData = searchData
 
             const count = useStorage('my-count', 0)
-            console.log(count);
+            console.log(count)
         },
         setForecastFulldata(value) {
             this.forecastFullData = value
@@ -67,8 +67,27 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         setAnalysisFulldata(value) {
             this.analysisFullData = value
         },
-        setFavoriteLocationList(value) {
-            this.favoriteLocationList = value
+        setFavoriteLocation(value) {
+            let favoriteLocationList = this.getFavoriteLocationList;
+            console.log(favoriteLocationList.favorites);
+            console.log(typeof(favoriteLocationList.favorites))
+            favoriteLocationList.favorites.push(value)
+
+            this.favoriteLocationList = favoriteLocationList
+        },
+
+        removeFavoriteLocation(value) {
+            let favoriteLocationList = this.getFavoriteLocationList;
+            for (let favorite of favoriteLocationList.favorites){
+                console.log(favorite);
+                if(favorite != null && favorite.longitude === value.longitude && favorite.latitude === value.latitude){
+                    let indexOf1 = favoriteLocationList.favorites.indexOf(favorite);
+                    console.log(indexOf1);
+                    delete favoriteLocationList.favorites[indexOf1]
+                    console.log("match");
+                }
+            }
+            this.favoriteLocationList = favoriteLocationList
         },
     }
 })
