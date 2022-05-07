@@ -1,29 +1,23 @@
 <template>
-<!--  <load-data-component-->
-<!--      @forecastFullData="retrieveForecastFullData"-->
-<!--      @completeDailyWxList="retrieveDailyWxList"-->
-<!--      @userCoordinates="retrieveCoordinates"-->
-<!--  />-->
+  <!--  <load-data-component-->
+  <!--      @forecastFullData="retrieveForecastFullData"-->
+  <!--      @completeDailyWxList="retrieveDailyWxList"-->
+  <!--      @userCoordinates="retrieveCoordinates"-->
+  <!--  />-->
   <section class="flex-column-center-2 start-view-section">
     <MqResponsive class="start-view-weather-warning-component-sm-minus" target="sm-">
       <weather-warning-component/>
     </MqResponsive>
     <div class="start-view-header">
       <current-city-name-component/>
-
-
-      <favorite-check-component/>
+      <favorite-check-component :location-data="locationData"/>
 
     </div>
     <date-component/>
 
-    <circleComponent
-
-        :forecast-full-data="forecastFullData"
-        :complete-daily-wx-list="completeDailyWxList"
-    />
+    <circleComponent/>
     <MqResponsive class="start-view-weather-same-day-list-component-sm-minus" target="sm-">
-      <same-day-list-component />
+      <same-day-list-component/>
     </MqResponsive>
   </section>
 </template>
@@ -35,6 +29,8 @@ import DateComponent from "@/components/global/DateComponent.vue";
 import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
 import {MqResponsive} from "vue3-mq";
 import FavoriteCheckComponent from "@/components/global/FavoriteCheckComponent.vue";
+import {useUserDataStore} from "@/stores/useUserDataStore.js";
+import {mapState} from "pinia";
 
 export default {
   components: {
@@ -46,25 +42,29 @@ export default {
     DateComponent,
     MqResponsive,
   },
-
+  computed: {
+    ...mapState(useUserDataStore, ["getCoordinates", "getUserGeoLocationData"])
+  },
+  created() {
+    let locationDataTemp = {
+          city: this.getUserGeoLocationData.features[0].properties.city,
+          country: this.getUserGeoLocationData.features[0].properties.country,
+          latitude: this.getCoordinates.latitude,
+          longitude: this.getCoordinates.longitude,
+          municipality: this.getUserGeoLocationData.features[0].properties.county,
+        }
+        this.locationData = locationDataTemp
+        },
   data() {
     return {
       forecastFullData: undefined,
       completeDailyWxList: undefined,
       userCoordinates: undefined,
+      locationData: undefined,
     };
   },
-  methods: {
-    retrieveForecastFullData(v) {
-      this.forecastFullData = v;
-    },
-    retrieveDailyWxList(v) {
-      this.completeDailyWxList = v;
-    },
-    retrieveCoordinates(v) {
-      this.userCoordinates = v;
-    },
-  },
+
+  methods: {},
 };
 </script>
 

@@ -31,6 +31,7 @@ export default {
       if (this.favorite) {
         this.heartIcon = '/src/assets/icons/favorite.svg'
         this.setFavoriteLocation(this.locationData)
+        console.log(this.locationData);
       } else {
         this.removeFavoriteLocation(this.locationData)
         this.heartIcon = '/src/assets/icons/iconfinder_heart_like_8664909.svg'
