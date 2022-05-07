@@ -1,19 +1,29 @@
 <template>
-  <ul v-if="getSearchData">
-    <li @click="selectCity(data)" class="search-data-item" v-for="(data, index) in getSearchData" :key="index">
-      {{ data.city }}
-      {{ data.municipality }}
-    </li>
-  </ul>
+  <div class="search-result-container">
+    <ul v-if="getSearchData" class="search-data-list">
+      <li @click="selectCity(data)" class="search-data-item" v-for="(data, index) in getSearchData" :key="index">
+        {{ data.city }}
+        {{ data.municipality }}
+
+
+        <font-awesome-icon :icon="['fas', 'location-arrow']"/>
+
+      </li>
+    </ul>
+  </div>
 </template>
 <script>
 import {mapActions, mapState} from "pinia/dist/pinia";
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
 
+
 export default {
   name: 'search-result-component',
   props: {
     searchData: {},
+  },
+  components: {
+
   },
   computed: {
     ...mapState(useUserDataStore,["getSearchData"])
@@ -34,12 +44,11 @@ export default {
 </script>
 <style scoped>
 .search-data-item {
-  border: 1px solid #c2c2c2;
-  font-size: 0.7em;
-  padding: 0.5em 1.5em;
+  font-size: 1em;
+  padding: 0.2em 1.5em;
   margin: 0.4em;
   text-align: left;
-  background-color: #d9d9d9;
+
 
 }
 
@@ -47,5 +56,19 @@ export default {
 .search-data-item:focus {
   font-weight:600;
   cursor: pointer;
+}
+
+.search-data-list {
+
+  width: fit-content;
+
+
+
+}
+
+.search-result-container {
+  display:flex;
+  justify-content:center;
+
 }
 </style>
