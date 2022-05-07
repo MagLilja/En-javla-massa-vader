@@ -10,7 +10,11 @@
     </MqResponsive>
     <div class="start-view-header">
       <current-city-name-component/>
-      <img class="heart" src="../assets/icons/favorite.svg" alt="a heart"></div>
+
+
+      <favorite-check-component/>
+
+    </div>
     <date-component/>
 
     <circleComponent
@@ -25,19 +29,19 @@
 </template>
 <script>
 import circleComponent from "@/components/start/CircleComponent.vue";
-import loadDataComponent from "@/components/start/LoadDataComponent.vue";
 import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
 import SameDayListComponent from "@/components/dataLists/SameDayListComponent.vue";
 import DateComponent from "@/components/global/DateComponent.vue";
 import CurrentCityNameComponent from "@/components/global/CurrentCityNameComponent.vue";
 import {MqResponsive} from "vue3-mq";
+import FavoriteCheckComponent from "@/components/global/FavoriteCheckComponent.vue";
 
 export default {
   components: {
+    FavoriteCheckComponent,
     CurrentCityNameComponent,
     WeatherWarningComponent,
     circleComponent,
-    loadDataComponent: loadDataComponent,
     SameDayListComponent,
     DateComponent,
     MqResponsive,
@@ -64,7 +68,3 @@ export default {
 };
 </script>
 
-<style scoped>
-
-
-</style>

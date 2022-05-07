@@ -224,6 +224,16 @@
     cursor: pointer;
 }
 
+.search-data-item {
+    display: flex;
+    gap:0.4em;
+}
+
+.search-data-item img {
+    width:18px;
+    aspect-ratio: 1;
+}
+
 
 /*---------- WEATHER WARNING ----------*/
 

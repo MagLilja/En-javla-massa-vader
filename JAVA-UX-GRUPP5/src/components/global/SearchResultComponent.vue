@@ -1,9 +1,11 @@
 <template>
   <div class="search-result-container">
     <ul v-if="getSearchData" class="search-data-list">
-      <li @click="selectCity(data)" class="search-data-item" v-for="(data, index) in getSearchData" :key="index">
-        {{ data.city }}
-        {{ data.municipality }}
+      <li class="search-data-item" v-for="(searchData, index) in getSearchData" :key="index">
+        <favorite-check-component :search-data="searchData"/>
+        <div @click="selectCity(searchData)">{{ searchData.city }}
+          {{ searchData.municipality }}
+        </div>
 
 
         <font-awesome-icon :icon="['fas', 'location-arrow']"/>
@@ -15,6 +17,7 @@
 <script>
 import {mapActions, mapState} from "pinia/dist/pinia";
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
+import FavoriteCheckComponent from "@/components/global/FavoriteCheckComponent.vue";
 
 
 export default {
@@ -23,6 +26,7 @@ export default {
     searchData: {},
   },
   components: {
+    FavoriteCheckComponent
 
   },
   computed: {

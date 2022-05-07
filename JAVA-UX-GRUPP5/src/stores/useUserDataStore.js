@@ -23,6 +23,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             }]
 
         }),
+        favoriteLocationList: useStorage('favoriteLocationList', {
+            favoriteLocationList: undefined,
+        }),
         searchData: undefined,
     }),
     getters: {
@@ -40,6 +43,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         getAnalysisFulldata() {
             return this.analysisFullData
+        },
+        getFavoriteLocationList() {
+            return this.favoriteLocationList
         },
     },
     actions: {
@@ -60,6 +66,9 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         setAnalysisFulldata(value) {
             this.analysisFullData = value
+        },
+        setFavoriteLocationList(value) {
+            this.favoriteLocationList = value
         },
     }
 })
