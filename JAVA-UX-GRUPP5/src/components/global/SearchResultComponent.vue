@@ -52,9 +52,15 @@ export default {
 
 }
 
+
+search-data-item::after {
+
+}
+
 .search-data-item:hover,
 .search-data-item:focus {
-  font-weight:600;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
   cursor: pointer;
 }
 
