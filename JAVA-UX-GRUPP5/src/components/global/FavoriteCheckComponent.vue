@@ -1,10 +1,13 @@
 <template>
-  <img class="checked-heart" @click="toggleFavorite()" :src="heartIcon" alt="a heart">
+  <img class="checked-heart" @click="toggleFavorite()"
+       :src="heartIcon" alt="a heart">
 
 </template>
 <script>
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
 import {mapActions, mapState} from "pinia";
+import checkedHeart from "@/assets/icons/favorite.svg"
+import unCheckedHeart from "@/assets/icons/iconfinder_heart_like_8664909.svg"
 
 export default {
   name: 'favorite-check-component',
@@ -16,7 +19,7 @@ export default {
   },
   data() {
     return {
-      heartIcon: '/src/assets/icons/iconfinder_heart_like_8664909.svg',
+      heartIcon: checkedHeart,
       favorite: false,
     }
   },
@@ -29,18 +32,18 @@ export default {
       this.favorite = !this.favorite
 
       if (this.favorite) {
-        this.heartIcon = '/src/assets/icons/favorite.svg'
+        this.heartIcon = checkedHeart
         this.setFavoriteLocation(this.locationData)
         console.log(this.locationData);
       } else {
         this.removeFavoriteLocation(this.locationData)
-        this.heartIcon = '/src/assets/icons/iconfinder_heart_like_8664909.svg'
+        this.heartIcon = unCheckedHeart
       }
     },
     checkIfFavorite() {
       for (let favorite of this.getFavoriteLocationList.favorites){
         if(favorite != null && favorite.longitude === this.locationData.longitude && favorite.latitude === this.locationData.latitude){
-          this.heartIcon = '/src/assets/icons/favorite.svg'
+          this.heartIcon = checkedHeart
           this.favorite = !this.favorite
           console.log("match");
         }
