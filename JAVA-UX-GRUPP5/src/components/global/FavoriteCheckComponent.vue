@@ -1,6 +1,6 @@
 <template>
   <img class="checked-heart" @click="toggleFavorite()" :src="heartIcon" alt="a heart">
-{{locationData}}
+
 </template>
 <script>
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
