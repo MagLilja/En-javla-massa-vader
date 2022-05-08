@@ -24,7 +24,7 @@ export const useUserDataStore = defineStore('useUserDataStore', {
 
         }),
         favoriteLocationList: useStorage('favoriteLocationList', {
-            favorites: []
+            favorites: [null]
         }),
         searchData: undefined,
     }),
