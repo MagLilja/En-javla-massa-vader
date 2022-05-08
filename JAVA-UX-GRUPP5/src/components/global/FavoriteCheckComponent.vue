@@ -1,9 +1,10 @@
 <template>
   <img class="checked-heart" @click="toggleFavorite()"
        :src="heartIcon" alt="a heart">
-<!--  {{ favorite }}-->
+  <!--  {{ favorite }}-->
 <!--  {{ this.getFavoriteLocationList.favorites }}-->
-
+<!--  {{ favorite }}-->
+<!--  {{ this._uid }}-->
 
 </template>
 <script>
@@ -21,7 +22,7 @@ export default {
     this.checkIfFavorite(this.locationData)
   },
   mounted() {
-    // this.checkIfFavorite(this.locationData)
+    console.log(this._uid);
   },
   data() {
     return {
@@ -35,6 +36,11 @@ export default {
       handler(v) {
         this.checkIfFavorite(v)
         console.log(v);
+      }
+    },
+    favorite() {
+      if (this.favorite) {
+        this.heartIcon = checkedHeart
       }
     }
   },
@@ -56,26 +62,34 @@ export default {
       }
     },
     checkIfFavorite(v) {
-      console.log(this.getFavoriteLocationList.favorites.length);
-      console.log(this.getFavoriteLocationList.favorites);
-
+      let contains = 0
       for (let favorite of this.getFavoriteLocationList.favorites) {
         if (favorite != null) {
-          console.log(v.longitude + " : " + favorite.longitude);
-          console.log(v.latitude + " : " + favorite.latitude);
           console.log((favorite.longitude === v.longitude && favorite.latitude === v.latitude));
-          if(favorite.city === v.city && favorite.municipality === v.municipality){
-            this.favorite = true
-            this.heartIcon = checkedHeart
+          if ((favorite.longitude === v.longitude && favorite.latitude === v.latitude)) {
+            contains++
           }
-          // if (favorite.longitude === v.longitude && favorite.latitude === v.latitude) {
-          //   this.heartIcon = checkedHeart
-          //   this.favorite = !this.favorite
-          //   console.log(this.favorite);
-          //   console.log("match");
-          // }
         }
       }
+      if (contains > 0) {
+        this.heartIcon = checkedHeart
+        this.favorite = true
+      } else {
+        this.favorite = false
+        this.heartIcon = unCheckedHeart
+      }
+
+      // console.log(this.getFavoriteLocationList.favorites.indexOf(v));//
+
+
+      // if (favorite.longitude === v.longitude && favorite.latitude === v.latitude) {
+      //   this.heartIcon = checkedHeart
+      //   this.favorite = !this.favorite
+      //   console.log(this.favorite);
+      //   console.log("match");
+      // }
+
+
     },
   },
 

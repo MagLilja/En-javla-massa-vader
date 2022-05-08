@@ -93,5 +93,6 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             }
             this.favoriteLocationList = favoriteLocationList
         },
+
     }
 })

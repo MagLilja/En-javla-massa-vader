@@ -57,7 +57,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData"])
+    ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getFavoriteLocationList"])
   },
   watch: {
     getCoordinates: {
@@ -71,7 +71,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(useUserDataStore, ["setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
+    ...mapActions(useUserDataStore, ["setFavoriteLocation","setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
     async setUpAllData() {
       this.getCoordinatesFromUser()
       console.log("set up data");
@@ -135,8 +135,22 @@ export default {
       let result = await smhiService.fetchData(analysisUrl);
       this.setAnalysisFulldata(result)
       console.info("AnalysisFulldata initialized");
+      this.cleanUpFavoriteList()
     },
-  }
+    // TODO = Not working!
+    cleanUpFavoriteList() {
+      // let favoriteLocationList = this.getFavoriteLocationList.favorites;
+      // let favoriteLocationListTemp = []
+      // for (let favorite of favoriteLocationList){
+      //   if (favorite != null){
+      //     favoriteLocationListTemp.push(favorite)
+      //   }
+      // }
+      // console.log(favoriteLocationListTemp);
+      // this.setFavoriteLocation(favoriteLocationListTemp)
+    }
+  },
+
 };
 </script>
 
