@@ -1,6 +1,9 @@
 <template>
   <img class="checked-heart" @click="toggleFavorite()"
        :src="heartIcon" alt="a heart">
+  {{ favorite }}
+  {{this.getFavoriteLocationList.favorites}}
+  {{locationData}}
 
 </template>
 <script>
@@ -14,20 +17,32 @@ export default {
   props: {
     locationData: [],
   },
+  created() {
+    this.checkIfFavorite()
+  },
   mounted() {
     this.checkIfFavorite()
   },
   data() {
     return {
-      heartIcon: checkedHeart,
+      heartIcon: unCheckedHeart,
       favorite: false,
+    }
+  },
+  watch: {
+    locationData: {
+      deep: true,
+      handler(v) {
+        this.checkIfFavorite(v)
+        console.log(v);
+      }
     }
   },
   computed: {
     ...mapState(useUserDataStore, ["getFavoriteLocationList"])
   },
   methods: {
-    ...mapActions(useUserDataStore, ["removeFavoriteLocation","setFavoriteLocation","getFavoriteLocationList"]),
+    ...mapActions(useUserDataStore, ["removeFavoriteLocation", "setFavoriteLocation", "getFavoriteLocationList"]),
     toggleFavorite() {
       this.favorite = !this.favorite
 
@@ -40,12 +55,17 @@ export default {
         this.heartIcon = unCheckedHeart
       }
     },
-    checkIfFavorite() {
-      for (let favorite of this.getFavoriteLocationList.favorites){
-        if(favorite != null && favorite.longitude === this.locationData.longitude && favorite.latitude === this.locationData.latitude){
-          this.heartIcon = checkedHeart
-          this.favorite = !this.favorite
-          console.log("match");
+    checkIfFavorite(v) {
+      console.log(this.getFavoriteLocationList.favorites.length);
+      console.log(this.getFavoriteLocationList.favorites);
+      for (let favorite of this.getFavoriteLocationList.favorites) {
+        if (favorite != null) {
+          if (favorite.longitude === v.longitude && favorite.latitude === v.latitude) {
+            this.heartIcon = checkedHeart
+            this.favorite = !this.favorite
+            console.log(this.favorite);
+            console.log("match");
+          }
         }
       }
     },

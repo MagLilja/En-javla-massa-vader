@@ -27,22 +27,23 @@ export default {
     async submitSearch(input) {
       const provider = new OpenStreetMapProvider()
       let res = await provider.search({query: input})
+      console.log(res);
       let searchResultData = []
       for (let data of res) {
         let split = data.raw.display_name.split(', ');
-        if (split[split.length - 1] === 'Sweden') {
+        if (split[split.length - 1] === 'Sweden' || split[split.length - 1] === 'Sverige') {
           let searchResultObject = {}
           searchResultObject.city = split[0]
           searchResultObject.municipality = split[1]
           searchResultObject.country = split[split.length - 1]
           searchResultObject.longitude = data.x
           searchResultObject.latitude = data.y
+
           searchResultData.push(searchResultObject)
         }
       }
+      console.info("Posting search data to state");
       this.setSearchData(searchResultData) //Object.assign({}, res)
-      console.log(searchResultData);
-
     },
 
   },

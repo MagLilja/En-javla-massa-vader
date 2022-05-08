@@ -57,7 +57,6 @@ export default {
     getSearchData: {
       deep: true,
       handler() {
-        console.log("hej");
         this.showSearch = true
       }
     }

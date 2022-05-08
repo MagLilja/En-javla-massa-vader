@@ -54,9 +54,6 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         setSearchData(searchData) {
             this.searchData = searchData
-
-            const count = useStorage('my-count', 0)
-            console.log(count)
         },
         setForecastFulldata(value) {
             this.forecastFullData = value
@@ -69,22 +66,29 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         setFavoriteLocation(value) {
             let favoriteLocationList = this.getFavoriteLocationList;
-            console.log(favoriteLocationList.favorites);
-            console.log(typeof(favoriteLocationList.favorites))
-            favoriteLocationList.favorites.push(value)
-
-            this.favoriteLocationList = favoriteLocationList
+            let isNotAlreadyInList = (value) => {
+                for (let favorite of this.favoriteLocationList.favorites) {
+                    if (favorite != null) {
+                        console.log((favorite.city === value.city && favorite.municipality === value.municipality));
+                        if (favorite.city === value.city && favorite.municipality === value.municipality) {
+                            console.info("Location already in list");
+                            return false
+                        }
+                    }
+                }
+                return true
+            };
+            if (isNotAlreadyInList(value)) {
+                favoriteLocationList.favorites.push(value)
+                this.favoriteLocationList = favoriteLocationList
+            }
         },
-
         removeFavoriteLocation(value) {
             let favoriteLocationList = this.getFavoriteLocationList;
-            for (let favorite of favoriteLocationList.favorites){
-                console.log(favorite);
-                if(favorite != null && favorite.longitude === value.longitude && favorite.latitude === value.latitude){
+            for (let favorite of favoriteLocationList.favorites) {
+                if (favorite != null && favorite.longitude === value.longitude && favorite.latitude === value.latitude) {
                     let indexOf1 = favoriteLocationList.favorites.indexOf(favorite);
-                    console.log(indexOf1);
                     delete favoriteLocationList.favorites[indexOf1]
-                    console.log("match");
                 }
             }
             this.favoriteLocationList = favoriteLocationList
