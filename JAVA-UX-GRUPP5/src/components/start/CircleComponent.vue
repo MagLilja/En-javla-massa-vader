@@ -31,14 +31,14 @@ import WSymb2 from '@/services/Wsymb2.json';
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
 import {mapActions, mapState} from "pinia";
 import weatherDataManager from "@/services/WeatherDataManager";
+
 export default {
-  props: {
-  },
+  props: {},
   data() {
     return {
       wSymb2Decoder: WSymb2,
       clockDeg: "",
-      completeDailyWxList:undefined,
+      completeDailyWxList: undefined,
     }
   },
   computed: {
@@ -48,8 +48,16 @@ export default {
     this.setLocalClockDeg()
     this.test()
   },
+  watch: {
+    getForecastFullData: {
+      deep: true,
+      handler() {
+        this.test()
+      },
+    }
+  },
   methods: {
-    ...mapActions(useUserDataStore, ["setAnalysisFulldata","setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
+    ...mapActions(useUserDataStore, ["setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
 
     seTime(time) {
       const event = new Date(time);
@@ -70,7 +78,7 @@ export default {
         }
       }
     },
-    test(){
+    test() {
       let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
       console.log(forecastList);
       let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true).reverse()
