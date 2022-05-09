@@ -132,10 +132,10 @@ export default {
   place-items: center;
   width: 300px;
   height: 300px;
-  border: 1px solid #afafaf;
+  /*border: 1px solid #afafaf;*/
   border-radius: 50%;
   position: relative;
-  background-color: #e6e6e6;
+  background-color: var(--primary-color-lightblue );
   overflow: hidden;
 }
 
@@ -216,7 +216,7 @@ export default {
   height: 200px;
   border: 1px solid #be1a1a;
   border-radius: 50%;
-  background-color: #adabab;
+  background-color: white;
   z-index: 2;
 }
 
