@@ -1,6 +1,7 @@
 <template>
-  <br />
+  <br>
   <summary-view-header-component/>
+  <weather-summary-component :param="preciptation" />
 
   ---------------------------------------------------------------------
   <param-component @paramSelectionHref="onClickParameter" />
@@ -27,6 +28,7 @@ import stationComponent from "@/components/observations/StationComponent.vue";
 import periodComponent from "@/components/observations/PeriodComponent.vue";
 import dataComponent from "@/components/observations/DataComponent.vue";
 import SummaryViewHeaderComponent from "@/components/summary/SummaryViewHeaderComponent.vue";
+import WeatherSummaryComponent from    "@/components/summary/WeatherSummaryComponent.vue";
 
 export default {
     components: {
@@ -35,12 +37,14 @@ export default {
       stationComponent,
       paramComponent,
       dataComponent,
+      WeatherSummaryComponent,
     },
     data() {
       return {
         selectedParamStationsHref: "",
         selectedStationData: "",
         selectedPeriodHref: "",
+        preciptation: 23,
       };
     },
     methods: {
