@@ -46,13 +46,13 @@ export default {
   },
   mounted() {
     this.setLocalClockDeg()
-    this.test()
+    this.buildOuterCircleDatalist()
   },
   watch: {
     getForecastFullData: {
       deep: true,
       handler() {
-        this.test()
+        this.buildOuterCircleDatalist()
       },
     }
   },
@@ -78,7 +78,7 @@ export default {
         }
       }
     },
-    test() {
+    buildOuterCircleDatalist() {
       let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
       console.log(forecastList);
       let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true).reverse()

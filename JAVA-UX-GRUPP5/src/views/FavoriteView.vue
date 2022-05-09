@@ -1,15 +1,15 @@
 <template>
   <h2>Favoriter</h2>
-  <img src="./../assets/wireframes/favorite.png" alt="">
-  <favorite-list-item-component/>
+<!--  <img src="./../assets/wireframes/favorite.png" alt="">-->
+  <favorite-list-component/>
 
 </template>
 <script>
-import FavoriteListItemComponent from "@/components/global/FavoriteListItemComponent.vue";
+import FavoriteListComponent from "@/components/global/FavoriteListItemComponent.vue";
 
 
 export default {
-  components: {FavoriteListItemComponent},
+  components: {FavoriteListComponent: FavoriteListComponent},
 
 }
 

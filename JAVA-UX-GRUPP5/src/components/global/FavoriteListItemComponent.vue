@@ -1,19 +1,14 @@
 <template>
-  <div>
-    <div
-        v-for="(favorite,index) of this.getFavoriteLocationList.favorites"
-        :key="index"
-        :locationData="favorite">
-      <div v-if="(favorite != null)">
-      <favorite-check-component :locationData="favorite"></favorite-check-component>
 
-      {{ favorite.city }}
-        {{ favorite.municipality }}
+  <ul class="favorite-list">
+    <li v-for="(favorite, index) of this.getFavoriteLocationList.favorites" :key="index">
+      <div class="favorite-list-item" v-if="favorite !=null">
+        <favorite-check-component class="favorite-list-icon" :location-data="favorite"/>
+        {{ favorite.city }}
+        <!--        {{ favorite.municipality }}-->
       </div>
-
-    </div>
-
-  </div>
+    </li>
+  </ul>
 </template>
 <script>
 import FavoriteCheckComponent from "@/components/global/FavoriteCheckComponent.vue"
@@ -28,3 +23,13 @@ export default {
   },
 }
 </script>
+<style scoped>
+.favorite-list-icon {
+  width: 1.3em;
+}
+
+.favorite-list-item {
+  display: flex;
+  gap: 1.5em;
+}
+</style>
