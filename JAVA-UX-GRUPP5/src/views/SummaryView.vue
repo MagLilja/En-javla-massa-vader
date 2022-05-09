@@ -1,6 +1,8 @@
 <template>
   <br />
+  <summary-view-header-component/>
 
+  ---------------------------------------------------------------------
   <param-component @paramSelectionHref="onClickParameter" />
   <station-component
     :selected-param-stations-href="selectedParamStationsHref"
@@ -20,13 +22,15 @@
 </template>
 
 <script>
-  import paramComponent from "@/components/observations/ParamComponent.vue";
-  import stationComponent from "@/components/observations/StationComponent.vue";
-  import periodComponent from "@/components/observations/PeriodComponent.vue";
-  import dataComponent from "@/components/observations/DataComponent.vue";
+import paramComponent from "@/components/observations/ParamComponent.vue";
+import stationComponent from "@/components/observations/StationComponent.vue";
+import periodComponent from "@/components/observations/PeriodComponent.vue";
+import dataComponent from "@/components/observations/DataComponent.vue";
+import SummaryViewHeaderComponent from "@/components/summary/SummaryViewHeaderComponent.vue";
 
-  export default {
+export default {
     components: {
+      SummaryViewHeaderComponent,
       periodComponent,
       stationComponent,
       paramComponent,
