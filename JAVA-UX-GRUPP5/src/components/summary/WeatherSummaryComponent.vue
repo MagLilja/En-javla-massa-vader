@@ -66,9 +66,10 @@ export default {
           switch (this.param) {
             case 23:
               console.log("23");
-              return actualData.value[actualData.value.length - 1].value
+              let res = actualData.value[actualData.value.length - 1].value
+              return {value: res}
+
             case 10:
-              console.log("10");
               let timestamp = new Date(actualData.value[0].date)
               let today = new Date()
               console.log();
@@ -76,14 +77,72 @@ export default {
               let totalValue = 0
               for (let value of actualData.value) {
                 let timestamp = new Date(value.date)
-                let lastMonth = today.getMonth() -1
-                if (timestamp.getMonth() === ( lastMonth)) {
+                if (timestamp.getMonth() === (lastMonth)) {
                   totalValue += parseInt(value.value)
                 }
-
               }
-              totalValue = totalValue/3600;
-              return Math.round(totalValue);
+              totalValue = totalValue / 3600;
+              return {value: Math.round(totalValue)}
+
+            case 20:
+              let highestTemp = -100
+              let hottestDay = undefined
+              for (let value of actualData.value) {
+                let date = new Date(value.ref)
+                if (date.getMonth() === (lastMonth)) {
+                  if (parseFloat(value.value) > highestTemp) {
+                    highestTemp = parseFloat(value.value)
+                    hottestDay = value.ref
+                  }
+                }
+              }
+              return {
+                value: highestTemp,
+                date: hottestDay
+              };
+
+            case 19:
+              let lowestTemp = 100
+              let coldestDay = undefined
+              for (let value of actualData.value) {
+                let date = new Date(value.ref)
+
+                if (date.getMonth() === (lastMonth)) {
+                  if (parseFloat(value.value) < lowestTemp) {
+                    coldestDay = value.ref
+                    lowestTemp = parseFloat(value.value)
+                  }
+                }
+              }
+              return {
+                value: lowestTemp,
+                date: coldestDay
+              }
+            case 5:
+              let mostRain = -100
+              let rainiestDay = undefined
+              for (let value of actualData.value) {
+                let date = new Date(value.ref)
+
+                if (date.getMonth() === (lastMonth)) {
+
+                  if (parseFloat(value.value) > mostRain) {
+                    mostRain = parseFloat(value.value)
+                    rainiestDay = value.ref
+                  }
+                }
+              }
+              return {
+                value: mostRain,
+                date: rainiestDay
+              }
+            case 25:
+              console.log(actualData);
+              return {
+                value:0,
+                date:0
+              }
+
 
           }
         }

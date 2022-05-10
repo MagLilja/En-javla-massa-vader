@@ -5,6 +5,11 @@
   <br>
   sol: <weather-summary-component :param="sunHours" />
   <br>
+  minTemp: <weather-summary-component :param="minTemp" />
+  <br>
+  maxWind: <weather-summary-component :param="maxWind" />
+  <br>
+  maxPrecipitation: <weather-summary-component :param="maxDailyPrecipitation" />
 
   ---------------------------------------------------------------------
   <param-component @paramSelectionHref="onClickParameter" />
@@ -50,6 +55,10 @@ export default {
         selectedPeriodHref: "",
         preciptation: 23,
         sunHours: 10,
+        maxTemp: 20,
+        minTemp: 19,
+        maxDailyPrecipitation: 5,
+        maxWind: 25,
       };
     },
     methods: {
