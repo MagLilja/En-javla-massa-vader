@@ -1,7 +1,9 @@
 <template>
   <div class="header">Sammanfattning av vädret i {{ this.getActiveCityName() }}</div>
-  <br>
-  <div class="month">{{ this.getLastMonth().toUpperCase() }}</div>
+  <br />
+  <div class="display-month-container">
+    <div class="month">{{ this.getLastMonth().toUpperCase() }}</div>
+  </div>
 </template>
 <script>
 import { mapState } from "pinia";
@@ -44,8 +46,15 @@ export default {
   font-size: 1.5em;
   font-weight: 600;
 }
+
+.display-month-container{
+    display: flex;
+  }
+
 .month {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 600;
+  margin-left: 1em;
 }
+
 </style>
