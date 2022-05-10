@@ -1,17 +1,19 @@
 <template>
 
-  {{value}}
+  {{ value }}
+  {{ param }}
+  <!--  {{nearestStation.name}}-->
 
 </template>
 
 <script>
 import smhiService from "@/services/smhiService.js";
-import { useUserDataStore } from "@/stores/useUserDataStore.js";
-import { mapState } from "pinia";
+import {useUserDataStore} from "@/stores/useUserDataStore.js";
+import {mapState} from "pinia";
 import weatherSummaryManager from "@/services/WeatherSummaryManager.js";
 
 export default {
-    props: {
+  props: {
     param: String,
   },
   data() {
@@ -33,11 +35,12 @@ export default {
       },
     },
     nearestStation: {
-        deep: true,
-        async handler() {
-          this.value = await this.getSummary();
-        }
+      deep: true,
+      async handler() {
+        this.value = await this.getSummary();
       }
+    }
+
   },
   mounted() {
     this.fetchStationList();
@@ -60,7 +63,7 @@ export default {
 
       for (let station of this.stationList) {
         let distance = Math.sqrt(
-          (long - station.longitude) * (long - station.longitude) +
+            (long - station.longitude) * (long - station.longitude) +
             (lat - station.latitude) * (lat - station.latitude)
         );
 
@@ -69,9 +72,9 @@ export default {
           closestStation = station;
         }
       }
-      if (closestStation.name === "Göteborg"){
-        for (let station of this.stationList){
-          if(station.name === "Göteborg A"){
+      if (closestStation.name === "Göteborg") {
+        for (let station of this.stationList) {
+          if (station.name === "Göteborg A") {
             closestStation = station
           }
         }
