@@ -4,9 +4,10 @@
       <td>{{ hour.time }} </td> 
       <td>{{ hour.wSymb2Symbol }}</td>
       <td>{{ hour.temperature }}&#176</td>
-      <td>{{ hour.wind }} ({{ hour.gusts }}) m/s</td>
+      <td>{{ hour.wind }} ({{ hour.gusts  }}) m/s</td>
     </tr>
   </table>
+
 </template>
 
 

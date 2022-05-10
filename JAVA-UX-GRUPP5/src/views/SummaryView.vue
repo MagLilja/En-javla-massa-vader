@@ -1,7 +1,10 @@
 <template>
   <br>
   <summary-view-header-component/>
-  <weather-summary-component :param="preciptation" />
+  regn: <weather-summary-component :param="preciptation" />
+  <br>
+  sol: <weather-summary-component :param="sunHours" />
+  <br>
 
   ---------------------------------------------------------------------
   <param-component @paramSelectionHref="onClickParameter" />

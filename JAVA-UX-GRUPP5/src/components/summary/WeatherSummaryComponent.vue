@@ -65,7 +65,7 @@ export default {
       let closestStation;
       let long = this.getCoordinates.longitude;
       let lat = this.getCoordinates.latitude;
-      
+
       for (let station of this.stationList) {
         let distance = Math.sqrt(
           (long - station.longitude) * (long - station.longitude) +
@@ -80,7 +80,7 @@ export default {
       if (closestStation.name === "Göteborg"){
         for (let station of this.stationList){
           if(station.name === "Göteborg A"){
-            closestStation = station 
+            closestStation = station
           }
         }
       }
