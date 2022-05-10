@@ -1,7 +1,7 @@
 <template>
 
-  {{ value }}
-  {{ param }}
+  {{ value }} {{ date }}
+
   <!--  {{nearestStation.name}}-->
 
 </template>
@@ -20,7 +20,8 @@ export default {
     return {
       stationList: undefined,
       nearestStation: undefined,
-      value: undefined
+      value: undefined,
+      date: "",
     };
   },
 
@@ -37,7 +38,9 @@ export default {
     nearestStation: {
       deep: true,
       async handler() {
-        this.value = await this.getSummary();
+        let res = await this.getSummary();
+        this.value = res.value
+        this.date = res.date
       }
     }
 
@@ -61,8 +64,8 @@ export default {
         if (period.key === "latest-months") {
           let hrefToPeriodData = await smhiService.fetchData(period.link[0].href)
           let actualData = await smhiService.fetchData(hrefToPeriodData.data[0].link[0].href)
-          console.log(actualData);
-
+          let today = new Date()
+          let lastMonth = today.getMonth() - 1
           switch (this.param) {
             case 23:
               console.log("23");
@@ -71,9 +74,6 @@ export default {
 
             case 10:
               let timestamp = new Date(actualData.value[0].date)
-              let today = new Date()
-              console.log();
-              console.log(timestamp.getMonth());
               let totalValue = 0
               for (let value of actualData.value) {
                 let timestamp = new Date(value.date)
@@ -183,6 +183,8 @@ export default {
       let result = await smhiService.fetchData(url);
       this.stationList = result.station;
     },
-  },
-};
+  }
+  ,
+}
+;
 </script>

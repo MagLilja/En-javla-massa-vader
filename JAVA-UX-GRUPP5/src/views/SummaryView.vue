@@ -5,6 +5,8 @@
   <br>
   sol: <weather-summary-component :param="sunHours" />
   <br>
+  maxTemp: <weather-summary-component :param="maxTemp" />
+  <br>
   minTemp: <weather-summary-component :param="minTemp" />
   <br>
   maxWind: <weather-summary-component :param="maxWind" />
