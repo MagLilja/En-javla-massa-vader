@@ -8,6 +8,7 @@
 import smhiService from "@/services/smhiService.js";
 import { useUserDataStore } from "@/stores/useUserDataStore.js";
 import { mapState } from "pinia";
+import weatherSummaryManager from "@/services/WeatherSummaryManager.js";
 
 export default {
     props: {
@@ -44,20 +45,11 @@ export default {
 
   methods: {
     async getSummary() {
-      console.log(this.nearestStation.key)
-      let hrefToStationPeriods = await smhiService.fetchData(this.nearestStation.link[0].href)
-      
-   if(hrefToStationPeriods.period[0].key === "corrected-archive"){
-     return 'Värde saknas'
-   }
 
-      let hrefToPeriodData = await smhiService.fetchData(hrefToStationPeriods.period[0].link[0].href)
-      
-      let actualData = await smhiService.fetchData(hrefToPeriodData.data[0].link[0].href)
+      let res = weatherSummaryManager.getSummary(this.param, this.nearestStation)
+      res.log
+      return res
 
-      return actualData.value[actualData.value.length-1].value
-      // https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/23/station/71420/period/latest-months/data.json
-     
     },
 
     getStationNo() {

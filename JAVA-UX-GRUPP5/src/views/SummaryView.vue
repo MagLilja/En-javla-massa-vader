@@ -32,6 +32,7 @@ import periodComponent from "@/components/observations/PeriodComponent.vue";
 import dataComponent from "@/components/observations/DataComponent.vue";
 import SummaryViewHeaderComponent from "@/components/summary/SummaryViewHeaderComponent.vue";
 import WeatherSummaryComponent from    "@/components/summary/WeatherSummaryComponent.vue";
+import smhiService from "@/services/smhiService";
 
 export default {
     components: {
@@ -48,6 +49,7 @@ export default {
         selectedStationData: "",
         selectedPeriodHref: "",
         preciptation: 23,
+        sunHours: 10,
       };
     },
     methods: {
@@ -60,6 +62,7 @@ export default {
       onClickPeriod(v) {
         this.selectedPeriodHref = v.data;
       },
+
     },
   };
 </script>
