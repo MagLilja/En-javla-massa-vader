@@ -38,7 +38,7 @@ import stationComponent from "@/components/observations/StationComponent.vue";
 import periodComponent from "@/components/observations/PeriodComponent.vue";
 import dataComponent from "@/components/observations/DataComponent.vue";
 import SummaryViewHeaderComponent from "@/components/summary/SummaryViewHeaderComponent.vue";
-import WeatherSummaryComponent from    "@/components/summary/weatherSummaryComponent.vue";
+import WeatherSummaryComponent from    "@/components/summary/WeatherSummaryComponent.vue";
 import smhiService from "@/services/smhiService";
 
 export default {
