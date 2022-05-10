@@ -1,5 +1,5 @@
 <template>
-  {{ getLocalDate() }}
+  <div>{{ getLocalDate() }}</div>
 </template>
 
 <script>

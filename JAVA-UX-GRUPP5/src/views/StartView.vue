@@ -9,11 +9,12 @@
       <weather-warning-component/>
     </MqResponsive>
     <div class="start-view-header">
-      <current-city-name-component/>
-      <favorite-check-component :location-data="locationData"/>
-
+      <div class="row-one">
+        <current-city-name-component/>
+        <favorite-check-component :location-data="locationData"/>
+      </div>
+      <date-component/>
     </div>
-    <date-component/>
 
     <circleComponent/>
     <MqResponsive class="start-view-weather-same-day-list-component-sm-minus" target="sm-">

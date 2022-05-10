@@ -112,10 +112,10 @@ export default {
 
 .outer-circle-container::after {
   content: "";
-  background-image: url('../../assets/icons/arrow-up-solid.svg');
+  background-image: url('../../assets/prototype icons/caret-up-solid.svg');
   background-size: 1em;
   background-repeat: no-repeat;
-  height: 220px;
+  height: 231px;
   position: absolute;
   transform: rotateZ(var(--circle-degree-var));
   width: 16px;
@@ -135,7 +135,7 @@ export default {
   /*border: 1px solid #afafaf;*/
   border-radius: 50%;
   position: relative;
-  background-color: var(--primary-color-lightblue );
+  background-color: var(--primary-color-greyishblue);
   overflow: hidden;
 }
 
@@ -217,6 +217,15 @@ export default {
   border: 1px solid #be1a1a;
   border-radius: 50%;
   background-color: white;
+
+  border: double 10px transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(var(--primary-color-lightgrey), var(--primary-color-lightgrey)),
+  linear-gradient(25deg, #e46668, #e46868, #ecae5e, #5fb7e0, #68a9d2);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+
   z-index: 2;
 }
 

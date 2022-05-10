@@ -10,7 +10,7 @@
 import smhiService from "@/services/smhiService.js";
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
 import {mapState} from "pinia";
-import weatherSummaryManager from "@/services/WeatherSummaryManager.js";
+
 
 export default {
   props: {
