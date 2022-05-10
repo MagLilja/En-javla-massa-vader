@@ -137,10 +137,28 @@ export default {
                 date: rainiestDay
               }
             case 25:
-              console.log(actualData);
+              let mostWind = 0;
+              let windiestDay = undefined
+              //console.log(actualData)
+              
+              for (let value of actualData.value){
+                let date = new Date(value.date)
+              
+                if (date.getMonth() === lastMonth){
+                  console.log(value.value)
+                  console.log(date)
+                  if (value.value > mostWind){
+
+                      mostWind = value.value;
+                      windiestDay = date.toLocaleDateString('sv-SE')
+                    }
+                  
+                }
+              }
+
               return {
-                value:0,
-                date:0
+                value: mostWind,
+                date: windiestDay
               }
 
 
@@ -154,6 +172,9 @@ export default {
     getStationNo() {
       let minDistance = 10000000;
       let closestStation;
+      // Koordinaterna för Yrgo. Kan användas i utvecklingssyfte.
+      //let long = 11.93672177256134
+      //let lat = 57.70585326345131 
       let long = this.getCoordinates.longitude;
       let lat = this.getCoordinates.latitude;
 
