@@ -49,9 +49,46 @@ export default {
   methods: {
     async getSummary() {
 
-      let res = weatherSummaryManager.getSummary(this.param, this.nearestStation)
-      res.log
-      return res
+      // let res = weatherSummaryManager.getSummary(this.param, this.nearestStation)
+      // res.log
+      // return res
+
+      let hrefToStationPeriods = await smhiService.fetchData(this.nearestStation.link[0].href)
+
+
+      for (let period of hrefToStationPeriods.period) {
+
+        if (period.key === "latest-months") {
+          let hrefToPeriodData = await smhiService.fetchData(period.link[0].href)
+          let actualData = await smhiService.fetchData(hrefToPeriodData.data[0].link[0].href)
+          console.log(actualData);
+
+          switch (this.param) {
+            case 23:
+              console.log("23");
+              return actualData.value[actualData.value.length - 1].value
+            case 10:
+              console.log("10");
+              let timestamp = new Date(actualData.value[0].date)
+              let today = new Date()
+              console.log();
+              console.log(timestamp.getMonth());
+              let totalValue = 0
+              for (let value of actualData.value) {
+                let timestamp = new Date(value.date)
+                let lastMonth = today.getMonth() -1
+                if (timestamp.getMonth() === ( lastMonth)) {
+                  totalValue += parseInt(value.value)
+                }
+
+              }
+              totalValue = totalValue/3600;
+              return Math.round(totalValue);
+
+          }
+        }
+      }
+
 
     },
 
