@@ -156,7 +156,8 @@ body {
 
 .nav-bar-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap:0.5em;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -166,10 +167,11 @@ body {
 }
 
 .nav-bar-item {
-    padding: 0.2em;
+    padding: 0.4em 0.4em;
     margin: 0.2em;
     background-color: var(--primary-color-lightblue);
     border-radius: 15%;
+    width:15%;
 }
 
 .router-link-active {
@@ -178,7 +180,24 @@ body {
 }
 
 .nav-bar-item img {
-    width: clamp(2rem, 12vw, 12rem);
+    width: clamp(32px, 10vw, 12rem);
+    aspect-ratio: 1;
+}
+.worst-weather-icon {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    }
+
+.worst-weather-icon>div>img{
+    /*margin:0.2em;*/
+}
+.worst-weather-icon img{
+    width: clamp(6px, 4vw, 5rem);
+    aspect-ratio: 1;
+}
+.worst-weather-bottom-icons-container {
+
 }
 
 /*---------- TOP NAVIGATION ----------*/
