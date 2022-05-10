@@ -98,7 +98,7 @@ export default {
               }
               return {
                 value: highestTemp,
-                date: hottestDay
+                //date: hottestDay
               };
 
             case 19:
@@ -116,7 +116,7 @@ export default {
               }
               return {
                 value: lowestTemp,
-                date: coldestDay
+                //date: coldestDay
               }
             case 5:
               let mostRain = -100
@@ -134,7 +134,7 @@ export default {
               }
               return {
                 value: mostRain,
-                date: rainiestDay
+                //date: rainiestDay
               }
             case 25:
               let mostWind = 0;
@@ -158,7 +158,7 @@ export default {
 
               return {
                 value: mostWind,
-                date: windiestDay
+                //date: windiestDay
               }
 
 

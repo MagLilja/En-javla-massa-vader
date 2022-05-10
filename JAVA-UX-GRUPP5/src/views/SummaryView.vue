@@ -4,17 +4,21 @@
     <summary-view-header-component />
   </div>
 
-  <div class="prec-and-sun-container">
-    <div class="precipitation">Nederbörd <br/><img class="precepitation-image" src="../assets/prototype icons/Group 12.svg" alt="rain cloud"><weather-summary-component :param="preciptation" /> mm</div>
-    <div class="sun-hour">Soltimmar <br/><img class="sun-hour-image" src ="../assets/prototype icons/sun-solid 2.svg" alt="sun"><weather-summary-component :param="sunHours" /> h</div>
+  <div class="container">
+  
+    <div class="text">Nederbörd &nbsp &nbsp &nbsp &nbsp<br/><img class="image" src="../assets/prototype icons/Group 12.svg" alt="rain cloud"><weather-summary-component :param="preciptation" /> mm</div>
+    <div class="text">Soltimmar <br/><img class="image" src ="../assets/prototype icons/Group 7.svg" alt="sun"><weather-summary-component :param="sunHours" /> h</div>
   </div>
-  maxTemp: <weather-summary-component :param="maxTemp" />
-  <br />
-  minTemp: <weather-summary-component :param="minTemp" />
-  <br />
-  maxWind: <weather-summary-component :param="maxWind" />
-  <br />
-  maxPrecipitation: <weather-summary-component :param="maxDailyPrecipitation" />
+
+  <div class="container">
+    <div class="text"> Varmaste dagen &nbsp<br/><img class="image" src="../assets/prototype icons/sun-solid 2.svg" alt="rain cloud"> <weather-summary-component :param="maxTemp" />&#176;C</div>
+    <div class="text"> Kallaste dagen <br/><img class="image" src="../assets/prototype icons/snowflake-solid 3.svg" alt="rain cloud"><weather-summary-component :param="minTemp" />&#176;C</div>
+  </div>
+
+  <div class="container">
+    <div class="text"> Blåsigaste dagen <br/><img class="image" src="../assets/prototype icons/wind-solid 3.svg" alt="rain cloud"> <weather-summary-component :param="maxWind" />m/s</div>
+    <div class="text"> Blötaste dagen <br/><img class="image" src="../assets/prototype icons/snowflake-solid 3.svg" alt="rain cloud"><weather-summary-component :param="maxDailyPrecipitation" />mm</div>
+  </div>
 
   ---------------------------------------------------------------------
   <param-component @paramSelectionHref="onClickParameter" />
@@ -80,32 +84,22 @@ export default {
 </script>
 
 <style scoped>
-.prec-and-sun-container {
+.container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
  
 }
 
-.precipitation {
-  font-size: 1.2em;
+.text {
+  font-size: 1em;
   font-weight: 600;
-  margin: 1.5em;
+  margin: 1.2em;
 }
 
-.precepitation-image {
+.image {
+  margin: 0.5em;
   width: 3em;
   height: auto;
 }
 
-.sun-hour {
-  font-size: 1.2em;
-  font-weight: 600;
-  margin: 1.5em;
-
-}
-
-.sun-hour-image {
-  width: 3em;
-  height: auto;
-}
 </style>
