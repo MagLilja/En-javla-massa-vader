@@ -5,7 +5,7 @@ const smhiService = {
     let response = await fetch(URL);
 
     if (response.status === 200) {
-      console.log("response OK");
+      console.info("response OK");
       let promise = response.json();
       console.log(promise);
       return promise;
