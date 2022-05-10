@@ -1,12 +1,18 @@
 <template>
-  <table class="weather-table">
-    <tr v-for="(hour, index) of TwentyFourForecast" :key="index">
-      <td>{{ hour.time }} </td> 
-      <td>{{ hour.wSymb2Symbol }}</td>
-      <td>{{ hour.temperature }}&#176</td>
-      <td>{{ hour.wind }} ({{ hour.gusts  }}) m/s</td>
-    </tr>
-  </table>
+  <ul class="weather-list">
+    <li class="weather-list-item title-row">
+      <div class="time">Tid </div>
+      <div class="symbol">Väder</div>
+      <div>Temperatur</div>
+      <div>Vind</div>
+    </li>
+    <li class="weather-list-item" v-for="(hour, index) of TwentyFourForecast" :key="index">
+      <div class="time">{{ hour.time }} </div>
+      <div class="symbol">{{ hour.wSymb2Symbol }}</div>
+      <div>{{ hour.temperature }}&#176</div>
+      <div>{{ hour.wind }} ({{ hour.gusts  }}) m/s</div>
+    </li>
+  </ul>
 
 </template>
 

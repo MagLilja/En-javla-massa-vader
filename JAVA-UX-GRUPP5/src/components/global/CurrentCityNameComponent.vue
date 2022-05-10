@@ -80,11 +80,5 @@ export default {
 </script>
 
 <style>
-.heart {
-  width: 1em;
-}
 
-.city-name {
-  font-size: 2em;
-}
 </style>

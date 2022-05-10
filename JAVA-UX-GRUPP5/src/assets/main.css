@@ -136,11 +136,16 @@ body {
 /*---------- START VIEW ----------*/
 .start-view-header {
     display: flex;
+    flex-direction: column;
+}
+
+.start-view-header .row-one {
+    display: flex;
     gap: 0.4em;
 }
 
 .start-view-header .heart {
-    width: 4rem;
+    width: 3rem;
 }
 
 .start-view-weather-same-day-list-component-sm-minus {
@@ -148,6 +153,18 @@ body {
     display: flex;
     justify-content: center;
 }
+
+/*---------- current-city-name-component ----------*/
+
+.heart {
+    /*width: 1em;*/
+}
+
+.city-name {
+    font-size: 2em;
+    font-weight: 600;
+}
+
 
 /*---------- NAVIGATIONS ----------*/
 
@@ -157,7 +174,7 @@ body {
 .nav-bar-container {
     display: flex;
     justify-content: center;
-    gap:0.5em;
+    gap: 0.5em;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -171,7 +188,7 @@ body {
     margin: 0.2em;
     background-color: var(--primary-color-lightblue);
     border-radius: 15%;
-    width:15%;
+    width: 15%;
 }
 
 .router-link-active {
@@ -183,19 +200,22 @@ body {
     width: clamp(32px, 10vw, 12rem);
     aspect-ratio: 1;
 }
+
 .worst-weather-icon {
     width: 80px;
     display: flex;
     flex-direction: column;
-    }
+}
 
-.worst-weather-icon>div>img{
+.worst-weather-icon > div > img {
     /*margin:0.2em;*/
 }
-.worst-weather-icon img{
+
+.worst-weather-icon img {
     width: clamp(6px, 4vw, 5rem);
     aspect-ratio: 1;
 }
+
 .worst-weather-bottom-icons-container {
 
 }
@@ -280,13 +300,13 @@ body {
 /*---------- WEATHER WARNING ----------*/
 
 .weather-warning {
-    background-color:var(--primary-color-red);
+    background-color: var(--primary-color-red);
     width: 100%;
     border: solid #bd8070;
     border-width: 1px 0px 1px 0px;
     margin: 1em 0;
     color: #ffffff;
-    font-size:2em;
+    font-size: 2em;
     letter-spacing: 0.02em;
     -webkit-text-stroke-color: #111214;
 
@@ -294,6 +314,35 @@ body {
 
 .start-view-weather-warning-component-sm-minus {
     width: 100vw;
+}
+
+/*---------- SAME DAY WEATHER COMPONENT ----------*/
+
+.weather-list {
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.weather-list-item .title-row{
+ font-weight:600;
+}
+
+.weather-list-item {
+    display: flex;
+    border-bottom: solid 1px #afafaf;
+}
+
+.weather-list-item .time {
+    padding:0.2em 2em 0.2em 0.5em;
+}
+.weather-list-item .symbol {
+    padding:0.2em 1em 0.2em 0.5em;
+}
+
+.weather-list-item > div {
+
 }
 
 /*###########################*/
@@ -345,7 +394,6 @@ body {
     h3 > strong {
         font-weight: 700;
     }
-
 
 
     .view-container {
