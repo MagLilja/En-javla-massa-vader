@@ -1,5 +1,5 @@
 <template>
-  <div class="top-nav-bar-container">
+  <div class="top-nav-bar-container transparent-nav">
     <MqResponsive target="sm-">
       <router-link to="/search">
         <img

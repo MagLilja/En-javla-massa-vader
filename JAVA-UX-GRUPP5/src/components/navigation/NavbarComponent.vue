@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-bar-container">
+  <nav class="nav-bar-container transparent-nav">
     <router-link class="nav-bar-item" to="/"
       ><img
         src="../../assets/prototype_icons/cloud-sun-solid.svg"
