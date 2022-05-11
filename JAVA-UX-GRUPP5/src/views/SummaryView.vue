@@ -8,14 +8,14 @@
     <div class="text">
       Nederbörd &nbsp &nbsp &nbsp &nbsp<br /><img
         class="image"
-        src="../assets/prototype_icons/Group 12.svg"
+        src="../assets/prototype_icons/Group12.svg"
         alt="rain cloud"
       /><weather-summary-component :param="preciptation" /> mm
     </div>
     <div class="text">
       Soltimmar <br /><img
         class="image"
-        src="../assets/prototype_icons/Group 7.svg"
+        src="../assets/prototype_icons/Group7.svg"
         alt="sun"
       /><weather-summary-component :param="sunHours" /> h
     </div>
@@ -25,7 +25,7 @@
     <div class="text">
       Varmaste dagen &nbsp<br /><img
         class="image"
-        src="../assets/prototype_icons/sun-solid 2.svg"
+        src="../assets/prototype_icons/sun-solid2.svg"
         alt="rain cloud"
       />
       <weather-summary-component :param="maxTemp" />&#176;C
@@ -33,7 +33,7 @@
     <div class="text">
       Kallaste dagen <br /><img
         class="image"
-        src="../assets/prototype_icons/snowflake-solid 3.svg"
+        src="../assets/prototype_icons/snowflake-solid3.svg"
         alt="rain cloud"
       /><weather-summary-component :param="minTemp" />&#176;C
     </div>
@@ -43,7 +43,7 @@
     <div class="text">
       Blåsigaste dagen <br /><img
         class="image"
-        src="../assets/prototype_icons/wind-solid 3.svg"
+        src="../assets/prototype_icons/wind-solid3.svg"
         alt="rain cloud"
       />
       <weather-summary-component :param="maxWind" />m/s
@@ -51,7 +51,7 @@
     <div class="text">
       Blötaste dagen <br /><img
         class="image"
-        src="../assets/prototype_icons/snowflake-solid 3.svg"
+        src="../assets/prototype_icons/snowflake-solid3.svg"
         alt="rain cloud"
       /><weather-summary-component :param="maxDailyPrecipitation" />mm
     </div>
