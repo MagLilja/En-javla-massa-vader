@@ -1,7 +1,7 @@
 <template>
-  <div class="top-nav-bar-container transparent-nav">
-    <MqResponsive target="sm-">
-      <router-link to="/search">
+  <div class="top-nav-bar-container">
+    <MqResponsive target="sm-" class="transparent-nav rounded-full hover:bg-neutral-400 ">
+      <router-link to="/search" class="search-link">
         <img
           class="search-icon"
           src="../../assets/icons/search-icon.svg"
@@ -26,9 +26,9 @@
       </div>
     </MqResponsive>
 
-    <div @click="toggleSearch()" class="top-nav-site-title">
-      En himla massa väder!
-    </div>
+<!--    <div @click="toggleSearch()" class="top-nav-site-title">-->
+<!--      En himla massa väder!-->
+<!--    </div>-->
     <div class="favorite-link">
       <img
         class="favorite-icon"

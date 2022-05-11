@@ -1,14 +1,16 @@
-/*body {*/
-/*    display: grid;*/
-/*    place-content: flex-start;*/
-
-/*}*/
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600&display=swap');
 
 * {
     /*outline: 1px solid red;*/
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600&display=swap');
+/*body {*/
+/*    display: grid;*/
+
+/*    place-content: flex-start;*/
+
+/*}*/
+
 
 /*###########################*/
 /*######### GLOBAL VARIABLES #########*/
@@ -306,6 +308,8 @@ body {
     width: 18px;
     aspect-ratio: 1;
 }
+
+
 
 /*---------- WEATHER WARNING ----------*/
 

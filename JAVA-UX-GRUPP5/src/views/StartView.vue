@@ -1,16 +1,12 @@
 <template>
-  <!--  <load-data-component-->
-  <!--      @forecastFullData="retrieveForecastFullData"-->
-  <!--      @completeDailyWxList="retrieveDailyWxList"-->
-  <!--      @userCoordinates="retrieveCoordinates"-->
-  <!--  />-->
+
   <section class="flex-column-center-2 start-view-section">
-    <MqResponsive
-      class="start-view-weather-warning-component-sm-minus"
-      target="sm-"
-    >
-      <weather-warning-component />
-    </MqResponsive>
+<!--    <MqResponsive-->
+<!--      class="start-view-weather-warning-component-sm-minus"-->
+<!--      target="sm-"-->
+<!--    >-->
+<!--      <weather-warning-component />-->
+<!--    </MqResponsive>-->
     <div class="start-view-header">
       <div class="row-one">
         <current-city-name-component />
