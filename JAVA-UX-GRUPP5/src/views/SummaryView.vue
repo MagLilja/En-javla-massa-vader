@@ -57,22 +57,22 @@
     </div>
   </div>
 
-  ---------------------------------------------------------------------
-  <param-component @paramSelectionHref="onClickParameter" />
-  <station-component
-    :selected-param-stations-href="selectedParamStationsHref"
-    @selectedStationHref="onClickStation"
-  />
-  <period-component
-    :selected-station-href="selectedStationData.data"
-    @selectedPeriodForStationHref="onClickPeriod"
-  />
-  <data-component :selected-period-href="selectedPeriodHref" />
+<!--  -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--  <param-component @paramSelectionHref="onClickParameter" />-->
+<!--  <station-component-->
+<!--    :selected-param-stations-href="selectedParamStationsHref"-->
+<!--    @selectedStationHref="onClickStation"-->
+<!--  />-->
+<!--  <period-component-->
+<!--    :selected-station-href="selectedStationData.data"-->
+<!--    @selectedPeriodForStationHref="onClickPeriod"-->
+<!--  />-->
+<!--  <data-component :selected-period-href="selectedPeriodHref" />-->
 
-  {{ selectedStationData.longitude }}
-  {{ selectedStationData.latitude }}
+<!--  {{ selectedStationData.longitude }}-->
+<!--  {{ selectedStationData.latitude }}-->
 
-  <img src="./../assets/wireframes/summary.png" alt="" />
+<!--  <img src="./../assets/wireframes/summary.png" alt="" />-->
 </template>
 
 <script>
