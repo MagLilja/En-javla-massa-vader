@@ -165,7 +165,6 @@ body {
 .transparent-nav {
     /*transparent background*/
     background: rgba(245, 245, 245, 0.79);
-
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(16.7px);
     -webkit-backdrop-filter: blur(16.7px);
@@ -181,7 +180,7 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100vw;
+    width: 95vw;
     padding-top: 0.5em;
     z-index: 5;
     border-top-right-radius: 16px;
@@ -248,7 +247,7 @@ body {
     display: flex;
     align-items: center;
     height: 4em;
-    width: 100%;
+    width: 95vw;
     justify-content: start;
     z-index: 5;
     border-bottom-right-radius: 16px;
