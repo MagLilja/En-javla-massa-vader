@@ -10,7 +10,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="text-left" v-for="(hour, index) of TwentyFourForecast" :key="index">
+      <tr class="text-left border-b-2 " v-for="(hour, index) of TwentyFourForecast" :key="index">
         <td class="">{{ hour.time }}</td>
         <td class="">{{ hour.wSymb2Symbol }}</td>
         <td>{{ hour.temperature }}&#176</td>
