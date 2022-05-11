@@ -173,7 +173,10 @@ body {
     backdrop-filter: blur(16.7px);
     -webkit-backdrop-filter: blur(16.7px);
     border: 1px solid rgba(245, 245, 245, 0.3);
+
+    --navigation-border-radius: 10px;
 }
+
 
 /*---------- BOTTOM NAVIGATION ----------*/
 
@@ -184,11 +187,11 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 95vw;
+    width: 100vw;
     padding-top: 0.5em;
     z-index: 5;
-    border-top-right-radius: 16px;
-    border-top-left-radius: 16px;
+    border-top-right-radius: var(--navigation-border-radius);
+    border-top-left-radius: var(--navigation-border-radius);
 
 
 }
@@ -251,11 +254,11 @@ body {
     display: flex;
     align-items: center;
     height: 4em;
-    width: 95vw;
+    width: 100vw;
     justify-content: start;
     z-index: 5;
-    border-bottom-right-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: var(--navigation-border-radius);
+    border-bottom-left-radius: var(--navigation-border-radius);
 }
 
 .top-nav-bar-container .router-link-active {
