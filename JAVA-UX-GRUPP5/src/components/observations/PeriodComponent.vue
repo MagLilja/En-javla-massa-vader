@@ -22,31 +22,31 @@
 </template>
 
 <script>
-import smhiService from "../../services/smhiService.js";
+import smhiService from '../../services/smhiService.js'
 
 export default {
   props: {
     selectedStationHref: String,
   },
-  emits: ["selectedPeriodForStationHref"],
+  emits: ['selectedPeriodForStationHref'],
   data() {
     return {
-      periodsForStation: { period: "" },
-    };
+      periodsForStation: { period: '' },
+    }
   },
   watch: {
     async selectedStationHref() {
       this.periodsForStation = await smhiService.fetchData(
-        this.selectedStationHref
-      );
+        this.selectedStationHref,
+      )
     },
   },
   methods: {
     toParent(value) {
-      this.$emit("selectedPeriodForStationHref", value);
+      this.$emit('selectedPeriodForStationHref', value)
     },
   },
-};
+}
 </script>
 
 <style scoped>

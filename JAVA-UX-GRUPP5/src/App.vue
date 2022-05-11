@@ -2,40 +2,41 @@
   <!--  <load-data-component/>-->
 
   <div v-if="isLoaded" class="site-container">
-    <top-nav-bar-component/>
-    <MqResponsive class="start-view-weather-warning-component-md-plus" target="md+">
-      <weather-warning-component/>
+    <top-nav-bar-component />
+    <MqResponsive
+      class="start-view-weather-warning-component-md-plus"
+      target="md+"
+    >
+      <weather-warning-component />
     </MqResponsive>
     <div class="view-container">
-      <router-view/>
+      <router-view />
 
       <MqResponsive class="md-plus-target" target="md+">
-        <twenty-four-forecast-desktop-card/>
-        <ten-day-desktop-card/>
-        <summary-desktop-card/>
+        <twenty-four-forecast-desktop-card />
+        <ten-day-desktop-card />
+        <summary-desktop-card />
       </MqResponsive>
     </div>
     <MqResponsive target="sm-">
-      <navbar-component/>
+      <navbar-component />
     </MqResponsive>
   </div>
-
-
 </template>
 <script>
-import {useUserDataStore} from "@/stores/useUserDataStore.js";
-import {mapActions, mapState} from "pinia";
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
+import { mapActions, mapState } from 'pinia'
 // noinspection NpmUsedModulesInstalled
-import NavbarComponent from "@/components/navigation/NavbarComponent.vue";
+import NavbarComponent from '@/components/navigation/NavbarComponent.vue'
 // noinspection NpmUsedModulesInstalled
-import TopNavBarComponent from "@/components/navigation/TopNavBarComponent.vue";
-import {MqResponsive} from "vue3-mq";
-import TenDayDesktopCard from "@/components/desktopCards/TenDayDesktopCard.vue";
-import SummaryDesktopCard from "@/components/desktopCards/SummaryDesktopCard.vue";
-import TwentyFourForecastDesktopCard from "@/components/desktopCards/TwentyFourForecastDesktopCard.vue";
-import WeatherWarningComponent from "@/components/start/WeatherWarningComponent.vue";
+import TopNavBarComponent from '@/components/navigation/TopNavBarComponent.vue'
+import { MqResponsive } from 'vue3-mq'
+import TenDayDesktopCard from '@/components/desktopCards/TenDayDesktopCard.vue'
+import SummaryDesktopCard from '@/components/desktopCards/SummaryDesktopCard.vue'
+import TwentyFourForecastDesktopCard from '@/components/desktopCards/TwentyFourForecastDesktopCard.vue'
+import WeatherWarningComponent from '@/components/start/WeatherWarningComponent.vue'
 
-import smhiService from "@/services/smhiService";
+import smhiService from '@/services/smhiService'
 
 export default {
   components: {
@@ -49,7 +50,6 @@ export default {
   },
   created() {
     this.setUpAllData()
-
   },
   data() {
     return {
@@ -57,84 +57,87 @@ export default {
     }
   },
   computed: {
-    ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getFavoriteLocationList"])
+    ...mapState(useUserDataStore, [
+      'getCoordinates',
+      'getForecastFullData',
+      'getFavoriteLocationList',
+    ]),
   },
   watch: {
     getCoordinates: {
       deep: true,
       handler() {
-        if (this.getCoordinates.origin === 'FROM_SEARCH'){
+        if (this.getCoordinates.origin === 'FROM_SEARCH') {
           this.getForecastFullDataFromAPI(this.getCoordinates)
           this.getAnalysisFullDataFromAPI(this.getCoordinates)
         }
-      }
-    }
+      },
+    },
   },
   methods: {
-    ...mapActions(useUserDataStore, ["setFavoriteLocation","setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
+    ...mapActions(useUserDataStore, [
+      'setFavoriteLocation',
+      'setAnalysisFulldata',
+      'setCoordinates',
+      'setForecastFulldata',
+      'setUserGeoLocationData',
+    ]),
     async setUpAllData() {
       this.getCoordinatesFromUser()
-      console.log("set up data");
+      console.log('set up data')
     },
     getCoordinatesFromUser() {
       navigator.geolocation.getCurrentPosition(
-          (position) => {
-            let latitude = position.coords.latitude;
-            let longitude = position.coords.longitude;
-            let userCoordinatesTemp = {
-              latitude: "",
-              longitude: "",
-            };
-            userCoordinatesTemp.latitude = latitude;
-            userCoordinatesTemp.longitude = longitude;
-            this.setCoordinates(userCoordinatesTemp)
-            console.info("userCoordinates initialized");
-            this.getForecastFullDataFromAPI(userCoordinatesTemp)
-            this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
-            this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
-          },
-          (error) => {
-            console.log(error.message);
+        (position) => {
+          let latitude = position.coords.latitude
+          let longitude = position.coords.longitude
+          let userCoordinatesTemp = {
+            latitude: '',
+            longitude: '',
           }
-      );
+          userCoordinatesTemp.latitude = latitude
+          userCoordinatesTemp.longitude = longitude
+          this.setCoordinates(userCoordinatesTemp)
+          console.info('userCoordinates initialized')
+          this.getForecastFullDataFromAPI(userCoordinatesTemp)
+          this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
+          this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
+        },
+        (error) => {
+          console.log(error.message)
+        },
+      )
     },
     async getForecastFullDataFromAPI(userCoordinatesTemp) {
       let long =
-          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) /
-          100;
+        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) /
-          100;
-      let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`;
-      let forecastFullData = await smhiService.fetchData(forecastUrl);
+        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+      let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
+      let forecastFullData = await smhiService.fetchData(forecastUrl)
       this.setForecastFulldata(forecastFullData)
-      console.info("forecastFullData initialized");
+      console.info('forecastFullData initialized')
     },
     async getUserGeoLocationDataFromApi(userCoordinatesTemp) {
-
-      let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${userCoordinatesTemp.latitude}&lon=${userCoordinatesTemp.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`;
+      let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${userCoordinatesTemp.latitude}&lon=${userCoordinatesTemp.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
       // if the coordinates in the Store match the geolocation data coordinates in the Store
 
       let response = await fetch(url)
       let result = await response.json()
-      this.userGeoLocationData = result;
+      this.userGeoLocationData = result
       this.setUserGeoLocationData(result)
-      console.info("UserGeoLocationData initialized");
+      console.info('UserGeoLocationData initialized')
       this.isLoaded = true
-
-
     },
     async getAnalysisFullDataFromAPI(userCoordinatesTemp) {
       let long =
-          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) /
-          100;
+        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) /
-          100;
+        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
-      let result = await smhiService.fetchData(analysisUrl);
+      let result = await smhiService.fetchData(analysisUrl)
       this.setAnalysisFulldata(result)
-      console.info("AnalysisFulldata initialized");
+      console.info('AnalysisFulldata initialized')
       this.cleanUpFavoriteList()
     },
     // TODO = Not working!
@@ -148,14 +151,12 @@ export default {
       // }
       // console.log(favoriteLocationListTemp);
       // this.setFavoriteLocation(favoriteLocationListTemp)
-    }
+    },
   },
-
-};
+}
 </script>
 
 <style>
 #app {
-
 }
 </style>

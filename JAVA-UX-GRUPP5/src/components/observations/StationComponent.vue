@@ -3,47 +3,48 @@
     <div>stationComponent</div>
     <div>Välj station:</div>
     <select
-        v-model="selectedStationHref"
-        class=""
-        @change="toParent(selectedStationHref)"
+      v-model="selectedStationHref"
+      class=""
+      @change="toParent(selectedStationHref)"
     >
       <option
-          v-for="(station, index) in stationsForParam.station"
-          :key="`${index}`"
-          :value="{
+        v-for="(station, index) in stationsForParam.station"
+        :key="`${index}`"
+        :value="{
           data: station.link[0].href,
-          longitude:station.longitude,
-          latitude:station.latitude
+          longitude: station.longitude,
+          latitude: station.latitude,
         }"
       >
         {{ station.name }}
       </option>
     </select>
-
   </div>
 </template>
 
 <script>
-import smhiService from "../../services/smhiService.js";
-import {useUserDataStore} from '@/stores/useUserDataStore.js'
-import {mapState} from 'pinia'
+import smhiService from '../../services/smhiService.js'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
+import { mapState } from 'pinia'
 
 export default {
   props: {
     selectedParamStationsHref: String,
   },
-  emits: ["selectedStationHref"],
+  emits: ['selectedStationHref'],
   data() {
     return {
       stationsForParam: undefined,
-    };
+    }
   },
   computed: {
-    ...mapState(useUserDataStore, ['coordinates'])
+    ...mapState(useUserDataStore, ['coordinates']),
   },
   watch: {
     async selectedParamStationsHref() {
-      this.stationsForParam = await smhiService.fetchData(this.selectedParamStationsHref);
+      this.stationsForParam = await smhiService.fetchData(
+        this.selectedParamStationsHref,
+      )
       if (this.stationsForParam) {
         this.findStationNearestToCoordinates()
       }
@@ -51,27 +52,39 @@ export default {
   },
   methods: {
     toParent(value) {
-      this.$emit("selectedStationHref", value);
+      this.$emit('selectedStationHref', value)
     },
     findStationNearestToCoordinates() {
-      let minDistance = 10000000;
-      let closestStation;
+      let minDistance = 10000000
+      let closestStation
 
       for (let station of this.stationsForParam.station) {
         // (11.94 - 18.82) * 2
-        let distance = Math.sqrt((this.coordinates.longitude - station.longitude) * (this.coordinates.longitude - station.longitude) + (this.coordinates.latitude - station.latitude) * (this.coordinates.latitude - station.latitude));
+        let distance = Math.sqrt(
+          (this.coordinates.longitude - station.longitude) *
+            (this.coordinates.longitude - station.longitude) +
+            (this.coordinates.latitude - station.latitude) *
+              (this.coordinates.latitude - station.latitude),
+        )
         // let distance = Math.sqrt(((16.79 - station.longitude) * 2) + ((65.10 - station.latitude) * 2));
-        console.log(distance);
+        console.log(distance)
 
         if (distance < minDistance) {
-          minDistance = distance;
-          closestStation = station;
+          minDistance = distance
+          closestStation = station
         }
       }
-      console.log("The closest station: x=" + closestStation.longitude + ", y=" + closestStation.latitude + 'name=' + closestStation.name);
-    }
+      console.log(
+        'The closest station: x=' +
+          closestStation.longitude +
+          ', y=' +
+          closestStation.latitude +
+          'name=' +
+          closestStation.name,
+      )
+    },
   },
-};
+}
 </script>
 
 <style scoped>

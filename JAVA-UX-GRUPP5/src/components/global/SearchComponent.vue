@@ -1,18 +1,29 @@
 <template>
-  <input class="search-input" v-model="searchInput" @keyup.enter="submitSearch(searchInput)" type="text" placeholder="Sök"/>
-  <button class="search-button" type="submit" @click="submitSearch(searchInput)">Sök</button>
-
+  <input
+    class="search-input"
+    v-model="searchInput"
+    @keyup.enter="submitSearch(searchInput)"
+    type="text"
+    placeholder="Sök"
+  />
+  <button
+    class="search-button"
+    type="submit"
+    @click="submitSearch(searchInput)"
+  >
+    Sök
+  </button>
 </template>
 <script>
-import {OpenStreetMapProvider} from 'leaflet-geosearch'
-import {MqResponsive} from "vue3-mq";
-import {mapActions} from "pinia/dist/pinia";
-import {useUserDataStore} from "@/stores/useUserDataStore.js";
+import { OpenStreetMapProvider } from 'leaflet-geosearch'
+import { MqResponsive } from 'vue3-mq'
+import { mapActions } from 'pinia/dist/pinia'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
 
 export default {
   name: 'SearchComponent',
   components: {
-    MqResponsive
+    MqResponsive,
   },
 
   data() {
@@ -23,15 +34,18 @@ export default {
   },
   watch: {},
   methods: {
-    ...mapActions(useUserDataStore, ["setSearchData"]),
+    ...mapActions(useUserDataStore, ['setSearchData']),
     async submitSearch(input) {
       const provider = new OpenStreetMapProvider()
-      let res = await provider.search({query: input})
-      console.log(res);
+      let res = await provider.search({ query: input })
+      console.log(res)
       let searchResultData = []
       for (let data of res) {
-        let split = data.raw.display_name.split(', ');
-        if (split[split.length - 1] === 'Sweden' || split[split.length - 1] === 'Sverige') {
+        let split = data.raw.display_name.split(', ')
+        if (
+          split[split.length - 1] === 'Sweden' ||
+          split[split.length - 1] === 'Sverige'
+        ) {
           let searchResultObject = {}
           searchResultObject.city = split[0]
           searchResultObject.municipality = split[1]
@@ -42,11 +56,9 @@ export default {
           searchResultData.push(searchResultObject)
         }
       }
-      console.info("Posting search data to state");
+      console.info('Posting search data to state')
       this.setSearchData(searchResultData) //Object.assign({}, res)
     },
-
   },
 }
 </script>
-

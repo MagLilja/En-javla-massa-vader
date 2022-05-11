@@ -1,21 +1,15 @@
 <template>
-
-<search-component/>
-  <search-result-component/>
-
-
+  <search-component />
+  <search-result-component />
 </template>
 
 <script>
-
-import SearchComponent from "@/components/global/SearchComponent.vue";
-import SearchResultComponent from "@/components/global/SearchResultComponent.vue";
+import SearchComponent from '@/components/global/SearchComponent.vue'
+import SearchResultComponent from '@/components/global/SearchResultComponent.vue'
 
 export default {
-  components: {SearchResultComponent, SearchComponent}
+  components: { SearchResultComponent, SearchComponent },
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import paramComponent from "@/components/observations/ParamComponent.vue";
-import stationComponent from "@/components/observations/StationComponent.vue";
-import periodComponent from "@/components/observations/PeriodComponent.vue";
-import dataComponent from "@/components/observations/DataComponent.vue";
+import paramComponent from '@/components/observations/ParamComponent.vue'
+import stationComponent from '@/components/observations/StationComponent.vue'
+import periodComponent from '@/components/observations/PeriodComponent.vue'
+import dataComponent from '@/components/observations/DataComponent.vue'
 
 export default {
   components: {
@@ -28,21 +28,21 @@ export default {
   },
   data() {
     return {
-      selectedParamStationsHref: "",
-      selectedStationHref: "",
-      selectedPeriodHref: "",
-    };
+      selectedParamStationsHref: '',
+      selectedStationHref: '',
+      selectedPeriodHref: '',
+    }
   },
   methods: {
     onClickParameter(v) {
-      this.selectedParamStationsHref = v.parameterLink;
+      this.selectedParamStationsHref = v.parameterLink
     },
     onClickStation(v) {
-      this.selectedStationHref = v.data;
+      this.selectedStationHref = v.data
     },
     onClickPeriod(v) {
-      this.selectedPeriodHref = v.data;
+      this.selectedPeriodHref = v.data
     },
   },
-};
+}
 </script>

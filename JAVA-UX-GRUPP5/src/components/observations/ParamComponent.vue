@@ -4,9 +4,9 @@
     <div>Välj parameter:</div>
     <select v-model="selectedHref" class="" @change="toParent(selectedHref)">
       <option
-          v-for="(p, index) in parameters.resource"
-          :key="`${index}`"
-          :value="{ parameterLink: p.link[0].href }"
+        v-for="(p, index) in parameters.resource"
+        :key="`${index}`"
+        :value="{ parameterLink: p.link[0].href }"
       >
         {{ `${p.title} - ${p.summary}` }}
       </option>
@@ -15,32 +15,32 @@
 </template>
 
 <script>
-import smhiService from "@/services/smhiService.js";
+import smhiService from '@/services/smhiService.js'
 
 export default {
-  name: "ParamComponent",
+  name: 'ParamComponent',
   props: {
     smhiType: String,
   },
-  emits: ["paramSelectionHref"],
+  emits: ['paramSelectionHref'],
   data() {
     return {
-      selectedHref: "",
-      parameters: "",
-    };
+      selectedHref: '',
+      parameters: '',
+    }
   },
   created() {
     this.getParametersFromAPI()
   },
   methods: {
     toParent(value) {
-      this.$emit("paramSelectionHref", value);
+      this.$emit('paramSelectionHref', value)
     },
-    getParametersFromAPI(){
-      smhiService.fetchData().then((p) => (this.parameters = p));
-    }
+    getParametersFromAPI() {
+      smhiService.fetchData().then((p) => (this.parameters = p))
+    },
   },
-};
+}
 </script>
 
 <style scoped>

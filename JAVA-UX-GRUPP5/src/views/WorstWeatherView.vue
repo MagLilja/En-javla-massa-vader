@@ -1,4 +1,5 @@
-<template>worst weather view here
+<template>
+  worst weather view here
 
-  <img src="./../assets/wireframes/worst.png" alt="">
+  <img src="./../assets/wireframes/worst.png" alt="" />
 </template>

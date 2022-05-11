@@ -1,25 +1,29 @@
 <template>
-  <div class="desktop-data-card flex-column-center-2" >
+  <div class="desktop-data-card flex-column-center-2">
     <div class="desktop-data-card-header">
-      <div >
-        <img class="big-icon" src="../../assets/icons/main-view-icon.svg" alt="">
+      <div>
+        <img
+          class="big-icon"
+          src="../../assets/icons/main-view-icon.svg"
+          alt=""
+        />
       </div>
     </div>
     <div class="desktop-data-card-body">
-      <same-day-list-component/>
+      <same-day-list-component />
     </div>
   </div>
 </template>
 <script>
-import SameDayListComponent from "@/components/dataLists/SameDayListComponent.vue"
-import {useUserDataStore} from "@/stores/useUserDataStore.js"
-import {mapState, mapActions} from 'pinia'
+import SameDayListComponent from '@/components/dataLists/SameDayListComponent.vue'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
+import { mapState, mapActions } from 'pinia'
 
 export default {
   name: 'ten-day-desktop-card',
-  components: {SameDayListComponent},
+  components: { SameDayListComponent },
   computed: {
-    ...mapState(useUserDataStore,"getForecastFullData")
-  }
+    ...mapState(useUserDataStore, 'getForecastFullData'),
+  },
 }
 </script>
