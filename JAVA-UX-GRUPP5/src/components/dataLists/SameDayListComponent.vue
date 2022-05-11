@@ -1,20 +1,20 @@
 <template>
   <div>
-    <table class="table-fixed [width:90vw] ">
+    <table class="table-fixed [width:95%] ">
       <thead class="">
       <tr class="text-left ">
-        <th class="">Tid</th>
+        <th class="w-fit">Tid</th>
         <th class="">Väder</th>
         <th>Temperatur</th>
         <th>Vind</th>
       </tr>
       </thead>
       <tbody>
-      <tr class="text-left border-b-2 " v-for="(hour, index) of TwentyFourForecast" :key="index">
+      <tr class="text-left border-b-2 w-fit" v-for="(hour, index) of TwentyFourForecast" :key="index">
         <td class="">{{ hour.time }}</td>
         <td class="">{{ hour.wSymb2Symbol }}</td>
         <td>{{ hour.temperature }}&#176</td>
-        <td>{{ hour.wind }} ({{ hour.gusts }}) m/s</td>
+        <td class="w-fit">{{ hour.wind }} ({{ hour.gusts }}) m/s</td>
       </tr>
       </tbody>
     </table>
