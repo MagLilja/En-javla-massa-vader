@@ -4,6 +4,10 @@
 
 /*}*/
 
+* {
+    /*outline: 1px solid red;*/
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600&display=swap');
 
 /*###########################*/
@@ -144,7 +148,7 @@ body {
 }
 
 .start-view-weather-same-day-list-component-sm-minus {
-    width: 100vw;
+    /*width: 100vw;*/
     display: flex;
     justify-content: center;
 }
@@ -315,7 +319,7 @@ body {
 }
 
 .start-view-weather-warning-component-sm-minus {
-    width: 100vw;
+    width: 95vw;
 }
 
 /*---------- SAME DAY WEATHER COMPONENT ----------*/
