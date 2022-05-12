@@ -8,6 +8,7 @@
 
 <script>
 import smhiService from "@/services/smhiService.js";
+import swedenCoordinates from '@/assets/sweden-polygon.json';
 
 export default {
   created() {
@@ -31,14 +32,37 @@ export default {
       */
      
      // Tar fram polygonens hörn. Oanvändbart.
-     
-     let category = "mesan1g"
-     let version = "2"
-     let url2 = `https://opendata-download-metanalys.smhi.se/api/category/${category}/version/${version}/geotype/polygon.json`
-     let data = await smhiService.fetchData(url2);
-     console.log(data)
+     //
+     // let category = "mesan1g"
+     // let version = "2"
+     // let url2 = `https://opendata-download-metanalys.smhi.se/api/category/${category}/version/${version}/geotype/polygon.json`
+     // let data = await smhiService.fetchData(url2);
+     // console.log(data)
+
+      for (let coordinates of swedenCoordinates.features[0].geometry.coordinates[0]){
+        console.log(coordinates[0]);
+      }
 
       // /api/category/mesan1g/version/2/geotype/multipoint/validtime/20151012T150000Z/parameter/t/leveltype/hl/level/2/data.json?with-geo=false
+    },
+    checkcheck (x, y, cornersX, cornersY) {
+
+      var i, j=cornersX.length-1 ;
+      var odd = false;
+
+      var pX = cornersX;
+      var pY = cornersY;
+
+      for (i=0; i<cornersX.length; i++) {
+        if ((pY[i]< y && pY[j]>=y ||  pY[j]< y && pY[i]>=y)
+            && (pX[i]<=x || pX[j]<=x)) {
+          odd ^= (pX[i] + (y-pY[i])*(pX[j]-pX[i])/(pY[j]-pY[i])) < x;
+        }
+
+        j=i;
+      }
+
+      return odd;
     }
   }
 
