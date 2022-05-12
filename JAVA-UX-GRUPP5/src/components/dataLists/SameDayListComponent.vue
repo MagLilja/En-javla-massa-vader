@@ -23,7 +23,7 @@
 
 
 <script>
-import weatherDataManager from "@/services/WeatherDataManager.js";
+import weatherDataManager from "@/managers/WeatherDataManager.js";
 import WSymbol from "@/services/Wsymb2.json";
 import {mapState} from "pinia/dist/pinia";
 import {useUserDataStore} from "@/stores/useUserDataStore";

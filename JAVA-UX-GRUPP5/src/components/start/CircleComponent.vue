@@ -30,7 +30,7 @@
 import WSymb2 from '@/services/Wsymb2.json';
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
 import {mapActions, mapState} from "pinia";
-import weatherDataManager from "@/services/WeatherDataManager";
+import weatherDataManager from "@/managers/WeatherDataManager";
 
 export default {
   props: {},

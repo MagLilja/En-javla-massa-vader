@@ -2,7 +2,7 @@
 
 <script>
 import smhiService from '@/services/smhiService.js'
-import weatherDataManager from '@/services/WeatherDataManager.js'
+import weatherDataManager from '@/managers/WeatherDataManager.js'
 import wSymb2 from '@/services/Wsymb2.json'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState, mapActions } from 'pinia'

@@ -33,7 +33,7 @@
 <script>
 import {mapState} from "pinia/dist/pinia";
 import {useUserDataStore} from "@/stores/useUserDataStore";
-import weatherDataManager from "@/services/WeatherDataManager";
+import weatherDataManager from "@/managers/WeatherDataManager";
 
 export default {
   name: 'ten-day-list-component',
