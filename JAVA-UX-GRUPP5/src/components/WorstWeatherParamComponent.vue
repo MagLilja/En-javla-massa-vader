@@ -5,7 +5,7 @@
     <div class="justify-self-end"><img class="w-16" :src="icon" alt=""></div>
     <div class="max-w-max justify-self-start flex flex-col">
       <div class="">{{ parameter.city.minValueGeo.features[0].properties.city }}</div>
-      <div class="self-start">{{ parameter.minValue }} &#176C
+      <div class="self-start">{{ parameter.minValue }} {{ parameter.unit }}
       </div>
     </div>
   </div>
