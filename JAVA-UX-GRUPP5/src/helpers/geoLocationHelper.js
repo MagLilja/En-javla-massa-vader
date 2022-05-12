@@ -11,16 +11,17 @@ let getSwedenCoordinates = (boundary) => {
 }
 
 
-let getMinMaxValCoord = async (param, level, boundary) => {
+let getMinMaxValCoord = async (param, level, boundary, downsample) => {
     let validTimeData = await smhiService.fetchData("https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/validtime.json");
     let validTime = validTimeData.validTime[0];
     let p = param;
     let lt = "hl";
     validTime = validTime.replace(/[:-]/g, "");
     let l = level;
-    let url = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/multipoint/validtime/${validTime}/parameter/${p}/leveltype/${lt}/level/${l}/data.json?downsample=40`;
+    let url = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/multipoint/validtime/${validTime}/parameter/${p}/leveltype/${lt}/level/${l}/data.json?downsample=${downsample}`;
     //SMHI ger coordinaterna på fel håll
     let data = await smhiService.fetchData(url);
+    console.info(`metanalys multipoint parameter: ${param} level: ${level} downsample: ${downsample}`)
     let {cornersLong, cornersLat} = getSwedenCoordinates(boundary);
 
     let target = {
@@ -99,7 +100,6 @@ let getCityFromGeoLocationDataApi = async (target) => {
     let maxUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${target.maxCoordinates[1]}&lon=${target.maxCoordinates[0]}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
     let minUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${target.minCoordinates[1]}&lon=${target.minCoordinates[0]}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
     // if the coordinates in the Store match the geolocation data coordinates in the Store
-    console.log("fromjs");
     let maxResponse = await fetch(maxUrl)
     let maxResult = await maxResponse.json()
 
