@@ -1,7 +1,7 @@
 <template>
 
 
-  <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 m-10">
+  <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 m-10 my-auto w-40">
     <h1 class="font-bold text-5xl ">Sämre väder just nu!</h1>
     <p>Tycker du att vädret suger? Det finns dom som har det värre.</p>
     <worst-weather-param-component :parameter="temperature" title="Kallaste" />
