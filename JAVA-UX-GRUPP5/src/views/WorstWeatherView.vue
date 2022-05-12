@@ -33,6 +33,7 @@
         validTime = validTime.replace(/[:-]/g, "");
         let l = 2;
         let url = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/multipoint/validtime/${validTime}/parameter/${p}/leveltype/${lt}/level/${l}/data.json?downsample=40`;
+        //SMHI ger coordinaterna på fel håll
         let data = await smhiService.fetchData(url);
         let { cornersLong, cornersLat } = this.getSwedenCoordinates();
 
@@ -41,7 +42,7 @@
           let longitude = c[0];
           let latitude = c[1];
 
-          let isSweden = this.checkCoordinate(latitude, longitude, cornersLat, cornersLong);
+          let isSweden = this.rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong);
           if (isSweden) {
             c.sweden = true;
           } else {
@@ -66,7 +67,7 @@
 
 
       },
-      checkCoordinate(latitude, longitude, cornersLat, cornersLong) {
+      rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
 
         var i, j = cornersLat.length - 1;
         var odd = false;
