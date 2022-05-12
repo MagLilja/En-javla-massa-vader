@@ -1,78 +1,91 @@
 <template>
-  <br />
+  <br/>
   <div>
-    <summary-view-header-component />
+    <summary-view-header-component/>
   </div>
 
-  <div class="container">
-    <div class="text">
-      Nederbörd &nbsp &nbsp &nbsp &nbsp<br /><img
-        class="image"
-        src="../assets/prototype_icons/Group12.svg"
-        alt="rain cloud"
-      /><weather-summary-component :param="preciptation" /> mm
-    </div>
-    <div class="text">
-      Soltimmar <br /><img
-        class="image"
-        src="../assets/prototype_icons/Group7.svg"
-        alt="sun"
-      /><weather-summary-component :param="sunHours" /> h
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="text">
-      Varmaste dagen &nbsp<br /><img
-        class="image"
-        src="../assets/prototype_icons/sun-solid2.svg"
-        alt="rain cloud"
+  <section class="flex flex-col gap-7">
+    <div class="container">
+      <div class="sub-container">
+        Nederbörd<img
+          class="image"
+          src="../assets/prototype_icons/Group12.svg"
+          alt="rain cloud"
       />
-      <weather-summary-component :param="maxTemp" />&#176;C
-    </div>
-    <div class="text">
-      Kallaste dagen <br /><img
-        class="image"
-        src="../assets/prototype_icons/snowflake-solid3.svg"
-        alt="rain cloud"
-      /><weather-summary-component :param="minTemp" />&#176;C
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="text">
-      Blåsigaste dagen <br /><img
-        class="image"
-        src="../assets/prototype_icons/wind-solid3.svg"
-        alt="rain cloud"
+        <weather-summary-component :param="preciptation"/>
+        mm
+      </div>
+      <div class="sub-container">
+        Soltimmar<img
+          class="image"
+          src="../assets/prototype_icons/Group7.svg"
+          alt="sun"
       />
-      <weather-summary-component :param="maxWind" />m/s
+        <weather-summary-component :param="sunHours"/>
+        h
+      </div>
     </div>
-    <div class="text">
-      Blötaste dagen <br /><img
-        class="image"
-        src="../assets/prototype_icons/snowflake-solid3.svg"
-        alt="rain cloud"
-      /><weather-summary-component :param="maxDailyPrecipitation" />mm
+
+    <div class="container">
+      <div class="sub-container">
+        Varmaste dagen<img
+          class="image"
+          src="../assets/prototype_icons/sun-solid2.svg"
+          alt="rain cloud"
+      />
+        <weather-summary-component :param="maxTemp"/>&#176;C
+      </div>
+      <div class="sub-container">
+        Kallaste dagen<img
+          class="image"
+          src="../assets/prototype_icons/snowflake-solid3.svg"
+          alt="rain cloud"
+      />
+        <weather-summary-component :param="minTemp"/>&#176;C
+      </div>
     </div>
-  </div>
 
-<!--  -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-<!--  <param-component @paramSelectionHref="onClickParameter" />-->
-<!--  <station-component-->
-<!--    :selected-param-stations-href="selectedParamStationsHref"-->
-<!--    @selectedStationHref="onClickStation"-->
-<!--  />-->
-<!--  <period-component-->
-<!--    :selected-station-href="selectedStationData.data"-->
-<!--    @selectedPeriodForStationHref="onClickPeriod"-->
-<!--  />-->
-<!--  <data-component :selected-period-href="selectedPeriodHref" />-->
+    <div class="container">
+      <div class="sub-container">
+        <div>Blåsigaste dagen</div>
+        <img
+            class="image"
+            src="../assets/prototype_icons/wind-solid3.svg"
+            alt="rain cloud"
+        />
+        <div class="">
+          <weather-summary-component :param="maxWind"/>
+          m/s
+        </div>
+      </div>
+      <div class="sub-container">
+        Blötaste dagen<img
+          class="image"
+          src="../assets/prototype_icons/snowflake-solid3.svg"
+          alt="rain cloud"
+      />
+        <weather-summary-component :param="maxDailyPrecipitation"/>
+        mm
+      </div>
+    </div>
+  </section>
 
-<!--  {{ selectedStationData.longitude }}-->
-<!--  {{ selectedStationData.latitude }}-->
+  <!--  -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+  <!--  <param-component @paramSelectionHref="onClickParameter" />-->
+  <!--  <station-component-->
+  <!--    :selected-param-stations-href="selectedParamStationsHref"-->
+  <!--    @selectedStationHref="onClickStation"-->
+  <!--  />-->
+  <!--  <period-component-->
+  <!--    :selected-station-href="selectedStationData.data"-->
+  <!--    @selectedPeriodForStationHref="onClickPeriod"-->
+  <!--  />-->
+  <!--  <data-component :selected-period-href="selectedPeriodHref" />-->
 
-<!--  <img src="./../assets/wireframes/summary.png" alt="" />-->
+  <!--  {{ selectedStationData.longitude }}-->
+  <!--  {{ selectedStationData.latitude }}-->
+
+  <!--  <img src="./../assets/wireframes/summary.png" alt="" />-->
 </template>
 
 <script>
@@ -122,19 +135,22 @@ export default {
 
 <style scoped>
 .container {
+  border: 1px solid red;
   display: flex;
+  justify-content: space-around;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  align-items: flex-start;
   justify-content: flex-start;
+  width:40%;
 }
 
-.text {
-  font-size: 1em;
-  font-weight: 600;
-  margin: 1.2em;
-}
-
-.image {
-  margin: 0.5em;
+.sub-container > img {
   width: 3em;
-  height: auto;
+  aspect-ratio: 1;
 }
 </style>

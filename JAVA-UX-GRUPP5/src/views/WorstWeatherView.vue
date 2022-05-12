@@ -1,7 +1,8 @@
 <template>
 
 
-  <div v-if="temperature && wind && precipitation" class="flex flex-col justify-center items-center gap-10">
+  <div v-if="temperature && wind && precipitation" class="flex flex-col gap-20">
+    <h1 class="font-bold text-5xl">Sämre väder just nu!</h1>
     <worst-weather-param-component :parameter="temperature" title="Kallaste" />
     <worst-weather-param-component :parameter="precipitation" title="Blötaste"/>
     <worst-weather-param-component :parameter="wind" title="Blåsigaste"/>
