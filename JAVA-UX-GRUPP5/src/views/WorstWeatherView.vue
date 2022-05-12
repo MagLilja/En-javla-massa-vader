@@ -38,31 +38,50 @@ export default {
      // let url2 = `https://opendata-download-metanalys.smhi.se/api/category/${category}/version/${version}/geotype/polygon.json`
      // let data = await smhiService.fetchData(url2);
      // console.log(data)
-
+      let cornersLong = []
+      let cornersLat = []
       for (let coordinates of swedenCoordinates.features[0].geometry.coordinates[0]){
-        console.log(coordinates[0]);
+        cornersLong.push(coordinates[0])
+        cornersLat.push(coordinates[1])
       }
+      console.log(cornersLong);
+      console.log(cornersLat);
+      // Gothenburg
+      // let latitude =57.7065806
+      // let longitude =11.9294613
+
+      // Norrland
+      let latitude =63.792215
+      let longitude =15.366540
+
+      // Denmark
+      // let latitude =57.448878
+      // let longitude =10.290267
+
+
+
+      this.checkcheck(latitude,longitude, cornersLat,cornersLong)
 
       // /api/category/mesan1g/version/2/geotype/multipoint/validtime/20151012T150000Z/parameter/t/leveltype/hl/level/2/data.json?with-geo=false
     },
-    checkcheck (x, y, cornersX, cornersY) {
+    checkcheck (latitude, longitude, cornersLat, cornersLong) {
 
-      var i, j=cornersX.length-1 ;
+      var i, j=cornersLat.length-1 ;
       var odd = false;
 
-      var pX = cornersX;
-      var pY = cornersY;
+      var pX = cornersLat;
+      var pY = cornersLong;
 
-      for (i=0; i<cornersX.length; i++) {
-        if ((pY[i]< y && pY[j]>=y ||  pY[j]< y && pY[i]>=y)
-            && (pX[i]<=x || pX[j]<=x)) {
-          odd ^= (pX[i] + (y-pY[i])*(pX[j]-pX[i])/(pY[j]-pY[i])) < x;
+      for (i=0; i<cornersLat.length; i++) {
+        if ((pY[i]< longitude && pY[j]>=longitude ||  pY[j]< longitude && pY[i]>=longitude)
+            && (pX[i]<=latitude || pX[j]<=latitude)) {
+          odd ^= (pX[i] + (longitude-pY[i])*(pX[j]-pX[i])/(pY[j]-pY[i])) < latitude;
         }
 
         j=i;
       }
-
-      return odd;
+      console.log(odd);
+      // return odd;
     }
   }
 
