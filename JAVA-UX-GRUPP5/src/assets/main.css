@@ -96,6 +96,9 @@ body {
 
 .view-container {
     margin: 0.3em 0em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /*---------- DESKTOP CARDS ----------*/
@@ -215,23 +218,17 @@ body {
     aspect-ratio: 1;
 }
 
-.worst-weather-icon {
-    width: 80px;
-    display: flex;
-    flex-direction: column;
+
+/*---------- WORST WEATHER ----------*/
+.worst-weather-item {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-color: var(--primary-color-lightblue);
+
 }
 
-.worst-weather-icon > div > img {
-    /*margin:0.2em;*/
-}
-
-.worst-weather-icon img {
-    width: clamp(6px, 4vw, 5rem);
-    aspect-ratio: 1;
-}
-
-.worst-weather-bottom-icons-container {
-}
 
 /*---------- TOP NAVIGATION ----------*/
 
@@ -307,7 +304,6 @@ body {
     width: 18px;
     aspect-ratio: 1;
 }
-
 
 
 /*---------- WEATHER WARNING ----------*/

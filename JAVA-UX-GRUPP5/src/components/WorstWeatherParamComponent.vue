@@ -1,5 +1,5 @@
 <template>
-  <div class="hottest flex flex-col justify-items-start w-fit ">
+  <div class="worst-weather-item flex flex-col justify-items-start w-5/6 shadow-lg rounded-2xl">
     <div class="font-bold w-fit p-4">{{ title }}</div>
     <!--      <div></div>-->
     <div class="flex items-center">

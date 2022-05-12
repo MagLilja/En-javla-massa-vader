@@ -1,6 +1,6 @@
 <template>
   <br/>
-  <div>
+  <div class="m-5">
     <summary-view-header-component/>
   </div>
 
@@ -135,7 +135,6 @@ export default {
 
 <style scoped>
 .container {
-  border: 1px solid red;
   display: flex;
   justify-content: space-around;
 }
@@ -147,6 +146,14 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   width:40%;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border-radius: 1rem;
+  padding:1em;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-color: var(--primary-color-lightblue);
 }
 
 .sub-container > img {
