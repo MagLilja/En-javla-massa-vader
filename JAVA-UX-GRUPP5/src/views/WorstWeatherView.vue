@@ -1,13 +1,13 @@
 <template>
   worst weather view here
 
-  <img src="./../assets/wireframes/worst.png" alt=""/>
+
   <div v-if="temperature && wind && precipitation">Kallast:
     {{ temperature.minValue }}
     {{ temperature.unit }}
     {{ temperature.minCoordinates }}
     <div v-if="temperature.city.minValue">
-    {{ temperature.city.minValue.features[0].properties.city }}
+      {{ temperature.city.minValue.features[0].properties.city }}
     </div>
     <br>
 
@@ -15,15 +15,15 @@
     {{ precipitation.maxValue }}
     {{ precipitation.unit }}
     {{ precipitation.maxCoordinates }}
-<!--    {{ temperature.city.maxValueGeo.features[0].properties.city }}-->
+    <!--    {{ temperature.city.maxValueGeo.features[0].properties.city }}-->
     <br>
     Blåsigast:
     {{ wind.maxValue }}
     {{ wind.unit }}
     {{ wind.maxCoordinates }}
-<!--    {{ temperature.city.maxValueGeo.features[0].properties.city }}-->
+    <!--    {{ temperature.city.maxValueGeo.features[0].properties.city }}-->
   </div>
-
+  <img src="./../assets/wireframes/worst.png" alt=""/>
 </template>
 
 <script>
@@ -47,7 +47,7 @@ export default {
   watch: {
     temperature: {
       deep: true,
-      async handler(){
+      async handler() {
         console.log("hello");
         // this.temperature.city = await geoLocationHelper.getCityFromGeoLocationDataApi(this.temperature)
       }
