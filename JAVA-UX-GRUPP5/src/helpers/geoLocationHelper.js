@@ -30,8 +30,8 @@ let getMinMaxValCoord = async (param, level, boundary) => {
         minCoordinates: undefined,
         unit: undefined,
         city: {
-            max:undefined,
-            min: undefined
+            maxValueGeo:undefined,
+            minValueGeo: undefined
         },
 
     }
@@ -58,7 +58,7 @@ let getMinMaxValCoord = async (param, level, boundary) => {
     })
 
 
-    // target.city = await getCityFromGeoLocationDataApi(target)
+    target.city = await getCityFromGeoLocationDataApi(target)
     return target;
 
     // Gothenburg

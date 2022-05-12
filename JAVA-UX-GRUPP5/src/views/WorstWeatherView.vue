@@ -1,36 +1,21 @@
 <template>
-  worst weather view here
 
 
-  <div v-if="temperature && wind && precipitation">Kallast:
-    {{ temperature.minValue }}
-    {{ temperature.unit }}
-    {{ temperature.minCoordinates }}
-    <div v-if="temperature.city.minValue">
-      {{ temperature.city.minValue.features[0].properties.city }}
-    </div>
-    <br>
-
-    Blötast:
-    {{ precipitation.maxValue }}
-    {{ precipitation.unit }}
-    {{ precipitation.maxCoordinates }}
-    <!--    {{ temperature.city.maxValueGeo.features[0].properties.city }}-->
-    <br>
-    Blåsigast:
-    {{ wind.maxValue }}
-    {{ wind.unit }}
-    {{ wind.maxCoordinates }}
-    <!--    {{ temperature.city.maxValueGeo.features[0].properties.city }}-->
+  <div v-if="temperature && wind && precipitation" class="flex flex-col justify-center items-center gap-10">
+    <worst-weather-param-component :parameter="temperature" title="Kallaste"/>
+    <worst-weather-param-component :parameter="precipitation" title="Blötaste"/>
+    <worst-weather-param-component :parameter="wind" title="Blåsigaste"/>
   </div>
-  <img src="./../assets/wireframes/worst.png" alt=""/>
+  <!--  <img src="../assets/wireframes/ej2lo70n.bmp" alt="">-->
 </template>
 
 <script>
 import swedenCoordinates from "@/assets/sweden-polygon.json";
 import geoLocationHelper from "@/helpers/geoLocationHelper.js";
+import WorstWeatherParamComponent from "@/components/WorstWeatherParamComponent.vue";
 
 export default {
+  components: {WorstWeatherParamComponent},
   data() {
     return {
       temperature: undefined,
@@ -45,17 +30,14 @@ export default {
   },
   methods: {},
   watch: {
-    temperature: {
-      deep: true,
-      async handler() {
-        console.log("hello");
-        // this.temperature.city = await geoLocationHelper.getCityFromGeoLocationDataApi(this.temperature)
-      }
-    }
+    // temperature: {
+    //   deep: true,
+    //   async handler() {
+    //     console.log("hello");
+    //     // this.temperature.city = await geoLocationHelper.getCityFromGeoLocationDataApi(this.temperature)
+    //   }
+    // }
   },
 }
 </script>
 
-<style scoped>
-
-</style>
