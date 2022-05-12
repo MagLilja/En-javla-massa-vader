@@ -17,10 +17,11 @@ export default {
   props: {
     parameter: {},
     title:String,
+    icon: String
   },
   data() {
     return {
-      icon:"../assets/prototype_icons/snowflake-solid3.svg"
+      icon:"src/assets/prototype_icons/snowflake-solid3.svg"
     }
   },
 }
