@@ -1,15 +1,19 @@
 <template>
-  <div class="hottest grid grid-cols-2 justify-items-start w-fit gap-4 ">
-    <div class="font-bold w-fit col-span-2 justify-self-center ">{{ title }}</div>
+  <div class="hottest flex flex-col justify-items-start w-fit ">
+    <div class="font-bold w-fit p-4">{{ title }}</div>
     <!--      <div></div>-->
-    <div class="justify-self-end"><img class="w-16" :src="iconName" alt=""></div>
-    <div class="max-w-max justify-self-start flex flex-col ">
-      <div class="" @click="selectCity(searchData)">
-        {{ paramCity }}
+    <div class="flex items-center">
+      <img class="w-1/6 m-4" :src="iconName" alt="">
+      <div class="max-w-max justify-self-start flex flex-col ">
+        <div class="" @click="selectCity(searchData)">
+          {{ paramCity }}
+        </div>
+        <div class="self-start ">{{ paramValue }} {{ parameter.unit }}
+        </div>
       </div>
-      <div class="self-start ">{{ paramValue }} {{ parameter.unit }}
-      </div>
+
     </div>
+
   </div>
 </template>
 <script>
