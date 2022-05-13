@@ -10,8 +10,8 @@
 
     <template class="" v-for="(wd,index) of weatherData" :key="index">
       <div class="">{{ getLocalDate(wd.dataDate) }}</div>
-      <div class="flex flex-col ">
-        <div class="">{{ wd.highestTemp }}&#176</div>
+      <div class="flex flex-col">
+        <div class="font-bold">{{ wd.highestTemp }}&#176</div>
         <div class="">({{ wd.lowestTemp }}&#176)</div>
       </div>
       <div class="content-start items-start justify-start">{{ wd.totalPrecipitation }} mm</div>
@@ -19,7 +19,7 @@
         <div class="x"> {{ wd.roundedAvgWindSpeed }} m/s</div>
         <div class="x">({{ wd.highestGust }}) m/s</div>
       </div>
-      <div class="border-b-2 col-span-5 my-2 "></div>
+      <div class="border-b-2 col-span-4 my-2 "></div>
     </template>
 
   </div>
