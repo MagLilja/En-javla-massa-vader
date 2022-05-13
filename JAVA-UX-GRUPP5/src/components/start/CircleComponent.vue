@@ -80,9 +80,8 @@ export default {
     },
     buildOuterCircleDatalist() {
       let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
-      console.log(forecastList);
+      console.log("buildOuterCircleDatalist()");
       let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true).reverse()
-      console.log(analysisList);
       this.completeDailyWxList = analysisList.concat(forecastList)
     },
     setLocalClockDeg() {
