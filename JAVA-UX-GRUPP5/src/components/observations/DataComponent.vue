@@ -32,7 +32,6 @@ export default {
   methods: {
     async extractDataLink() {
       let periodRef = await smhiService.fetchData(this.selectedPeriodHref)
-      /** @type (String) */
       let href = periodRef.data[0].link[0].href
       this.periodData = await smhiService.fetchData(href)
     },

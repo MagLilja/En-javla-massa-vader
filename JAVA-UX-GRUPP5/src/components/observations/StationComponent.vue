@@ -59,14 +59,12 @@ export default {
       let closestStation
 
       for (let station of this.stationsForParam.station) {
-        // (11.94 - 18.82) * 2
         let distance = Math.sqrt(
           (this.coordinates.longitude - station.longitude) *
             (this.coordinates.longitude - station.longitude) +
             (this.coordinates.latitude - station.latitude) *
               (this.coordinates.latitude - station.latitude),
         )
-        // let distance = Math.sqrt(((16.79 - station.longitude) * 2) + ((65.10 - station.latitude) * 2));
         console.log(distance)
 
         if (distance < minDistance) {
@@ -74,6 +72,7 @@ export default {
           closestStation = station
         }
       }
+      //This should be removed?
       console.log(
         'The closest station: x=' +
           closestStation.longitude +
