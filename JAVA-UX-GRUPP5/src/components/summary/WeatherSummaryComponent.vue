@@ -6,10 +6,6 @@
   <div v-else>
     <div class="font-bold">{{ value }} {{ dataUnit }}</div>
   </div>
-
-
-
-
 </template>
 
 <script>
@@ -56,9 +52,6 @@ export default {
 
   methods: {
     async getSummary() {
-      // let res = weatherSummaryManager.getSummary(this.param, this.nearestStation)
-      // res.log
-      // return res
 
       let hrefToStationPeriods = await smhiService.fetchData(
           this.nearestStation.link[0].href,
@@ -145,7 +138,6 @@ export default {
             case 25:
               let mostWind = 0
               let windiestDay = undefined
-              //console.log(actualData)
 
               for (let value of actualData.value) {
                 let date = new Date(value.date)
@@ -174,9 +166,7 @@ export default {
     getStationNo() {
       let minDistance = 10000000
       let closestStation
-      // Koordinaterna för Yrgo. Kan användas i utvecklingssyfte.
-      //let long = 11.93672177256134
-      //let lat = 57.70585326345131
+
       let long = this.getCoordinates.longitude
       let lat = this.getCoordinates.latitude
 
