@@ -109,10 +109,10 @@ export const useUserDataStore = defineStore('useUserDataStore', {
             this.favoriteLocationList = favoriteLocationList
         },
         setLastSearchList(v) {
-            this.lastSearchList.lastSearch.push(v)
+            this.lastSearchList.lastSearch.unshift(v)
             console.log(this.lastSearchList.lastSearch.length);
             if (this.lastSearchList.lastSearch.length > 6){
-                this.lastSearchList.lastSearch.shift()
+                this.lastSearchList.lastSearch.pop()
             }
         },
         deleteSearchData(){

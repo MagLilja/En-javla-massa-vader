@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col justify-center items-start">
-    <div v-if="getLastSearchList">
-      Senaste
-      <div class="search-data-item" v-for="(searchData, index) in this.getLastSearchList.lastSearch" :key="index">
-        {{ searchData.city }}
-        {{ searchData.municipality }}
+  <div class="flex flex-col justify-center items-start mt-20">
+    <div v-if="getLastSearchList && !getSearchData">
+      <div class="border-b-2 mb-4">Senaste sökningarna</div>
+      <div class="" v-for="(searchData, index) in this.getLastSearchList.lastSearch" :key="index">
+        <div class="search-data-item" @click="selectCity(searchData)"> {{ searchData.city }}
+        {{ searchData.municipality }} </div>
       </div>
 
     </div>
@@ -18,7 +18,7 @@
           :key="index"
       >
         <favorite-check-component :location-data="searchData"/>
-        <div @click="selectCity(searchData)">
+        <div  @click="selectCity(searchData)">
           {{ searchData.city }}
           {{ searchData.municipality }}
         </div>
@@ -65,8 +65,8 @@ export default {
 </script>
 <style scoped>
 .search-data-item {
-  padding: 0.4em 1.5em;
-  margin: 0.4em;
+  padding: 0.2em 0;
+  margin: 0.2em;
   text-align: left;
 
 }
