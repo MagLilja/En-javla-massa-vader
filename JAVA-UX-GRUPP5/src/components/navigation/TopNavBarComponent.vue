@@ -26,9 +26,6 @@
       </div>
     </MqResponsive>
 
-<!--    <div @click="toggleSearch()" class="top-nav-site-title">-->
-<!--      En himla massa väder!-->
-<!--    </div>-->
     <div class="favorite-link">
       <img
         class="favorite-icon"

@@ -19,15 +19,10 @@
     /></router-link>
 
     <router-link class="nav-bar-item" to="/worst-weather">
-      <!--      <div class="worst-weather-top-icon-container"><img src="../../assets/prototype_icons/Vectasdsdor.svg"-->
-      <!--                                                         alt="worst-weather"/></div>-->
-      <!--      <div class="worst-weather-bottom-icons-container"> <img src="../../assets/prototype_icons/wind-solid%201.svg"-->
-      <!--                                                               alt="worst-weather"/>-->
       <img
         src="../../assets/prototype_icons/snowflake-solid.svg"
         alt="worst-weather"
       />
-      <!--      </div> -->
     </router-link>
 
     <router-link class="nav-bar-item" to="favorite"
@@ -40,5 +35,4 @@
 export default {}
 </script>
 
-<!--suppress CssUnusedSymbol -->
 <style scoped></style>
