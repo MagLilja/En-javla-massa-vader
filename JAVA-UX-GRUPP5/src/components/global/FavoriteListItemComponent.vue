@@ -10,7 +10,6 @@
           :location-data="favorite"
         />
         {{ favorite.city }}
-        <!--        {{ favorite.municipality }}-->
       </div>
     </li>
   </ul>

@@ -1,10 +1,6 @@
 <template>
   <div v-if="userGeoLocationData">
     <div class="city-name">{{ currentCityName }}</div>
-
-    <!--    {{getRoundedCoordinate(getCoordinates.longitude)}}-->
-    <!--    {{getRoundedCoordinate(userGeoLocationData.features[0].geometry.coordinates[0])}}-->
-    <!--    {{getRoundedCoordinate(getUserGeoLocationData.features[0].geometry.coordinates[0])}}-->
   </div>
 </template>
 <script>

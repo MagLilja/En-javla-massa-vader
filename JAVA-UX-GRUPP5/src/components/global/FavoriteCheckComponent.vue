@@ -91,15 +91,6 @@ export default {
         this.favorite = false
         this.heartIcon = unCheckedHeart
       }
-
-      // console.log(this.getFavoriteLocationList.favorites.indexOf(v));//
-
-      // if (favorite.longitude === v.longitude && favorite.latitude === v.latitude) {
-      //   this.heartIcon = checkedHeart
-      //   this.favorite = !this.favorite
-      //   console.log(this.favorite);
-      //   console.log("match");
-      // }
     },
   },
 }

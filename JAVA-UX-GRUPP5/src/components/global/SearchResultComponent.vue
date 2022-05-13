@@ -6,9 +6,7 @@
         <div class="search-data-item" @click="selectCity(searchData)"> {{ searchData.city }}
         {{ searchData.municipality }} </div>
       </div>
-
     </div>
-
 
     <ul v-if="getSearchData" class="search-data-list rounded-2xl ">
 
@@ -27,8 +25,6 @@
       </li>
       <div class="text-gray-500 w-full text-xl m-4 ml-12">* Klicka på hjärtat för att favorit-markera platsen!</div>
     </ul>
-
-
   </div>
 </template>
 <script>

@@ -57,7 +57,7 @@ export default {
         }
       }
       console.info('Posting search data to state')
-      this.setSearchData(searchResultData) //Object.assign({}, res)
+      this.setSearchData(searchResultData)
     },
   },
 }
