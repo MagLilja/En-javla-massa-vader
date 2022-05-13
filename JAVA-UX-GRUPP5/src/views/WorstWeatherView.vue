@@ -1,6 +1,6 @@
 <template>
 
-
+<loading-component :loading="loading"/>
   <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 m-10 p-4 my-auto w-fit">
     <h1 class="font-bold text-5xl ">Sämre väder just nu!</h1>
     <p>Tycker du att vädret suger? Det finns dom som har det värre.</p>
@@ -15,32 +15,30 @@
 import swedenCoordinates from "@/assets/sweden-polygon.json";
 import geoLocationHelper from "@/helpers/geoLocationHelper.js";
 import WorstWeatherParamComponent from "@/components/WorstWeatherParamComponent.vue";
+import LoadingComponent from "@/components/global/LoadingComponent.vue";
 
 
 
 export default {
-  components: {WorstWeatherParamComponent},
+  components: {LoadingComponent, WorstWeatherParamComponent},
   data() {
     return {
       temperature: undefined,
       precipitation: undefined,
       wind: undefined,
+      loading: false,
     }
   },
-  async created() {
+  async mounted() {
+    this.loading = true
     this.temperature = await geoLocationHelper.getMinMaxValCoord("t", 2, swedenCoordinates, 20);
     this.precipitation = await geoLocationHelper.getMinMaxValCoord("prec1h", 0, swedenCoordinates, 20);
     this.wind = await geoLocationHelper.getMinMaxValCoord("ws", 10, swedenCoordinates, 20);
-  },
+    this.loading = false
+    },
   methods: {},
   watch: {
-    // temperature: {
-    //   deep: true,
-    //   async handler() {
-    //     console.log("hello");
-    //     // this.temperature.city = await geoLocationHelper.getCityFromGeoLocationDataApi(this.temperature)
-    //   }
-    // }
+
   },
 }
 </script>

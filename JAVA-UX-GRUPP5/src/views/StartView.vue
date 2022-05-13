@@ -7,6 +7,8 @@
 <!--    >-->
 <!--      <weather-warning-component />-->
 <!--    </MqResponsive>-->
+
+    <loading-component :loading="loading"/>
     <div class="start-view-header">
       <div class="row-one">
         <current-city-name-component />
@@ -16,13 +18,14 @@
     </div>
 
     <circleComponent />
-    <MqResponsive
+
+  </section>
+  <MqResponsive
       class="start-view-weather-same-day-list-component-sm-minus"
       target="sm-"
-    >
-      <same-day-list-component />
-    </MqResponsive>
-  </section>
+  >
+    <same-day-list-component />
+  </MqResponsive>
 </template>
 <script>
 import circleComponent from '@/components/start/CircleComponent.vue'
@@ -34,9 +37,11 @@ import { MqResponsive } from 'vue3-mq'
 import FavoriteCheckComponent from '@/components/global/FavoriteCheckComponent.vue'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState } from 'pinia'
+import LoadingComponent from "@/components/global/LoadingComponent.vue";
 
 export default {
   components: {
+    LoadingComponent,
     FavoriteCheckComponent,
     CurrentCityNameComponent,
     WeatherWarningComponent,
@@ -64,6 +69,7 @@ export default {
       completeDailyWxList: undefined,
       userCoordinates: undefined,
       locationData: undefined,
+      loading:false,
     }
   },
 

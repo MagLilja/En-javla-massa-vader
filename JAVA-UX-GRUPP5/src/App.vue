@@ -1,6 +1,6 @@
 <template>
   <!--  <load-data-component/>-->
-
+  <loading-component :loading="loading"/>
   <div v-if="isLoaded" class="site-container">
     <top-nav-bar-component />
     <MqResponsive
@@ -37,9 +37,11 @@ import TwentyFourForecastDesktopCard from '@/components/desktopCards/TwentyFourF
 import WeatherWarningComponent from '@/components/start/WeatherWarningComponent.vue'
 
 import smhiService from '@/services/smhiService'
+import LoadingComponent from "@/components/global/LoadingComponent.vue";
 
 export default {
   components: {
+    LoadingComponent,
     TenDayDesktopCard,
     NavbarComponent,
     TopNavBarComponent,
@@ -48,12 +50,14 @@ export default {
     TwentyFourForecastDesktopCard,
     WeatherWarningComponent,
   },
-  created() {
+  mounted() {
+    this.loading = true
     this.setUpAllData()
   },
   data() {
     return {
       isLoaded: false,
+      loading: false,
     }
   },
   computed: {
@@ -127,6 +131,7 @@ export default {
       this.userGeoLocationData = result
       this.setUserGeoLocationData(result)
       console.info('UserGeoLocationData initialized')
+      this.loading = false
       this.isLoaded = true
     },
     async getAnalysisFullDataFromAPI(userCoordinatesTemp) {
