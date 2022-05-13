@@ -1,15 +1,24 @@
 <template>
-  <table class="weather-table">
-    <tr v-for="(wd,index) of weatherData" :key="index">
-    <td>{{ getLocalDate(wd.dataDate) }}</td>
-    <td><div class="font-weight-700">{{ wd.highestTemp }}&#176</div>
-        <div>({{ wd.lowestTemp }}&#176)</div></td>
-    <td>{{ wd.totalPrecipitation }} mm</td>
-    <td><div class="font-weight-700">{{ wd.roundedAvgWindSpeed }}</div>
-        <div>({{ wd.highestGust }}) m/s</div></td>
-    </tr>
- 
-  </table>
+
+
+  <div class="grid grid-cols-5 w-5/6 mb-48 content-start">
+    <div class="w-fit">Tid</div>
+    <div class="">Väder</div>
+    <div>Temperatur</div>
+    <div class="col-span-2 place-self-end">Vind</div>
+    <div class="border-b-2 col-span-5 my-2"></div>
+
+    <template class="" v-for="(wd,index) of weatherData" :key="index">
+      <div class="">{{ getLocalDate(wd.dataDate) }}</div>
+      <div class="">{{ wd.highestTemp }}&#176 ({{ wd.lowestTemp }}&#176)</div>
+      <div class="content-start items-start justify-start">{{ wd.totalPrecipitation }} mm</div>
+      <div class="col-span-2 place-self-end">{{ wd.roundedAvgWindSpeed }} m/s ({{ wd.highestGust }}) m/s</div>
+      <div class="border-b-2 col-span-5 my-2 "></div>
+    </template>
+
+  </div >
+
+
 
   <!--
   <ul class="ten-day-list">
