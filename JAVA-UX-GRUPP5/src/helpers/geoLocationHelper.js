@@ -61,20 +61,6 @@ let getMinMaxValCoord = async (param, level, boundary, downsample) => {
 
     target.city = await getCityFromGeoLocationDataApi(target)
     return target;
-
-    // Gothenburg
-    // let latitude =57.7065806
-    // let longitude =11.9294613
-
-    // Norrland
-    // let latitude = 63.792215;
-    // let longitude = 15.366540;
-
-    // Denmark
-    // let latitude =57.448878
-    // let longitude =10.290267
-
-
 }
 
 function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
@@ -99,7 +85,6 @@ function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
 let getCityFromGeoLocationDataApi = async (target) => {
     let maxUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${target.maxCoordinates[1]}&lon=${target.maxCoordinates[0]}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
     let minUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${target.minCoordinates[1]}&lon=${target.minCoordinates[0]}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
-    // if the coordinates in the Store match the geolocation data coordinates in the Store
     let maxResponse = await fetch(maxUrl)
     let maxResult = await maxResponse.json()
 
