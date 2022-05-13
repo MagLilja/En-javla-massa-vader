@@ -1,14 +1,21 @@
 <template>
-  <div v-if="date">{{ properDate(date) }}</div>
-  {{ value }} {{dataUnit}}
+  <div v-if="date">
+    {{ properDate(date) }}
+    <div class="font-bold">{{ value }} {{ dataUnit }}</div>
+  </div>
+  <div v-else>
+    <div class="font-bold">{{ value }} {{ dataUnit }}</div>
+  </div>
+
+
 
 
 </template>
 
 <script>
 import smhiService from '@/services/smhiService.js'
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
-import { mapState } from 'pinia'
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
+import {mapState} from 'pinia'
 
 export default {
   props: {
@@ -54,23 +61,23 @@ export default {
       // return res
 
       let hrefToStationPeriods = await smhiService.fetchData(
-        this.nearestStation.link[0].href,
+          this.nearestStation.link[0].href,
       )
 
       for (let period of hrefToStationPeriods.period) {
         if (period.key === 'latest-months') {
           let hrefToPeriodData = await smhiService.fetchData(
-            period.link[0].href,
+              period.link[0].href,
           )
           let actualData = await smhiService.fetchData(
-            hrefToPeriodData.data[0].link[0].href,
+              hrefToPeriodData.data[0].link[0].href,
           )
           let today = new Date()
           let lastMonth = today.getMonth() - 1
           switch (this.param) {
             case 23:
               let res = actualData.value[actualData.value.length - 1].value
-              return { value: res }
+              return {value: res}
 
             case 10:
               let timestamp = new Date(actualData.value[0].date)
@@ -82,7 +89,7 @@ export default {
                 }
               }
               totalValue = totalValue / 3600
-              return { value: Math.round(totalValue) }
+              return {value: Math.round(totalValue)}
 
             case 20:
               let highestTemp = -100
@@ -159,9 +166,9 @@ export default {
         }
       }
     },
-    properDate(date){
+    properDate(date) {
       let ex = new Date(date)
-      return ex.toLocaleDateString("sv-SE", {day:"2-digit",month:"short"})
+      return ex.toLocaleDateString("sv-SE", {day: "2-digit", month: "short"})
     },
 
     getStationNo() {
@@ -175,7 +182,7 @@ export default {
 
       for (let station of this.stationList) {
         let distance = Math.sqrt(
-          (long - station.longitude) * (long - station.longitude) +
+            (long - station.longitude) * (long - station.longitude) +
             (lat - station.latitude) * (lat - station.latitude),
         )
 

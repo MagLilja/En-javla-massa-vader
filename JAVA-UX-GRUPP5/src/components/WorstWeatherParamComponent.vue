@@ -39,13 +39,6 @@ export default {
     this.checkParam()
   },
   watch: {
-    // parameter: {
-    //   deep:true,
-    //   handler(){
-    //     this.checkParam()
-    //   }
-    // }
-
   },
   methods: {
     checkParam() {

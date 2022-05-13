@@ -4,69 +4,71 @@
     <summary-view-header-component/>
   </div>
 
-  <section class="flex flex-col gap-7 mb-44">
-    <div class="container">
-      <div class="sub-container">
-        Nederbörd<img
+  <section class="section">
+
+    <div class="sub-container">
+      <div class="title">Nederbörd</div>
+      <img
           class="image"
           src="../assets/prototype_icons/Group12.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="preciptation"/>
-        mm
-      </div>
-      <div class="sub-container">
-        Soltimmar<img
+      <weather-summary-component :param="preciptation" :data-unit="rainUnit"/>
+    </div>
+    <div class="sub-container">
+      <div class="title">Soltimmar</div>
+      <img
           class="image"
           src="../assets/prototype_icons/Group7.svg"
           alt="sun"
       />
-        <weather-summary-component :param="sunHours"/>
-        h
-      </div>
+      <weather-summary-component :param="sunHours" :data-unit="sunUnit"/>
+
     </div>
 
-    <div class="container">
-      <div class="sub-container">
-        Varmaste dagen<img
+
+    <div class="sub-container">
+      <div class="title">Varmaste dagen</div>
+      <img
           class="image"
           src="../assets/prototype_icons/sun-solid2.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="maxTemp" :data-unit="tempUnit"/>
-      </div>
-      <div class="sub-container">
-        Kallaste dagen<img
+      <weather-summary-component :param="maxTemp" :data-unit="tempUnit"/>
+    </div>
+    <div class="sub-container">
+      <div class="title">Kallaste dagen</div>
+      <img
           class="image"
           src="../assets/prototype_icons/snowflake-solid3.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="minTemp" :data-unit="tempUnit"/>
-      </div>
+      <weather-summary-component :param="minTemp" :data-unit="tempUnit"/>
     </div>
 
-    <div class="container">
-      <div class="sub-container">
-        <div>Blåsigaste dagen</div>
-        <img
-            class="image"
-            src="../assets/prototype_icons/wind-solid3.svg"
-            alt="rain cloud"
-        />
-        <div class="">
-          <weather-summary-component :param="maxWind" :data-unit="windUnit"/>
-        </div>
-      </div>
-      <div class="sub-container">
-        Blötaste dagen<img
+
+    <div class="sub-container">
+      <div class="title">Blåsigaste dagen</div>
+      <img
           class="image"
-          src="../assets/prototype_icons/snowflake-solid3.svg"
+          src="../assets/prototype_icons/wind-solid3.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="maxDailyPrecipitation" :data-unit="rainUnit"/>
-
+      <div class="">
+        <weather-summary-component :param="maxWind" :data-unit="windUnit"/>
       </div>
     </div>
+    <div class="sub-container">
+      <div class="title">Blötaste dagen</div>
+      <img
+          class="image"
+          src="../assets/prototype_icons/Group12.svg"
+          alt="rain cloud"
+      />
+      <weather-summary-component :param="maxDailyPrecipitation" :data-unit="rainUnit"/>
+
+    </div>
+
   </section>
 
 </template>
@@ -99,9 +101,10 @@ export default {
       minTemp: 19,
       maxDailyPrecipitation: 5,
       maxWind: 25,
-      tempUnit:"\u00B0C",
+      tempUnit: "\u00B0C",
       windUnit: "m/s",
       rainUnit: "mm",
+      sunUnit: "h",
     }
   },
   methods: {
@@ -119,21 +122,30 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  justify-content: space-around;
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 190px));
+  grid-gap:1em;
+  justify-content: center;
+  width:100%;
+  height:100%;
+  margin-bottom: 7em;
 }
 
 .sub-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0.3em;
   align-items: flex-start;
   justify-content: flex-start;
-  width:40%;
+  width: 100%;
+
+
+  padding: 0.8em;
+
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   border-radius: 1rem;
-  padding:1em;
   border-bottom: 2px solid;
   border-right: 2px solid;
   border-top: 1px solid;
@@ -141,8 +153,12 @@ export default {
   border-color: var(--primary-color-lightblue);
 }
 
+.sub-container > .title {
+  grid-column: span 2;
+}
+
 .sub-container > img {
-  width: 3em;
+  width: 2.5em;
   aspect-ratio: 1;
 }
 </style>

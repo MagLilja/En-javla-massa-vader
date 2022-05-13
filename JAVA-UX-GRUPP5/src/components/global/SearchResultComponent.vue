@@ -1,6 +1,8 @@
 <template>
-  <div class="search-result-container">
-    <ul v-if="getSearchData" class="search-data-list">
+  <div class="flex flex-col justify-center items-start">
+
+    <ul v-if="getSearchData" class="search-data-list rounded-2xl ">
+
       <li
         class="search-data-item"
         v-for="(searchData, index) in getSearchData"
@@ -14,7 +16,10 @@
 
         <font-awesome-icon :icon="['fas', 'location-arrow']" />
       </li>
+      <div class="text-gray-500 w-full text-xl m-4 ml-12">* Klicka på hjärtat för att favorit-markera platsen!</div>
     </ul>
+
+
   </div>
 </template>
 <script>
@@ -49,13 +54,10 @@ export default {
 </script>
 <style scoped>
 .search-data-item {
-  font-size: 1em;
-  padding: 0.2em 1.5em;
+  padding: 0.4em 1.5em;
   margin: 0.4em;
   text-align: left;
-}
 
-search-data-item::after {
 }
 
 .search-data-item:hover,
@@ -67,10 +69,7 @@ search-data-item::after {
 
 .search-data-list {
   width: fit-content;
+  margin: 2em 0em;
 }
 
-.search-result-container {
-  display: flex;
-  justify-content: center;
-}
 </style>

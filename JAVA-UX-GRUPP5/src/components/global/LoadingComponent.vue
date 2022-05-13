@@ -26,7 +26,8 @@ export default {
   width: 84px;
   aspect-ratio: 1;
   animation: spin 2s linear infinite;
-  margin-top:50vh;
+  margin-top:30vh;
+  margin-bottom:2em;
 }
 
 @keyframes spin {
