@@ -4,7 +4,7 @@
     <summary-view-header-component/>
   </div>
 
-  <section class="flex flex-col gap-7">
+  <section class="flex flex-col gap-7 mb-44">
     <div class="container">
       <div class="sub-container">
         Nederbörd<img
@@ -33,7 +33,7 @@
           src="../assets/prototype_icons/sun-solid2.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="maxTemp"/>&#176;C
+        <weather-summary-component :param="maxTemp" :data-unit="tempUnit"/>
       </div>
       <div class="sub-container">
         Kallaste dagen<img
@@ -41,7 +41,7 @@
           src="../assets/prototype_icons/snowflake-solid3.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="minTemp"/>&#176;C
+        <weather-summary-component :param="minTemp" :data-unit="tempUnit"/>
       </div>
     </div>
 
@@ -54,8 +54,7 @@
             alt="rain cloud"
         />
         <div class="">
-          <weather-summary-component :param="maxWind"/>
-          m/s
+          <weather-summary-component :param="maxWind" :data-unit="windUnit"/>
         </div>
       </div>
       <div class="sub-container">
@@ -64,8 +63,8 @@
           src="../assets/prototype_icons/snowflake-solid3.svg"
           alt="rain cloud"
       />
-        <weather-summary-component :param="maxDailyPrecipitation"/>
-        mm
+        <weather-summary-component :param="maxDailyPrecipitation" :data-unit="rainUnit"/>
+
       </div>
     </div>
   </section>
@@ -100,6 +99,9 @@ export default {
       minTemp: 19,
       maxDailyPrecipitation: 5,
       maxWind: 25,
+      tempUnit:"\u00B0C",
+      windUnit: "m/s",
+      rainUnit: "mm",
     }
   },
   methods: {

@@ -1,5 +1,7 @@
 <template>
-  {{ value }} {{ date }}
+  <div v-if="date">{{ properDate(date) }}</div>
+  {{ value }} {{dataUnit}}
+
 
 </template>
 
@@ -11,13 +13,14 @@ import { mapState } from 'pinia'
 export default {
   props: {
     param: String,
+    dataUnit: String,
   },
   data() {
     return {
       stationList: undefined,
       nearestStation: undefined,
       value: undefined,
-      date: '',
+      date: undefined,
     }
   },
 
@@ -66,7 +69,6 @@ export default {
           let lastMonth = today.getMonth() - 1
           switch (this.param) {
             case 23:
-              console.log('23')
               let res = actualData.value[actualData.value.length - 1].value
               return { value: res }
 
@@ -96,7 +98,7 @@ export default {
               }
               return {
                 value: highestTemp,
-                //date: hottestDay
+                date: hottestDay
               }
 
             case 19:
@@ -114,7 +116,7 @@ export default {
               }
               return {
                 value: lowestTemp,
-                //date: coldestDay
+                date: coldestDay
               }
             case 5:
               let mostRain = -100
@@ -131,7 +133,7 @@ export default {
               }
               return {
                 value: mostRain,
-                //date: rainiestDay
+                date: rainiestDay
               }
             case 25:
               let mostWind = 0
@@ -142,8 +144,6 @@ export default {
                 let date = new Date(value.date)
 
                 if (date.getMonth() === lastMonth) {
-                  console.log(value.value)
-                  console.log(date)
                   if (value.value > mostWind) {
                     mostWind = value.value
                     windiestDay = date.toLocaleDateString('sv-SE')
@@ -158,6 +158,10 @@ export default {
           }
         }
       }
+    },
+    properDate(date){
+      let ex = new Date(date)
+      return ex.toLocaleDateString("sv-SE", {day:"2-digit",month:"short"})
     },
 
     getStationNo() {
