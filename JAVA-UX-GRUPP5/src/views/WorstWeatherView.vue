@@ -1,6 +1,8 @@
 <template>
 
-<loading-component :loading="loading"/>
+
+    <loading-component :loading="loading" class=""/>
+
   <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 m-10 p-4 my-auto w-fit">
     <h1 class="font-bold text-5xl ">Sämre väder just nu!</h1>
     <p>Tycker du att vädret suger? Det finns dom som har det värre.</p>

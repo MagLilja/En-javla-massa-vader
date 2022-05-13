@@ -2,7 +2,6 @@
   <div class="header">
     Sammanfattning av vädret i {{ this.getActiveCityName() }}
   </div>
-  <br />
   <div class="display-month-container">
     <div class="month">{{ this.getLastMonth().toUpperCase() }}</div>
   </div>
@@ -47,10 +46,13 @@ export default {
 .header {
   font-size: 1.5em;
   font-weight: 600;
+  margin: 1em 1em;
+  text-align:center;
 }
 
 .display-month-container {
   display: flex;
+  justify-content:center;
 }
 
 .month {

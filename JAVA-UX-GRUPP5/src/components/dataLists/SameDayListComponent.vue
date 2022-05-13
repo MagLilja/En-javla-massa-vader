@@ -1,6 +1,6 @@
 <template>
 
-  <div class="grid grid-cols-5 w-5/6 mb-48">
+  <div class="grid grid-cols-5 w-5/6 mb-48 gap-3 mt-10">
     <div class="w-fit">Tid</div>
     <div class="">Väder</div>
     <div>Temperatur</div>
@@ -10,7 +10,7 @@
     <template class="border-y-rose-400" v-for="(hour, index) of TwentyFourForecast"
               :key="index">
       <div class="">{{ hour.time }}</div>
-      <div class="">{{ hour.wSymb2Symbol }}</div>
+      <div class="text-4xl">{{ hour.wSymb2Symbol }}</div>
       <div class="">{{ hour.temperature }}&#176</div>
       <div class="col-span-2 place-self-end">{{ hour.wind }} ({{ hour.gusts }}) m/s</div>
       <div class="border-b-2 col-span-5 my-2 "></div>
