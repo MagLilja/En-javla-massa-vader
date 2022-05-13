@@ -1,7 +1,6 @@
 <template>
 
 
-<!--  <div class="grid grid-cols-4 w-5/6 mb-48 content-start gap-5">-->
   <div class="grid grid-cols-4 w-5/6 mb-48 content-start gap-5">
     <div class="w-fit">Tid</div>
     <div class="">Väder</div>
@@ -10,42 +9,22 @@
     <div class="border-b-2 col-span-4 my-2 border-x-2 "></div>
 
     <template class="" v-for="(wd,index) of weatherData" :key="index">
-      <div class="">{{ getLocalDate(wd.dataDate) }}</div>
+      <div class="">{{ getLocalDate(wd.dataDate, index) }}</div>
       <div class="flex flex-col">
         <div class="font-bold">{{ wd.highestTemp }}&#176</div>
         <div class="">({{ wd.lowestTemp }}&#176)</div>
-<!--        {{ wd.highestTemp }} ({{ wd.lowestTemp }}) &#176C-->
       </div>
       <div class="content-start items-start justify-start">{{ wd.totalPrecipitation }} mm</div>
       <div class="justify-self-end flex flex-col items-center col-span-1">
         <div class="font-bold"> {{ wd.roundedAvgWindSpeed }} m/s</div>
         <div class="whitespace-nowrap">({{ wd.highestGust }}) m/s</div>
-<!--        {{ wd.roundedAvgWindSpeed }} ({{ wd.highestGust }}) m/s-->
+
       </div>
       <div class="border-b-2 col-span-4 my-2 "></div>
     </template>
 
   </div>
 
-
-  <!--
-  <ul class="ten-day-list">
-    <li v-for="(wd,index) of weatherData" :key="index" class="flex-row-space-around-m1">
-
-      <div class="date">{{ getLocalDate(wd.dataDate) }}</div>
-      <div>
-        <div class="font-weight-700">{{ wd.highestTemp }}&#176</div>
-        <div>({{ wd.lowestTemp }}&#176)</div>
-      </div>
-
-      <div>{{ wd.totalPrecipitation }} mm</div>
-      <div>
-        <div class="font-weight-700">{{ wd.roundedAvgWindSpeed }} m/s</div>
-        <div>({{ wd.highestGust }} m/s)</div>
-      </div>
-    </li>
-  </ul>
-  -->
 </template>
 <script>
   import { mapState } from "pinia/dist/pinia";
@@ -73,11 +52,18 @@
       }
     },
     methods: {
-      getLocalDate(input) {
+      getLocalDate(input, index) {
         const event = new Date(input);
         const options = { weekday: "long", month: "long", day: "numeric" };
         const date = event.toLocaleDateString("sv-SE", options);
-        return date.replace(date.charAt(0), date.charAt(0).toUpperCase());
+
+        if(index === 0){
+          let todayString = date.replace(/[^\s]*/, "Idag \u00A0\u00A0\u00A0");
+          return todayString
+        }
+        let dateString = date.replace(date.charAt(0), date.charAt(0).toUpperCase());
+
+        return dateString;
       }
     }
   };

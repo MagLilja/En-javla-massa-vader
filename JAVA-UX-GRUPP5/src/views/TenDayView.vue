@@ -1,5 +1,5 @@
 <template>
-  <current-city-name-component></current-city-name-component>
+  <current-city-name-component class="mb-10"></current-city-name-component>
   <ten-day-list-component />
 </template>
 
