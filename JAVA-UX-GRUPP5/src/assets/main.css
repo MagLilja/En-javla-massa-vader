@@ -208,6 +208,8 @@ body {
     border-radius: 15%;
     width: 15%;
     border:2px solid var(--primary-color-lightblue);
+    display: flex;
+    justify-content:center;
 }
 
 .router-link-active {
