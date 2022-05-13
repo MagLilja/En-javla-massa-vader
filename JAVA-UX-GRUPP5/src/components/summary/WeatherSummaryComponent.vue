@@ -1,7 +1,6 @@
 <template>
   {{ value }} {{ date }}
 
-  <!--  {{nearestStation.name}}-->
 </template>
 
 <script>
@@ -154,7 +153,7 @@ export default {
 
               return {
                 value: mostWind,
-                //date: windiestDay
+                date: windiestDay
               }
           }
         }

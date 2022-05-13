@@ -70,22 +70,6 @@
     </div>
   </section>
 
-  <!--  -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-  <!--  <param-component @paramSelectionHref="onClickParameter" />-->
-  <!--  <station-component-->
-  <!--    :selected-param-stations-href="selectedParamStationsHref"-->
-  <!--    @selectedStationHref="onClickStation"-->
-  <!--  />-->
-  <!--  <period-component-->
-  <!--    :selected-station-href="selectedStationData.data"-->
-  <!--    @selectedPeriodForStationHref="onClickPeriod"-->
-  <!--  />-->
-  <!--  <data-component :selected-period-href="selectedPeriodHref" />-->
-
-  <!--  {{ selectedStationData.longitude }}-->
-  <!--  {{ selectedStationData.latitude }}-->
-
-  <!--  <img src="./../assets/wireframes/summary.png" alt="" />-->
 </template>
 
 <script>
@@ -95,7 +79,6 @@ import periodComponent from '@/components/observations/PeriodComponent.vue'
 import dataComponent from '@/components/observations/DataComponent.vue'
 import SummaryViewHeaderComponent from '@/components/summary/SummaryViewHeaderComponent.vue'
 import WeatherSummaryComponent from '@/components/summary/WeatherSummaryComponent.vue'
-import smhiService from '@/services/smhiService'
 
 export default {
   components: {
