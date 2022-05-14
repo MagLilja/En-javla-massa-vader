@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import smhiService from '../../services/smhiService.js'
+import smhiService from '../../JAVA-UX-GRUPP5/src/services/smhiService.js'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState } from 'pinia'
 

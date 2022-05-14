@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import smhiService from '../../services/smhiService.js'
+import smhiService from '../../JAVA-UX-GRUPP5/src/services/smhiService.js'
 
 export default {
   props: {
