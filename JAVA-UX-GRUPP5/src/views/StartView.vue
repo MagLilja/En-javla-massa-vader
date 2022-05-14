@@ -9,15 +9,15 @@
 <!--    </MqResponsive>-->
 
     <loading-component :loading="loading"/>
-    <div class="start-view-header">
-      <div class="row-one">
-        <current-city-name-component />
+    <div class="flex flex-col items-center mt-20">
+      <div class="flex gap-5">
+        <current-city-name-component class="text-[2em] font-bold"/>
         <favorite-check-component :location-data="locationData" />
       </div>
-      <date-component />
+      <date-component class="text-4xl"/>
     </div>
 
-    <circleComponent />
+    <circleComponent class="my-10"/>
 
   </section>
   <MqResponsive

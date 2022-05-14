@@ -140,19 +140,8 @@ body {
 /*CircleComponent is styled in component*/
 
 /*---------- START VIEW ----------*/
-.start-view-header {
-    display: flex;
-    flex-direction: column;
-}
 
-.start-view-header .row-one {
-    display: flex;
-    gap: 0.4em;
-}
 
-.start-view-header .heart {
-    width: 3rem;
-}
 
 .start-view-weather-same-day-list-component-sm-minus {
     /*width: 100vw;*/
@@ -162,14 +151,7 @@ body {
 
 /*---------- current-city-name-component ----------*/
 
-.heart {
-    /*width: 1em;*/
-}
 
-.city-name {
-    font-size: 2em;
-    font-weight: 600;
-}
 
 /*---------- NAVIGATIONS ----------*/
 
