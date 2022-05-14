@@ -5,10 +5,7 @@
     :src="heartIcon"
     alt="a heart"
   />
-  <!--  {{ favorite }}-->
-  <!--  {{ this.getFavoriteLocationList.favorites }}-->
-  <!--  {{ favorite }}-->
-  <!--  {{ this._uid }}-->
+
 </template>
 <script>
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
@@ -25,7 +22,6 @@ export default {
     this.checkIfFavorite(this.locationData)
   },
   mounted() {
-    console.log(this._uid)
   },
   data() {
     return {
@@ -38,7 +34,6 @@ export default {
       deep: true,
       handler(v) {
         this.checkIfFavorite(v)
-        console.log(v)
       },
     },
     favorite() {
@@ -62,7 +57,6 @@ export default {
       if (this.favorite) {
         this.heartIcon = checkedHeart
         this.setFavoriteLocation(this.locationData)
-        console.log(this.locationData)
       } else {
         this.removeFavoriteLocation(this.locationData)
         this.heartIcon = unCheckedHeart
@@ -72,10 +66,6 @@ export default {
       let contains = 0
       for (let favorite of this.getFavoriteLocationList.favorites) {
         if (favorite != null) {
-          console.log(
-            favorite.longitude === v.longitude &&
-              favorite.latitude === v.latitude,
-          )
           if (
             favorite.longitude === v.longitude &&
             favorite.latitude === v.latitude
@@ -91,15 +81,6 @@ export default {
         this.favorite = false
         this.heartIcon = unCheckedHeart
       }
-
-      // console.log(this.getFavoriteLocationList.favorites.indexOf(v));//
-
-      // if (favorite.longitude === v.longitude && favorite.latitude === v.latitude) {
-      //   this.heartIcon = checkedHeart
-      //   this.favorite = !this.favorite
-      //   console.log(this.favorite);
-      //   console.log("match");
-      // }
     },
   },
 }

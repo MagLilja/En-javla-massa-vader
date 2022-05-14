@@ -3,10 +3,12 @@
     <div v-if="!getSearchData">
       <div class="border-b-2 mb-4">Senaste valda sökningar</div>
       <div class="flex " v-for="(lastSearchData, index) in this.getLastSearchList.lastSearch" :key="index">
-        <!--        <favorite-check-component :location-data="lastSearchData" class="w-8"/>-->
-        <div v-if="lastSearchData !== null" class="search-data-item" @click="selectCity(lastSearchData)">
-          {{ lastSearchData.city }}
-          {{ lastSearchData.municipality }}
+        <div v-if="lastSearchData !== null" class="flex">
+          <favorite-check-component :location-data="lastSearchData" class="w-8"/>
+          <div class="search-data-item" @click="selectCity(lastSearchData)">
+            {{ lastSearchData.city }}
+            {{ lastSearchData.municipality }}
+          </div>
         </div>
       </div>
 
