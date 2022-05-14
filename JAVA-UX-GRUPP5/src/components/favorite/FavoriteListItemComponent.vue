@@ -9,7 +9,7 @@
           class="favorite-list-icon"
           :location-data="favorite"
         />
-        {{ favorite.city }}
+        {{ geoLocationHelper.checkForGothenburg(favorite.city) }}
         <!--        {{ favorite.municipality }}-->
       </div>
     </li>
@@ -19,13 +19,20 @@
 import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState } from 'pinia'
+import geoLocationHelper from '@/helpers/geoLocationHelper.js'
 
 export default {
   name: 'favorite-list-item-component',
   components: { FavoriteCheckComponent },
   computed: {
     ...mapState(useUserDataStore, ['getFavoriteLocationList']),
+
   },
+  methods: {
+    jh(){
+      geoLocationHelper.checkForGothenburg()
+    }
+  }
 }
 </script>
 <style scoped>

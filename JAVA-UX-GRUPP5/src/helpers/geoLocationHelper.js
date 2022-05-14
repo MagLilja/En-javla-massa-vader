@@ -31,7 +31,7 @@ let getMinMaxValCoord = async (param, level, boundary, downsample) => {
         minCoordinates: undefined,
         unit: undefined,
         city: {
-            maxValueGeo:undefined,
+            maxValueGeo: undefined,
             minValueGeo: undefined
         },
 
@@ -62,19 +62,14 @@ let getMinMaxValCoord = async (param, level, boundary, downsample) => {
     target.city = await getCityFromGeoLocationDataApi(target)
     return target;
 
-    // Gothenburg
-    // let latitude =57.7065806
-    // let longitude =11.9294613
 
-    // Norrland
-    // let latitude = 63.792215;
-    // let longitude = 15.366540;
+}
 
-    // Denmark
-    // let latitude =57.448878
-    // let longitude =10.290267
-
-
+function checkForGothenburg(cityName) {
+    if (cityName === 'Gothenburg') {
+        return 'Göteborg'
+    }
+    return cityName
 }
 
 function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
@@ -112,4 +107,4 @@ let getCityFromGeoLocationDataApi = async (target) => {
     }
 }
 
-export default {getMinMaxValCoord, getCityFromGeoLocationDataApi}
+export default {checkForGothenburg,getMinMaxValCoord, getCityFromGeoLocationDataApi}

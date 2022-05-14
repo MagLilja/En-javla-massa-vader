@@ -74,20 +74,13 @@
 </template>
 
 <script>
-import paramComponent from '@/../../../oldStuff/observations/ParamComponent.vue'
-import stationComponent from '@/../../../oldStuff/observations/StationComponent.vue'
-import periodComponent from '@/../../../oldStuff/observations/PeriodComponent.vue'
-import dataComponent from '@/../../../oldStuff/observations/DataComponent.vue'
 import SummaryViewHeaderComponent from '@/components/summary/SummaryViewHeaderComponent.vue'
 import WeatherSummaryComponent from '@/components/summary/WeatherSummaryComponent.vue'
 
 export default {
   components: {
     SummaryViewHeaderComponent,
-    periodComponent,
-    stationComponent,
-    paramComponent,
-    dataComponent,
+
     WeatherSummaryComponent,
   },
   data() {
