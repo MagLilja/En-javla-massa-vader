@@ -4,7 +4,7 @@
     <loading-component :loading="loading" class=""/>
 
   <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 m-10 p-4 my-auto w-fit">
-    <h1 class="font-bold text-5xl ">Sämre väder just nu!</h1>
+    <h2 class="text-[2em] my-10">Sämre väder just nu!</h2>
     <p>Tycker du att vädret suger? Det finns dom som har det värre.</p>
     <worst-weather-param-component :parameter="temperature" title="Kallaste" />
     <worst-weather-param-component :parameter="precipitation" title="Blötaste"/>

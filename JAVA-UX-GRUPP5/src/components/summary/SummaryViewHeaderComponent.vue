@@ -1,9 +1,6 @@
 <template>
-  <div class="header">
-    Sammanfattning av vädret i {{ this.getActiveCityName() }}
-  </div>
-  <div class="display-month-container">
-    <div class="month">{{ this.getLastMonth().toUpperCase() }}</div>
+  <div class="header text-[2em] mt-20 mb-10 text-center">
+    Sammanfattning av vädret i {{ this.getActiveCityName() }} i {{ this.getLastMonth() }}
   </div>
 </template>
 <script>
@@ -43,12 +40,7 @@ export default {
 }
 </script>
 <style scoped>
-.header {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin: 1em 1em;
-  text-align:center;
-}
+
 
 .display-month-container {
   display: flex;

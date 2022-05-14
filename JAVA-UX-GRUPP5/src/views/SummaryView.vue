@@ -1,7 +1,7 @@
 <template>
   <br/>
-  <div class="m-5">
-    <summary-view-header-component/>
+  <div class="">
+    <summary-view-header-component class=""/>
   </div>
 
   <section class="section">

@@ -1,6 +1,5 @@
 <template>
-  <h2>Favoriter</h2>
-  <!--  <img src="./../assets/wireframes/favorite.png" alt="">-->
+  <h2 class="text-[2em] my-10">Dina favoriter</h2>
   <favorite-list-component />
 </template>
 <script>
