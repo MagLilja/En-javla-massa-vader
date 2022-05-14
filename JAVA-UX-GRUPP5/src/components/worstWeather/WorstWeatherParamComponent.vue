@@ -1,7 +1,6 @@
 <template>
   <div class="worst-weather-item flex flex-col justify-items-start w-5/6 shadow-lg rounded-2xl">
     <div class="font-bold w-fit p-4">{{ title }}</div>
-    <!--      <div></div>-->
     <div class="flex items-center">
       <img class="w-1/6 m-4" :src="iconName" alt="">
       <div class="max-w-max justify-self-start flex flex-col ">
