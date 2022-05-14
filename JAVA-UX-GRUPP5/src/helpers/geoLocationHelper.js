@@ -107,4 +107,4 @@ let getCityFromGeoLocationDataApi = async (target) => {
     }
 }
 
-export default {checkForGothenburg,getMinMaxValCoord, getCityFromGeoLocationDataApi}
+export default {rayCastingAlgorithm,checkForGothenburg,getMinMaxValCoord, getCityFromGeoLocationDataApi}
