@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import SearchComponent from '@/components/global/SearchComponent.vue'
-import SearchResultComponent from '@/components/global/SearchResultComponent.vue'
+import SearchComponent from '@/components/search/SearchComponent.vue'
+import SearchResultComponent from '@/components/search/SearchResultComponent.vue'
 
 export default {
   components: { SearchResultComponent, SearchComponent },

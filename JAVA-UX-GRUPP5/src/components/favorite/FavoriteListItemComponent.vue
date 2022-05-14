@@ -16,7 +16,7 @@
   </ul>
 </template>
 <script>
-import FavoriteCheckComponent from '@/components/global/FavoriteCheckComponent.vue'
+import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState } from 'pinia'
 

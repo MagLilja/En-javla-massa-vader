@@ -4,7 +4,7 @@
   <favorite-list-component />
 </template>
 <script>
-import FavoriteListComponent from '@/components/global/FavoriteListItemComponent.vue'
+import FavoriteListComponent from '@/components/favorite/FavoriteListItemComponent.vue'
 
 export default {
   components: { FavoriteListComponent: FavoriteListComponent },

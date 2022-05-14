@@ -110,7 +110,7 @@ export const useUserDataStore = defineStore('useUserDataStore', {
         },
         setLastSearchList(v) {
             this.lastSearchList.lastSearch.unshift(v)
-            console.log(this.lastSearchList.lastSearch.length);
+            console.log(this.lastSearchList.lastSearch.indexOf(v));
             if (this.lastSearchList.lastSearch.length > 6){
                 this.lastSearchList.lastSearch.pop()
             }

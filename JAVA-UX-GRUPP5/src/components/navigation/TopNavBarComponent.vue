@@ -41,10 +41,10 @@
 
 <script>
 import { MqResponsive } from 'vue3-mq'
-import SearchComponent from '@/components/global/SearchComponent.vue'
+import SearchComponent from '@/components/search/SearchComponent.vue'
 import { mapState } from 'pinia/dist/pinia'
 import { useUserDataStore } from '@/stores/useUserDataStore'
-import SearchResultComponent from '@/components/global/SearchResultComponent.vue'
+import SearchResultComponent from '@/components/search/SearchResultComponent.vue'
 
 export default {
   components: { SearchResultComponent, MqResponsive, SearchComponent },

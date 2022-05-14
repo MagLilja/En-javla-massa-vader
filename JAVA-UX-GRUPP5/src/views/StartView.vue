@@ -34,7 +34,7 @@ import SameDayListComponent from '@/components/dataLists/SameDayListComponent.vu
 import DateComponent from '@/components/global/DateComponent.vue'
 import CurrentCityNameComponent from '@/components/global/CurrentCityNameComponent.vue'
 import { MqResponsive } from 'vue3-mq'
-import FavoriteCheckComponent from '@/components/global/FavoriteCheckComponent.vue'
+import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState } from 'pinia'
 import LoadingComponent from "@/components/global/LoadingComponent.vue";

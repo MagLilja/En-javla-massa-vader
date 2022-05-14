@@ -1,10 +1,13 @@
 <template>
   <div class="flex flex-col justify-center items-start mt-20">
-    <div v-if="getLastSearchList && !getSearchData">
-      <div class="border-b-2 mb-4">Senaste sökningarna</div>
-      <div class="" v-for="(searchData, index) in this.getLastSearchList.lastSearch" :key="index">
-        <div class="search-data-item" @click="selectCity(searchData)"> {{ searchData.city }}
-        {{ searchData.municipality }} </div>
+    <div v-if="!getSearchData">
+      <div class="border-b-2 mb-4">Senaste valda sökningar</div>
+      <div class="flex " v-for="(lastSearchData, index) in this.getLastSearchList.lastSearch" :key="index">
+        <!--        <favorite-check-component :location-data="lastSearchData" class="w-8"/>-->
+        <div v-if="lastSearchData !== null" class="search-data-item" @click="selectCity(lastSearchData)">
+          {{ lastSearchData.city }}
+          {{ lastSearchData.municipality }}
+        </div>
       </div>
 
     </div>
@@ -18,7 +21,7 @@
           :key="index"
       >
         <favorite-check-component :location-data="searchData"/>
-        <div  @click="selectCity(searchData)">
+        <div @click="selectCity(searchData)">
           {{ searchData.city }}
           {{ searchData.municipality }}
         </div>
@@ -34,7 +37,7 @@
 <script>
 import {mapActions, mapState} from 'pinia/dist/pinia'
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
-import FavoriteCheckComponent from '@/components/global/FavoriteCheckComponent.vue'
+import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 
 export default {
   name: 'search-result-component',
