@@ -75,10 +75,10 @@ function checkForGothenburg(cityName) {
 function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
     var i, j = cornersLat.length - 1;
     var odd = false;
-
     var pX = cornersLat;
     var pY = cornersLong;
 
+    // console.log(cornersLat);
     for (i = 0; i < cornersLat.length; i++) {
         if ((pY[i] < longitude && pY[j] >= longitude || pY[j] < longitude && pY[i] >= longitude)
             && (pX[i] <= latitude || pX[j] <= latitude)) {
@@ -88,6 +88,7 @@ function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
         j = i;
     }
     if (odd === 1) odd = true;
+    if (odd === 0) odd = false;
     return odd;
 }
 
