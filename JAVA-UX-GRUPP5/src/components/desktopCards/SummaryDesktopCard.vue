@@ -9,15 +9,16 @@
       <div class="desktop-card-header-text">Samman-fattning</div>
     </div>
     <div class="desktop-data-card-body">
-
+<summary-view></summary-view>
     </div>
   </div>
 </template>
 <script>
 import TenDayListComponent from '@/components/dataLists/TenDayListComponent.vue'
+import SummaryView from "@/views/SummaryView.vue";
 
 export default {
   name: 'ten-day-desktop-card',
-  components: { TenDayListComponent },
+  components: {SummaryView, TenDayListComponent },
 }
 </script>
