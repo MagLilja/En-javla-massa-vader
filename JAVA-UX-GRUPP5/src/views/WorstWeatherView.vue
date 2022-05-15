@@ -3,12 +3,12 @@
 
     <loading-component :loading="loading" class=""/>
 
-  <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 m-10 p-4 my-auto w-fit">
-    <h2 class="text-[2em] my-10">Sämre väder just nu!</h2>
-    <p>Tycker du att vädret suger? Det finns dom som har det värre.</p>
-    <worst-weather-param-component :parameter="temperature" title="Kallaste" />
-    <worst-weather-param-component :parameter="precipitation" title="Blötaste"/>
-    <worst-weather-param-component :parameter="wind" title="Blåsigaste"/>
+  <div v-if="temperature && wind && precipitation" class="flex flex-col gap-10 items-center m-10 p-4 my-auto w-fit md:m-0 md:p-0">
+    <h2 class="text-[2em] my-10 md:hidden">Sämre väder just nu!</h2>
+    <p class="md:hidden">Tycker du att vädret suger? Det finns dom som har det värre.</p>
+    <worst-weather-param-component :parameter="temperature" title="Kallare" />
+    <worst-weather-param-component :parameter="precipitation" title="Blötare"/>
+    <worst-weather-param-component :parameter="wind" title="Blåsigare"/>
   </div>
   <!--  <img src="../assets/wireframes/ej2lo70n.bmp" alt="">-->
 </template>

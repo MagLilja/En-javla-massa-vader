@@ -1,6 +1,6 @@
 <template>
 
-  <div class="">
+  <div class="md:hidden">
     <summary-view-header-component class=""/>
   </div>
 
@@ -122,7 +122,6 @@ export default {
   grid-gap:1em;
   justify-content: center;
   width:100%;
-
   margin-bottom: 7em;
 }
 
@@ -133,7 +132,7 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  padding: 0.8em;
+  padding: 0 0.8em
 
   /*box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);*/
   /*border-radius: 1rem;*/
@@ -146,6 +145,7 @@ export default {
 
 .sub-container > .title {
   grid-column: span 2;
+  font-weight: 700;
 }
 
 .sub-container > img {
