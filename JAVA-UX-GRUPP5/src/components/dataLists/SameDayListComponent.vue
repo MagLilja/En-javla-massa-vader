@@ -1,10 +1,10 @@
 <template>
 
   <div class="grid grid-cols-5 w-5/6 mb-48 gap-3 md:mb-0">
-    <div class="w-fit">Tid</div>
-    <div class="">Väder</div>
-    <div>Temperatur</div>
-    <div class="col-span-2 place-self-end">Vind</div>
+    <div class="font-bold w-fit">Tid</div>
+    <div class="font-bold ">Väder</div>
+    <div class="font-bold ">Temperatur</div>
+    <div class="font-bold col-span-2 place-self-end">Vind</div>
     <div class="border-b-2 col-span-5 my-2"></div>
 
     <template class="border-y-rose-400" v-for="(hour, index) of TwentyFourForecast"

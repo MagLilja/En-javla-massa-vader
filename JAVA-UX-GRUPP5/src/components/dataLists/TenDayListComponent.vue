@@ -2,10 +2,10 @@
 
 
   <div class="grid grid-cols-4 w-full mb-48 content-start gap-3 md:mb-0">
-    <div class="w-fit">Tid</div>
-    <div class="">Väder</div>
-    <div>Temperatur</div>
-    <div class=" justify-self-center col-span-1">Vind</div>
+    <div class="font-bold w-fit">Tid</div>
+    <div class="font-bold">Väder</div>
+    <div class="font-bold">Temperatur</div>
+    <div class="font-bold justify-self-center col-span-1">Vind</div>
     <div class="border-b-2 col-span-4 my-2 border-x-2 "></div>
 
     <template class="" v-for="(wd,index) of weatherData" :key="index">
