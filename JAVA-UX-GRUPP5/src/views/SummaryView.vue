@@ -4,7 +4,7 @@
     <summary-view-header-component class=""/>
   </div>
 
-  <section class="section">
+  <section class="section gap-16">
 
     <div class="sub-container">
       <div class="title">Nederbörd</div>
@@ -119,7 +119,7 @@ export default {
 .section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 190px));
-  grid-gap:1em;
+
   justify-content: center;
   width:100%;
   margin-bottom: 7em;

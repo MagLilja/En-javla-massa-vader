@@ -9,7 +9,7 @@
         <div class="" @click="selectCity(searchData)">
           {{ paramCity }}
         </div>
-        <div class="self-start ">{{ paramValue }} {{ parameter.unit }}
+        <div class="self-start font-bold">{{ paramValue }} {{ parameter.unit }}
         </div>
       </div>
 
