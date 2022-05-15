@@ -1,5 +1,5 @@
-<template>
-  <br/>
+<template">
+
   <div class="">
     <summary-view-header-component class=""/>
   </div>
