@@ -1,6 +1,6 @@
 <template>
   <div class="top-nav-bar-container">
-    <MqResponsive target="sm-" class="transparent-nav rounded-full hover:bg-neutral-400 ">
+    <div class="transparent-nav rounded-full hover:bg-neutral-400 md:hidden">
       <router-link to="/search" class="search-link">
         <img
           class="search-icon"
@@ -8,10 +8,10 @@
           alt="search-icon"
         />
       </router-link>
-    </MqResponsive>
+    </div>
 
     <!--    This section only lives on md+ media-->
-    <MqResponsive target="md+" class="search-top-nav-mp-plus">
+    <div class="hidden search-top-nav-mp-plus md:block">
       <div class="search-container">
         <img
           class="search-icon"
@@ -24,7 +24,7 @@
       <div class="search-box" v-if="showSearch">
         <search-result-component class="search-result-box-md-plus" />
       </div>
-    </MqResponsive>
+    </div>
 
     <div class="favorite-link">
       <img
@@ -37,14 +37,13 @@
 </template>
 
 <script>
-import { MqResponsive } from 'vue3-mq'
 import SearchComponent from '@/components/search/SearchComponent.vue'
 import { mapState } from 'pinia/dist/pinia'
 import { useUserDataStore } from '@/stores/useUserDataStore'
 import SearchResultComponent from '@/components/search/SearchResultComponent.vue'
 
 export default {
-  components: { SearchResultComponent, MqResponsive, SearchComponent },
+  components: { SearchResultComponent, SearchComponent },
   data() {
     return {
       showSearch: false,

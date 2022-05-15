@@ -122,7 +122,7 @@ export default {
   grid-gap:1em;
   justify-content: center;
   width:100%;
-  height:100%;
+
   margin-bottom: 7em;
 }
 
@@ -133,17 +133,15 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-
-
   padding: 0.8em;
 
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  border-radius: 1rem;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-  border-top: 1px solid;
-  border-left: 1px solid;
-  border-color: var(--primary-color-lightblue);
+  /*box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);*/
+  /*border-radius: 1rem;*/
+  /*border-bottom: 2px solid;*/
+  /*border-right: 2px solid;*/
+  /*border-top: 1px solid;*/
+  /*border-left: 1px solid;*/
+  /*border-color: var(--primary-color-lightblue);*/
 }
 
 .sub-container > .title {

@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="grid grid-cols-4 w-full mb-48 content-start gap-3">
+  <div class="grid grid-cols-4 w-full mb-48 content-start gap-3 md:mb-0">
     <div class="w-fit">Tid</div>
     <div class="">Väder</div>
     <div>Temperatur</div>

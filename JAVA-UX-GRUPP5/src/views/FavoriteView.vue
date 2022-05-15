@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-[2em] my-10">Dina favoriter</h2>
+  <h2 class="text-[2em] my-10 md:hidden">Dina favoriter</h2>
   <favorite-list-component />
 </template>
 <script>

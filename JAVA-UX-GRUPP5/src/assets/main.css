@@ -103,18 +103,15 @@ body {
 
 .desktop-card {
     width: 313px;
-
     display: grid;
     grid-gap: 2em;
 }
 
 .desktop-card-header {
     display: flex;
-    justify-content: center;
     align-items: center;
     border: 1px solid var(--primary-color-lightblue);
     background-color: var(--primary-color-lightblue);
-    /*border-radius: 10px;*/
     padding: 1.7em 1.1em;
     height: 137px;
     clip-path: polygon(50% 0%, 100% 0, 95% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0);
@@ -131,6 +128,8 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items:center;
+    flex-direction: column;
 }
 
 .desktop-card-icon img {
@@ -221,13 +220,14 @@ body {
 }
 
 
+
 /*---------- WORST WEATHER ----------*/
 .worst-weather-item {
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-    border-top: 1px solid;
-    border-left: 1px solid;
-    border-color: var(--primary-color-lightblue);
+    /*border-bottom: 2px solid;*/
+    /*border-right: 2px solid;*/
+    /*border-top: 1px solid;*/
+    /*border-left: 1px solid;*/
+    /*border-color: var(--primary-color-lightblue);*/
 
 }
 
@@ -404,14 +404,15 @@ body {
 
     .view-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(200px, 315px));
         grid-gap: 2em;
+        grid-auto-flow: dense;
+
         justify-content: center;
         align-items: start;
-        height: fit-content;
+        max-height: fit-content;
+        width:100%;
         margin: 0.3em 0em;
-        min-width: 300px;
-
     }
 
     .md-plus-target {
@@ -456,9 +457,7 @@ body {
         cursor: pointer;
     }
 
-    .start-view-weather-warning-component-md-plus {
-        width: 100%;
-    }
+
 
 
     .search-result-box-md-plus {

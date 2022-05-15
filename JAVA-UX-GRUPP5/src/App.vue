@@ -3,48 +3,45 @@
   <loading-component :loading="loading"/>
   <div v-if="isLoaded" class="site-container">
     <top-nav-bar-component/>
-    <MqResponsive
-        class="start-view-weather-warning-component-md-plus"
-        target="md+"
-    >
+    <div class="hidden md:block w-full">
       <weather-warning-component/>
-    </MqResponsive>
+    </div>
 
 
     <div class="view-container">
 
-      <MqResponsive class="md-plus-target" target="md+">
+      <div class="hidden md:block">
         <twenty-four-forecast-desktop-card/>
-      </MqResponsive>
+      </div>
 
-      <router-view/>
+      <div class="x">
+        <router-view/>
+        <div class="hidden md:block mt-20">
+          <favorite-desktop-card/>
+        </div>
+      </div>
 
-      <MqResponsive class="md-plus-target" target="md+">
+      <div class="hidden md:block">
         <ten-day-desktop-card/>
-      </MqResponsive>
+      </div>
 
-      <MqResponsive class="md-plus-target" target="md+">
-        <summary-desktop-card/>
-      </MqResponsive>
+      <div class="hidden md:block">
+        <summary-desktop-card class=""/>
+      </div>
 
-      <MqResponsive class="md-plus-target" target="md+">
-        <favorite-desktop-card/>
-      </MqResponsive>
-
-      <MqResponsive class="md-plus-target" target="md+">
+      <div class="hidden md:block">
         <worst-weather-desktop-card/>
-      </MqResponsive>
+      </div>
 
     </div>
-    <MqResponsive target="sm-">
+    <div class="block md:hidden">
       <navbar-component/>
-    </MqResponsive>
+    </div>
   </div>
 </template>
 <script>
 //modules
 import {mapActions, mapState} from 'pinia'
-import {MqResponsive} from 'vue3-mq'
 //store
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
 //Global
@@ -67,7 +64,6 @@ export default {
     TenDayDesktopCard,
     NavbarComponent,
     TopNavBarComponent,
-    MqResponsive,
     SummaryDesktopCard,
     TwentyFourForecastDesktopCard,
     WeatherWarningComponent,

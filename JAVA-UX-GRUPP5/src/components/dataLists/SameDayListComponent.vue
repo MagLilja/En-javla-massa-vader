@@ -1,6 +1,6 @@
 <template>
 
-  <div class="grid grid-cols-5 w-5/6 mb-48 gap-3 mt-10">
+  <div class="grid grid-cols-5 w-5/6 mb-48 gap-3 md:mb-0">
     <div class="w-fit">Tid</div>
     <div class="">Väder</div>
     <div>Temperatur</div>
@@ -12,7 +12,9 @@
       <div class="">{{ hour.time }}</div>
       <div class="text-4xl">{{ hour.wSymb2Symbol }}</div>
       <div class="">{{ hour.temperature }}&#176</div>
-      <div class="col-span-2 place-self-end">{{ hour.wind }} ({{ hour.gusts }}) m/s</div>
+      <div class="col-span-2 text-right">
+        {{ hour.wind }}
+        ({{ hour.gusts }}) m/s</div>
       <div class="border-b-2 col-span-5 my-2 "></div>
     </template>
 
