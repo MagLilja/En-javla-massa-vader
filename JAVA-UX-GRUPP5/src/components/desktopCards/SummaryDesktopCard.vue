@@ -1,6 +1,6 @@
 <template>
-  <div class="desktop-data-card flex-column-center-2">
-    <div class="desktop-data-card-header">
+  <div class="desktop-card flex-column-center-2">
+    <div class="desktop-card-header">
       <div>
         <img
           class="big-icon"

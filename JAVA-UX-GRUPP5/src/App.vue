@@ -2,42 +2,62 @@
   <!--  <load-data-component/>-->
   <loading-component :loading="loading"/>
   <div v-if="isLoaded" class="site-container">
-    <top-nav-bar-component />
+    <top-nav-bar-component/>
     <MqResponsive
-      class="start-view-weather-warning-component-md-plus"
-      target="md+"
+        class="start-view-weather-warning-component-md-plus"
+        target="md+"
     >
-      <weather-warning-component />
+      <weather-warning-component/>
     </MqResponsive>
+
+
     <div class="view-container">
-      <router-view />
 
       <MqResponsive class="md-plus-target" target="md+">
-        <twenty-four-forecast-desktop-card />
-        <ten-day-desktop-card />
-        <summary-desktop-card />
+        <twenty-four-forecast-desktop-card/>
       </MqResponsive>
+
+      <router-view/>
+
+      <MqResponsive class="md-plus-target" target="md+">
+        <ten-day-desktop-card/>
+      </MqResponsive>
+
+      <MqResponsive class="md-plus-target" target="md+">
+        <summary-desktop-card/>
+      </MqResponsive>
+
+      <MqResponsive class="md-plus-target" target="md+">
+        <favorite-desktop-card/>
+      </MqResponsive>
+
+      <MqResponsive class="md-plus-target" target="md+">
+        <worst-weather-desktop-card/>
+      </MqResponsive>
+
     </div>
     <MqResponsive target="sm-">
-      <navbar-component />
+      <navbar-component/>
     </MqResponsive>
   </div>
 </template>
 <script>
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
-import { mapActions, mapState } from 'pinia'
-// noinspection NpmUsedModulesInstalled
+//modules
+import {mapActions, mapState} from 'pinia'
+import {MqResponsive} from 'vue3-mq'
+//store
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
+//Global
+import smhiService from '@/services/smhiService'
+import LoadingComponent from "@/components/global/LoadingComponent.vue";
+import WeatherWarningComponent from '@/components/start/WeatherWarningComponent.vue'
+// navigation
 import NavbarComponent from '@/components/navigation/NavbarComponent.vue'
-// noinspection NpmUsedModulesInstalled
 import TopNavBarComponent from '@/components/navigation/TopNavBarComponent.vue'
-import { MqResponsive } from 'vue3-mq'
+// Desktop cards
 import TenDayDesktopCard from '@/components/desktopCards/TenDayDesktopCard.vue'
 import SummaryDesktopCard from '@/components/desktopCards/SummaryDesktopCard.vue'
 import TwentyFourForecastDesktopCard from '@/components/desktopCards/TwentyFourForecastDesktopCard.vue'
-import WeatherWarningComponent from '@/components/start/WeatherWarningComponent.vue'
-
-import smhiService from '@/services/smhiService'
-import LoadingComponent from "@/components/global/LoadingComponent.vue";
 
 export default {
   components: {
@@ -92,31 +112,31 @@ export default {
     },
     getCoordinatesFromUser() {
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          let latitude = position.coords.latitude
-          let longitude = position.coords.longitude
-          let userCoordinatesTemp = {
-            latitude: '',
-            longitude: '',
-          }
-          userCoordinatesTemp.latitude = latitude
-          userCoordinatesTemp.longitude = longitude
-          this.setCoordinates(userCoordinatesTemp)
-          console.info('userCoordinates initialized')
-          this.getForecastFullDataFromAPI(userCoordinatesTemp)
-          this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
-          this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
-        },
-        (error) => {
-          console.log(error.message)
-        },
+          (position) => {
+            let latitude = position.coords.latitude
+            let longitude = position.coords.longitude
+            let userCoordinatesTemp = {
+              latitude: '',
+              longitude: '',
+            }
+            userCoordinatesTemp.latitude = latitude
+            userCoordinatesTemp.longitude = longitude
+            this.setCoordinates(userCoordinatesTemp)
+            console.info('userCoordinates initialized')
+            this.getForecastFullDataFromAPI(userCoordinatesTemp)
+            this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
+            this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
+          },
+          (error) => {
+            console.log(error.message)
+          },
       )
     },
     async getForecastFullDataFromAPI(userCoordinatesTemp) {
       let long =
-        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let forecastFullData = await smhiService.fetchData(forecastUrl)
       this.setForecastFulldata(forecastFullData)
@@ -136,9 +156,9 @@ export default {
     },
     async getAnalysisFullDataFromAPI(userCoordinatesTemp) {
       let long =
-        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let result = await smhiService.fetchData(analysisUrl)
       this.setAnalysisFulldata(result)

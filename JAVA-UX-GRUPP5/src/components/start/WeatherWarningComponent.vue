@@ -1,6 +1,6 @@
 <template>
   <div class="weather-warning">vädervarning</div>
-  {{ test() }}
+<!--  {{ test() }}-->
 </template>
 <script>
 import smhiService from '@/services/smhiService.js'

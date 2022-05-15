@@ -106,17 +106,29 @@ body {
 
 /*---------- DESKTOP CARDS ----------*/
 
-.desktop-data-card {
-    width: 300px;
+.desktop-card {
+    width: 313px;
+    display: grid;
+    grid-gap: 2em;
 }
 
-.desktop-data-card-header {
-    border: 1px solid black;
+.desktop-card-header {
+    display: flex;
+    border: 1px solid var(--primary-color-lightblue);
+    background-color: var(--primary-color-lightblue);
+    border-radius: 10px;
     width: 100%;
+    padding: 1.7em 1.1em;
+}
+
+.desktop-card-header-text {
+    font-size: 2em;
+    width: 126px;
+    margin-left:1.1em;
+    font-weight:700;
 }
 
 .desktop-data-card-body {
-    border: 1px solid black;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -142,7 +154,6 @@ body {
 /*---------- START VIEW ----------*/
 
 
-
 .start-view-weather-same-day-list-component-sm-minus {
     /*width: 100vw;*/
     display: flex;
@@ -150,7 +161,6 @@ body {
 }
 
 /*---------- current-city-name-component ----------*/
-
 
 
 /*---------- NAVIGATIONS ----------*/
@@ -191,9 +201,9 @@ body {
     background-color: var(--primary-color-lightblue);
     border-radius: 15%;
     width: 15%;
-    border:2px solid var(--primary-color-lightblue);
+    border: 2px solid var(--primary-color-lightblue);
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
 .router-link-active {
@@ -246,7 +256,7 @@ body {
     z-index: 5;
     border-bottom-right-radius: var(--navigation-border-radius);
     border-bottom-left-radius: var(--navigation-border-radius);
-    border-color:red;
+    border-color: red;
 }
 
 .top-nav-bar-container .router-link-active {
@@ -391,20 +401,19 @@ body {
     }
 
     .view-container {
-        margin: 4em 0;
-        display: flex;
-        flex-direction: row;
-        gap: 2em;
-        width: 90vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2em;
         justify-content: center;
+        align-items: start;
+        height: fit-content;
+        margin: 0.3em 0em;
+        min-width: 300px;
 
     }
 
     .md-plus-target {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-        gap: 2em;
+
     }
 
     .top-nav-bar-container {
