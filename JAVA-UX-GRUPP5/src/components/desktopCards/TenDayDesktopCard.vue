@@ -1,9 +1,12 @@
 <template>
-  <div class="desktop-card flex-column-center-2">
+  <div class="desktop-card ">
     <div class="desktop-card-header">
-      <div>
-        <img class="big-icon" src="../../assets/icons/10-day-view.svg" alt="" />
-      </div>
+      <div class="desktop-card-icon">
+        <img
+          src="../../assets/prototype_icons/calendar-regular.svg"
+          alt=""
+      /></div>
+      <div class="desktop-card-header-text">10 dygn</div>
     </div>
     <div class="desktop-data-card-body">
       <ten-day-list-component></ten-day-list-component>

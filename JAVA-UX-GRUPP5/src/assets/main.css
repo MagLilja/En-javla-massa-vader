@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600&display=swap');
 
+
+/*KEEP! Best debug tips i've ever found for finding overflow!*/
 * {
     /*outline: 1px solid red;*/
 }
-
-/*body {*/
-/*    display: grid;*/
-
-/*    place-content: flex-start;*/
-
-/*}*/
 
 
 /*###########################*/
@@ -92,7 +87,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
-    margin-top: 60px;
+
 }
 
 .view-container {
@@ -108,30 +103,38 @@ body {
 
 .desktop-card {
     width: 313px;
+
     display: grid;
     grid-gap: 2em;
 }
 
 .desktop-card-header {
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--primary-color-lightblue);
     background-color: var(--primary-color-lightblue);
-    border-radius: 10px;
-    width: 100%;
+    /*border-radius: 10px;*/
     padding: 1.7em 1.1em;
+    height: 137px;
+    clip-path: polygon(50% 0%, 100% 0, 95% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0);
 }
 
 .desktop-card-header-text {
     font-size: 2em;
     width: 126px;
-    margin-left:1.1em;
-    font-weight:700;
+    margin-left: 1.1em;
+    font-weight: 700;
 }
 
 .desktop-data-card-body {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.desktop-card-icon img {
+    height: 4.875em;
 }
 
 /*---------- 10 DAY VIEW ----------*/
@@ -251,7 +254,7 @@ body {
     display: flex;
     align-items: center;
     height: 4em;
-    width: 100vw;
+    width: 100%;
     justify-content: start;
     z-index: 5;
     border-bottom-right-radius: var(--navigation-border-radius);
@@ -309,15 +312,14 @@ body {
 /*---------- WEATHER WARNING ----------*/
 
 .weather-warning {
-    background-color: var(--primary-color-red);
+    background-color: var(--primary-color-lightblue);
     width: 100%;
-    border: solid #bd8070;
-    border-width: 1px 0px 1px 0px;
+    border: 1px solid var(--primary-color-lightblue);
+    clip-path: polygon(50% 0%, 100% 0, 99% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0);
     margin: 1em 0;
-    color: #ffffff;
+    padding: 0em 1em;
     font-size: 2em;
-    letter-spacing: 0.02em;
-    -webkit-text-stroke-color: #111214;
+
 }
 
 .start-view-weather-warning-component-sm-minus {
@@ -455,14 +457,9 @@ body {
     }
 
     .start-view-weather-warning-component-md-plus {
-        width: 100vw;
+        width: 100%;
     }
 
-    .favorite-link {
-        display: block;
-        margin-left: auto;
-        padding: 1em;
-    }
 
     .search-result-box-md-plus {
         background-color: #dadada;

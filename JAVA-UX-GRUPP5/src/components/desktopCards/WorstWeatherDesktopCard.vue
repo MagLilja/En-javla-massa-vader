@@ -3,21 +3,22 @@
     <div class="desktop-card-header">
       <div class="desktop-card-icon">
         <img
-            src="../../assets/prototype_icons/calendar-regular.svg"
+            src="../../assets/prototype_icons/Vector.svg"
             alt=""
         /></div>
-      <div class="desktop-card-header-text">Samman-fattning</div>
+      <div class="desktop-card-header-text">Sämre väder</div>
     </div>
     <div class="desktop-data-card-body">
-
+    <worst-weather-view></worst-weather-view>
     </div>
   </div>
 </template>
 <script>
 import TenDayListComponent from '@/components/dataLists/TenDayListComponent.vue'
+import WorstWeatherView from "@/views/WorstWeatherView.vue";
 
 export default {
   name: 'ten-day-desktop-card',
-  components: { TenDayListComponent },
+  components: {WorstWeatherView, TenDayListComponent },
 }
 </script>

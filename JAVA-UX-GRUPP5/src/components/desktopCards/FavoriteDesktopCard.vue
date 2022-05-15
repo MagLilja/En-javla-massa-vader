@@ -6,7 +6,7 @@
             src="../../assets/prototype_icons/calendar-regular.svg"
             alt=""
         /></div>
-      <div class="desktop-card-header-text">Samman-fattning</div>
+      <div class="desktop-card-header-text">Favoriter</div>
     </div>
     <div class="desktop-data-card-body">
 
