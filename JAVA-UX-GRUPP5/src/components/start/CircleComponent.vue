@@ -80,11 +80,16 @@ export default {
     },
     buildOuterCircleDatalist() {
       let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
-      console.log(this.getForecastFullData);
-      console.log(forecastList);
       let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true, "analysis").reverse()
-      console.log(this.getAnalysisFulldata);
-      console.log(analysisList);
+      if (analysisList.length + forecastList.length === 13) {
+        analysisList.pop()
+      } else {
+        let data0 = analysisList[analysisList.length - 1];
+        let tempDate = new Date(data0.validTime);
+        tempDate.setHours(tempDate.getHours() + 1)
+        let timeString = tempDate.toLocaleTimeString("sv-SE", {hour: "numeric", minute: "numeric"});
+        data0.time = timeString;
+      }
       this.completeDailyWxList = analysisList.concat(forecastList)
     },
     setLocalClockDeg() {
