@@ -74,11 +74,12 @@ function addTolist(circleDataList, ts, __ret) {
 }
 
 function getListWithWeatherData(
-  forecastFullData,
+  fullData,
   wSymb2Json,
   interval,
   noOfDataPoints,
   onlyToday,
+  type,
 ) {
   let counter = 0
   let circleDataList = []
@@ -104,9 +105,13 @@ function getListWithWeatherData(
     addTolist(circleDataList, ts, __ret)
   }
 
-  for (let ts of forecastFullData.timeSeries) {
+  for (let ts of fullData.timeSeries) {
     let timeSerieDate = new Date(ts.validTime)
     if (onlyToday) {
+      // if(fullData.timeSeries.indexOf(ts)===0 && type === "analysis"){
+      //   populateList(ts)
+      // }
+
       if (
         getHourFromTime(ts.validTime) % interval === 0 &&
         today.getDate() === timeSerieDate.getDate() &&

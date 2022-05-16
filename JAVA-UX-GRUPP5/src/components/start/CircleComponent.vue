@@ -44,7 +44,7 @@ export default {
   computed: {
     ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getAnalysisFulldata"])
   },
-  mounted() {
+  created() {
     this.setLocalClockDeg()
     this.buildOuterCircleDatalist()
   },
@@ -80,8 +80,11 @@ export default {
     },
     buildOuterCircleDatalist() {
       let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
-      console.log("buildOuterCircleDatalist()");
-      let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true).reverse()
+      console.log(this.getForecastFullData);
+      console.log(forecastList);
+      let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true, "analysis").reverse()
+      console.log(this.getAnalysisFulldata);
+      console.log(analysisList);
       this.completeDailyWxList = analysisList.concat(forecastList)
     },
     setLocalClockDeg() {
