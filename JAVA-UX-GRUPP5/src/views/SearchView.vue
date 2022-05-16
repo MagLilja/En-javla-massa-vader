@@ -1,6 +1,8 @@
 <template>
-  <search-component />
-  <search-result-component />
+  <div class="mt-32">
+    <search-component/>
+    <search-result-component/>
+  </div>
 </template>
 
 <script>
