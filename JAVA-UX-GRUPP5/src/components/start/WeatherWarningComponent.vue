@@ -1,6 +1,7 @@
 <template>
-  <div class="weather-warning">vädervarning</div>
-<!--  {{ test() }}-->
+  <div class="weather-warning">vädervarning!!!!</div>
+  {{ warning }}
+
 </template>
 <script>
 import smhiService from '@/services/smhiService.js'
@@ -11,11 +12,16 @@ import geoLocationHelper from "@/helpers/geoLocationHelper.js";
 
 export default {
   name: 'weather-warning-component',
+  data() {
+    return {
+      warning: false,
+    }
+  },
   computed: {
     ...mapState(useUserDataStore, ["getCoordinates"])
   },
   created() {
-    console.log(this.test());
+    this.warning = this.test()
   },
   methods: {
     async test() {
@@ -23,6 +29,7 @@ export default {
       let res = await smhiService.fetchData(url);
       let longitude = 16.43
       let latitude = 57.04
+      let warningData = []
 
       res.forEach(warning => {
         if (warning.warningAreas[0].area.type === 'Feature') {
@@ -39,10 +46,12 @@ export default {
                 })
 
                 let isInPolygon = geoLocationHelper.rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong);
-                return {
+                console.log(isInPolygon);
+                warningData.push({
                   warning: isInPolygon,
                   descr: warning.event.sv,
-                }
+                })
+
               })
             } else {
 
@@ -56,15 +65,16 @@ export default {
 
               let isInPolygon = geoLocationHelper.rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong);
 
-              return {
+              warningData.push({
                 warning: isInPolygon,
                 descr: warning.event.sv,
-              }
+              })
 
             }
           })
         }
       })
+      return warningData;
     }
   }
 
