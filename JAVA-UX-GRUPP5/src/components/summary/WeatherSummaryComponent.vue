@@ -1,11 +1,13 @@
 <template>
   <div v-if="date">
     {{ properDate(date) }}
-    <div class="font-bold">{{ value }} {{ dataUnit }}</div>
+    <div class="font-bold" v-if="value">{{ value }} {{ dataUnit }}</div>
   </div>
   <div v-else>
-    <div class="font-bold">{{ value }} {{ dataUnit }}</div>
+    <div class="font-bold" v-if="value">{{ value }} {{ dataUnit }}</div>
+    <div v-else>Värde saknas</div>
   </div>
+
 </template>
 
 <script>
@@ -32,6 +34,8 @@ export default {
   },
   watch: {
     getCoordinates(){
+      this.value = "Laddar..."
+      this.date = ""
       this.fetchStationList();
     },
     stationList: {
@@ -40,13 +44,22 @@ export default {
         this.getStationNo()
       },
     },
-    nearestStation: {
-      deep: true,
-      async handler() {
+    // nearestStation: {
+    //   deep: true,
+    //   async handler() {
+    //     let res = await this.getSummary()
+    //     this.value = res.value
+    //     this.date = res.date
+    //   },
+    // },
+    async nearestStation() {
         let res = await this.getSummary()
-        this.value = res.value
+      console.log("--------");
+      console.log(res.value);
+      console.log(res.date);
+      console.log("--------");
+      this.value = res.value
         this.date = res.date
-      },
     },
   },
   mounted() {
