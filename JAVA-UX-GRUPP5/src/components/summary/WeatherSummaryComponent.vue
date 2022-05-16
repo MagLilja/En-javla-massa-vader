@@ -31,6 +31,9 @@ export default {
     ...mapState(useUserDataStore, ['getCoordinates']),
   },
   watch: {
+    getCoordinates(){
+      this.fetchStationList();
+    },
     stationList: {
       deep: true,
       handler() {

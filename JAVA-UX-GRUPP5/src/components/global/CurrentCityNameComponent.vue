@@ -19,6 +19,11 @@ export default {
       currentCityName: undefined,
     }
   },
+  watch:{
+    getCoordinates(){
+      this.getUserGeoLocationDataFromApi();
+    },
+  },
   computed: {
     ...mapState(useUserDataStore, ['getCoordinates', 'getUserGeoLocationData']),
   },
