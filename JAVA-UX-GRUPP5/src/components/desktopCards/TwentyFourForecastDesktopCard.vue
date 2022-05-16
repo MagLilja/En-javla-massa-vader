@@ -15,10 +15,10 @@
 <script>
 import SameDayListComponent from '@/components/dataLists/SameDayListComponent.vue'
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
-import {mapState, mapActions} from 'pinia'
+import {mapState} from 'pinia'
 
 export default {
-  name: 'ten-day-desktop-card',
+  name: 'same-day-list-desktop-card',
   components: {SameDayListComponent},
   computed: {
     ...mapState(useUserDataStore, 'getForecastFullData'),

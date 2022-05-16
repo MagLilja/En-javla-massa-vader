@@ -14,43 +14,57 @@
       <div class="">{{ hour.temperature }}&#176</div>
       <div class="col-span-2 text-right">
         {{ hour.wind }}
-        ({{ hour.gusts }}) m/s</div>
+        ({{ hour.gusts }}) m/s
+      </div>
       <div class="border-b-2 col-span-5 my-2 "></div>
     </template>
 
-  </div >
+  </div>
 </template>
 
 
 <script>
-  import weatherDataManager from "@/managers/WeatherDataManager.js";
-  import WSymbol from "@/services/Wsymb2.json";
-  import { mapState } from "pinia/dist/pinia";
-  import { useUserDataStore } from "@/stores/useUserDataStore";
+import weatherDataManager from "@/managers/WeatherDataManager.js";
+import WSymbol from "@/services/Wsymb2.json";
+import {mapState} from "pinia/dist/pinia";
+import {useUserDataStore} from "@/stores/useUserDataStore";
 
-  export default {
-    name: "WeatherListComponent",
-    data() {
-      return {
-        weatherList: [],
-        Wsymb2: WSymbol,
-        TwentyFourForecast: []
-      };
-    },
-    created() {
+export default {
+  name: "WeatherListComponent",
+  data() {
+    return {
+      weatherList: [],
+      Wsymb2: WSymbol,
+      TwentyFourForecast: []
+    };
+  },
+  created() {
+    this.createWeatherDataList();
+  },
+
+  computed: {
+    ...mapState(useUserDataStore, ["getForecastFullData"])
+  },
+  watch: {
+    getForecastFullData() {
+      this.createWeatherDataList();
+      console.log("asdf");
+    }
+  },
+  methods: {
+    createWeatherDataList() {
       this.TwentyFourForecast = weatherDataManager.getListWithWeatherData(
-        this.getForecastFullData,
-        this.Wsymb2,
-        1,
-        24,
-        true
+          this.getForecastFullData,
+          this.Wsymb2,
+          1,
+          24,
+          true
       );
 
-    }, computed: {
-      ...mapState(useUserDataStore, ["getForecastFullData"])
     }
+  },
 
-  };
+};
 </script>
 
 <style></style>

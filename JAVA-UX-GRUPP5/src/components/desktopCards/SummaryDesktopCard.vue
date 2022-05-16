@@ -14,11 +14,10 @@
   </div>
 </template>
 <script>
-import TenDayListComponent from '@/components/dataLists/TenDayListComponent.vue'
 import SummaryView from "@/views/SummaryView.vue";
 
 export default {
-  name: 'ten-day-desktop-card',
-  components: {SummaryView, TenDayListComponent },
+  name: 'summary-desktop-card',
+  components: {SummaryView},
 }
 </script>

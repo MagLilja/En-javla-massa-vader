@@ -1,12 +1,6 @@
 <template>
 
   <section class="flex-column-center-2 start-view-section">
-<!--    <MqResponsive-->
-<!--      class="start-view-weather-warning-component-sm-minus"-->
-<!--      target="sm-"-->
-<!--    >-->
-<!--      <weather-warning-component />-->
-<!--    </MqResponsive>-->
 
     <loading-component :loading="loading"/>
     <div class="flex flex-col items-center mt-20 md:mt-0">
@@ -20,12 +14,10 @@
     <circleComponent class="my-10"/>
 
   </section>
-  <MqResponsive
-      class="start-view-weather-same-day-list-component-sm-minus"
-      target="sm-"
-  >
-    <same-day-list-component />
-  </MqResponsive>
+
+  <div class="md:hidden">
+    <same-day-list-component/>
+  </div>
 </template>
 <script>
 import circleComponent from '@/components/start/CircleComponent.vue'

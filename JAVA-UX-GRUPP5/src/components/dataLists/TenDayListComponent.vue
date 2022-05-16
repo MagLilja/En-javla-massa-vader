@@ -44,17 +44,26 @@ export default {
   computed: {
     ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData"])
   },
-  created() {
-    for (let i = 0; i < 10; i++) {
-      let date = new Date();
-      //date = date.getDate + i
-      date.setDate(date.getDate() + i);
-
-      this.weatherData.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date));
-
-    }
+  watch: {
+    getForecastFullData() {
+      this.createWeatherDataList()
+      console.log("loglog");
+    },
   },
+  created() {
+    this.createWeatherDataList();
+  },
+
   methods: {
+    createWeatherDataList() {
+      let tempList = [];
+      for (let i = 0; i < 10; i++) {
+        let date = new Date();
+        date.setDate(date.getDate() + i);
+        tempList.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date));
+      }
+      this.weatherData = tempList;
+    },
     getLocalDate(input, index) {
       const event = new Date(input);
       const options = {month: "long", day: "numeric"};

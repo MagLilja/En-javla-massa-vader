@@ -14,11 +14,10 @@
   </div>
 </template>
 <script>
-import TenDayListComponent from '@/components/dataLists/TenDayListComponent.vue'
 import FavoriteView from "@/views/FavoriteView.vue";
 
 export default {
-  name: 'ten-day-desktop-card',
-  components: {FavoriteView, TenDayListComponent },
+  name: 'favorite-desktop-card',
+  components: {FavoriteView},
 }
 </script>

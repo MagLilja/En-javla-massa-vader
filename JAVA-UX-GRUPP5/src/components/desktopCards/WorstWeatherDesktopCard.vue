@@ -14,11 +14,10 @@
   </div>
 </template>
 <script>
-import TenDayListComponent from '@/components/dataLists/TenDayListComponent.vue'
 import WorstWeatherView from "@/views/WorstWeatherView.vue";
 
 export default {
-  name: 'ten-day-desktop-card',
-  components: {WorstWeatherView, TenDayListComponent },
+  name: 'worst-weather-day-desktop-card',
+  components: {WorstWeatherView},
 }
 </script>
