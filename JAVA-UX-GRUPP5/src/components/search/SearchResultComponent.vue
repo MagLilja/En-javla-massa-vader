@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-start mt-20">
+  <div class="flex flex-col justify-center items-start mt-20 md:mt-0">
     <div v-if="!getSearchData">
       <div class="border-b-2 mb-4">Senaste valda sökningar</div>
       <div class="flex " v-for="(lastSearchData, index) in this.getLastSearchList.lastSearch" :key="index">

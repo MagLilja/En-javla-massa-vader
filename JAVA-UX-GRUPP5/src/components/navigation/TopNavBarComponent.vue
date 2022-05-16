@@ -11,19 +11,20 @@
     </div>
 
     <!--    This section only lives on md+ media-->
-    <div class="hidden search-top-nav-mp-plus md:block">
-      <div class="search-container">
+    <div class="hidden search-top-nav-mp-plus md:block" @click="toggleSearchResult()">
+      <div class="search-container relative">
         <img
           class="search-icon"
           src="../../assets/icons/search-icon.svg"
           alt="search-icon"
         />
-        <search-component @click="toggleSearchResult()" />
+        <search-component  />
+        <div class="bg-[#c1e0ea] border-2 p-8 top-20 left-28 absolute w-[250px]" v-if="showSearch">
+          <search-result-component class="" />
+        </div>
       </div>
 
-      <div class="search-box" v-if="showSearch">
-        <search-result-component class="search-result-box-md-plus" />
-      </div>
+
     </div>
 
     <div class="favorite-link">
@@ -55,7 +56,6 @@ export default {
   methods: {
     toggleSearchResult() {
       this.showSearch = !this.showSearch
-      console.log('hej')
     },
   },
   watch: {
