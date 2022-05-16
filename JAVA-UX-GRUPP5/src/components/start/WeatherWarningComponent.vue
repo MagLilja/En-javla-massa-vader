@@ -1,6 +1,11 @@
 <template>
-  <div class="weather-warning">vädervarning!!!!</div>
-  {{ warning }}
+  <div class="weather-warning h-16 flex">
+    <div v-for="instance of warning" >
+      <div v-if="instance.warning">{{ instance.descr }}</div>
+<!--      <div v-else>Om du befinner dig i ett område med en vädervarning kommer det att synas här!</div>-->
+    </div>
+  </div>
+
 
 </template>
 <script>
@@ -20,15 +25,16 @@ export default {
   computed: {
     ...mapState(useUserDataStore, ["getCoordinates"])
   },
-  created() {
-    this.warning = this.test()
+  async created() {
+    this.warning = await this.checkIfInWarningPolygon()
   },
   methods: {
-    async test() {
+
+    async checkIfInWarningPolygon() {
       let url = "https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json"
       let res = await smhiService.fetchData(url);
-      let longitude = 16.43
-      let latitude = 57.04
+      let longitude = this.getCoordinates.longitude //16.43
+      let latitude = this.getCoordinates.latitude //57.04
       let warningData = []
 
       res.forEach(warning => {
