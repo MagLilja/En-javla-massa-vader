@@ -7,7 +7,7 @@
     @keyup.enter="submitSearch(searchInput)"
   />
   <button
-    class="search-button"
+    class="hidden md:hidden border-2 border-black "
     type="submit"
     @click="submitSearch(searchInput)"
   >

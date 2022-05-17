@@ -31,7 +31,7 @@
       </div>
     </div>
     <div
-        class="transparent-nav flex justify-center rounded-full hover:bg-neutral-400 w-24 md:hidden"
+        class="transparent-nav flex justify-center rounded-full hover:bg-neutral-400 md:hidden"
     >
       <router-link to="/about" class="hover:font-bold"
       ><img

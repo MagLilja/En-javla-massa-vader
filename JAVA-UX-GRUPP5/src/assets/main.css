@@ -84,7 +84,6 @@ body {
   justify-content: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
 .view-container {
@@ -158,12 +157,10 @@ body {
   justify-content: center;
 }
 
-/*---------- current-city-name-component ----------*/
 
 /*---------- NAVIGATIONS ----------*/
 
 .transparent-nav {
-  /*transparent background*/
   background: rgba(245, 245, 245, 0.79);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(16.7px);
@@ -203,7 +200,7 @@ body {
 .router-link-active {
   /*height: 100%;*/
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 2px solid var(--primary-color-grey);
 }
 
 .nav-bar-item img {
@@ -211,14 +208,6 @@ body {
   aspect-ratio: 1;
 }
 
-/*---------- WORST WEATHER ----------*/
-.worst-weather-item {
-  /*border-bottom: 2px solid;*/
-  /*border-right: 2px solid;*/
-  /*border-top: 1px solid;*/
-  /*border-left: 1px solid;*/
-  /*border-color: var(--primary-color-lightblue);*/
-}
 
 /*---------- TOP NAVIGATION ----------*/
 
@@ -228,7 +217,8 @@ body {
 }
 
 .question-icon {
-  width: clamp(2rem, 6vw, 6rem);
+  width: clamp(2rem, 9vw, 6rem);
+  aspect-ratio: 1;
   margin: 0.3em;
 }
 
@@ -239,17 +229,16 @@ body {
 
 .top-nav-bar-container {
   position: fixed;
-  top: 1em;
-  left: 1em;
+  top:0;
+  left:0;
   display: flex;
   align-items: center;
-  height: 4em;
-  width: 95%;
   justify-content: space-between;
+  height: 4em;
+  width: 100%;
+  padding: 2.5em 1em;
   z-index: 5;
-  border-bottom-right-radius: var(--navigation-border-radius);
-  border-bottom-left-radius: var(--navigation-border-radius);
-  border-color: red;
+
 }
 
 .top-nav-bar-container .router-link-active {
@@ -271,7 +260,7 @@ body {
   font-size: 1em;
   border: 0;
   background-color: inherit;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--primary-color-grey);
 }
 
 .search-input:focus,
@@ -279,14 +268,7 @@ body {
   outline: none;
 }
 
-.search-button {
-  display: none;
-  border: 1px solid #9a9a9a;
-  border-radius: 1em;
-  padding: 0.5em 1.5em;
-  margin: 0.5em 1.5em;
-  cursor: pointer;
-}
+
 
 .search-data-item {
   display: flex;
