@@ -1,22 +1,35 @@
 <template>
   <div>
-    <div class="circle-container" :style="{'--circle-degree-var': clockDeg}">
-      <div class="outer-circle-container">
-        <div v-for="(wx, index) of completeDailyWxList" :key="index" class="outer-circle-item">
+    <div class="
+    grid
+    items-center
+    w-[300px]
+    circle-degree-var" :style="{'--circle-degree-var': clockDeg}">
+      <div class="
+      outer-circle-container
+      relative
+      grid place-items-center
+      w-[300px] h-[300px]
+      overflow-hidden
+      rounded-full
+      after:absolute
+      after:h-[231px]
+      after:w-[16px]">
+        <div v-for="(wx, index) of completeDailyWxList" :key="index" class="outer-circle-item absolute text-[0.6em] ">
           {{ wx.time }}
           <br>{{ wx.wSymb2Symbol }}
           <br>{{ wx.temperature }}&#176;C
         </div>
-        <div class="inner-circle-container">
-          <div class="inner-circle-temperature">{{
+        <div class="gradient-temp-circle flex justify-center items-center flex-col w-[200px] aspect-square p-3 rounded-full z-20 bg-white">
+          <div class="font-bold text-5xl">{{
               getForecastFullData.timeSeries[0].parameters[10].values[0]
             }}&#176;C
           </div>
-          <div class="inner-circle-symbol">{{
+          <div class="text-8xl">{{
               getWSymb2Unicode(getForecastFullData.timeSeries[0].parameters[18].values[0])
             }}
           </div>
-          <div class="inner-circle-time">
+          <div class="text-5xl">
             {{ nowTime() }}
           </div>
         </div>
@@ -27,78 +40,78 @@
 </template>
 
 <script>
-import weatherSymbolJson from '@/assets/Wsymb2.json';
-import {useUserDataStore} from "@/stores/useUserDataStore.js";
-import {mapActions, mapState} from "pinia";
-import weatherDataManager from "@/managers/WeatherDataManager";
+  import weatherSymbolJson from "@/assets/Wsymb2.json";
+  import { useUserDataStore } from "@/stores/useUserDataStore.js";
+  import { mapActions, mapState } from "pinia";
+  import weatherDataManager from "@/managers/WeatherDataManager";
 
-export default {
-  props: {},
-  data() {
-    return {
-      wSymb2Decoder: weatherSymbolJson,
-      clockDeg: "",
-      completeDailyWxList: undefined,
-    }
-  },
-  computed: {
-    ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getAnalysisFulldata"])
-  },
-  watch: {
-    getForecastFullData: {
-      deep: true,
-      handler() {
-        this.buildOuterCircleDatalist()
-      },
-    }
-  },
-  created() {
-    this.setLocalClockDeg()
-    this.buildOuterCircleDatalist()
-  },
-  methods: {
-    ...mapActions(useUserDataStore, ["setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
-
-    seTime(time) {
-      const event = new Date(time);
-      const options = {
-        hour: '2-digit',
-        minute: '2-digit'
-      }
-      return event.toLocaleTimeString('sv-SE', options)
+  export default {
+    props: {},
+    data() {
+      return {
+        wSymb2Decoder: weatherSymbolJson,
+        clockDeg: "",
+        completeDailyWxList: undefined
+      };
     },
-    nowTime() {
-      let now = new Date()
-      return this.seTime(now)
+    computed: {
+      ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getAnalysisFulldata"])
     },
-    getWSymb2Unicode(data) {
-      for (const wSymb2 of this.wSymb2Decoder.weathers) {
-        if (wSymb2.value === data) {
-          return wSymb2.symbol
+    watch: {
+      getForecastFullData: {
+        deep: true,
+        handler() {
+          this.buildOuterCircleDatalist();
         }
       }
     },
-    buildOuterCircleDatalist() {
-      let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true)
-      let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true, "analysis").reverse()
-      if (analysisList.length + forecastList.length === 13) {
-        analysisList.pop()
-      } else {
-        let data0 = analysisList[analysisList.length - 1];
-        let tempDate = new Date(data0.validTime);
-        tempDate.setHours(tempDate.getHours() + 1)
-        data0.time = tempDate.toLocaleTimeString("sv-SE", {hour: "numeric", minute: "numeric"});
-      }
-      this.completeDailyWxList = analysisList.concat(forecastList)
+    created() {
+      this.setLocalClockDeg();
+      this.buildOuterCircleDatalist();
     },
-    setLocalClockDeg() {
-      let date = new Date;
-      let minutes = date.getMinutes();
-      let hours = date.getHours();
-      this.clockDeg = ((hours * 30) + (minutes / 2)) / 2 + 'deg'
+    methods: {
+      ...mapActions(useUserDataStore, ["setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
+
+      seTime(time) {
+        const event = new Date(time);
+        const options = {
+          hour: "2-digit",
+          minute: "2-digit"
+        };
+        return event.toLocaleTimeString("sv-SE", options);
+      },
+      nowTime() {
+        let now = new Date();
+        return this.seTime(now);
+      },
+      getWSymb2Unicode(data) {
+        for (const wSymb2 of this.wSymb2Decoder.weathers) {
+          if (wSymb2.value === data) {
+            return wSymb2.symbol;
+          }
+        }
+      },
+      buildOuterCircleDatalist() {
+        let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true);
+        let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true, "analysis").reverse();
+        if (analysisList.length + forecastList.length === 13) {
+          analysisList.pop();
+        } else {
+          let data0 = analysisList[analysisList.length - 1];
+          let tempDate = new Date(data0.validTime);
+          tempDate.setHours(tempDate.getHours() + 1);
+          data0.time = tempDate.toLocaleTimeString("sv-SE", { hour: "numeric", minute: "numeric" });
+        }
+        this.completeDailyWxList = analysisList.concat(forecastList);
+      },
+      setLocalClockDeg() {
+        let date = new Date;
+        let minutes = date.getMinutes();
+        let hours = date.getHours();
+        this.clockDeg = ((hours * 30) + (minutes / 2)) / 2 + "deg";
+      }
     }
-  }
-}
+  };
 </script>
 
 <style scoped>
@@ -109,44 +122,22 @@ export default {
   }
 }
 
-.circle-container {
-  display: grid;
-  place-items: center;
-  width: 300px;
+.circle-degree-var {
   --circle-degree-var: 0deg;
 }
 
+.outer-circle-container {
+  background-color: var(--primary-color-greyishblue);
+}
+
 .outer-circle-container::after {
-  content: "";
+  content: '';
   background-image: url('../../assets/prototype_icons/caret-up-solid.svg');
   background-size: 1em;
   background-repeat: no-repeat;
-  height: 231px;
-  position: absolute;
   transform: rotateZ(var(--circle-degree-var));
-  width: 16px;
-  border-radius: 12px;
   z-index: 5;
   animation: rotate 43200s infinite linear;
-}
-
-
-.outer-circle-container {
-  display: grid;
-  place-items: center;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  position: relative;
-  background-color: var(--primary-color-greyishblue);
-  overflow: hidden;
-}
-
-.outer-circle-item {
-  position: absolute;
-  font-size: 0.6em;
-  font-weight: 700;
-  z-index: 2;
 }
 
 .outer-circle-item:nth-child(1) {
@@ -208,36 +199,13 @@ export default {
 }
 
 
-.inner-circle-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 10px;
-  padding: 10px;
-  width: 200px;
-  height: 200px;
-  background-color: white;
-
+.gradient-temp-circle {
   border: double 10px transparent;
-  border-radius: 50%;
   background-image: linear-gradient(var(--primary-color-lightgrey), var(--primary-color-lightgrey)),
   linear-gradient(25deg, #e46668, #e46868, #ecae5e, #5fb7e0, #68a9d2);
   background-origin: border-box;
   background-clip: content-box, border-box;
 
-  z-index: 2;
 }
 
-.inner-circle-temperature {
-  font-size: 2.5em;
-}
-
-.inner-circle-time {
-  font-size: 2em;
-}
-
-.inner-circle-symbol {
-  font-size: 2em;
-}
 </style>
