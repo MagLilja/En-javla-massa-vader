@@ -13,5 +13,3 @@ export default {
   components: { SearchResultComponent, SearchComponent },
 }
 </script>
-
-<style scoped></style>

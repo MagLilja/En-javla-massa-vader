@@ -109,7 +109,6 @@ function getListWithWeatherData(
     let timeSerieDate = new Date(ts.validTime)
     if (onlyToday) {
       if (fullData.timeSeries.indexOf(ts) === 0 && type === 'analysis') {
-        console.log(ts.validTime)
         populateList(ts)
       }
       if (
@@ -142,7 +141,6 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
   let totalPrecipitation = 0
   let highestGust = 0
   let averageWindSpeed = 0
-  let averageWeatherSymbol = 0
   let counter = 0
   let windValueSum = 0
   let roundedAvgWindSpeed = 0
@@ -179,8 +177,6 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
       }
 
       totalPrecipitation += precipitationValue
-      roundedAvgTotalPrecipitation =
-        Math.round((precipitationValue + Number.EPSILON) * 10) / 10
 
       if (gustValue > highestGust) {
         highestGust = gustValue
@@ -192,6 +188,8 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
     roundedAvgWindSpeed =
       Math.round((averageWindSpeed + Number.EPSILON) * 10) / 10
   }
+  roundedAvgTotalPrecipitation =
+      Math.round((totalPrecipitation + Number.EPSILON) * 10) / 10
 
   return {
     dataDate: new Date(inputDate),

@@ -7,8 +7,8 @@
 </template>
 <script>
 import smhiService from '@/services/smhiService.js'
-import { mapState } from 'pinia/dist/pinia'
-import { useUserDataStore } from '@/stores/useUserDataStore'
+import {mapState} from 'pinia/dist/pinia'
+import {useUserDataStore} from '@/stores/useUserDataStore'
 import geoLocationHelper from '@/helpers/geoLocationHelper.js'
 
 export default {
@@ -27,7 +27,7 @@ export default {
   methods: {
     async checkIfInWarningPolygon() {
       let url =
-        'https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json'
+          'https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json'
       let res = await smhiService.fetchData(url)
       let longitude = this.getCoordinates.longitude //16.43
       let latitude = this.getCoordinates.latitude //57.04
@@ -46,12 +46,11 @@ export default {
                 })
 
                 let isInPolygon = geoLocationHelper.rayCastingAlgorithm(
-                  latitude,
-                  longitude,
-                  cornersLat,
-                  cornersLong,
+                    latitude,
+                    longitude,
+                    cornersLat,
+                    cornersLong,
                 )
-                console.log(isInPolygon)
                 warningData.push({
                   warning: isInPolygon,
                   descr: warning.event.sv,
@@ -66,10 +65,10 @@ export default {
               })
 
               let isInPolygon = geoLocationHelper.rayCastingAlgorithm(
-                latitude,
-                longitude,
-                cornersLat,
-                cornersLong,
+                  latitude,
+                  longitude,
+                  cornersLat,
+                  cornersLong,
               )
 
               warningData.push({

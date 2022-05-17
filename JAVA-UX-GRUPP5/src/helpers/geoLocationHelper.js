@@ -18,9 +18,8 @@ let getMinMaxValCoord = async (param, level, boundary, downsample) => {
   let p = param
   let lt = 'hl'
   validTime = validTime.replace(/[:-]/g, '')
-  let l = level
-  let url = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/multipoint/validtime/${validTime}/parameter/${p}/leveltype/${lt}/level/${l}/data.json?downsample=${downsample}`
-  //SMHI ger coordinaterna på fel håll
+  let url = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/multipoint/validtime/${validTime}/parameter/${p}/leveltype/${lt}/level/${level}/data.json?downsample=${downsample}`
+  //Info: SMHI ger coordinaterna på fel håll
   let data = await smhiService.fetchData(url)
   console.info(
     `metanalys multipoint parameter: ${param} level: ${level} downsample: ${downsample}`,
@@ -83,7 +82,6 @@ function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
   var pX = cornersLat
   var pY = cornersLong
 
-  // console.log(cornersLat);
   for (i = 0; i < cornersLat.length; i++) {
     if (
       ((pY[i] < longitude && pY[j] >= longitude) ||
@@ -94,7 +92,6 @@ function rayCastingAlgorithm(latitude, longitude, cornersLat, cornersLong) {
         pX[i] + ((longitude - pY[i]) * (pX[j] - pX[i])) / (pY[j] - pY[i]) <
         latitude
     }
-
     j = i
   }
   if (odd === 1) odd = true

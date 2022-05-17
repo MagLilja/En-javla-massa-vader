@@ -1,64 +1,64 @@
 <template>
   <div class="md:hidden">
-    <summary-view-header-component class="" />
+    <summary-view-header-component class=""/>
   </div>
 
   <section class="section gap-16">
     <div class="sub-container">
       <div class="title">Nederbörd</div>
       <img
-        class="image"
-        src="../assets/prototype_icons/Group12.svg"
-        alt="rain cloud"
+          class="image"
+          src="../assets/prototype_icons/Group12.svg"
+          alt="rain cloud"
       />
-      <weather-summary-component :param="preciptation" :data-unit="rainUnit" />
+      <weather-summary-component :param="precipitation" :data-unit="rainUnit"/>
     </div>
     <div class="sub-container">
       <div class="title">Soltimmar</div>
-      <img class="image" src="../assets/prototype_icons/Group7.svg" alt="sun" />
-      <weather-summary-component :param="sunHours" :data-unit="sunUnit" />
+      <img class="image" src="../assets/prototype_icons/Group7.svg" alt="sun"/>
+      <weather-summary-component :param="sunHours" :data-unit="sunUnit"/>
     </div>
 
     <div class="sub-container">
       <div class="title">Varmaste dagen</div>
       <img
-        class="image"
-        src="../assets/prototype_icons/sun-solid2.svg"
-        alt="rain cloud"
+          class="image"
+          src="../assets/prototype_icons/sun-solid2.svg"
+          alt="rain cloud"
       />
-      <weather-summary-component :param="maxTemp" :data-unit="tempUnit" />
+      <weather-summary-component :param="maxTemp" :data-unit="tempUnit"/>
     </div>
     <div class="sub-container">
       <div class="title">Kallaste dagen</div>
       <img
-        class="image"
-        src="../assets/prototype_icons/snowflake-solid3.svg"
-        alt="rain cloud"
+          class="image"
+          src="../assets/prototype_icons/snowflake-solid3.svg"
+          alt="rain cloud"
       />
-      <weather-summary-component :param="minTemp" :data-unit="tempUnit" />
+      <weather-summary-component :param="minTemp" :data-unit="tempUnit"/>
     </div>
 
     <div class="sub-container">
       <div class="title">Blåsigaste dagen</div>
       <img
-        class="image"
-        src="../assets/prototype_icons/wind-solid3.svg"
-        alt="rain cloud"
+          class="image"
+          src="../assets/prototype_icons/wind-solid3.svg"
+          alt="rain cloud"
       />
       <div class="">
-        <weather-summary-component :param="maxWind" :data-unit="windUnit" />
+        <weather-summary-component :param="maxWind" :data-unit="windUnit"/>
       </div>
     </div>
     <div class="sub-container">
       <div class="title">Blötaste dagen</div>
       <img
-        class="image"
-        src="../assets/prototype_icons/Group12.svg"
-        alt="rain cloud"
+          class="image"
+          src="../assets/prototype_icons/Group12.svg"
+          alt="rain cloud"
       />
       <weather-summary-component
-        :param="maxDailyPrecipitation"
-        :data-unit="rainUnit"
+          :param="maxDailyPrecipitation"
+          :data-unit="rainUnit"
       />
     </div>
   </section>
@@ -71,7 +71,6 @@ import WeatherSummaryComponent from '@/components/summary/WeatherSummaryComponen
 export default {
   components: {
     SummaryViewHeaderComponent,
-
     WeatherSummaryComponent,
   },
   data() {
@@ -79,7 +78,7 @@ export default {
       selectedParamStationsHref: '',
       selectedStationData: '',
       selectedPeriodHref: '',
-      preciptation: 23,
+      precipitation: 23,
       sunHours: 10,
       maxTemp: 20,
       minTemp: 19,
@@ -91,17 +90,6 @@ export default {
       sunUnit: 'h',
     }
   },
-  methods: {
-    onClickParameter(v) {
-      this.selectedParamStationsHref = v.parameterLink
-    },
-    onClickStation(selectionData) {
-      this.selectedStationData = selectionData
-    },
-    onClickPeriod(v) {
-      this.selectedPeriodHref = v.data
-    },
-  },
 }
 </script>
 
@@ -109,7 +97,6 @@ export default {
 .section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 190px));
-
   justify-content: center;
   width: 100%;
   margin-bottom: 7em;
@@ -123,14 +110,6 @@ export default {
   justify-content: flex-start;
   width: 100%;
   padding: 0 0.8em;
-
-  /*box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);*/
-  /*border-radius: 1rem;*/
-  /*border-bottom: 2px solid;*/
-  /*border-right: 2px solid;*/
-  /*border-top: 1px solid;*/
-  /*border-left: 1px solid;*/
-  /*border-color: var(--primary-color-lightblue);*/
 }
 
 .sub-container > .title {

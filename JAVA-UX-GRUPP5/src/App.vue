@@ -1,44 +1,43 @@
 <template>
-  <!--  <load-data-component/>-->
-  <loading-component :loading="loading" />
+  <loading-component :loading="loading"/>
   <div v-if="isLoaded" class="site-container">
-    <top-nav-bar-component />
+    <top-nav-bar-component/>
     <div class="hidden md:block w-full">
-      <weather-warning-component />
+      <weather-warning-component/>
     </div>
 
     <div class="view-container">
       <div class="hidden md:block">
-        <twenty-four-forecast-desktop-card />
+        <twenty-four-forecast-desktop-card/>
       </div>
 
-      <router-view />
+      <router-view/>
       <div class="hidden md:block mt-20">
-        <favorite-desktop-card />
+        <favorite-desktop-card/>
       </div>
 
       <div class="hidden md:block">
-        <ten-day-desktop-card />
+        <ten-day-desktop-card/>
       </div>
 
       <div class="hidden md:block">
-        <summary-desktop-card class="" />
+        <summary-desktop-card class=""/>
       </div>
 
       <div class="hidden md:block">
-        <worst-weather-desktop-card />
+        <worst-weather-desktop-card/>
       </div>
     </div>
     <div class="block md:hidden">
-      <navbar-component />
+      <navbar-component/>
     </div>
   </div>
 </template>
 <script>
 //modules
-import { mapActions, mapState } from 'pinia'
+import {mapActions, mapState} from 'pinia'
 //store
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
 //Global
 import smhiService from '@/services/smhiService'
 import LoadingComponent from '@/components/global/LoadingComponent.vue'
@@ -65,10 +64,6 @@ export default {
     FavoriteDesktopCard,
     WorstWeatherDesktopCard,
   },
-  mounted() {
-    this.loading = true
-    this.setUpAllData()
-  },
   data() {
     return {
       isLoaded: false,
@@ -82,6 +77,7 @@ export default {
       'getFavoriteLocationList',
     ]),
   },
+
   watch: {
     getCoordinates: {
       deep: true,
@@ -93,6 +89,10 @@ export default {
       },
     },
   },
+  mounted() {
+    this.loading = true
+    this.setUpAllData()
+  },
   methods: {
     ...mapActions(useUserDataStore, [
       'setFavoriteLocation',
@@ -103,35 +103,35 @@ export default {
     ]),
     async setUpAllData() {
       this.getCoordinatesFromUser()
-      console.log('set up data')
+      console.info('set up data')
     },
     getCoordinatesFromUser() {
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          let latitude = position.coords.latitude
-          let longitude = position.coords.longitude
-          let userCoordinatesTemp = {
-            latitude: '',
-            longitude: '',
-          }
-          userCoordinatesTemp.latitude = latitude
-          userCoordinatesTemp.longitude = longitude
-          this.setCoordinates(userCoordinatesTemp)
-          console.info('userCoordinates initialized')
-          this.getForecastFullDataFromAPI(userCoordinatesTemp)
-          this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
-          this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
-        },
-        (error) => {
-          console.log(error.message)
-        },
+          (position) => {
+            let latitude = position.coords.latitude
+            let longitude = position.coords.longitude
+            let userCoordinatesTemp = {
+              latitude: '',
+              longitude: '',
+            }
+            userCoordinatesTemp.latitude = latitude
+            userCoordinatesTemp.longitude = longitude
+            this.setCoordinates(userCoordinatesTemp)
+            console.info('userCoordinates initialized')
+            this.getForecastFullDataFromAPI(userCoordinatesTemp)
+            this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
+            this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
+          },
+          (error) => {
+            console.error(error.message)
+          },
       )
     },
     async getForecastFullDataFromAPI(userCoordinatesTemp) {
       let long =
-        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let forecastFullData = await smhiService.fetchData(forecastUrl)
       this.setForecastFulldata(forecastFullData)
@@ -139,8 +139,6 @@ export default {
     },
     async getUserGeoLocationDataFromApi(userCoordinatesTemp) {
       let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${userCoordinatesTemp.latitude}&lon=${userCoordinatesTemp.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
-      // if the coordinates in the Store match the geolocation data coordinates in the Store
-
       let response = await fetch(url)
       let result = await response.json()
       this.userGeoLocationData = result
@@ -151,9 +149,9 @@ export default {
     },
     async getAnalysisFullDataFromAPI(userCoordinatesTemp) {
       let long =
-        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let result = await smhiService.fetchData(analysisUrl)
       this.setAnalysisFulldata(result)
@@ -176,7 +174,3 @@ export default {
 }
 </script>
 
-<style>
-#app {
-}
-</style>
