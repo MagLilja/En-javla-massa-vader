@@ -3,9 +3,9 @@
     <div class="transparent-nav rounded-full hover:bg-neutral-400 md:hidden">
       <router-link to="/search" class="search-link">
         <img
-          class="search-icon"
-          src="../../assets/icons/search-icon.svg"
-          alt="search-icon"
+            class="search-icon"
+            src="../../assets/icons/search-icon.svg"
+            alt="search-icon"
         />
       </router-link>
     </div>
@@ -14,24 +14,30 @@
     <div class="hidden search-top-nav-mp-plus md:block" @click="toggleSearchResult()">
       <div class="search-container relative">
         <img
-          class="search-icon"
-          src="../../assets/icons/search-icon.svg"
-          alt="search-icon"
+            class="search-icon"
+            src="../../assets/icons/search-icon.svg"
+            alt="search-icon"
         />
-        <search-component  />
+        <search-component/>
         <div class="bg-[#c1e0ea] border-2 p-8 top-20 left-28 absolute w-[250px]" v-if="showSearch">
-          <search-result-component class="" />
+          <search-result-component class=""/>
         </div>
       </div>
-
+      <div class="transparent-nav flex justify-center rounded-full hover:bg-neutral-400 w-24 ">
+        <router-link to="/about" class="hover:font-bold"><img
+            class="question-icon"
+            src="../../assets/prototype_icons/question-solid.svg"
+            alt="search-icon"
+        /></router-link>
+      </div>
 
     </div>
 
     <div class="favorite-link">
       <img
-        class="favorite-icon"
-        src="../../assets/icons/favorite.svg"
-        alt="search-icon"
+          class="favorite-icon"
+          src="../../assets/icons/favorite.svg"
+          alt="search-icon"
       />
     </div>
   </div>
@@ -39,12 +45,12 @@
 
 <script>
 import SearchComponent from '@/components/search/SearchComponent.vue'
-import { mapState } from 'pinia/dist/pinia'
-import { useUserDataStore } from '@/stores/useUserDataStore'
+import {mapState} from 'pinia/dist/pinia'
+import {useUserDataStore} from '@/stores/useUserDataStore'
 import SearchResultComponent from '@/components/search/SearchResultComponent.vue'
 
 export default {
-  components: { SearchResultComponent, SearchComponent },
+  components: {SearchResultComponent, SearchComponent},
   data() {
     return {
       showSearch: false,

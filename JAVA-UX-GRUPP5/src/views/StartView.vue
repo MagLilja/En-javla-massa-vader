@@ -14,9 +14,10 @@
     <circleComponent class="my-10"/>
 
   </section>
-  <router-link to="/about"> Om oss </router-link>
-  <div class="md:hidden">
+
+  <div class="md:hidden flex justify-center flex-col items-center mb-48 ">
     <same-day-list-component/>
+<!--    <router-link to="/about" class="hover:font-bold"> Om oss </router-link>-->
   </div>
 
 </template>
