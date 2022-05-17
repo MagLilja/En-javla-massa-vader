@@ -14,10 +14,11 @@
     <circleComponent class="my-10"/>
 
   </section>
-
+  <router-link to="/about"> Om oss </router-link>
   <div class="md:hidden">
     <same-day-list-component/>
   </div>
+
 </template>
 <script>
 import circleComponent from '@/components/start/CircleComponent.vue'

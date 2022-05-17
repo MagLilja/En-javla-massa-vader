@@ -14,12 +14,11 @@
         <twenty-four-forecast-desktop-card/>
       </div>
 
-      <div class="x">
         <router-view/>
         <div class="hidden md:block mt-20">
           <favorite-desktop-card/>
         </div>
-      </div>
+
 
       <div class="hidden md:block">
         <ten-day-desktop-card/>
