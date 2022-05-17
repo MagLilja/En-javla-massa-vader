@@ -12,7 +12,7 @@
       </div>
 
       <router-view/>
-      <div class="hidden md:block mt-20">
+      <div class="hidden md:hidden mt-20">
         <favorite-desktop-card/>
       </div>
 
