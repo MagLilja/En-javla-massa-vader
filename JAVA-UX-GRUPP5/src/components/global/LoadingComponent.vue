@@ -1,9 +1,8 @@
 <template>
   <div v-if="loading" class="flex flex-col items-center">
-    <div  class="loader"></div>
+    <div class="loader"></div>
     <div>Tålamod...</div>
   </div>
-
 </template>
 
 <script>
@@ -26,8 +25,8 @@ export default {
   width: 84px;
   aspect-ratio: 1;
   animation: spin 2s linear infinite;
-  margin-top:30vh;
-  margin-bottom:2em;
+  margin-top: 30vh;
+  margin-bottom: 2em;
 }
 
 @keyframes spin {

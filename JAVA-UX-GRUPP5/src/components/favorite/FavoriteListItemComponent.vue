@@ -1,38 +1,39 @@
 <template>
   <ul class="favorite-list">
     <li
-      v-for="(favorite, index) of this.getFavoriteLocationList.favorites"
-      :key="index"
+        v-for="(favorite, index) of getFavoriteLocationList.favorites"
+        :key="index"
     >
-      <div class="favorite-list-item" v-if="favorite != null">
+      <div
+          v-if="favorite != null"
+          class="favorite-list-item">
         <favorite-check-component
-          class="favorite-list-icon"
-          :location-data="favorite"
+            class="favorite-list-icon"
+            :location-data="favorite"
         />
         {{ checkForGothenburg(favorite.city) }}
-                {{ favorite.municipality }}
+        {{ favorite.municipality }}
       </div>
     </li>
   </ul>
 </template>
 <script>
 import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
-import { mapState } from 'pinia'
-import geoLocationHelper from "@/helpers/geoLocationHelper.js";
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
+import {mapState} from 'pinia'
+import geoLocationHelper from '@/helpers/geoLocationHelper.js'
 
 export default {
   name: 'favorite-list-item-component',
-  components: { FavoriteCheckComponent },
+  components: {FavoriteCheckComponent},
   computed: {
     ...mapState(useUserDataStore, ['getFavoriteLocationList']),
-
   },
   methods: {
-    checkForGothenburg(c){
+    checkForGothenburg(c) {
       return geoLocationHelper.checkForGothenburg(c)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>

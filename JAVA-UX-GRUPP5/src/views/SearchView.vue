@@ -1,7 +1,7 @@
 <template>
   <div class="mt-32">
-    <search-component/>
-    <search-result-component/>
+    <search-component />
+    <search-result-component />
   </div>
 </template>
 

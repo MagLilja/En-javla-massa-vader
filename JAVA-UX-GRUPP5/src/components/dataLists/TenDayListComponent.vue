@@ -8,14 +8,15 @@
     <div class="font-bold justify-self-center col-span-1">Vind</div>
     <div class="border-b-2 col-span-4 my-2 border-x-2 "></div>
 
-    <template class="" v-for="(wd,index) of weatherData" :key="index">
+    <template
+        v-for="(wd,index) of weatherData" :key="index">
       <div class="flex flex-col">
         <div>{{ getLocalDay(wd.dataDate, index) }}</div>
         <div>{{ getLocalDate(wd.dataDate) }}</div>
       </div>
       <div class="flex flex-col">
-        <div class="font-bold">{{ wd.highestTemp }}&#176</div>
-        <div class="">({{ wd.lowestTemp }}&#176)</div>
+        <div class="font-bold">{{ wd.highestTemp }}&#176;</div>
+        <div class="">({{ wd.lowestTemp }}&#176;)</div>
       </div>
       <div class="content-start items-start justify-start">{{ wd.totalPrecipitation }} mm</div>
       <div class="justify-self-end flex flex-col items-center col-span-1">
@@ -47,7 +48,6 @@ export default {
   watch: {
     getForecastFullData() {
       this.createWeatherDataList()
-      console.log("loglog");
     },
   },
   created() {
@@ -64,14 +64,12 @@ export default {
       }
       this.weatherData = tempList;
     },
-    getLocalDate(input, index) {
+    getLocalDate(input) {
       const event = new Date(input);
       const options = {month: "long", day: "numeric"};
       const date = event.toLocaleDateString("sv-SE", options);
 
-      let dateString = date.replace(date.charAt(0), date.charAt(0).toUpperCase());
-
-      return dateString;
+      return date.replace(date.charAt(0), date.charAt(0).toUpperCase());
     },
     getLocalDay(input, index) {
       const event = new Date(input);
@@ -79,17 +77,10 @@ export default {
       const date = event.toLocaleDateString("sv-SE", options);
 
       if (index === 0) {
-        let todayString = date.replace(/[^\s]*/, "Idag");
-        return todayString
+        return date.replace(/[^\s]*/, "Idag")
       }
-      let dateString = date.replace(date.charAt(0), date.charAt(0).toUpperCase());
-
-      return dateString;
+      return date.replace(date.charAt(0), date.charAt(0).toUpperCase());
     }
   }
 };
 </script>
-<style>
-
-
-</style>

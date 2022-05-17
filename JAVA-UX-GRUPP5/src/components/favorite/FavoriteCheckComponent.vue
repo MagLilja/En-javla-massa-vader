@@ -1,15 +1,14 @@
 <template>
   <img
-    class="checked-heart"
-    @click="toggleFavorite()"
-    :src="heartIcon"
-    alt="a heart"
+      class="checked-heart"
+      :src="heartIcon"
+      alt="a heart"
+      @click="toggleFavorite()"
   />
-
 </template>
 <script>
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
-import { mapActions, mapState } from 'pinia'
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
+import {mapActions, mapState} from 'pinia'
 import checkedHeart from '@/assets/icons/favorite.svg'
 import unCheckedHeart from '@/assets/icons/iconfinder_heart_like_8664909.svg'
 
@@ -18,16 +17,14 @@ export default {
   props: {
     locationData: [],
   },
-  created() {
-    this.checkIfFavorite(this.locationData)
-  },
-  mounted() {
-  },
   data() {
     return {
       heartIcon: unCheckedHeart,
       favorite: false,
     }
+  },
+  computed: {
+    ...mapState(useUserDataStore, ['getFavoriteLocationList']),
   },
   watch: {
     locationData: {
@@ -42,8 +39,9 @@ export default {
       }
     },
   },
-  computed: {
-    ...mapState(useUserDataStore, ['getFavoriteLocationList']),
+
+  created() {
+    this.checkIfFavorite(this.locationData)
   },
   methods: {
     ...mapActions(useUserDataStore, [
@@ -67,8 +65,8 @@ export default {
       for (let favorite of this.getFavoriteLocationList.favorites) {
         if (favorite != null) {
           if (
-            favorite.longitude === v.longitude &&
-            favorite.latitude === v.latitude
+              favorite.longitude === v.longitude &&
+              favorite.latitude === v.latitude
           ) {
             contains++
           }
@@ -82,6 +80,7 @@ export default {
         this.heartIcon = unCheckedHeart
       }
     },
+
   },
 }
 </script>
@@ -92,8 +91,4 @@ export default {
   aspect-ratio: 1;
 }
 
-.unchecked-heart {
-  width: 38px;
-  aspect-ratio: 1;
-}
 </style>

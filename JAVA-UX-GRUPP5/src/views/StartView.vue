@@ -1,25 +1,21 @@
 <template>
-
   <section class="flex-column-center-2 start-view-section">
-
-    <loading-component :loading="loading"/>
+    <loading-component :loading="loading" />
     <div class="flex flex-col items-center mt-20 md:mt-0">
-      <div class="flex gap-5 ">
-        <current-city-name-component class="text-[2em] font-bold"/>
+      <div class="flex gap-5">
+        <current-city-name-component class="text-[2em] font-bold" />
         <favorite-check-component :location-data="locationData" />
       </div>
-      <date-component class="text-4xl"/>
+      <date-component class="text-4xl" />
     </div>
 
-    <circleComponent class="my-10"/>
-
+    <circleComponent class="my-10" />
   </section>
 
-  <div class="md:hidden flex justify-center flex-col items-center mb-48 ">
-    <same-day-list-component/>
-<!--    <router-link to="/about" class="hover:font-bold"> Om oss </router-link>-->
+  <div class="md:hidden flex justify-center flex-col items-center mb-48">
+    <same-day-list-component />
+    <!--    <router-link to="/about" class="hover:font-bold"> Om oss </router-link>-->
   </div>
-
 </template>
 <script>
 import circleComponent from '@/components/start/CircleComponent.vue'
@@ -31,7 +27,7 @@ import { MqResponsive } from 'vue3-mq'
 import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import { mapState } from 'pinia'
-import LoadingComponent from "@/components/global/LoadingComponent.vue";
+import LoadingComponent from '@/components/global/LoadingComponent.vue'
 
 export default {
   components: {
@@ -63,7 +59,7 @@ export default {
       completeDailyWxList: undefined,
       userCoordinates: undefined,
       locationData: undefined,
-      loading:false,
+      loading: false,
     }
   },
 

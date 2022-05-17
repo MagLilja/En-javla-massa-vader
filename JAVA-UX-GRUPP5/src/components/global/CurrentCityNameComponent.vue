@@ -19,9 +19,9 @@ export default {
       currentCityName: undefined,
     }
   },
-  watch:{
-    getCoordinates(){
-      this.getUserGeoLocationDataFromApi();
+  watch: {
+    getCoordinates() {
+      this.getUserGeoLocationDataFromApi()
     },
   },
   computed: {

@@ -1,11 +1,9 @@
 <template>
-  <div class="desktop-card ">
+  <div class="desktop-card">
     <div class="desktop-card-header">
       <div class="desktop-card-icon">
-        <img
-          src="../../assets/prototype_icons/calendar-regular.svg"
-          alt=""
-      /></div>
+        <img src="../../assets/prototype_icons/calendar-regular.svg" alt="" />
+      </div>
       <div class="desktop-card-header-text">10 dygn</div>
     </div>
     <div class="desktop-data-card-body">

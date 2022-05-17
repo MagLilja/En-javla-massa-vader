@@ -1,51 +1,47 @@
 <template>
   <!--  <load-data-component/>-->
-  <loading-component :loading="loading"/>
+  <loading-component :loading="loading" />
   <div v-if="isLoaded" class="site-container">
-    <top-nav-bar-component/>
+    <top-nav-bar-component />
     <div class="hidden md:block w-full">
-      <weather-warning-component/>
+      <weather-warning-component />
     </div>
-
 
     <div class="view-container">
-
       <div class="hidden md:block">
-        <twenty-four-forecast-desktop-card/>
+        <twenty-four-forecast-desktop-card />
       </div>
 
-        <router-view/>
-        <div class="hidden md:block mt-20">
-          <favorite-desktop-card/>
-        </div>
-
-
-      <div class="hidden md:block">
-        <ten-day-desktop-card/>
+      <router-view />
+      <div class="hidden md:block mt-20">
+        <favorite-desktop-card />
       </div>
 
       <div class="hidden md:block">
-        <summary-desktop-card class=""/>
+        <ten-day-desktop-card />
       </div>
 
       <div class="hidden md:block">
-        <worst-weather-desktop-card/>
+        <summary-desktop-card class="" />
       </div>
 
+      <div class="hidden md:block">
+        <worst-weather-desktop-card />
+      </div>
     </div>
     <div class="block md:hidden">
-      <navbar-component/>
+      <navbar-component />
     </div>
   </div>
 </template>
 <script>
 //modules
-import {mapActions, mapState} from 'pinia'
+import { mapActions, mapState } from 'pinia'
 //store
-import {useUserDataStore} from '@/stores/useUserDataStore.js'
+import { useUserDataStore } from '@/stores/useUserDataStore.js'
 //Global
 import smhiService from '@/services/smhiService'
-import LoadingComponent from "@/components/global/LoadingComponent.vue";
+import LoadingComponent from '@/components/global/LoadingComponent.vue'
 import WeatherWarningComponent from '@/components/start/WeatherWarningComponent.vue'
 // navigation
 import NavbarComponent from '@/components/navigation/NavbarComponent.vue'
@@ -111,31 +107,31 @@ export default {
     },
     getCoordinatesFromUser() {
       navigator.geolocation.getCurrentPosition(
-          (position) => {
-            let latitude = position.coords.latitude
-            let longitude = position.coords.longitude
-            let userCoordinatesTemp = {
-              latitude: '',
-              longitude: '',
-            }
-            userCoordinatesTemp.latitude = latitude
-            userCoordinatesTemp.longitude = longitude
-            this.setCoordinates(userCoordinatesTemp)
-            console.info('userCoordinates initialized')
-            this.getForecastFullDataFromAPI(userCoordinatesTemp)
-            this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
-            this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
-          },
-          (error) => {
-            console.log(error.message)
-          },
+        (position) => {
+          let latitude = position.coords.latitude
+          let longitude = position.coords.longitude
+          let userCoordinatesTemp = {
+            latitude: '',
+            longitude: '',
+          }
+          userCoordinatesTemp.latitude = latitude
+          userCoordinatesTemp.longitude = longitude
+          this.setCoordinates(userCoordinatesTemp)
+          console.info('userCoordinates initialized')
+          this.getForecastFullDataFromAPI(userCoordinatesTemp)
+          this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
+          this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
+        },
+        (error) => {
+          console.log(error.message)
+        },
       )
     },
     async getForecastFullDataFromAPI(userCoordinatesTemp) {
       let long =
-          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
+        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let forecastUrl = `https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let forecastFullData = await smhiService.fetchData(forecastUrl)
       this.setForecastFulldata(forecastFullData)
@@ -155,9 +151,9 @@ export default {
     },
     async getAnalysisFullDataFromAPI(userCoordinatesTemp) {
       let long =
-          Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
+        Math.round((userCoordinatesTemp.longitude + Number.EPSILON) * 100) / 100
       let lat =
-          Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
+        Math.round((userCoordinatesTemp.latitude + Number.EPSILON) * 100) / 100
       let analysisUrl = `https://opendata-download-metanalys.smhi.se/api/category/mesan1g/version/2/geotype/point/lon/${long}/lat/${lat}/data.json`
       let result = await smhiService.fetchData(analysisUrl)
       this.setAnalysisFulldata(result)

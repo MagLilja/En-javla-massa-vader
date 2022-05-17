@@ -7,11 +7,12 @@
     <div class="font-bold col-span-2 place-self-end">Vind</div>
     <div class="border-b-2 col-span-5 my-2"></div>
 
-    <template class="border-y-rose-400" v-for="(hour, index) of TwentyFourForecast"
-              :key="index">
+    <template
+        v-for="(hour, index) of TwentyFourForecast"
+        :key="index">
       <div class="">{{ hour.time }}</div>
       <div class="text-4xl">{{ hour.wSymb2Symbol }}</div>
-      <div class="">{{ hour.temperature }}&#176</div>
+      <div class="">{{ hour.temperature }}&#176;</div>
       <div class="col-span-2 text-right">
         {{ hour.wind }}
         ({{ hour.gusts }}) m/s
@@ -38,19 +39,18 @@ export default {
       TwentyFourForecast: []
     };
   },
-  created() {
-    this.createWeatherDataList();
-  },
-
   computed: {
     ...mapState(useUserDataStore, ["getForecastFullData"])
   },
   watch: {
     getForecastFullData() {
       this.createWeatherDataList();
-      console.log("asdf");
-    }
+    },
   },
+  created() {
+    this.createWeatherDataList();
+  },
+
   methods: {
     createWeatherDataList() {
       this.TwentyFourForecast = weatherDataManager.getListWithWeatherData(
@@ -60,11 +60,7 @@ export default {
           24,
           true
       );
-
     }
   },
-
 };
 </script>
-
-<style></style>

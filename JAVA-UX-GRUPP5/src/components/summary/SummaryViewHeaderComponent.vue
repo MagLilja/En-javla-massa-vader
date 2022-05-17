@@ -1,6 +1,7 @@
 <template>
   <div class="header text-[2em] mt-20 mb-10 text-center">
-    Sammanfattning av vädret i {{ this.getActiveCityName() }} i {{ this.getLastMonth() }}
+    Sammanfattning av vädret i {{ this.getActiveCityName() }} i
+    {{ this.getLastMonth() }}
   </div>
 </template>
 <script>
@@ -40,11 +41,9 @@ export default {
 }
 </script>
 <style scoped>
-
-
 .display-month-container {
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
 
 .month {
