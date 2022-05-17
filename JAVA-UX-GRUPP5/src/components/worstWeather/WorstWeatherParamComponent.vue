@@ -36,7 +36,6 @@ export default {
   mounted() {
     this.checkParam()
   },
-  watch: {},
   methods: {
     checkParam() {
       if (this.parameter.unit === 'Cel') {

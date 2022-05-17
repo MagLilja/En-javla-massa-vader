@@ -1,10 +1,10 @@
 <template>
   <div v-if="date">
     {{ properDate(date) }}
-    <div class="font-bold" v-if="value">{{ value }} {{ dataUnit }}</div>
+    <div v-if="value" class="font-bold">{{ value }} {{ dataUnit }}</div>
   </div>
   <div v-else>
-    <div class="font-bold" v-if="value">{{ value }} {{ dataUnit }}</div>
+    <div v-if="value" class="font-bold">{{ value }} {{ dataUnit }}</div>
     <div v-else>Värde saknas</div>
   </div>
 </template>
@@ -43,20 +43,9 @@ export default {
         this.getStationNo()
       },
     },
-    // nearestStation: {
-    //   deep: true,
-    //   async handler() {
-    //     let res = await this.getSummary()
-    //     this.value = res.value
-    //     this.date = res.date
-    //   },
-    // },
+
     async nearestStation() {
       let res = await this.getSummary()
-      console.log('--------')
-      console.log(res.value)
-      console.log(res.date)
-      console.log('--------')
       this.value = res.value
       this.date = res.date
     },
@@ -87,7 +76,6 @@ export default {
               return { value: res }
 
             case 10:
-              let timestamp = new Date(actualData.value[0].date)
               let totalValue = 0
               for (let value of actualData.value) {
                 let timestamp = new Date(value.date)

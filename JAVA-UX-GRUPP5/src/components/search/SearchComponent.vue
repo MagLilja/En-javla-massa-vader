@@ -1,10 +1,10 @@
 <template>
   <input
-    class="search-input"
     v-model="searchInput"
-    @keyup.enter="submitSearch(searchInput)"
+    class="search-input"
     type="text"
     placeholder="Sök"
+    @keyup.enter="submitSearch(searchInput)"
   />
   <button
     class="search-button"
@@ -16,29 +16,22 @@
 </template>
 <script>
 import { OpenStreetMapProvider } from 'leaflet-geosearch'
-import { MqResponsive } from 'vue3-mq'
 import { mapActions } from 'pinia/dist/pinia'
 import { useUserDataStore } from '@/stores/useUserDataStore.js'
 
 export default {
   name: 'SearchComponent',
-  components: {
-    MqResponsive,
-  },
-
   data() {
     return {
       searchInput: '',
       selected: '',
     }
   },
-  watch: {},
   methods: {
     ...mapActions(useUserDataStore, ['setSearchData']),
     async submitSearch(input) {
       const provider = new OpenStreetMapProvider()
       let res = await provider.search({ query: input })
-      console.log(res)
       let searchResultData = []
       for (let data of res) {
         let split = data.raw.display_name.split(', ')

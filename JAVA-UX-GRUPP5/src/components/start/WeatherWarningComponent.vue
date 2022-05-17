@@ -1,8 +1,7 @@
 <template>
   <div class="weather-warning h-16 flex">
-    <div v-for="instance of warning">
+    <div v-for="(instance, index) of warning" :key="index">
       <div v-if="instance.warning">{{ instance.descr }}</div>
-      <!--      <div v-else>Om du befinner dig i ett område med en vädervarning kommer det att synas här!</div>-->
     </div>
   </div>
 </template>

@@ -23,8 +23,8 @@
         />
         <search-component/>
         <div
-            class="bg-[#c1e0ea] border-2 p-8 top-20 left-28 absolute w-[250px]"
             v-if="showSearch"
+            class="bg-[#c1e0ea] border-2 p-8 top-20 left-28 absolute w-[250px]"
         >
           <search-result-component class=""/>
         </div>
@@ -59,11 +59,6 @@ export default {
   computed: {
     ...mapState(useUserDataStore, ['getSearchData']),
   },
-  methods: {
-    toggleSearchResult() {
-      this.showSearch = !this.showSearch
-    },
-  },
   watch: {
     getSearchData: {
       deep: true,
@@ -72,9 +67,11 @@ export default {
       },
     },
   },
+  methods: {
+    toggleSearchResult() {
+      this.showSearch = !this.showSearch
+    },
+  },
 }
 </script>
-<style scoped>
-.search-box {
-}
-</style>
+

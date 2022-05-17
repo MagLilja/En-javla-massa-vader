@@ -3,9 +3,9 @@
     <div v-if="!getSearchData">
       <div class="border-b-2 mb-4">Senaste valda sökningar</div>
       <div
-        class="flex"
-        v-for="(lastSearchData, index) in this.getLastSearchList.lastSearch"
+        v-for="(lastSearchData, index) in getLastSearchList.lastSearch"
         :key="index"
+        class="flex"
       >
         <div v-if="lastSearchData !== null" class="flex">
           <favorite-check-component
@@ -22,21 +22,21 @@
 
     <ul v-if="getSearchData" class="search-data-list rounded-2xl">
       <li
-        class="search-data-item"
-        v-for="(searchData, index) in getSearchData"
+        v-for="(data, index) in getSearchData"
         :key="index"
+        class="search-data-item"
       >
-        <favorite-check-component :location-data="searchData" />
-        <div @click="selectCity(searchData)">
-          {{ searchData.city }}
-          {{ searchData.municipality }}
+        <favorite-check-component :location-data="data" />
+        <div @click="selectCity(data)">
+          {{ data.city }}
+          {{ data.municipality }}
         </div>
 
         <font-awesome-icon :icon="['fas', 'location-arrow']" />
       </li>
-      <div class="text-gray-500 w-full text-xl m-4 ml-12">
+      <li class="text-gray-500 w-full text-xl m-4 ml-12">
         * Klicka på hjärtat för att favorit-markera platsen!
-      </div>
+      </li>
     </ul>
   </div>
 </template>
@@ -46,12 +46,12 @@ import { useUserDataStore } from '@/stores/useUserDataStore.js'
 import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 
 export default {
-  name: 'search-result-component',
-  props: {
-    searchData: {},
-  },
+  name: 'SearchResultComponent',
   components: {
     FavoriteCheckComponent,
+  },
+  props: {
+    searchData: {},
   },
   computed: {
     ...mapState(useUserDataStore, ['getSearchData', 'getLastSearchList']),

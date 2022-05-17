@@ -2,15 +2,15 @@
   <div>
     <div class="circle-container" :style="{'--circle-degree-var': clockDeg}">
       <div class="outer-circle-container">
-        <div class="outer-circle-item" v-for="(wx, index) of completeDailyWxList" :key="index">
+        <div v-for="(wx, index) of completeDailyWxList" :key="index" class="outer-circle-item">
           {{ wx.time }}
           <br>{{ wx.wSymb2Symbol }}
-          <br>{{ wx.temperature }}&#176C
+          <br>{{ wx.temperature }}&#176;C
         </div>
         <div class="inner-circle-container">
           <div class="inner-circle-temperature">{{
               getForecastFullData.timeSeries[0].parameters[10].values[0]
-            }}&#176C
+            }}&#176;C
           </div>
           <div class="inner-circle-symbol">{{
               getWSymb2Unicode(getForecastFullData.timeSeries[0].parameters[18].values[0])
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import WSymb2 from '@/services/Wsymb2.json';
+import weatherSymbolJson from '@/services/Wsymb2.json';
 import {useUserDataStore} from "@/stores/useUserDataStore.js";
 import {mapActions, mapState} from "pinia";
 import weatherDataManager from "@/managers/WeatherDataManager";
@@ -36,17 +36,13 @@ export default {
   props: {},
   data() {
     return {
-      wSymb2Decoder: WSymb2,
+      wSymb2Decoder: weatherSymbolJson,
       clockDeg: "",
       completeDailyWxList: undefined,
     }
   },
   computed: {
     ...mapState(useUserDataStore, ["getCoordinates", "getForecastFullData", "getAnalysisFulldata"])
-  },
-  created() {
-    this.setLocalClockDeg()
-    this.buildOuterCircleDatalist()
   },
   watch: {
     getForecastFullData: {
@@ -55,6 +51,10 @@ export default {
         this.buildOuterCircleDatalist()
       },
     }
+  },
+  created() {
+    this.setLocalClockDeg()
+    this.buildOuterCircleDatalist()
   },
   methods: {
     ...mapActions(useUserDataStore, ["setAnalysisFulldata", "setCoordinates", "setForecastFulldata", "setUserGeoLocationData"]),
@@ -87,8 +87,7 @@ export default {
         let data0 = analysisList[analysisList.length - 1];
         let tempDate = new Date(data0.validTime);
         tempDate.setHours(tempDate.getHours() + 1)
-        let timeString = tempDate.toLocaleTimeString("sv-SE", {hour: "numeric", minute: "numeric"});
-        data0.time = timeString;
+        data0.time = tempDate.toLocaleTimeString("sv-SE", {hour: "numeric", minute: "numeric"});
       }
       this.completeDailyWxList = analysisList.concat(forecastList)
     },
@@ -129,8 +128,6 @@ export default {
   border-radius: 12px;
   z-index: 5;
   animation: rotate 43200s infinite linear;
-  /*animation: rotate 60s infinite linear;*/
-
 }
 
 
@@ -139,7 +136,6 @@ export default {
   place-items: center;
   width: 300px;
   height: 300px;
-  /*border: 1px solid #afafaf;*/
   border-radius: 50%;
   position: relative;
   background-color: var(--primary-color-greyishblue);
@@ -221,8 +217,6 @@ export default {
   padding: 10px;
   width: 200px;
   height: 200px;
-  border: 1px solid #be1a1a;
-  border-radius: 50%;
   background-color: white;
 
   border: double 10px transparent;
@@ -231,7 +225,6 @@ export default {
   linear-gradient(25deg, #e46668, #e46868, #ecae5e, #5fb7e0, #68a9d2);
   background-origin: border-box;
   background-clip: content-box, border-box;
-
 
   z-index: 2;
 }

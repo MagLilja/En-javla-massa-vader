@@ -1,7 +1,7 @@
 <template>
   <div class="header text-[2em] mt-20 mb-10 text-center">
-    Sammanfattning av vädret i {{ this.getActiveCityName() }} i
-    {{ this.getLastMonth() }}
+    Sammanfattning av vädret i {{ getActiveCityName() }} i
+    {{ getLastMonth() }}
   </div>
 </template>
 <script>
@@ -19,7 +19,7 @@ export default {
         return this.getCoordinates.searchSelection
       } else {
         if (this.getUserGeoLocationData.features[0].properties.city)
-          return this.convertGothenburg(
+          return this.checkForGothenburg(
             this.getUserGeoLocationData.features[0].properties.city,
           )
       }
@@ -30,7 +30,7 @@ export default {
 
       return today.toLocaleDateString('sv-SE', { month: 'long' })
     },
-    convertGothenburg(input) {
+    checkForGothenburg(input) {
       if (input === 'Gothenburg') {
         return 'Göteborg'
       } else {
@@ -40,15 +40,4 @@ export default {
   },
 }
 </script>
-<style scoped>
-.display-month-container {
-  display: flex;
-  justify-content: center;
-}
 
-.month {
-  font-size: 1.2em;
-  font-weight: 600;
-  margin-left: 1em;
-}
-</style>

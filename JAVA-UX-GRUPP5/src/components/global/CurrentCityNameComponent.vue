@@ -4,14 +4,11 @@
   </div>
 </template>
 <script>
-import { useUserDataStore } from '@/stores/useUserDataStore.js'
-import { mapState, mapActions } from 'pinia'
+import {useUserDataStore} from '@/stores/useUserDataStore.js'
+import {mapActions, mapState} from 'pinia'
 
 export default {
   name: 'current-city-name-component',
-  created() {
-    this.getUserGeoLocationDataFromApi()
-  },
   data() {
     return {
       userGeoLocationData: undefined,
@@ -19,13 +16,16 @@ export default {
       currentCityName: undefined,
     }
   },
+  computed: {
+    ...mapState(useUserDataStore, ['getCoordinates', 'getUserGeoLocationData']),
+  },
   watch: {
     getCoordinates() {
       this.getUserGeoLocationDataFromApi()
     },
   },
-  computed: {
-    ...mapState(useUserDataStore, ['getCoordinates', 'getUserGeoLocationData']),
+  created() {
+    this.getUserGeoLocationDataFromApi()
   },
   methods: {
     checkForGothenburg(cityName) {
@@ -39,20 +39,20 @@ export default {
     },
     async getUserGeoLocationDataFromApi() {
       let url = `https://api.geoapify.com/v1/geocode/reverse?lat=${this.getCoordinates.latitude}&lon=${this.getCoordinates.longitude}&apiKey=6c6c0640f23d468ab398e55bd11e17d9`
-      // if the coordinates in the Store match the geolocation data coordinates in the Store
+      // checks if the coordinates in the Store match the geolocation data coordinates in the Store
       if (
-        this.getRoundedCoordinate(this.getCoordinates.longitude) ===
-        this.getRoundedCoordinate(
-          this.getUserGeoLocationData.features[0].geometry.coordinates[0],
-        )
+          this.getRoundedCoordinate(this.getCoordinates.longitude) ===
+          this.getRoundedCoordinate(
+              this.getUserGeoLocationData.features[0].geometry.coordinates[0],
+          )
       ) {
         console.info('Already got UserGeoLocationData for this coordinates')
         this.userGeoLocationData = this.getUserGeoLocationData
         this.currentCityName = this.checkForGothenburg(
-          this.userGeoLocationData.features[0].properties.city,
+            this.userGeoLocationData.features[0].properties.city,
         )
       }
-      // if the coordinates in the Store doesnt match the geolocation data coordinates in the Store get new geolocation data
+      // if the coordinates in the Store doesn't match the geolocation data coordinates in the Store get new geolocation data
       else {
         if (this.getCoordinates.origin === 'FROM_SEARCH') {
           this.currentCityName = this.getCoordinates.searchSelection
@@ -62,23 +62,15 @@ export default {
           let result = await response.json()
           this.userGeoLocationData = result
           this.currentCityName = this.checkForGothenburg(
-            this.userGeoLocationData.features[0].properties.city,
+              this.userGeoLocationData.features[0].properties.city,
           )
           this.setUserGeoLocationData(result)
           console.info('UserGeoLocationData updated')
         }
       }
     },
-    seTime(time) {
-      const event = new Date(time)
-      const options = {
-        hour: '2-digit',
-      }
-      return event
-    },
     ...mapActions(useUserDataStore, ['setUserGeoLocationData']),
   },
 }
 </script>
 
-<style></style>
