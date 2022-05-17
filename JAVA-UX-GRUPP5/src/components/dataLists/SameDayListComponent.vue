@@ -1,6 +1,6 @@
 <template>
 
-  <div class="grid grid-cols-5 w-5/6 mb-48 gap-3 md:mb-0">
+  <div class="grid grid-cols-5 w-5/6 gap-3 md:mb-0">
     <div class="font-bold w-fit">Tid</div>
     <div class="font-bold ">Väder</div>
     <div class="font-bold ">Temperatur</div>

@@ -239,6 +239,11 @@ body {
     margin: 0.3em;
 }
 
+.question-icon {
+    width: clamp(2rem, 6vw, 6rem);
+    margin: 0.3em;
+}
+
 .favorite-icon {
     width: clamp(2rem, 10vw, 6rem);
 }
@@ -254,8 +259,8 @@ body {
     display: flex;
     align-items: center;
     height: 4em;
-    width: 100%;
-    justify-content: start;
+    width: 95%;
+    justify-content: space-between;
     z-index: 5;
     border-bottom-right-radius: var(--navigation-border-radius);
     border-bottom-left-radius: var(--navigation-border-radius);
