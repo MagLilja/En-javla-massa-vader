@@ -1,5 +1,5 @@
 <template>
-  <section class="flex-column-center-2 start-view-section">
+  <section class="flex-column-center-2 ">
     <loading-component :loading="loading"/>
     <div class="flex flex-col items-center mt-20 md:mt-0">
       <div class="flex gap-5">

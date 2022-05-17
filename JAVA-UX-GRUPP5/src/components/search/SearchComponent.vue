@@ -1,7 +1,7 @@
 <template>
   <input
     v-model="searchInput"
-    class="search-input"
+    class="search-input focus:outline-none active:outline-none w-[250px] py-2 px-4 text-3xl bg-inherit"
     type="text"
     placeholder="Sök"
     @keyup.enter="submitSearch(searchInput)"
