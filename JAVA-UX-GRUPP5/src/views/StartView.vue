@@ -2,6 +2,7 @@
   <section class="flex-column-center-2 ">
     <loading-component :loading="loading"/>
     <div class="flex flex-col items-center mt-20 md:mt-0">
+      <weather-warning-component class="md:hidden"></weather-warning-component>
       <div class="flex gap-5">
         <current-city-name-component class="text-[2em] font-bold"/>
         <favorite-check-component :location-data="locationData"/>
@@ -25,9 +26,11 @@ import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
 import {mapState} from 'pinia'
 import LoadingComponent from '@/components/global/LoadingComponent.vue'
+import WeatherWarningComponent from "@/components/global/WeatherWarningComponent.vue";
 
 export default {
   components: {
+    WeatherWarningComponent,
     LoadingComponent,
     FavoriteCheckComponent,
     CurrentCityNameComponent,

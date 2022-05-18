@@ -20,7 +20,7 @@
           <br>{{ wx.wSymb2Symbol }}
           <br>{{ wx.temperature }}&#176;C
         </div>
-        <div class="gradient-temp-circle flex justify-center items-center flex-col w-[200px] aspect-square p-3 rounded-full z-20 bg-white">
+        <div class="gradient-temp-circle flex justify-center items-center flex-col w-[200px] aspect-square p-3 rounded-full z-[2] bg-white">
           <div class="font-bold text-5xl">{{
               getForecastFullData.timeSeries[0].parameters[10].values[0]
             }}&#176;C

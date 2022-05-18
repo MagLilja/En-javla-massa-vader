@@ -26,7 +26,7 @@
     </router-link>
 
     <router-link class="nav-bar-item" to="favorite"
-      ><img src="../../assets/icons/favorite.svg" alt="favorite"
+      ><img src="../../assets/prototype_icons/favorite.svg" alt="favorite"
     /></router-link>
   </nav>
 </template>

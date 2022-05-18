@@ -9,7 +9,7 @@
 <script>
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
 import {mapActions, mapState} from 'pinia'
-import checkedHeart from '@/assets/icons/favorite.svg'
+import checkedHeart from '@/assets/prototype_icons/favorite.svg'
 import unCheckedHeart from '@/assets/icons/iconfinder_heart_like_8664909.svg'
 
 export default {

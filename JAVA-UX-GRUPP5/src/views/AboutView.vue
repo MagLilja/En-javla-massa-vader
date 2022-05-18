@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-4 mt-40 p-8"><h2> About text här...
+  <div class="grid gap-4 mt-40 p-8 md:mt-0"><h2> About text här...
   </h2>  <!--  Det här står i uppgiftsbeskrivningen: -->
     <!--  En “Om”-sida med information om applikationen (som t.ex. version) och vilket API ni-->
     <!--  använder, samt vilka ni är som har skapat den.-->

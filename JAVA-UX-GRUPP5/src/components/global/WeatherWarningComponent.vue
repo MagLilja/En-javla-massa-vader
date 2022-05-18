@@ -1,10 +1,17 @@
 <template>
-  <div class="weather-warning h-16 flex gap-5 bg-[#C1E0EAFF]" :class="warningClass">
+  <div class="weather-warning h-[2em] flex gap-5 bg-[#C1E0EAFF] justify-center" :class="warningClass">
     <div v-for="(instance, index) of warning" :key="index">
-      <div v-if="instance.warning"> {{ setWarningColor() }}
-        <a href="https://www.smhi.se/vader/varningar-och-brandrisk/varningar-och-meddelanden/varningar">{{
-            instance.descr
-          }} i ditt område</a></div>
+      <div v-if="instance.warning">
+        {{ setWarningColor() }}
+        {{ registerWarning() }}
+<!--        -->
+        <div class="flex justify-center gap-4" v-if="count === 201">
+          <img src="../../assets/prototype_icons/warning.svg" alt="" class="h-8 aspect-square inline-block">
+          <a
+            href="https://www.smhi.se/vader/varningar-och-brandrisk/varningar-och-meddelanden/varningar" class="hover:underline">
+
+          {{ instance.descr }} i ditt område</a></div>
+      </div>
     </div>
   </div>
 </template>
@@ -20,10 +27,12 @@ export default {
   data() {
     return {
       warning: false,
-      warningClass: ""
+      warningClass: "",
+      count: 0,
     }
   },
   computed: {
+
     ...mapState(useUserDataStore, ['getCoordinates']),
   },
   async created() {
@@ -32,6 +41,9 @@ export default {
   methods: {
     setWarningColor() {
       this.warningClass = "bg-red-500"
+    },
+    registerWarning() {
+      this.count++
     },
     async checkIfInWarningPolygon() {
       let url =

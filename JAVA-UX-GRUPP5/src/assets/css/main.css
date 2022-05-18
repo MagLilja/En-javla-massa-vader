@@ -155,6 +155,16 @@ body {
   --navigation-border-radius: 10px;
 }
 
+.transparent-box {
+  background: rgba(245, 245, 245, 0.97);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16.7px);
+  -webkit-backdrop-filter: blur(16.7px);
+  /*border: 1px solid rgb(171, 221, 245);*/
+
+  --navigation-border-radius: 10px;
+}
+
 /*---------- BOTTOM NAVIGATION ----------*/
 
 .nav-bar-container {
@@ -218,7 +228,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4em;
+  height: 2em;
   width: 100%;
   padding: 2.5em 1em;
   z-index: 5;
@@ -256,13 +266,15 @@ body {
 /*---------- WEATHER WARNING ----------*/
 
 .weather-warning {
-  /*background-color: var(--primary-color-lightblue);*/
-  width: 100%;
+  width: 95vw;
   border: 1px solid var(--primary-color-lightblue);
   clip-path: polygon(50% 0%, 100% 0, 99% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0);
-  margin: 1em 0;
+  margin: 3em 0;
   padding: 0em 1em;
-  font-size: 2em;
+  font-size: 1.2em;
+  align-items:center;
+  font-weight: 700;
+  color:black;
 }
 
 /*---------- SAME DAY WEATHER COMPONENT ----------*/
