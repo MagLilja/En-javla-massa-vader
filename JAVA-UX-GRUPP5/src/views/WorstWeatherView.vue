@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import swedenCoordinates from '@/assets/sweden-polygon.json'
+import swedenCoordinates from '@/assets/json/sweden-polygon.json'
 import geoLocationHelper from '@/helpers/geoLocationHelper.js'
 import WorstWeatherParamComponent from '@/components/worstWeather/WorstWeatherParamComponent.vue'
 import LoadingComponent from '@/components/global/LoadingComponent.vue'

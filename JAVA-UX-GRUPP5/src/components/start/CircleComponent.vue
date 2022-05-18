@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  import weatherSymbolJson from "@/assets/Wsymb2.json";
+  import weatherSymbolJson from "@/assets/json/Wsymb2.json";
   import { useUserDataStore } from "@/stores/useUserDataStore.js";
   import { mapActions, mapState } from "pinia";
   import weatherDataManager from "@/managers/WeatherDataManager";
