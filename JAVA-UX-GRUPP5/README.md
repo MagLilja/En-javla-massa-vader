@@ -2,7 +2,7 @@
 
 ## Description
 
-What?
+Beskriv vad sidan gör.
 
 Can be found live at:
 https://jx-smhi.netlify.app/
@@ -10,41 +10,58 @@ https://jx-smhi.netlify.app/
 ## Purpose
 
 why?
+As school project together with UX. Focus on team work. Practical developement of single page web application using Vue, Vite and other 
+packages.
 
 ## Instructions
 
 Instructions for building and running the project as well as for how to use the website.
 
 ### How to build and run
+Clone GitHub repository.
+Install Node.js
+From project folder npm install
+npm run dev
 
 ### How to use
-
-## Dependencies and Structure
-
+Intentionally left blank. Not for operational use.
+## Dependencies
+We have used the following dependencies:
 ### API dependencies
 
-- SMHI
-- Leaflet-GeoSearch
-- GeoApify 
+- SMHI for weather data
+- Leaflet-GeoSearch, search for city, obtain coordinates. Used to find nearest SMHI station i princip.
+- GeoApify, used to obtain city from coordinate. Dependenant on a free API key that might expire at some point in the future.
 
 ### Dev. dependencies
-- Vite
-- ESLint
-- Prettier
-- Tailwind
+- Vite, bundling, building and running dev environment.
+- ESLint, for better code.
+- Prettier, for prettier code.
+- Tailwind, for simplifying responsiveness.
 
 ### Build dependencies
-- VueJS 3
-- Vue Router
-- VueUse
-- Leaflet-GeoSearch
-- Pinia
+- VueJS 3, framework for building the application.
+- Vue Router, for single page application.
+- VueUse, plug-in to Vue to simplify local storage handling.
+- Leaflet-GeoSearch, see API dependencies.
+- Pinia, for state management.
 
 ### Dev. tools
-Kanske inte behövs...
-- IDE:er?
+- Git and GitHub for version control.
+- VSCode and Webstorm as IDE.
+- Netlify for CD for development purposes.
+- Discord for communication
 
-### Structure
+## Structure
+A brief description on the build structure, important files and functions.
+### General
+
+- index.html
+- main.js
+- **App.vue**, 
+    - set up. Loads user coordinates, obtains SMHI weather data for the user's location.
+
+
 
 Relevant dokumentation för funktioner, komponenter m.m. //t.ex i README~~~~~~
 Tänk på att koden kommer att testas genom att klona ert repository (main), byggas och testas enligt
@@ -52,16 +69,62 @@ era bygginstruktioner så var tydliga. Inga andra verktyg än Node.js (version 1
 bygga applikationen.
 
 
-#### Routers and Views
+### Routers and Views
+- About view
+    - Self explanatory
+- Favorite view
+    - Lists all locations that has been marked as a favorite by the user.
+- Search view
+    - Allows location search and shows previous search selections.
+- Start view
+    - The entry point of the web application. Shows the user's location, the current weather for this location, the time this weather was observed. - The circle shows this days' weather, observation for even hours passedand forecast for even hours to come. 
+    - The list below the circle shows detailed forecasted weather for the remaining hours of the day.
+- Summary view
+    - Nederbörd is the accumulated precipitation for current or selected location in the previous month.
+    - Soltimmar is the accumulated no of hours of sun for current or selected
+    locaton in the previous month.
+    - Varmaste dagen is the warmest temperture observed, together with date, for the current or selected locaton in the previous month.
+    - Kallaste dagen is the coldest temperature observed, together with date, for the current or selected location in the previous month.
+    - Blåsigaste dagen is the windiest day (excluding gusts) observed, together with date, for the current or selected location in the previous month.
+    - Blötaste dagen is the day with the highest preciptation, together with date, for the current or selected location in the previous month.
+    <br>
+    <p>
+    Note: For many weather stations complete data for all parameters are missing.
+    </p>
+- Ten day view
+    - Lists the forecasted weather for the coming 10 days for current or selected location. 
+    - The temperature column shows the maximum and minimum temperature expected for that day. 
+    - The precipitation column shows the total expected precipitation during that day.
+    - The wind column shows the maximum expected mean wind and highest gust in parentheses.
+- Worst weather view
+    - Shows the location in Sweden with the coldest temperature, the most rain and the highest mean wind. The values come from the most recent observation and is a maximum of an hour old. 
+    
 
-#### Components
+### Components
 
-#### State management stores
+#### Global
+- **CurrentCityNameComponent**, fetches our current coordinates from our store and uses the GeoAppifyApi to obtain the name of the coordinate's location.
+- **DateComponent**, obtains today's date and converts it to Swedish format.
+- **LoadingComponent**, presents a loading circle while requested methods are working.
+
+#### DataLists
+ - **SameDayListComponent**, fetches forecast data from our store and uses the WeatherDataManager to create and present a list of today's weather.
+ - **TenDayListComponent**, fetches forecast data from our store and uses the WeatherDataManager to create and present a list of the coming 10 days' weather.
+ #### DesktopCard
+ A collection of desktop card components to present the different views in cards in desktop mode.
+ #### Favorite
+ - **FavoriteCheckComponent**, is used to check and uncheck a location as a favorite. Adds the location to a list of favorite locations in our store.
+ - **FavoriteListItemComponent**, uses the favorite list from our store and presents this list.
+
+ #### Navigation
+ - **NavBarComponent**, presents navigation buttons to the router views of this application. Only visible on mobile.
+
+### State management stores
 PInia
-#### Javascript modules
+### Javascript modules
 Managers, services, helpers
 
-#### Assets
+### Assets
 CSS
 icons
 json
