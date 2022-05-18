@@ -1,7 +1,10 @@
 <template>
-  <div class="weather-warning h-16 flex">
+  <div class="weather-warning h-16 flex gap-5 bg-[#C1E0EAFF]" :class="warningClass">
     <div v-for="(instance, index) of warning" :key="index">
-      <div v-if="instance.warning">{{ instance.descr }}</div>
+      <div v-if="instance.warning"> {{ setWarningColor() }}
+        <a href="https://www.smhi.se/vader/varningar-och-brandrisk/varningar-och-meddelanden/varningar">{{
+            instance.descr
+          }} i ditt område</a></div>
     </div>
   </div>
 </template>
@@ -9,13 +12,15 @@
 import smhiService from '@/services/smhiService.js'
 import {mapState} from 'pinia/dist/pinia'
 import {useUserDataStore} from '@/stores/useUserDataStore'
-import geoLocationHelper from '@/helpers/geoLocationHelper.js'
+import WorstWeatherDataManager from '@/managers/WorstWeatherDataManager.js'
+
 
 export default {
   name: 'weather-warning-component',
   data() {
     return {
       warning: false,
+      warningClass: ""
     }
   },
   computed: {
@@ -25,6 +30,9 @@ export default {
     this.warning = await this.checkIfInWarningPolygon()
   },
   methods: {
+    setWarningColor() {
+      this.warningClass = "bg-red-500"
+    },
     async checkIfInWarningPolygon() {
       let url =
           'https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json'
@@ -45,7 +53,7 @@ export default {
                   cornersLat.push(coordinate[1])
                 })
 
-                let isInPolygon = geoLocationHelper.rayCastingAlgorithm(
+                let isInPolygon = WorstWeatherDataManager.rayCastingAlgorithm(
                     latitude,
                     longitude,
                     cornersLat,
@@ -64,7 +72,7 @@ export default {
                 cornersLat.push(coordinate[1])
               })
 
-              let isInPolygon = geoLocationHelper.rayCastingAlgorithm(
+              let isInPolygon = WorstWeatherDataManager.rayCastingAlgorithm(
                   latitude,
                   longitude,
                   cornersLat,
