@@ -136,7 +136,7 @@
   background-size: 1em;
   background-repeat: no-repeat;
   transform: rotateZ(var(--circle-degree-var));
-  z-index: 5;
+  z-index: 4;
   animation: rotate 43200s infinite linear;
 }
 
