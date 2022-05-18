@@ -32,7 +32,6 @@
           {{ data.municipality }}
         </div>
 
-        <font-awesome-icon :icon="['fas', 'location-arrow']" />
       </li>
       <li class="text-gray-500 w-full text-xl m-4 ml-12">
         * Klicka på hjärtat för att favorit-markera platsen!

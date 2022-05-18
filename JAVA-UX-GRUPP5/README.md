@@ -21,6 +21,12 @@ Instructions for building and running the project as well as for how to use the 
 
 ## Dependencies and Structure
 
+### API dependencies
+
+- SMHI
+- Leaflet-GeoSearch
+- GeoApify 
+
 ### Dev. dependencies
 - Vite
 - ESLint
@@ -39,6 +45,12 @@ Kanske inte behövs...
 - IDE:er?
 
 ### Structure
+
+Relevant dokumentation för funktioner, komponenter m.m. //t.ex i README~~~~~~
+Tänk på att koden kommer att testas genom att klona ert repository (main), byggas och testas enligt
+era bygginstruktioner så var tydliga. Inga andra verktyg än Node.js (version 16) skall behövas för att
+bygga applikationen.
+
 
 #### Routers and Views
 
