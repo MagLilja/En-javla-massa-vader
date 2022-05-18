@@ -118,7 +118,25 @@ bygga applikationen.
 
  #### Navigation
  - **NavBarComponent**, presents navigation buttons to the router views of this application. Only visible on mobile.
+ - **TopNavBarComponent**, a fixed top navigation bar showing links to search and about router.
 
+ #### Search
+ - **SearchComponent**, an input element for searching for location with leaflet-geosearch. Creates search result data
+ - **SearchResultComponent**, presents a list of the search result data as well as a list of previous search selection from our store.
+
+#### Start
+ - **CircleComponent**, uses analysisFullData and forecastFullData to generate a circle representation of today's weather.
+ - **WeatherWarningComponent**, uses the current coordinates from the store to check if the coordinates are inside a weather warning polygon.
+
+#### Summary
+- **SummaryViewHeaderComponent**, header component for summary view showing the current selected location city name and previous month 
+- **WeatherSummaryComponent**, takes a parameter for wanted data type, fetches current coordinates from our store, finds the 
+nearest avaliable station for chosen parameter and then fetches data from the station for the chosen parameter
+
+#### Worst weather
+- **WorstWeatherParamComponent**, takes weather data for a specified parameter and presents it.
+
+#### 
 ### State management stores
 PInia
 ### Javascript modules
