@@ -43,7 +43,7 @@
   import weatherSymbolJson from "@/assets/json/Wsymb2.json";
   import { useUserDataStore } from "@/stores/useUserDataStore.js";
   import { mapActions, mapState } from "pinia";
-  import weatherDataManager from "@/managers/WeatherDataManager";
+  import weatherDataListManager from "@/managers/WeatherDataListManager.js";
 
   export default {
     props: {},
@@ -92,8 +92,8 @@
         }
       },
       buildOuterCircleDatalist() {
-        let forecastList = weatherDataManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true);
-        let analysisList = weatherDataManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true, "analysis").reverse();
+        let forecastList = weatherDataListManager.getListWithWeatherData(this.getForecastFullData, this.wSymb2Decoder, 2, 12, true);
+        let analysisList = weatherDataListManager.getListWithWeatherData(this.getAnalysisFulldata, this.wSymb2Decoder, 2, 12, true, "analysis").reverse();
         if (analysisList.length + forecastList.length === 13) {
           analysisList.pop();
         } else {

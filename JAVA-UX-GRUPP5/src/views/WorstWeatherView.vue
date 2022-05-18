@@ -17,7 +17,7 @@
 
 <script>
 import swedenCoordinates from '@/assets/json/sweden-polygon.json'
-import geoLocationHelper from '@/helpers/geoLocationHelper.js'
+import WorstWeatherDataManager from '@/managers/WorstWeatherDataManager.js'
 import WorstWeatherParamComponent from '@/components/worstWeather/WorstWeatherParamComponent.vue'
 import LoadingComponent from '@/components/global/LoadingComponent.vue'
 
@@ -33,19 +33,19 @@ export default {
   },
   async mounted() {
     this.loading = true
-    this.temperature = await geoLocationHelper.getMinMaxValCoord(
+    this.temperature = await WorstWeatherDataManager.getMinMaxValCoord(
         't',
         2,
         swedenCoordinates,
         20,
     )
-    this.precipitation = await geoLocationHelper.getMinMaxValCoord(
+    this.precipitation = await WorstWeatherDataManager.getMinMaxValCoord(
         'prec1h',
         0,
         swedenCoordinates,
         20,
     )
-    this.wind = await geoLocationHelper.getMinMaxValCoord(
+    this.wind = await WorstWeatherDataManager.getMinMaxValCoord(
         'ws',
         10,
         swedenCoordinates,

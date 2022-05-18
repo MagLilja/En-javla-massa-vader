@@ -1,7 +1,9 @@
 <template>
-  <div class="header text-[2em] mt-20 mb-10 text-center">
-    Sammanfattning av vädret i {{ getActiveCityName() }} i
-    {{ getLastMonth() }}
+  <div class="header text-[2em] mt-20 mb-10 text-center md:mt-0">
+    <span class="md:hidden">Sammanfattning av vädret i </span>
+    <span class="">{{ getActiveCityName() }}
+        i
+        {{ getLastMonth() }}</span>
   </div>
 </template>
 <script>

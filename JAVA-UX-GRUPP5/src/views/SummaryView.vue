@@ -1,7 +1,7 @@
 <template>
-  <div class="md:hidden">
+
     <summary-view-header-component class=""/>
-  </div>
+
 
   <section class="section gap-16">
     <div class="sub-container">

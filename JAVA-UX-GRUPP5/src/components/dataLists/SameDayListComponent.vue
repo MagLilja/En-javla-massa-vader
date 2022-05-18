@@ -25,7 +25,7 @@
 
 
 <script>
-import weatherDataManager from "@/managers/WeatherDataManager.js";
+import WeatherDataListManager from "@/managers/WeatherDataListManager.js";
 import WSymbol from "@/assets/json/Wsymb2.json";
 import {mapState} from "pinia/dist/pinia";
 import {useUserDataStore} from "@/stores/useUserDataStore";
@@ -53,7 +53,7 @@ export default {
 
   methods: {
     createWeatherDataList() {
-      this.TwentyFourForecast = weatherDataManager.getListWithWeatherData(
+      this.TwentyFourForecast = WeatherDataListManager.getListWithWeatherData(
           this.getForecastFullData,
           this.Wsymb2,
           1,

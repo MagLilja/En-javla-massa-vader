@@ -41,7 +41,7 @@ import {useUserDataStore} from '@/stores/useUserDataStore.js'
 //Global
 import smhiService from '@/services/smhiService'
 import LoadingComponent from '@/components/global/LoadingComponent.vue'
-import WeatherWarningComponent from '@/components/start/WeatherWarningComponent.vue'
+import WeatherWarningComponent from '@/components/global/WeatherWarningComponent.vue'
 // navigation
 import NavbarComponent from '@/components/navigation/NavbarComponent.vue'
 import TopNavBarComponent from '@/components/navigation/TopNavBarComponent.vue'

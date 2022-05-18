@@ -21,8 +21,7 @@
 import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent.vue'
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
 import {mapState} from 'pinia'
-import geoLocationHelper from '@/helpers/geoLocationHelper.js'
-
+import WorstWeatherDataManager from '@/managers/WorstWeatherDataManager.js'
 export default {
   name: 'favorite-list-item-component',
   components: {FavoriteCheckComponent},
@@ -31,7 +30,7 @@ export default {
   },
   methods: {
     checkForGothenburg(c) {
-      return geoLocationHelper.checkForGothenburg(c)
+      return WorstWeatherDataManager.checkForGothenburg(c)
     },
   },
 }

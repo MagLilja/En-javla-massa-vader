@@ -33,7 +33,7 @@
 <script>
 import {mapState} from "pinia/dist/pinia";
 import {useUserDataStore} from "@/stores/useUserDataStore";
-import weatherDataManager from "@/managers/WeatherDataManager";
+import WeatherDataListManager from "@/managers/WeatherDataListManager.js";
 
 export default {
   name: "ten-day-list-component",
@@ -60,7 +60,7 @@ export default {
       for (let i = 0; i < 10; i++) {
         let date = new Date();
         date.setDate(date.getDate() + i);
-        tempList.push(weatherDataManager.getWeatherDataforDate(this.getForecastFullData, date));
+        tempList.push(WeatherDataListManager.getWeatherDataforDate(this.getForecastFullData, date));
       }
       this.weatherData = tempList;
     },

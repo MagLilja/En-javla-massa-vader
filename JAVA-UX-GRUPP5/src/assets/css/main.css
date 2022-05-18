@@ -256,7 +256,7 @@ body {
 /*---------- WEATHER WARNING ----------*/
 
 .weather-warning {
-  background-color: var(--primary-color-lightblue);
+  /*background-color: var(--primary-color-lightblue);*/
   width: 100%;
   border: 1px solid var(--primary-color-lightblue);
   clip-path: polygon(50% 0%, 100% 0, 99% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0);
