@@ -37,19 +37,19 @@ export default {
         't',
         2,
         swedenCoordinates,
-        20,
+        70,
     )
     this.precipitation = await WorstWeatherDataManager.getMinMaxValCoord(
         'prec1h',
         0,
         swedenCoordinates,
-        20,
+        70,
     )
     this.wind = await WorstWeatherDataManager.getMinMaxValCoord(
         'ws',
         10,
         swedenCoordinates,
-        20,
+        70,
     )
     this.loading = false
   },
