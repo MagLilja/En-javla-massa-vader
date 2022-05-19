@@ -137,7 +137,7 @@ function getWeatherDataforDate(ForecastFullData, inputDate) {
   }
 
   let lowestTemp = 500
-  let highestTemp = 0
+  let highestTemp = -273
   let totalPrecipitation = 0
   let highestGust = 0
   let averageWindSpeed = 0

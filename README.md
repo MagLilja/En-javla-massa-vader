@@ -133,6 +133,8 @@ bygginstruktioner så var tydliga. Inga andra verktyg än Node.js (version 16) s
   name of the coordinate's location.
 - **DateComponent**, obtains today's date and converts it to Swedish format.
 - **LoadingComponent**, presents a loading circle while requested methods are working.
+- **WeatherWarningComponent**, uses the current coordinates from the store to check if the coordinates are inside a
+    weather warning polygon.
 
 #### DataLists
 
@@ -166,8 +168,6 @@ A collection of desktop card components to present the different views in cards 
 
 - **CircleComponent**, uses analysisFullData and forecastFullData to generate a circle representation of today's
   weather.
-- **WeatherWarningComponent**, uses the current coordinates from the store to check if the coordinates are inside a
-  weather warning polygon.
 
 #### Summary
 
@@ -180,22 +180,31 @@ A collection of desktop card components to present the different views in cards 
 
 - **WorstWeatherParamComponent**, takes weather data for a specified parameter and presents it.
 
-####  
+#### Managers
+- **WeatherDataListManager.js**
+  - getListWithWeatherData(), takes data and returns a list based on amount of data points, time interval and what type of list we want.
+  - getWeatherDataForDate(), takes data and returns a list of average weather values for a specified date.
 
-### State management stores
+- **WorstWeatherDataManager.js**
+    - **getMinMaxValCoord()**, takes a parameter and returns an object with the highest value for that parameter and its location
+  as well as the lowest value for the parameter and its location
+    - **rayCastingAlgorithm()**, algorithm that checks if a given coordinate is inside a given polygon,
+  used for specifying our search to only be inside Sweden
 
-PInia
+#### Services
+- **smhiService.js**, service used for fetching data from https://opendata.smhi.se/ with error handling
+  
+#### Stores/Pinia
+- **useUserDataStores.js**, handles state management for coordinates, geolocationdata, weatherdata, searchdata and favoritelocationlist.
+Uses VueUse to set some of these state to local storage. 
 
-### Javascript modules
-
-Managers, services, helpers
-
+  
 ### Assets
 
 CSS icons json
 
 ## Visual Structure
-
+![](diagram.png)
 
 
 
