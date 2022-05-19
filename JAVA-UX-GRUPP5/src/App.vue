@@ -2,9 +2,9 @@
   <loading-component :loading="loading"/>
   <div v-if="isLoaded" class="site-container">
     <top-nav-bar-component/>
-<!--    <div class="hidden md:block w-full">-->
-<!--      <weather-warning-component/>-->
-<!--    </div>-->
+    <div class="hidden md:block w-full">
+      <weather-warning-component/>
+    </div>
 
     <div class="view-container">
       <div class="hidden md:block">

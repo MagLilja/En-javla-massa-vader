@@ -1,18 +1,18 @@
 <template>
   <div class="weather-warning h-[2em] flex gap-5 bg-[#C1E0EAFF] justify-center" :class="warningClass">
-    <div v-for="(instance, index) of warning" :key="index">
-      <div v-if="instance.warning">
-        {{ setWarningColor() }}
-        {{ registerWarning() }}
-<!--        -->
-        <div class="flex justify-center gap-4" v-if="count === 201">
-          <img src="../../assets/prototype_icons/warning.svg" alt="" class="h-8 aspect-square inline-block">
-          <a
-            href="https://www.smhi.se/vader/varningar-och-brandrisk/varningar-och-meddelanden/varningar" class="hover:underline">
+<!--    <div v-for="(instance, index) of warning" :key="index">-->
+<!--      <div v-if="instance.warning">-->
+<!--        {{ setWarningColor() }}-->
+<!--        {{ registerWarning() }}-->
+<!--&lt;!&ndash;        &ndash;&gt;-->
+<!--        <div class="flex justify-center gap-4" v-if="count === 201">-->
+<!--          <img src="../../assets/prototype_icons/warning.svg" alt="" class="h-8 aspect-square inline-block">-->
+<!--          <a-->
+<!--            href="https://www.smhi.se/vader/varningar-och-brandrisk/varningar-och-meddelanden/varningar" class="hover:underline">-->
 
-          {{ instance.descr }} i ditt område</a></div>
-      </div>
-    </div>
+<!--          {{ instance.descr }} i ditt område</a></div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 <script>
@@ -36,7 +36,7 @@ export default {
     ...mapState(useUserDataStore, ['getCoordinates']),
   },
   async created() {
-    this.warning = await this.checkIfInWarningPolygon()
+    // this.warning = await this.checkIfInWarningPolygon()
   },
   methods: {
     setWarningColor() {
