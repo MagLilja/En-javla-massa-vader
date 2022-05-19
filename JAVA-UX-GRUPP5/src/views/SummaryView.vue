@@ -3,7 +3,7 @@
     <summary-view-header-component class=""/>
 
 
-  <section class="section gap-16">
+  <section class="section gap-16 mt-10">
     <div class="sub-container">
       <div class="title">Nederbörd</div>
       <img
@@ -96,7 +96,7 @@ export default {
 <style scoped>
 .section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 190px));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 150px));
   justify-content: center;
   width: 100%;
   margin-bottom: 7em;
@@ -105,11 +105,11 @@ export default {
 .sub-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.3em;
+  gap: 1em;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  padding: 0 0.8em;
+  padding: 0 0.5em;
 }
 
 .sub-container > .title {

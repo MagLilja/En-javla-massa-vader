@@ -1,10 +1,12 @@
 <template>
-  <div class="header text-[2em] mt-20 mb-10 text-center md:mt-0">
+  <div class="header text-[1.9em] mt-32 mb-10 text-center md:mt-0">
     <span class="md:hidden">Sammanfattning av vädret i </span>
     <span class="">{{ getActiveCityName() }}
         i
-        {{ getLastMonth() }}</span>
+        {{ getLastMonth() }} </span>
   </div>
+
+
 </template>
 <script>
 import { mapState } from 'pinia'

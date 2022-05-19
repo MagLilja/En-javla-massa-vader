@@ -3,12 +3,12 @@
 
   <div
       v-if="temperature && wind && precipitation"
-      class="flex flex-col gap-10 items-center m-10 p-4 my-auto w-fit md:m-0 md:p-0"
+      class="flex flex-col gap-10 items-center mt-32 p-4 my-auto w-fit md:m-0 md:p-0"
   >
     <h2 class="text-[2em] my-10 md:hidden">Sämre väder just nu!</h2>
-    <p class="md:hidden">
-      Tycker du att vädret suger? Det finns dom som har det värre.
-    </p>
+<!--    <p class="md:hidden">-->
+<!--      Tycker du att vädret suger? Det finns dom som har det värre.-->
+<!--    </p>-->
     <worst-weather-param-component :parameter="temperature" title="Kallare"/>
     <worst-weather-param-component :parameter="precipitation" title="Blötare"/>
     <worst-weather-param-component :parameter="wind" title="Blåsigare"/>
@@ -37,19 +37,19 @@ export default {
         't',
         2,
         swedenCoordinates,
-        70,
+        20,
     )
     this.precipitation = await WorstWeatherDataManager.getMinMaxValCoord(
         'prec1h',
         0,
         swedenCoordinates,
-        70,
+        20,
     )
     this.wind = await WorstWeatherDataManager.getMinMaxValCoord(
         'ws',
         10,
         swedenCoordinates,
-        70,
+        20,
     )
     this.loading = false
   },
