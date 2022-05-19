@@ -2,7 +2,7 @@
   <div class="desktop-card">
     <div class="desktop-card-header">
       <div class="desktop-card-icon">
-        <img src="../../assets/prototype_icons/cloud-sun-solid.svg" alt="" />
+        <img src="../../assets/icons/cloud-sun-solid.svg" alt="" />
       </div>
       <div class="desktop-card-header-text">Vädret idag</div>
     </div>

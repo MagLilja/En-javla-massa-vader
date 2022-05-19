@@ -2,7 +2,7 @@
   <div class="desktop-card">
     <div class="desktop-card-header">
       <div class="desktop-card-icon">
-        <img src="../../assets/prototype_icons/Vector.svg" alt="" />
+        <img src="../../assets/icons/Vector.svg" alt="" />
       </div>
       <div class="desktop-card-header-text">Sämre väder</div>
     </div>

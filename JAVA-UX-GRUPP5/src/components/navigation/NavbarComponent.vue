@@ -2,13 +2,13 @@
   <nav class="nav-bar-container transparent-nav">
     <router-link class="nav-bar-item" to="/"
       ><img
-        src="../../assets/prototype_icons/cloud-sun-solid.svg"
+        src="../../assets/icons/cloud-sun-solid.svg"
         alt="start-view-icon"
     /></router-link>
 
     <router-link class="nav-bar-item" to="/ten-day-forecast"
       ><img
-        src="../../assets/prototype_icons/calendar-regular.svg"
+        src="../../assets/icons/calendar-regular.svg"
         alt="10-day-view"
     /></router-link>
 
@@ -26,7 +26,7 @@
     </router-link>
 
     <router-link class="nav-bar-item" to="favorite"
-      ><img src="../../assets/prototype_icons/favorite.svg" alt="favorite"
+      ><img src="../../assets/icons/favorite.svg" alt="favorite"
     /></router-link>
   </nav>
 </template>
