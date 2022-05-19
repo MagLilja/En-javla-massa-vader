@@ -208,14 +208,20 @@ Uses VueUse to set some of these state to local storage.
   - **Wsymb2.json**, data list to transscribe smhi:s Wsymb2 codes to unicode symbols
 
 ## Visual Structure
+
 ![](diagram.png)
 
+### Mobile Screenshots
+![](MoblieStartView.png)
+![](MobileTenDayView.png)
+![](MobileSummaryView.png)
+![](MobileWorstWeatherView.png)
+![](MobileFavoriteView.png)
+![](MobileSearchView.png)
 
-
-
-
-
-
-
+### Desktop Screenshots
+![](DesktopSmallView.png)
+![](DesktopWideView.png)
+![](DesktopAboutView.png)
 
 
