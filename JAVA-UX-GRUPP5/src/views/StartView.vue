@@ -2,7 +2,7 @@
   <section class="flex-column-center-2 ">
     <loading-component :loading="loading"/>
     <div class="flex flex-col items-center mt-20 md:mt-0">
-      <weather-warning-component class="md:hidden"></weather-warning-component>
+<!--      <weather-warning-component class="md:hidden"></weather-warning-component>-->
       <div class="flex gap-5">
         <current-city-name-component class="text-[2em] font-bold"/>
         <favorite-check-component :location-data="locationData"/>
