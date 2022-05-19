@@ -201,7 +201,11 @@ Uses VueUse to set some of these state to local storage.
   
 ### Assets
 
-CSS icons json
+- **Main.css**, for our global css
+
+- **Json-files**
+  - **sweden-polygon.json**, polygon over Sweden, plotted with 800 coordinate points
+  - **Wsymb2.json**, data list to transscribe smhi:s Wsymb2 codes to unicode symbols
 
 ## Visual Structure
 ![](diagram.png)
