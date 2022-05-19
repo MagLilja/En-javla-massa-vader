@@ -19,14 +19,14 @@
       </p>
     <h4><b>Projektmedlemmar</b></h4>
       <p>Utvecklarna från Java Enterprise:</p>
-      <ul class=about_us_people>
+      <ul class=java_people>
         <li>Magnus Lilja</li>
         <li>Anton Ranstad</li>
         <li>Patrik Hjortberg</li>
         <li>Hampus Olsson</li>
       </ul>
       <p>Designers från UX-design:</p>
-      <ul class=about_us_people>
+      <ul class=ux_people>
         <li>Elvira Nyman</li>
         <li>Robert Arnestad</li>
         <li>Philip Sunnerholm</li>
@@ -45,8 +45,13 @@
 </script>
 
 <style scoped>
-.about_us_people {
+.java_people {
   list-style-type: square;
 }
-  
+ 
+ .ux_people {
+  list-style-type: square;
+  margin-bottom: 4em;
+}
+ 
 </style>
