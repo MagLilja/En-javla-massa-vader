@@ -10,8 +10,8 @@
       Tycker du att vädret suger? Det finns dom som har det värre.
     </p>
     <worst-weather-param-component :parameter="temperature" title="Kallare"/>
-    <worst-weather-param-component :parameter="precipitation" title="Blötare"/>
-    <worst-weather-param-component :parameter="wind" title="Blåsigare"/>
+<!--    <worst-weather-param-component :parameter="precipitation" title="Blötare"/>-->
+<!--    <worst-weather-param-component :parameter="wind" title="Blåsigare"/>-->
   </div>
 </template>
 
