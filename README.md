@@ -209,19 +209,19 @@ Uses VueUse to set some of these state to local storage.
 
 ## Visual Structure
 
-![](diagram.png)
+![](Screenshots/diagram.png)
 
 ### Mobile Screenshots
-![](MoblieStartView.png)
-![](MobileTenDayView.png)
-![](MobileSummaryView.png)
-![](MobileWorstWeatherView.png)
-![](MobileFavoriteView.png)
-![](MobileSearchView.png)
+![](Screenshots/MoblieStartView.png)
+![](Screenshots/MobileTenDayView.png)
+![](Screenshots/MobileSummaryView.png)
+![](Screenshots/MobileWorstWeatherView.png)
+![](Screenshots/MobileFavoriteView.png)
+![](Screenshots/MobileSearchView.png)
 
 ### Desktop Screenshots
-![](DesktopSmallView.png)
-![](DesktopWideView.png)
-![](DesktopAboutView.png)
+![](Screenshots/DesktopSmallView.png)
+![](Screenshots/DesktopWideView.png)
+![](Screenshots/DesktopAboutView.png)
 
 
