@@ -127,7 +127,7 @@
 }
 
 .outer-circle-container {
-  background-color: var(--primary-color-greyishblue);
+  background-color: var(--primary-color-lightblue);
 }
 
 .outer-circle-container::after {
