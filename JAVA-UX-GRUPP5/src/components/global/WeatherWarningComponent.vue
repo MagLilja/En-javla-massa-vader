@@ -37,6 +37,7 @@ export default {
   },
   async created() {
     // this.warning = await this.checkIfInWarningPolygon()
+
   },
   methods: {
     setWarningColor() {
