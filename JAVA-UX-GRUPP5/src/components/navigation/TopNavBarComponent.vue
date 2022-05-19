@@ -78,7 +78,7 @@
 
       </div>
 
-      <div class="transparent-nav flex justify-center rounded-full hover:bg-neutral-400 ">
+      <div class="transparent-nav flex justify-center rounded-full hover:bg-neutral-400 hidden md:block">
         <img
             class="question-icon"
             src="../../assets/prototype_icons/favorite.svg"

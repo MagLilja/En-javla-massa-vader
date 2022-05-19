@@ -11,8 +11,9 @@
             class="favorite-list-icon"
             :location-data="favorite"
         />
-        {{ checkForGothenburg(favorite.city) }}
-        {{ favorite.municipality }}
+        <div class="flex gap-2 hover:font-bold cursor-pointer" @click="selectCity(favorite)">{{ checkForGothenburg(favorite.city) }}
+          {{ favorite.municipality }}
+        </div>
       </div>
     </li>
   </ul>
@@ -22,6 +23,8 @@ import FavoriteCheckComponent from '@/components/favorite/FavoriteCheckComponent
 import {useUserDataStore} from '@/stores/useUserDataStore.js'
 import {mapState} from 'pinia'
 import WorstWeatherDataManager from '@/managers/WorstWeatherDataManager.js'
+import {mapActions} from "pinia/dist/pinia";
+
 export default {
   name: 'favorite-list-item-component',
   components: {FavoriteCheckComponent},
@@ -29,8 +32,22 @@ export default {
     ...mapState(useUserDataStore, ['getFavoriteLocationList']),
   },
   methods: {
+    ...mapActions(useUserDataStore, [
+      'setCoordinates',
+      'setLastSearchList',
+      'deleteSearchData',
+    ]),
     checkForGothenburg(c) {
       return WorstWeatherDataManager.checkForGothenburg(c)
+    },
+    selectCity(data) {
+      let tempCoord = {}
+      tempCoord.longitude = data.longitude
+      tempCoord.latitude = data.latitude
+      tempCoord.origin = 'FROM_SEARCH'
+      tempCoord.searchSelection = data.city
+      this.setCoordinates(tempCoord)
+      this.$router.push('/')
     },
   },
 }
