@@ -3,8 +3,8 @@
 
   <div class="grid grid-cols-4 w-full mb-48 content-start gap-3 md:mb-0">
     <div class="font-bold w-fit">Tid</div>
-    <div class="font-bold">Väder</div>
-    <div class="font-bold">Temperatur</div>
+    <div class="font-bold">Temp</div>
+    <div class="font-bold">Nederbörd</div>
     <div class="font-bold justify-self-center col-span-1">Vind</div>
     <div class="border-b-2 col-span-4 my-2 border-x-2 "></div>
 
@@ -18,7 +18,7 @@
         <div class="font-bold">{{ wd.highestTemp }}&#176;</div>
         <div class="">({{ wd.lowestTemp }}&#176;)</div>
       </div>
-      <div class="content-start items-start justify-start">{{ wd.totalPrecipitation }} mm</div>
+      <div class="content-start items-start justify-end">{{ wd.totalPrecipitation }} mm</div>
       <div class="justify-self-end flex flex-col items-center col-span-1">
         <div class="font-bold"> {{ wd.roundedAvgWindSpeed }} m/s</div>
         <div class="whitespace-nowrap">({{ wd.highestGust }}) m/s</div>
@@ -66,7 +66,7 @@ export default {
     },
     getLocalDate(input) {
       const event = new Date(input);
-      const options = {month: "long", day: "numeric"};
+      const options = {month: "short", day: "numeric"};
       const date = event.toLocaleDateString("sv-SE", options);
 
       return date.replace(date.charAt(0), date.charAt(0).toUpperCase());
