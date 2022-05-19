@@ -132,7 +132,7 @@
 
 .outer-circle-container::after {
   content: '';
-  background-image: url('../../assets/prototype_icons/caret-up-solid.svg');
+  background-image: url('../../assets/icons/caret-up-solid.svg');
   background-size: 1em;
   background-repeat: no-repeat;
   transform: rotateZ(var(--circle-degree-var));

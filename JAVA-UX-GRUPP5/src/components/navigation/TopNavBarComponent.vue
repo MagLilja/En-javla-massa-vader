@@ -6,7 +6,7 @@
         class="transparent-box  border-2 p-8 left-0 right-0 m-auto absolute w-[350px] shadow-xl z-10 hidden md:block"
     >
       <AboutDesktopCard></AboutDesktopCard>
-      <img src="../../assets/prototype_icons/rectangle-xmark-solid.svg" alt="" class="w-12 absolute -top-5 -right-5" @click="closeAll()">
+      <img src="../../assets/icons/rectangle-xmark-solid.svg" alt="" class="w-12 absolute -top-5 -right-5" @click="closeAll()">
     </div>
 
     <div
@@ -15,7 +15,7 @@
     >
       <favorite-desktop-card/>
 
-      <img src="../../assets/prototype_icons/rectangle-xmark-solid.svg" alt="" class="w-12 absolute -top-5 -right-5 z-20" @click="closeAll()">
+      <img src="../../assets/icons/rectangle-xmark-solid.svg" alt="" class="w-12 absolute -top-5 -right-5 z-20" @click="closeAll()">
     </div>
 
 
@@ -60,7 +60,7 @@
        <router-link to="/about" >
         <img
             class="question-icon"
-            src="../../assets/prototype_icons/question-solid.svg"
+            src="../../assets/icons/question-solid.svg"
             alt="search-icon"
 
         /></router-link>
@@ -71,7 +71,7 @@
 
           <img
               class="question-icon"
-              src="../../assets/prototype_icons/question-solid.svg"
+              src="../../assets/icons/question-solid.svg"
               alt="search-icon"
               @click="toggleAbout()"
           />

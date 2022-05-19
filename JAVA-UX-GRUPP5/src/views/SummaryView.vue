@@ -8,14 +8,14 @@
       <div class="title">Nederbörd</div>
       <img
           class="image"
-          src="../assets/prototype_icons/Group12.svg"
+          src="../assets/icons/Group12.svg"
           alt="rain cloud"
       />
       <weather-summary-component :param="precipitation" :data-unit="rainUnit"/>
     </div>
     <div class="sub-container">
       <div class="title">Soltimmar</div>
-      <img class="image" src="../assets/prototype_icons/Group7.svg" alt="sun"/>
+      <img class="image" src="../assets/icons/Group7.svg" alt="sun"/>
       <weather-summary-component :param="sunHours" :data-unit="sunUnit"/>
     </div>
 
@@ -23,7 +23,7 @@
       <div class="title">Varmaste dagen</div>
       <img
           class="image"
-          src="../assets/prototype_icons/sun-solid2.svg"
+          src="../assets/icons/sun-solid2.svg"
           alt="rain cloud"
       />
       <weather-summary-component :param="maxTemp" :data-unit="tempUnit"/>
@@ -32,7 +32,7 @@
       <div class="title">Kallaste dagen</div>
       <img
           class="image"
-          src="../assets/prototype_icons/snowflake-solid3.svg"
+          src="../assets/icons/snowflake-solid3.svg"
           alt="rain cloud"
       />
       <weather-summary-component :param="minTemp" :data-unit="tempUnit"/>
@@ -42,7 +42,7 @@
       <div class="title">Blåsigaste dagen</div>
       <img
           class="image"
-          src="../assets/prototype_icons/wind-solid3.svg"
+          src="../assets/icons/wind-solid3.svg"
           alt="rain cloud"
       />
       <div class="">
@@ -53,7 +53,7 @@
       <div class="title">Blötaste dagen</div>
       <img
           class="image"
-          src="../assets/prototype_icons/Group12.svg"
+          src="../assets/icons/Group12.svg"
           alt="rain cloud"
       />
       <weather-summary-component

@@ -14,13 +14,13 @@
 
     <router-link class="nav-bar-item" to="/summary"
       ><img
-        src="../../assets/prototype_icons/Vect213or.svg      "
+        src="../../assets/icons/Vect213or.svg      "
         alt="summary-view"
     /></router-link>
 
     <router-link class="nav-bar-item" to="/worst-weather">
       <img
-        src="../../assets/prototype_icons/snowflake-solid.svg"
+        src="../../assets/icons/snowflake-solid.svg"
         alt="worst-weather"
       />
     </router-link>

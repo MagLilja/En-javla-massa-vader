@@ -15,9 +15,9 @@
   </div>
 </template>
 <script>
-import snowflake_icon from '@/assets/prototype_icons/snowflake-solid3.svg'
-import wind_icon from '@/assets/prototype_icons/wind-solid3.svg'
-import rain_icon from '@/assets/prototype_icons/Group12.svg'
+import snowflake_icon from '@/assets/icons/snowflake-solid3.svg'
+import wind_icon from '@/assets/icons/wind-solid3.svg'
+import rain_icon from '@/assets/icons/Group12.svg'
 
 export default {
   name: 'worst-weather-param-component',
