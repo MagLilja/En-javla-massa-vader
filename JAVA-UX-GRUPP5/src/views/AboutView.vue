@@ -1,29 +1,41 @@
 <template>
-  <div class="grid gap-4 mt-40 p-8 md:mt-0"><h2> About text här...
-  </h2>  <!--  Det här står i uppgiftsbeskrivningen: -->
-    <!--  En “Om”-sida med information om applikationen (som t.ex. version) och vilket API ni-->
-    <!--  använder, samt vilka ni är som har skapat den.-->
-    <p>Den här sidan är ett skolprojekt på YRGO yrkeshögskola i Göteborg för</p>
-
-
-    <p> utbildningarna Java Enterprise utvecklare och UX-design (RÄTT NAMN FÖR DERAS
-    </p>
-    <p> UTBILDNING HÄR). Väderdatan som visas från SMHI:s öppna API
-      (https://opendata.smhi.se/), dokumentation för API:n finns att hitta på
-
-      följande länk https://opendata.smhi.se/apidocs/.</p>
-    <p>
-      Vi använder oss också av
-      följande API:er För att kunna söka på ortsnamn använder vi oss av:
-      https://smeijer.github.io/leaflet-geosearch/ För att koppla en koordinat till
-      ett ortsnamn använder vi oss av: https://www.geoapify.com/</p>
-
-    <p>
-      Vi som har gjort
-      detta är följande personer........
-    </p>
-    <p> Sidan är skapad i utbildningssyfte med hjälp av VueJs 3 och Tailwind CSS.
-    </p></div>
+  <div class="grid gap-4 mt-40 p-8 md:mt-0">
+    <h4><b>Syfte</b></h4> 
+      <p>Den här vädersidan är ett skolprojekt i kursen <i>Klientprogrammering</i> i Java Enterprise-programmet 
+      vid YRGO yrkeshögskola i Göteborg. Sidan har utvecklats i samarbete med programmet UX-design.
+      </p>
+  <br>
+    <h4><b>Väderdata</b></h4>
+      <p>Väderdatan som visas kommer från SMHI:s öppna API <i>http://opendata.smhi.se</i> och dokumentation för detta API
+      finns på <i>https://opendata.smhi.se/apidocs/</i>. I de fall vi har behövt koppla ett ortsnamn till en koordinat har vi använt 
+      oss av <i>https://smeijer.github.io/leaflet-geosearch/</i>. I det omvända fallet, att få ut ett ortsnamn givet en koordinat, 
+      har vi använt oss av <i>https://www.geoapify.com.</i></p>
+  <br>
+    <h4><b>Utveckling</b></h4>
+      <p>
+      Websidans grafiska design och layout är framtagen av UX-team:et. Det grafiska har designats i Figma och funktionaliteten 
+      har verifierats av att allmänheten har fått testa prototyper av applikationen. Websidan är skapad och stilsatt med 
+      VueJs 3 och Tailwind CSS.
+      </p>
+    <h4><b>Projektmedlemmar</b></h4>
+      <p>Utvecklarna från Java Enterprise:</p>
+      <ul class=about_us_people>
+        <li>Magnus Lilja</li>
+        <li>Anton Ranstad</li>
+        <li>Patrik Hjortberg</li>
+        <li>Hampus Olsson</li>
+      </ul>
+      <p>Designers från UX-design:</p>
+      <ul class=about_us_people>
+        <li>Elvira Nyman</li>
+        <li>Robert Arnestad</li>
+        <li>Philip Sunnerholm</li>
+        <li>Joella Jantzen</li>
+        <li>Vazgon Babakhanian</li>
+        <li>Benjamin Evling</li>
+        <li>Sabrina Gnerlich</li>
+      </ul>
+  </div>
 </template>
 
 <script>
@@ -32,4 +44,9 @@
   };
 </script>
 
-<style scoped></style>
+<style scoped>
+.about_us_people {
+  list-style-type: square;
+}
+  
+</style>
