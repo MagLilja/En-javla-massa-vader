@@ -13,10 +13,6 @@
       <div class="">Idag {{ hour.time }}</div>
       <div class="text-4xl">{{ hour.wSymb2Symbol }}</div>
       <div class="font-bold">{{ hour.temperature }}&#176;C</div>
-<!--      <div class="col-span-2 text-right">-->
-<!--        <span class="font-bold">{{ hour.wind }}</span>-->
-<!--        ({{ hour.gusts }}) m/s-->
-<!--      </div>-->
       <div class="justify-self-end flex flex-col items-end col-span-2">
         <div class="font-bold"> {{ hour.wind }} m/s</div>
         <div class="whitespace-nowrap">({{ hour.gusts }}) m/s</div>

@@ -104,16 +104,18 @@ export default {
 
 .sub-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1em;
+  grid-template-columns: max-content 1fr;
+  row-gap: 1em;
+  column-gap:0.7em;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  padding: 0 0.5em;
+  padding: 0 0.2em;
 }
 
 .sub-container > .title {
   grid-column: span 2;
+  align-self: center;
   font-weight: 700;
 }
 

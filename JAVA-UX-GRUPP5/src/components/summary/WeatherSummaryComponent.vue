@@ -3,7 +3,9 @@
     {{ properDate(date) }}
     <div v-if="value" class="font-bold">{{ value }} {{ dataUnit }}</div>
   </div>
+
   <div v-else>
+    {{ getLastMonth() }}
     <div v-if="value" class="font-bold">{{ value }} {{ dataUnit }}</div>
     <div v-else>Värde saknas</div>
   </div>
@@ -55,6 +57,12 @@ export default {
   },
 
   methods: {
+    getLastMonth() {
+      let today = new Date()
+      today.setMonth(today.getMonth() - 1)
+
+      return today.toLocaleDateString('sv-SE', { month: 'long' })
+    },
     async getSummary() {
       let hrefToStationPeriods = await smhiService.fetchData(
         this.nearestStation.link[0].href,

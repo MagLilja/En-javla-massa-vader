@@ -3,29 +3,29 @@
     <div class="
     grid
     items-center
-    w-[300px]
+
     circle-degree-var" :style="{'--circle-degree-var': clockDeg}">
       <div class="
       outer-circle-container
       relative
       grid place-items-center
-      w-[300px] h-[300px]
+      w-[360px] h-[360px]
       overflow-hidden
       rounded-full
       after:absolute
       after:h-[231px]
       after:w-[16px]">
-        <div v-for="(wx, index) of completeDailyWxList" :key="index" class="outer-circle-item absolute text-[0.6em] ">
-          {{ wx.time }}
-          <br>{{ wx.wSymb2Symbol }}
-          <br>{{ wx.temperature }}&#176;C
+        <div v-for="(wx, index) of completeDailyWxList" :key="index" class="outer-circle-item absolute text-[0.8em] flex flex-col items-center">
+          <div class="x">{{ wx.time }}</div>
+          <div class="x">{{ wx.wSymb2Symbol }}</div>
+          <div class="font-extrabold">{{ wx.temperature }}&#176;C</div>
         </div>
-        <div class="gradient-temp-circle flex justify-center items-center flex-col w-[200px] aspect-square p-3 rounded-full z-[2] bg-white">
+        <div class="gradient-temp-circle flex justify-center items-center flex-col w-[200px] aspect-square p-3 rounded-full z-[2] bg-white gap-4">
           <div class="font-bold text-5xl">{{
               getForecastFullData.timeSeries[0].parameters[10].values[0]
             }}&#176;C
           </div>
-          <div class="text-8xl">{{
+          <div class="text-6xl">{{
               getWSymb2Unicode(getForecastFullData.timeSeries[0].parameters[18].values[0])
             }}
           </div>
@@ -100,7 +100,7 @@
           let data0 = analysisList[analysisList.length - 1];
           let tempDate = new Date(data0.validTime);
           tempDate.setHours(tempDate.getHours() + 1);
-          data0.time = tempDate.toLocaleTimeString("sv-SE", { hour: "numeric", minute: "numeric" });
+          data0.time = tempDate.toLocaleTimeString("sv-SE", { hour: "2-digit", minute: "numeric" });
         }
         this.completeDailyWxList = analysisList.concat(forecastList);
       },
@@ -114,7 +114,7 @@
   };
 </script>
 
-<style scoped>
+<style>
 
 @keyframes rotate {
   100% {
@@ -128,6 +128,7 @@
 
 .outer-circle-container {
   background-color: var(--primary-color-lightblue);
+
 }
 
 .outer-circle-container::after {
@@ -140,62 +141,68 @@
   animation: rotate 43200s infinite linear;
 }
 
+.outer-circle-item {
+  --circle-value-pxpx:180px;
+  --circle-value:180;
+}
+
 .outer-circle-item:nth-child(1) {
-  top: calc(150px - 150 * 1px + 7px);
+  /*top: calc(var(--circle-value-pxpx) - var(--circle-value) * 1px + 7px);*/
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 1px + 7px);
 }
 
 .outer-circle-item:nth-child(2) {
-  top: calc(150px - 150 * 0.86px + 2px);
-  right: calc(150px - 150 * 0.5px);
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px );
+  right: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px);
 }
 
 .outer-circle-item:nth-child(3) {
-  top: calc(150px - 150 * 0.5px - 10px);
-  right: calc(150px - 150 * 0.86px + 10px);
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px - 10px);
+  right: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px + 7px);
 }
 
 .outer-circle-item:nth-child(4) {
-  top: calc(150px - 150 * 0px - 20px);
-  right: calc(150px - 150 * 1px + 12px);
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 0px - 20px);
+  right: calc(var(--circle-value-pxpx) - var(--circle-value) * 1px + 10px);
 }
 
 .outer-circle-item:nth-child(5) {
-  bottom: calc(150px - 150 * 0.5px - 10px);
-  right: calc(150px - 150 * 0.86px + 8px);
+  bottom: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px - 10px);
+  right: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px + 8px);
 }
 
 .outer-circle-item:nth-child(6) {
-  bottom: calc(150px - 150 * 0.86px);
-  right: calc(150px - 150 * 0.5px);
+  bottom: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px + 2px);
+  right: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px);
 }
 
 .outer-circle-item:nth-child(7) {
-  bottom: calc(150px - 150 * 1px + 5px);
+  bottom: calc(var(--circle-value-pxpx) - var(--circle-value) * 1px + 8px);
 }
 
 .outer-circle-item:nth-child(8) {
-  bottom: calc(150px - 150 * 0.86px);
-  left: calc(150px - 150 * 0.5px);
+  bottom: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px);
+  left: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px);
 }
 
 .outer-circle-item:nth-child(9) {
-  bottom: calc(150px - 150 * 0.5px - 10px);
-  left: calc(150px - 150 * 0.86px + 8px);
+  bottom: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px - 10px);
+  left: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px + 8px);
 }
 
 .outer-circle-item:nth-child(10) {
-  top: calc(150px - 150 * 0px - 20px);
-  left: calc(150px - 150 * 1px + 12px);
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 0px - 20px);
+  left: calc(var(--circle-value-pxpx) - var(--circle-value) * 1px + 8px);
 }
 
 .outer-circle-item:nth-child(11) {
-  top: calc(150px - 150 * 0.5px - 10px);
-  left: calc(150px - 150 * 0.86px + 10px);
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px - 10px);
+  left: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px + 10px);
 }
 
 .outer-circle-item:nth-child(12) {
-  top: calc(150px - 150 * 0.86px + 2px);
-  left: calc(150px - 150 * 0.5px);
+  top: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.86px + 2px);
+  left: calc(var(--circle-value-pxpx) - var(--circle-value) * 0.5px - 6px);
 }
 
 
