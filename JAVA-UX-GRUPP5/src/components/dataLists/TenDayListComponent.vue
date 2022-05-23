@@ -1,9 +1,9 @@
 <template>
 
 
-  <div class="grid grid-cols-4 w-full mb-48 content-start gap-3 md:mb-0">
+  <div class="grid grid-cols-4 mb-48 w-full gap-3 md:mb-0 md:w-5/6" >
     <div class="font-bold w-fit">Tid</div>
-    <div class="font-bold">Temp</div>
+    <div class="font-bold">Temp.</div>
     <div class="font-bold">Nederbörd</div>
     <div class="font-bold justify-self-center col-span-1">Vind</div>
     <div class="border-b-2 col-span-4 my-2 border-x-2 "></div>
@@ -15,11 +15,11 @@
         <div>{{ getLocalDate(wd.dataDate) }}</div>
       </div>
       <div class="flex flex-col">
-        <div class="font-bold">{{ wd.highestTemp }}&#176;</div>
-        <div class="">({{ wd.lowestTemp }}&#176;)</div>
+        <div class="font-bold">{{ wd.highestTemp }}&#176;C</div>
+        <div class="">({{ wd.lowestTemp }}&#176;C)</div>
       </div>
       <div class="content-start items-start justify-end">{{ wd.totalPrecipitation }} mm</div>
-      <div class="justify-self-end flex flex-col items-center col-span-1">
+      <div class="justify-self-end flex flex-col items-end col-span-1">
         <div class="font-bold"> {{ wd.roundedAvgWindSpeed }} m/s</div>
         <div class="whitespace-nowrap">({{ wd.highestGust }}) m/s</div>
 

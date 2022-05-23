@@ -1,21 +1,26 @@
 <template>
 
-  <div class="grid grid-cols-5 w-5/6 gap-3 md:mb-0">
+  <div class="grid grid-cols-5 w-5/6 gap-3 md:mb-0 ">
     <div class="font-bold w-fit">Tid</div>
     <div class="font-bold ">Väder</div>
-    <div class="font-bold ">Temperatur</div>
+    <div class="font-bold ">Temp.</div>
     <div class="font-bold col-span-2 place-self-end">Vind</div>
     <div class="border-b-2 col-span-5 my-2"></div>
 
     <template
         v-for="(hour, index) of TwentyFourForecast"
         :key="index">
-      <div class="">{{ hour.time }}</div>
+      <div class="">Idag {{ hour.time }}</div>
       <div class="text-4xl">{{ hour.wSymb2Symbol }}</div>
-      <div class="">{{ hour.temperature }}&#176;</div>
-      <div class="col-span-2 text-right">
-        {{ hour.wind }}
-        ({{ hour.gusts }}) m/s
+      <div class="font-bold">{{ hour.temperature }}&#176;C</div>
+<!--      <div class="col-span-2 text-right">-->
+<!--        <span class="font-bold">{{ hour.wind }}</span>-->
+<!--        ({{ hour.gusts }}) m/s-->
+<!--      </div>-->
+      <div class="justify-self-end flex flex-col items-end col-span-2">
+        <div class="font-bold"> {{ hour.wind }} m/s</div>
+        <div class="whitespace-nowrap">({{ hour.gusts }}) m/s</div>
+
       </div>
       <div class="border-b-2 col-span-5 my-2 "></div>
     </template>

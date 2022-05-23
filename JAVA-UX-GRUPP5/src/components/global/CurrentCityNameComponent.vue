@@ -1,6 +1,6 @@
 <template>
   <div v-if="userGeoLocationData">
-    <div class="city-name">{{ currentCityName }}</div>
+    <div class="city-name text-6xl">{{ currentCityName }}</div>
   </div>
 </template>
 <script>

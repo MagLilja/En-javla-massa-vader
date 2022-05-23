@@ -13,7 +13,7 @@
     <circleComponent class="my-10"/>
   </section>
 
-  <div class="md:hidden flex justify-center flex-col items-center mb-48">
+  <div class="md:hidden flex  flex-col items-center mb-48">
     <same-day-list-component/>
   </div>
 </template>
