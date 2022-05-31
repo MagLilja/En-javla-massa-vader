@@ -60,7 +60,7 @@
        <router-link to="/about" >
         <img
             class="question-icon"
-            src="../../assets/icons/question-solid.svg"
+            src="./../../assets/icons/question-solid.svg"
             alt="search-icon"
 
         /></router-link>

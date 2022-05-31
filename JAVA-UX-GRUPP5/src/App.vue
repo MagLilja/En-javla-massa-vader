@@ -103,7 +103,7 @@ export default {
       this.getCoordinatesFromUser()
       console.info('set up data')
     },
-    getCoordinatesFromUser() {
+    getLocalCoordinates: function () {
       navigator.geolocation.getCurrentPosition(
           (position) => {
             let latitude = position.coords.latitude
@@ -112,18 +112,33 @@ export default {
               latitude: '',
               longitude: '',
             }
-            userCoordinatesTemp.latitude = latitude
-            userCoordinatesTemp.longitude = longitude
+            userCoordinatesTemp.latitude = 57.710400//latitude,
+            userCoordinatesTemp.longitude = 11.950708//longitude
             this.setCoordinates(userCoordinatesTemp)
             console.info('userCoordinates initialized')
             this.getForecastFullDataFromAPI(userCoordinatesTemp)
             this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
             this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
+            // this.loading = false
+            // this.isLoaded = true
           },
           (error) => {
             console.error(error.message)
           },
       )
+    }, getCoordinatesFromUser() {
+      // this.getLocalCoordinates();
+      let userCoordinatesTemp = {
+        latitude: '',
+        longitude: '',
+      }
+      userCoordinatesTemp.latitude = 57.710400//latitude,
+      userCoordinatesTemp.longitude = 11.950708//longitude
+      this.setCoordinates(userCoordinatesTemp)
+      console.info('userCoordinates initialized')
+      this.getForecastFullDataFromAPI(userCoordinatesTemp)
+      this.getAnalysisFullDataFromAPI(userCoordinatesTemp)
+      this.getUserGeoLocationDataFromApi(userCoordinatesTemp)
     },
     async getForecastFullDataFromAPI(userCoordinatesTemp) {
       let long =
